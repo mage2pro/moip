@@ -21,7 +21,7 @@
 				showInWebsite='1'
 				showInStore='1'
 			>
-				<label>moip</label>
+				<label>Moip</label>
 				<dfExtension>Dfe_Moip</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
