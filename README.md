@@ -41,7 +41,7 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 - «[**Checkout.com**](https://mage2.pro/c/extensions/checkout-com)» payment extension
 - «[**Ginger Payments**](https://mage2.pro/c/extensions/ginger-payments)» extension (the Netherlands, Belgium).
 - «[**iPay88**](https://mage2.pro/c/extensions/ipay88)» payment extension (Malaysia, Indonesia, Philippines, Thailand, Singapore, China).
-- «[**iyzico**](https://mage2.pro/c/extensions/iyzico)» payment extension (Turkey).
+- «[**moip**](https://mage2.pro/c/extensions/moip)» payment extension (Turkey).
 - «[**Kassa Compleet**](https://mage2.pro/c/extensions/kassa-compleet)» payment extension by ING Bank (the Netherlands).
 - «[**Klarna**](https://mage2.pro/c/extensions/klarna)» payment extension (Austria, Denmark, Finland, Germany, Norway, Sweden).
 - «[**Moip**](https://mage2.pro/c/extensions/moip)» payment extension (Brazil).

@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Store:etc/config.xsd'
+>
+    <default>
+		<df_payment>
+			<moip>
+				<actionForNew>authorize_capture</actionForNew>
+				<actionForReturned>authorize_capture</actionForReturned>
+				<requireBillingAddress>1</requireBillingAddress>
+				<countries>BR</countries>
+				<country_restriction>whitelist</country_restriction>
+				<currency>BRL</currency>
+				<title>Bank Card</title>
+				<title_backend>Moip</title_backend>
+			</moip>
+		</df_payment>
+        <payment>
+            <dfe_moip>
+				<model>Dfe\Moip\Method</model>
+            </dfe_moip>
+        </payment>
+    </default>
+</config>
