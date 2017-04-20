@@ -69,7 +69,8 @@
 				<field
 					id='testPublicKey'
 					translate='label'
-					type='textarea'
+					type='Df\Framework\Form\Element\Textarea'
+					dfRows='5'
 					sortOrder='4'
 					showInDefault='1'
 					showInWebsite='1'
@@ -84,7 +85,7 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='testPrivateKey'
+					id='testPrivateToken'
 					translate='label'
 					type='obscure'
 					sortOrder='5'
@@ -92,7 +93,25 @@
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Test Private Key</label>
+					<label>The «Token» part of your Test Private Key (Chave de autenticação)</label>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='testPrivateKey'
+					translate='label'
+					type='obscure'
+					sortOrder='6'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>The «Key» (Chave) part of your Test Private Key (Chave de autenticação)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
@@ -104,8 +123,9 @@
 				<field
 					id='livePublicKey'
 					translate='label'
-					type='textarea'
-					sortOrder='6'
+					type='Df\Framework\Form\Element\Textarea'
+					dfRows='5'
+					sortOrder='7'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -119,16 +139,34 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='livePrivateKey'
+					id='livePrivateToken'
 					translate='label'
 					type='obscure'
-					sortOrder='7'
+					sortOrder='8'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Live Private Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/3659' target='_blank'>How to get it?</a>]]></comment>
+					<label>The «Token» part of your Live Private Key (Chave de autenticação)</label>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='livePrivateKey'
+					translate='label'
+					type='obscure'
+					sortOrder='9'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>The «Key» (Chave) part of your Live Private Key (Chave de autenticação)</label>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
@@ -140,7 +178,7 @@
 					id='actionForNew'
 					translate='label'
 					type='select'
-					sortOrder='9'
+					sortOrder='10'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -154,7 +192,7 @@
 					id='actionForReturned'
 					translate='label'
 					type='select'
-					sortOrder='10'
+					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -167,7 +205,7 @@
 					id='description'
 					translate='label'
 					type='textarea'
-					sortOrder='11'
+					sortOrder='12'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -180,7 +218,7 @@
 					id='requireBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='12'
+					sortOrder='13'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -194,7 +232,7 @@
 					id='min_order_total'
 					translate='label'
 					type='text'
-					sortOrder='13'
+					sortOrder='14'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -208,7 +246,7 @@
 					id='max_order_total'
 					translate='label'
 					type='text'
-					sortOrder='14'
+					sortOrder='15'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -222,7 +260,7 @@
 					id='country_restriction'
 					translate='label'
 					type='select'
-					sortOrder='15'
+					sortOrder='16'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -235,7 +273,7 @@
 					id='countries'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='16'
+					sortOrder='17'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
