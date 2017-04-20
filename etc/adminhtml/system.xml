@@ -75,7 +75,7 @@
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Test Public Key</label>
+					<label>Test Public Key (Chave pública)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 					<depends>
 						<field id='enable'>1</field>
@@ -110,8 +110,8 @@
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Live Public Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/2626' target='_blank'>How to get it?</a>]]></comment>
+					<label>Live Public Key (Chave pública)</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3659' target='_blank'>How to get it?</a>]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>0</field>
@@ -128,7 +128,7 @@
 					showInStore='1'
 				>
 					<label>Live Private Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/2626' target='_blank'>How to get it?</a>]]></comment>
+					<comment><![CDATA[<a href='https://mage2.pro/t/3659' target='_blank'>How to get it?</a>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
