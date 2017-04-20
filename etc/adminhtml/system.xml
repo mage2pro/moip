@@ -137,20 +137,6 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='currency'
-					translate='label'
-					type='Df\Directory\FormElement\Currency'
-					dfValues='BRL'
-					sortOrder='8'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Payment Currency</label>
-					<comment><![CDATA[]]></comment>
-					<depends><field id='enable'>1</field></depends>
-				</field>
-				<field
 					id='actionForNew'
 					translate='label'
 					type='select'
