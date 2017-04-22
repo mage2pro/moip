@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Moip\T;
 use DateTime as DT;
+use libphonenumber\PhoneNumber as lPhone;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
@@ -42,15 +43,6 @@ final class Basic extends TestCase {
 			// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 			// («The unique identifier must be unique, there is a customer with the identified identifier»).
 			->setOwnId(uniqid('df-customer-'))
-			/**
-			 * 2017-04-22
-			 * «Customer's phone, with country code, area code and number»
-			 * Optional
-			 * @param int $areaCode
-			 * @param int $number
-			 * @param int $countryCode [optional]
-			 */
-			->setPhone(11, 66778899, 55)
 			// 2017-04-22
 			// «STUB»
 			// STUB				
@@ -60,6 +52,20 @@ final class Basic extends TestCase {
 				, 'Sao Paulo', 'SP', '01234000', '8'
 			)
 		;
+		/** @var string[] $phoneA */
+		$phoneA = df_phone_explode(['+79629197300', 'RU'], false);
+		if ($phoneA && 2 < count($phoneA)) {
+			xdebug_break();
+			/**
+			 * 2017-04-22
+			 * «Customer's phone, with country code, area code and number»
+			 * Optional
+			 * @param int $areaCode
+			 * @param int $number
+			 * @param int $countryCode [optional]
+			 */
+			$c->setPhone($phoneA[1], $phoneA[2], $phoneA[0]);
+		}
 		try {
 			$c2 = $c->create();
 			xdebug_break();
@@ -69,5 +75,10 @@ final class Basic extends TestCase {
 			xdebug_break();
 			throw $e;
 		}
+	}
+
+	/** 2017-04-22 */
+	function t03() {
+		echo df_dump(df_phone_explode(['+79629197300', 'RU'], false));
 	}
 }
