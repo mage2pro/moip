@@ -23,8 +23,9 @@ final class Basic extends TestCase {
 		// https://dev.moip.com.br/reference#criar-um-cliente
 		$c
 			// 2017-04-22
-			// «STUB»
-			// STUB
+			// «Client's date of birth.»
+			// Date (YYYY-MM-DD)
+			// Optional
 			->setBirthDate(DT::createFromFormat('Y-m-d', '1982-07-08'))
 			// 2017-04-22
 			// «Email from the client.»
@@ -44,6 +45,7 @@ final class Basic extends TestCase {
 			/**
 			 * 2017-04-22
 			 * «Customer's phone, with country code, area code and number»
+			 * Optional
 			 * @param int $areaCode
 			 * @param int $number
 			 * @param int $countryCode [optional]
