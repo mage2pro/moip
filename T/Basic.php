@@ -1,6 +1,9 @@
 <?php
 namespace Dfe\Moip\T;
 use DateTime as DT;
+use Moip\Exceptions\UnautorizedException as leUnautorized;
+use Moip\Exceptions\UnexpectedException as leUnexpected;
+use Moip\Exceptions\ValidationException as leValidation;
 use Moip\Moip as API;
 use Moip\Resource\Customer as C;
 // 2017-04-20
@@ -16,8 +19,16 @@ final class Basic extends TestCase {
 		$api = $this->api();
 		/** @var C $c */
 		$c = $api->customers();
+		// 2017-04-22
+		// https://dev.moip.com.br/reference#criar-um-cliente
 		$c
-			->setOwnId(uniqid('CUS-'))
+			// 2017-04-22
+			// «Customer Id. External reference.»
+			// String (66)
+			// It should be unique, otherwise you will get the error:
+			// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
+			// («The unique identifier must be unique, there is a customer with the identified identifier»).
+			->setOwnId(1/*uniqid('df-customer-')*/)
 			->setBirthDate(DT::createFromFormat('Y-m-d', '1982-07-08'))
 			->setFullname('Dmitry Fedyuk')
 			->setEmail('admin@mage2.pro')
@@ -28,7 +39,14 @@ final class Basic extends TestCase {
 				, 'Sao Paulo', 'SP', '01234000', '8'
 			)
 		;
-		$c2 = $c->create();
-		xdebug_break();
+		try {
+			$c2 = $c->create();
+			xdebug_break();
+		}
+		catch (\Exception $e) {
+			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
+			xdebug_break();
+			throw $e;
+		}
 	}
 }
