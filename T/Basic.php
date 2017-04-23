@@ -43,13 +43,73 @@ final class Basic extends TestCase {
 			// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 			// («The unique identifier must be unique, there is a customer with the identified identifier»).
 			->setOwnId(uniqid('df-customer-'))
-			// 2017-04-22
-			// «STUB»
-			// STUB				
+			/**
+			 * 2017-04-23
+			 * @param string $number	Document number. Character limit: (11)
+			 * @param string $type		Document type. Possible values: CPF, CNPJ. Character limit: (4)
+			 * Optional.
+			 */
 			->setTaxDocument('22222222222', 'CPF')
+			/**
+			 * 2017-04-23
+			 * «The Address is the set of data that represents a location:
+			 * 	*) associated with the Customer as the delivery address («shippingAddress»)
+			 * 	*) or associated with the Credit Card as the billing address («billingAddress»).»
+			 * https://dev.moip.com.br/v2.0/reference#endereco
+			 * @param string $type       Address type: SHIPPING or BILLING.
+			 * @param string $street     Street address.
+			 * @param string $number     Number address.
+			 * @param string $district   Neighborhood address.
+			 * @param string $city       City address.
+			 * @param string $state      State address.
+			 * @param string $zip        The zip code billing address.
+			 * @param string $complement Address complement.
+			 * @param string $country    Country ISO-alpha3 format, BRA example.
+			 */
 			->addAddress(
-				C::ADDRESS_SHIPPING, 'Avenida Faria Lima', '2927', 'Itaim'
-				, 'Sao Paulo', 'SP', '01234000', '8'
+				// 2017-04-23
+				// «Address type: SHIPPING or BILLING.»
+				C::ADDRESS_SHIPPING
+				// 2017-04-23
+				// Property: «street».
+				// PHPDoc: «Street address»
+				// Reference: «Address post office», Required, String (45)
+				,'Avenida Faria Lima'
+				// 2017-04-23
+				// Property: «streetNumber».
+				// PHPDoc: «Number address»
+				// Reference: «Number», Required, String (10)
+				,'2927'
+				// 2017-04-23
+				// Property: «district».
+				// PHPDoc: «Neighborhood address»
+				// Reference: «Neighborhood», Required, String (45)
+				,'Itaim'
+				// 2017-04-23
+				// Property: «city».
+				// PHPDoc: «City address»
+				// Reference: «City», Required, String (32)
+				,'Sao Paulo'
+				// 2017-04-23
+				// Property: «state».
+				// PHPDoc: «State address»
+				// Reference: «State», Required, String (32)
+				,'SP'
+				// 2017-04-23
+				// Property: «STUB».
+				// PHPDoc: «The zip code billing address»
+				// Reference: «The zip code of the billing address», Required, String (9)
+				,'01234000'
+				// 2017-04-23
+				// Property: «complement».
+				// PHPDoc: «Address complement»
+				// Reference: «Address complement», Conditional, String (45)
+				,'8'
+				// 2017-04-23
+				// Property: «country».
+				// PHPDoc: «Country ISO-alpha3 format, BRA example.»
+				// Reference: «Country in format ISO-alpha3, example BRA», Required, String (3)
+				,'BRA'
 			)
 		;
 		/** @var string[] $phoneA */
