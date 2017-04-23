@@ -175,10 +175,29 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
+					id='googlePrivateKey'
+					translate='label'
+					type='obscure'
+					sortOrder='10'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Private Key for Google Maps Geocoding API</label>
+					<comment><![CDATA[Moip API v2 <a href='https://dev.moip.com.br/v2.0/reference#endereco' target='_blank' title='Moip API Reference'>accepts only the well-structured customer addresses</a>, whereas Magento 2 gathers the customers addresses in a plain text form.
+<br/>The extension uses the <a href='https://developers.google.com/maps/documentation/geocoding' target='_blank'  title='Google Maps Geocoding API Reference'>Google Maps Geocoding API</a> to convert a plain text address to the Moip format.
+<br/>Use <a href='https://mage2.pro/t/3828' target='_blank' title='How to generate a key for the Google Maps Geocoding API?'>my instruction</a> to get the key.]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
 					id='actionForNew'
 					translate='label'
 					type='select'
-					sortOrder='10'
+					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -192,7 +211,7 @@
 					id='actionForReturned'
 					translate='label'
 					type='select'
-					sortOrder='11'
+					sortOrder='12'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -205,7 +224,7 @@
 					id='description'
 					translate='label'
 					type='textarea'
-					sortOrder='12'
+					sortOrder='13'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -218,7 +237,7 @@
 					id='requireBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='13'
+					sortOrder='14'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -232,7 +251,7 @@
 					id='min_order_total'
 					translate='label'
 					type='text'
-					sortOrder='14'
+					sortOrder='15'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -246,7 +265,7 @@
 					id='max_order_total'
 					translate='label'
 					type='text'
-					sortOrder='15'
+					sortOrder='16'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -260,7 +279,7 @@
 					id='country_restriction'
 					translate='label'
 					type='select'
-					sortOrder='16'
+					sortOrder='17'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -273,7 +292,7 @@
 					id='countries'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='17'
+					sortOrder='18'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
