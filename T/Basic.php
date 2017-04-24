@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\T;
 use DateTime as DT;
-use libphonenumber\PhoneNumber as lPhone;
+use Geocoder\Model\Address as GA;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
@@ -20,6 +20,10 @@ final class Basic extends TestCase {
 		$api = $this->api();
 		/** @var C $c */
 		$c = $api->customers();
+		/** @var GA $ga */
+		$ga = df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc')->geocode(
+			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
+		)->first();
 		// 2017-04-22
 		// https://dev.moip.com.br/reference#criar-um-cliente
 		$c
@@ -74,48 +78,47 @@ final class Basic extends TestCase {
 				// Property: «street».
 				// PHPDoc: «Street address»
 				// Reference: «Address post office», Required, String (45)
-				,'Avenida Faria Lima'
+				,$ga->getStreetName() ?: 'Unknown'
 				// 2017-04-23
 				// Property: «streetNumber».
 				// PHPDoc: «Number address»
 				// Reference: «Number», Required, String (10)
-				,'2927'
+				,$ga->getStreetNumber() ?: 'Unknown'
 				// 2017-04-23
 				// Property: «district».
 				// PHPDoc: «Neighborhood address»
 				// Reference: «Neighborhood», Required, String (45)
-				,'Itaim'
+				,$ga->getLocality() ?: ($ga->getSubLocality() ?: 'Unknown')
 				// 2017-04-23
 				// Property: «city».
 				// PHPDoc: «City address»
 				// Reference: «City», Required, String (32)
-				,'Sao Paulo'
+				,df_geo_city($ga) ?: 'Unknown'
 				// 2017-04-23
 				// Property: «state».
 				// PHPDoc: «State address»
 				// Reference: «State», Required, String (32)
-				,'SP'
+				,df_geo_state_code($ga) ?: 'Unknown'
 				// 2017-04-23
 				// Property: «STUB».
 				// PHPDoc: «The zip code billing address»
 				// Reference: «The zip code of the billing address», Required, String (9)
-				,'01234000'
+				,$ga->getPostalCode()
 				// 2017-04-23
 				// Property: «complement».
 				// PHPDoc: «Address complement»
 				// Reference: «Address complement», Conditional, String (45)
-				,'8'
+				,''
 				// 2017-04-23
 				// Property: «country».
 				// PHPDoc: «Country ISO-alpha3 format, BRA example.»
 				// Reference: «Country in format ISO-alpha3, example BRA», Required, String (3)
-				,'BRA'
+				,df_country_2_to_3('BR')
 			)
 		;
 		/** @var string[] $phoneA */
 		$phoneA = df_phone_explode(['+79629197300', 'RU'], false);
 		if ($phoneA && 2 < count($phoneA)) {
-			xdebug_break();
 			/**
 			 * 2017-04-22
 			 * «Customer's phone, with country code, area code and number»
