@@ -8,7 +8,7 @@ use Moip\Exceptions\ValidationException as leValidation;
 use Moip\Moip as API;
 use Moip\Resource\Customer as C;
 // 2017-04-20
-final class Basic extends TestCase {
+final class Customer extends TestCase {
 	/** 2017-04-20 */
 	function t01() {echo df_dump([
 		$this->s()->publicKey(), $this->s()->privateToken(), $this->s()->privateKey()

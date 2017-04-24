@@ -4,7 +4,7 @@ use Moip\Moip as API;
 use Moip\MoipBasicAuth;
 /**
  * 2017-04-20
- * @see \Dfe\Moip\T\Basic
+ * @see \Dfe\Moip\T\Customer
  * @method \Dfe\Moip\Settings s()
  */
 abstract class TestCase extends \Df\Payment\TestCase {
