@@ -2,7 +2,6 @@
 namespace Dfe\Moip\T;
 use DateTime as DT;
 use Geocoder\Model\Address as GA;
-use Moip\Exceptions\Error as lError;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
