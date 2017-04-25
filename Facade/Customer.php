@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\Facade;
+use Dfe\Moip\SDK\Customer as C;
 use Moip\Moip as API;
-use Moip\Resource\Customer as C;
 // 2017-04-25
 /** @method \Dfe\Moip\Method m() */
 final class Customer extends \Df\StripeClone\Facade\Customer {

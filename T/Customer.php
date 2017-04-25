@@ -1,12 +1,12 @@
 <?php
 namespace Dfe\Moip\T;
 use DateTime as DT;
+use Dfe\Moip\SDK\Customer as C;
 use Geocoder\Model\Address as GA;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
 use Moip\Moip as API;
-use Moip\Resource\Customer as C;
 // 2017-04-20
 final class Customer extends TestCase {
 	/** 2017-04-20 */
