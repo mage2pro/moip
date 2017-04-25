@@ -21,7 +21,7 @@ final class Customer extends TestCase {
 		/** @var C $c */
 		$c = $api->customers();
 		/** @var GA $ga */
-		$ga = df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc')->geocode(
+		$ga = df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc', 'pt-BR', 'br')->geocode(
 			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
 		)->first();
 		// 2017-04-22
@@ -46,7 +46,7 @@ final class Customer extends TestCase {
 			// It should be unique, otherwise you will get the error:
 			// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 			// («The unique identifier must be unique, there is a customer with the identified identifier»).
-			->setOwnId('admin@mage2.pro')
+			->setOwnId(df_uid(4, 'admin@mage2.pro-'))
 			/**
 			 * 2017-04-23
 			 * @param string $number	Document number. Character limit: (11)
@@ -113,11 +113,17 @@ final class Customer extends TestCase {
 				// Property: «country».
 				// PHPDoc: «Country ISO-alpha3 format, BRA example.»
 				// Reference: «Country in format ISO-alpha3, example BRA», Required, String (3)
+				//
+				// 2017-04-25
+				// «Today we do not support creating clients that are from other countries
+				// that are not from Brazil, so this error occurs.
+				// We do not have a forecast to be international.»
+				// https://mage2.pro/t/3820/2
 				,df_country_2_to_3('BR')
 			)
 		;
 		/** @var string[] $phoneA */
-		$phoneA = df_phone_explode(['+79629197300', 'RU'], false);
+		$phoneA = df_phone_explode(['+552131398000', 'BR'], false);
 		if ($phoneA && 2 < count($phoneA)) {
 			/**
 			 * 2017-04-22
@@ -142,6 +148,6 @@ final class Customer extends TestCase {
 
 	/** 2017-04-22 */
 	function t03() {
-		echo df_dump(df_phone_explode(['+79629197300', 'RU'], false));
+		echo df_dump(df_phone_explode(['+552131398000', 'BR'], false));
 	}
 }
