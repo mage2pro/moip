@@ -2,6 +2,7 @@
 namespace Dfe\Moip\T;
 use DateTime as DT;
 use Geocoder\Model\Address as GA;
+use Moip\Exceptions\Error as lError;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
@@ -150,10 +151,26 @@ final class Customer extends TestCase {
 		}
 	}
 
-	/** @test 2017-04-25 */
+	/**
+	 * @test
+	 * 2017-04-25
+	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
+	 * В качестве параметра «customer_id» этого запроса допустим только идентификатор покупателя в Moip
+	 * (значение поля «id», оно имеет вид «CUS-UKXT2RQ2TULX»).
+	 * Значение поля «ownId» тут недопустимо.
+	 *	{
+	 *		"id": "CUS-UKXT2RQ2TULX",
+	 *		"ownId": "admin@mage2.pro",
+	 *		"fullname": "Dmitry Fedyuk",
+	 *		"createdAt": "2017-04-25T04:38:31.000-03",
+	 *		<...>
+	 *	}
+	 */
 	function t02_get() {
 		/** @var API $api */
 		$api = $this->api();
+		/** @var string $id */
+		$id = 'CUS-UKXT2RQ2TULX';
 		try {
 			/**
 			 * 2017-04-25
@@ -164,14 +181,24 @@ final class Customer extends TestCase {
 			 * 		return $customer;
 			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
 			 * @var C $c
+			 * CUS-UKXT2RQ2TULX
 			 */
-			$c = $api->customers()->get('CUS-UKXT2RQ2TULX');
-			xdebug_break();
+			$c = $api->customers()->get($id);
+			echo $c->getFullname();
 		}
-		catch (\Exception $e) {
+		catch (leValidation $e) {
+			/**
+			 * 2017-04-25
+			 * @see \Moip\Exceptions\Error::parseErrors() returns no message
+			 * if a requested resource is not found: https://github.com/moip/moip-sdk-php/issues/104
+			 */
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
-			xdebug_break();
-			throw $e;
+			if (404 === $e->getStatusCode()) {
+				echo "The customer with the requested ID ($id) is absent in the Moip database.";
+			}
+			else {
+				throw $e;
+			}
 		}
 	}
 }
