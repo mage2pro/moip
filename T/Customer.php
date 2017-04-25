@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\Moip\T;
-use DateTime as DT;
 use Dfe\Moip\SDK\Customer as C;
 use Geocoder\Model\Address as GA;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
@@ -9,127 +8,8 @@ use Moip\Exceptions\ValidationException as leValidation;
 use Moip\Moip as API;
 // 2017-04-20
 final class Customer extends TestCase {
-	/** 2017-04-20 */
+	/** @test 2017-04-20 */
 	function t01_create() {
-		/** @var API $api */
-		$api = $this->api();
-		/** @var C $c */
-		$c = $api->customers();
-		/** @var GA $ga */
-		$ga = df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc', 'pt-BR', 'br')->geocode(
-			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
-		)->first();
-		// 2017-04-22
-		// https://dev.moip.com.br/reference#criar-um-cliente
-		$c
-			// 2017-04-22
-			// «Client's date of birth.»
-			// Date (YYYY-MM-DD)
-			// Optional
-			->setBirthDate(DT::createFromFormat('Y-m-d', '1982-07-08'))
-			// 2017-04-22
-			// «Email from the client.»
-			// Required, String (45)
-			->setEmail('admin@mage2.pro')
-			// 2017-04-22
-			// «Full name of customer.»
-			// Required, String (90)
-			->setFullname('Dmitry Fedyuk')
-			// 2017-04-22
-			// «Customer Id. External reference.»
-			// Required, String (66)
-			// It should be unique, otherwise you will get the error:
-			// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
-			// («The unique identifier must be unique, there is a customer with the identified identifier»).
-			->setOwnId(df_uid(4, 'admin@mage2.pro-'))
-			/**
-			 * 2017-04-23
-			 * @param string $number	Document number. Character limit: (11)
-			 * @param string $type		Document type. Possible values: CPF, CNPJ. Character limit: (4)
-			 * Optional.
-			 */
-			->setTaxDocument('22222222222', 'CPF')
-			/**
-			 * 2017-04-23
-			 * «The Address is the set of data that represents a location:
-			 * 	*) associated with the Customer as the delivery address («shippingAddress»)
-			 * 	*) or associated with the Credit Card as the billing address («billingAddress»).»
-			 * https://dev.moip.com.br/v2.0/reference#endereco
-			 * @param string $type       Address type: SHIPPING or BILLING.
-			 * @param string $street     Street address.
-			 * @param string $number     Number address.
-			 * @param string $district   Neighborhood address.
-			 * @param string $city       City address.
-			 * @param string $state      State address.
-			 * @param string $zip        The zip code billing address.
-			 * @param string $complement Address complement.
-			 * @param string $country    Country ISO-alpha3 format, BRA example.
-			 */
-			->addAddress(
-				// 2017-04-23
-				// «Address type: SHIPPING or BILLING.»
-				C::ADDRESS_SHIPPING
-				// 2017-04-23
-				// Property: «street».
-				// PHPDoc: «Street address»
-				// Reference: «Address post office», Required, String (45)
-				,$ga->getStreetName() ?: 'Unknown'
-				// 2017-04-23
-				// Property: «streetNumber».
-				// PHPDoc: «Number address»
-				// Reference: «Number», Required, String (10)
-				,$ga->getStreetNumber() ?: 'Unknown'
-				// 2017-04-23
-				// Property: «district».
-				// PHPDoc: «Neighborhood address»
-				// Reference: «Neighborhood», Required, String (45)
-				,$ga->getLocality() ?: ($ga->getSubLocality() ?: 'Unknown')
-				// 2017-04-23
-				// Property: «city».
-				// PHPDoc: «City address»
-				// Reference: «City», Required, String (32)
-				,df_geo_city($ga) ?: 'Unknown'
-				// 2017-04-23
-				// Property: «state».
-				// PHPDoc: «State address»
-				// Reference: «State», Required, String (32)
-				,df_geo_state_code($ga) ?: 'Unknown'
-				// 2017-04-23
-				// Property: «STUB».
-				// PHPDoc: «The zip code billing address»
-				// Reference: «The zip code of the billing address», Required, String (9)
-				,$ga->getPostalCode()
-				// 2017-04-23
-				// Property: «complement».
-				// PHPDoc: «Address complement»
-				// Reference: «Address complement», Conditional, String (45)
-				,''
-				// 2017-04-23
-				// Property: «country».
-				// PHPDoc: «Country ISO-alpha3 format, BRA example.»
-				// Reference: «Country in format ISO-alpha3, example BRA», Required, String (3)
-				//
-				// 2017-04-25
-				// «Today we do not support creating clients that are from other countries
-				// that are not from Brazil, so this error occurs.
-				// We do not have a forecast to be international.»
-				// https://mage2.pro/t/3820/2
-				,df_country_2_to_3('BR')
-			)
-		;
-		/** @var string[] $phoneA */
-		$phoneA = df_phone_explode(['+552131398000', 'BR'], false);
-		if ($phoneA && 2 < count($phoneA)) {
-			/**
-			 * 2017-04-22
-			 * «Customer's phone, with country code, area code and number»
-			 * Optional
-			 * @param int $areaCode
-			 * @param int $number
-			 * @param int $countryCode [optional]
-			 */
-			$c->setPhone($phoneA[1], $phoneA[2], $phoneA[0]);
-		}
 		try {
 			/**
 			 * 2017-04-25
@@ -140,8 +20,11 @@ final class Customer extends TestCase {
 			 * 		return $customer;
 			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
 			 */
-			$c = $c->create();
-			xdebug_break();
+			// 2017-04-22
+			// https://dev.moip.com.br/reference#criar-um-cliente
+			/** @var C $c */
+			$c = (new C($this->api()))->createA($this->pCustomer());
+			echo $c->resJ();
 		}
 		catch (\Exception $e) {
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
@@ -151,7 +34,6 @@ final class Customer extends TestCase {
 	}
 
 	/**
-	 * @test
 	 * 2017-04-25
 	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
 	 * В качестве параметра «customer_id» этого запроса допустим только идентификатор покупателя в Moip
@@ -200,4 +82,112 @@ final class Customer extends TestCase {
 			}
 		}
 	}
+
+	/**
+	 * 2017-04-25
+	 * @used-by pAddress()
+	 * @return GA
+	 */
+	private function ga() {return dfc($this, function() {return
+		df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc', 'pt-BR', 'br')->geocode(
+			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
+		)->first()
+	;});}
+
+	/**
+	 * 2017-04-25
+	 * «The Address is the set of data that represents a location:
+	 * 	*) associated with the Customer as the delivery address («shippingAddress»)
+	 * 	*) or associated with the Credit Card as the billing address («billingAddress»).»
+	 * https://dev.moip.com.br/v2.0/reference#endereco
+	 * @used-by pCustomer()
+	 * @return array(string => mixed)
+	 */
+	private function pAddress() {/** @var GA $ga */$ga = $this->ga(); return [
+		// 2017-04-23 «City», Required, String(32).
+		'city' => self::u(df_geo_city($ga))
+		// 2017-04-23 «Address complement», Conditional, String(45).
+		,'complement' => ''
+		// 2017-04-23 «Country in format ISO-alpha3, example BRA», Required, String(3).
+		// 2017-04-25
+		// «Today we do not support creating clients that are from other countries
+		// that are not from Brazil, so this error occurs.
+		// We do not have a forecast to be international.»
+		// https://mage2.pro/t/3820/2
+		,'country' => df_country_2_to_3('BR')
+		// 2017-04-23 «Neighborhood», Required, String(45).
+		,'district' => self::u($ga->getLocality() ?: $ga->getSubLocality())
+		// 2017-04-23 «State», Required, String(32).
+		,'state' => self::u(df_geo_state_code($ga))
+		// 2017-04-25 «Address post office», Required, String(45).
+		,'street' => self::u($ga->getStreetName())
+		// 2017-04-23 «Number», Required, String(10).
+		,'streetNumber' => self::u($ga->getStreetNumber())
+		// 2017-04-23 «The zip code of the billing address», Required, String(9).
+		,'zipCode' => $ga->getPostalCode()
+	];}
+
+	/**
+	 * 2017-04-25 https://dev.moip.com.br/reference#criar-um-cliente
+	 * @used-by t01_create()
+	 * @return array(string => mixed)
+	 */
+	private function pCustomer() {return [
+		// 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
+		'birthDate' => '1982-07-08'
+		// 2017-04-22 «Email from the client», Required, String(45).
+		,'email' => 'admin@mage2.pro'
+		// 2017-04-22 «Full name of customer», Required, String(90).
+		,'fullname' => 'Dmitry Fedyuk'
+		// 2017-04-22
+		// «Customer Id. External reference.»
+		// Required, String(66).
+		// It should be unique, otherwise you will get the error:
+		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
+		// («The unique identifier must be unique, there is a customer with the identified identifier»).
+		,'ownId' => df_uid(4, 'admin@mage2.pro-')
+		// 2017-04-23
+		// «The Address is the set of data that represents a location:
+		// *) associated with the Customer as the delivery address («shippingAddress»)
+		// 	*) or associated with the Credit Card as the billing address («billingAddress»).»
+		// https://dev.moip.com.br/v2.0/reference#endereco
+		,'shippingAddress' => $this->pAddress()
+		// 2017-04-25 «Fiscal document», Optional, Structured.
+		,'taxDocument' => [
+			// 2017-04-23 «Document number»,  String(11).
+			'number' => '22222222222'
+			// 2017-04-23 «Document type. Possible values: CPF, CNPJ.», String(4).
+			,'type' => 'CPF'
+		]
+	// 2017-04-22 «Customer's phone number», Optional, Structured.
+	// 2017-04-25
+	// «Today we do not support creating clients that are from other countries
+	// that are not from Brazil, so this error occurs.
+	// We do not have a forecast to be international.»
+	// https://mage2.pro/t/3820/2
+	] + (!($p = $this->phoneA()) || 3 > count($p) || 55 !== intval($p[1]) ? [] : array_combine([
+		// 2017-04-25 «Your phone's local code (DDD)», Integer(2).
+		'areaCode'
+		// 2017-04-25 «ID number of the phone. Possible values: 55.», Integer(2).
+		,'countryCode'
+		// 2017-04-25 «Telephone number.», Integer(9).
+		,'number'
+	], $p));}
+
+	/**
+	 * 2017-04-25
+	 * @used-by pCustomer()
+	 * @return string[]|null
+	 */
+	private function phoneA() {return dfc($this, function() {return df_phone_explode(
+		['+552131398000', 'BR'], false
+	);});}
+
+	/**
+	 * 2017-04-25
+	 * @used-by pAddress()
+	 * @param mixed $v
+	 * @return string
+	 */
+	private static function u($v) {return $v ?: (string)__('Unknown');}
 }
