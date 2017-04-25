@@ -10,12 +10,7 @@ use Moip\Resource\Customer as C;
 // 2017-04-20
 final class Customer extends TestCase {
 	/** 2017-04-20 */
-	function t01() {echo df_dump([
-		$this->s()->publicKey(), $this->s()->privateToken(), $this->s()->privateKey()
-	]);}
-
-	/** @test 2017-04-20 */
-	function t02() {
+	function t01_create() {
 		/** @var API $api */
 		$api = $this->api();
 		/** @var C $c */
@@ -136,7 +131,16 @@ final class Customer extends TestCase {
 			$c->setPhone($phoneA[1], $phoneA[2], $phoneA[0]);
 		}
 		try {
-			$c2 = $c->create();
+			/**
+			 * 2017-04-25
+			 * @see \Moip\Resource\Customer::populate() clones the current object instance
+			 * and returns the clone:
+			 * 		$customer = clone $this;
+			 * 		<...>
+			 * 		return $customer;
+			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
+			 */
+			$c = $c->create();
 			xdebug_break();
 		}
 		catch (\Exception $e) {
@@ -146,8 +150,28 @@ final class Customer extends TestCase {
 		}
 	}
 
-	/** 2017-04-22 */
-	function t03() {
-		echo df_dump(df_phone_explode(['+552131398000', 'BR'], false));
+	/** @test 2017-04-25 */
+	function t02_get() {
+		/** @var API $api */
+		$api = $this->api();
+		try {
+			/**
+			 * 2017-04-25
+			 * @see \Moip\Resource\Customer::populate() clones the current object instance
+			 * and returns the clone:
+			 * 		$customer = clone $this;
+			 * 		<...>
+			 * 		return $customer;
+			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
+			 * @var C $c
+			 */
+			$c = $api->customers()->get('CUS-UKXT2RQ2TULX');
+			xdebug_break();
+		}
+		catch (\Exception $e) {
+			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
+			xdebug_break();
+			throw $e;
+		}
 	}
 }
