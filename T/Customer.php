@@ -46,7 +46,7 @@ final class Customer extends TestCase {
 			// It should be unique, otherwise you will get the error:
 			// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 			// («The unique identifier must be unique, there is a customer with the identified identifier»).
-			->setOwnId(uniqid('df-customer-'))
+			->setOwnId('admin@mage2.pro')
 			/**
 			 * 2017-04-23
 			 * @param string $number	Document number. Character limit: (11)

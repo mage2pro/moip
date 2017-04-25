@@ -9,6 +9,12 @@
 				<actionForNew>authorize_capture</actionForNew>
 				<actionForReturned>authorize_capture</actionForReturned>
 				<requireBillingAddress>1</requireBillingAddress>
+<!--
+2017-04-25
+«Today we do not support creating clients that are from other countries that are not from Brazil,
+so this error occurs. We do not have a forecast to be international.»
+https://mage2.pro/t/3820/2
+-->
 				<countries>BR</countries>
 				<country_restriction>whitelist</country_restriction>
 				<currency>BRL</currency>
