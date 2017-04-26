@@ -1,5 +1,7 @@
 // 2017-04-11
-define(['Df_StripeClone/main'], function(parent) {'use strict'; return parent.extend({
+define([
+	'Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
+], function(parent) {'use strict'; return parent.extend({
 	/**
 	 * 2017-04-11
 	 * The bank card network codes: https://mage2.pro/t/2647
