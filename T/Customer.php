@@ -8,7 +8,10 @@ use Moip\Exceptions\ValidationException as leValidation;
 use Moip\Moip as API;
 // 2017-04-20
 final class Customer extends TestCase {
-	/** @test 2017-04-20 */
+	/** @test 2017-04-26 */
+	function t00() {}
+
+	/** 2017-04-20 */
 	function t01_create() {
 		try {
 			/**

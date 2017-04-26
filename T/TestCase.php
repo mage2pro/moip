@@ -4,6 +4,7 @@ use Dfe\Moip\Method as M;
 use Moip\Moip as API;
 /**
  * 2017-04-20
+ * @see \Dfe\Moip\T\Card
  * @see \Dfe\Moip\T\Customer
  * @method M m()
  * @method \Dfe\Moip\Settings s()
