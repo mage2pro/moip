@@ -7,7 +7,7 @@ define([
 	 * 2017-04-16 [Moip] The available payment options: https://mage2.pro/t/3851
 	 * @returns {String[]}
 	 */
-	getCardTypes: function() {return ['VI', 'MC', 'AE', 'DN'];},
+	getCardTypes: function() {return ['VI', 'MC', 'AE', 'DN', 'Hipercard'];},
     /**
 	 * 2017-04-11
 	 * @override
