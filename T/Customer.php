@@ -8,10 +8,10 @@ use Moip\Exceptions\ValidationException as leValidation;
 use Moip\Moip as API;
 // 2017-04-20
 final class Customer extends TestCase {
-	/** @test 2017-04-26 */
+	/** 2017-04-26 */
 	function t00() {}
 
-	/** 2017-04-20 */
+	/** @test 2017-04-20 */
 	function t01_create() {
 		try {
 			/**
@@ -26,12 +26,11 @@ final class Customer extends TestCase {
 			// 2017-04-22
 			// https://dev.moip.com.br/reference#criar-um-cliente
 			/** @var C $c */
-			$c = (new C($this->api()))->createA($this->pCustomer());
-			echo $c->resJ();
+			$c = C::create($this->api(), $this->pCustomer());
+			echo $c->j();
 		}
 		catch (\Exception $e) {
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
-			xdebug_break();
 			throw $e;
 		}
 	}
@@ -68,7 +67,7 @@ final class Customer extends TestCase {
 			 * CUS-UKXT2RQ2TULX
 			 */
 			$c = $api->customers()->get($id);
-			echo $c->getFullname();
+			echo $c['fullname'];
 		}
 		catch (leValidation $e) {
 			/**

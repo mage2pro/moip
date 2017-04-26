@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Moip\Facade;
 use Dfe\Moip\SDK\Customer as C;
+use Moip\Moip as API;
 // 2017-04-25
 /** @method \Dfe\Moip\Method m() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
@@ -12,7 +13,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param int $id
 	 * @return C|null
 	 */
-	function _get($id) {return df_try(function() use($id) {return $this->api()->get($id);});}
+	function _get($id) {return df_try(function() use($id) {return null;});}
 
 	/**
 	 * 2017-04-25
@@ -33,17 +34,17 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	function create(array $p) {return $this->api()->createA($p);}
+	function create(array $p) {return C::create($this->api(), $p);}
 
 	/**
-	 * 2017-04-25
+	 * 2017-04-25 «CUS-18QQ3DF4BIKY»
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @param C $c
 	 * @return string
 	 */
-	function id($c) {return $c->getId();}
+	function id($c) {return $c['id'];}
 
 	/**
 	 * 2017-04-25
@@ -58,7 +59,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 
 	/**
 	 * 2017-04-25
-	 * @return C
+	 * @return API
 	 */
-	private function api() {return dfc($this, function() {return new C($this->m()->api());});}
+	private function api() {return $this->m()->api();}
 }

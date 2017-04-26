@@ -9,6 +9,9 @@ use Moip\Moip as API;
 // 2017-04-26
 final class Card extends TestCase {
 	/** @test 2017-04-26 */
+	function t00() {}
+
+	/** 2017-04-26 */
 	function t01_add() {
 		try {
 			echo 'OK';
