@@ -21,6 +21,7 @@
 	,"keywords": [
 		"API"
 		,"Bank card"
+		,"Brasil"
 		,"Brazil"
 		,"Credit card"
 		,"eCommerce"
@@ -32,5 +33,25 @@
 		,"Payment authorization"
 		,"Payment integration"
 		,"Payment gateway"
+
+		,"Visa"
+		,"Visa Electron"
+		,"MasterCard"
+		,"American Express"
+		,"Diners Club International"
+		,"Hipercard"
+		,"Cartão Hiper"
+		,"Elo"
+		,"Oi Paggo"
+		,"Installment"
+		,"Online banking"
+		,"Itaú Unibanco"
+		,"Banco do Brasil"
+		,"Banco Santander"
+		,"Banco Real"
+		,"Banco Banrisul"
+		,"Credit purchase"
+		,"Offline payment"
+		,"Boleto Bancário"
 	]
 }
