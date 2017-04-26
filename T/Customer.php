@@ -11,7 +11,7 @@ final class Customer extends TestCase {
 	/** 2017-04-26 */
 	function t00() {}
 
-	/** @test 2017-04-20 */
+	/** @test 2017-04-20 https://dev.moip.com.br/v2.0/reference#criar-um-cliente */
 	function t01_create() {
 		try {
 			/**
@@ -25,9 +25,7 @@ final class Customer extends TestCase {
 			 */
 			// 2017-04-22
 			// https://dev.moip.com.br/reference#criar-um-cliente
-			/** @var C $c */
-			$c = C::create($this->api(), $this->pCustomer());
-			echo $c->j();
+			echo C::create($this->pCustomer())->j();
 		}
 		catch (\Exception $e) {
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
@@ -36,8 +34,7 @@ final class Customer extends TestCase {
 	}
 
 	/**
-	 * 2017-04-25
-	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
+	 * @test 2017-04-25 https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
 	 * В качестве параметра «customer_id» этого запроса допустим только идентификатор покупателя в Moip
 	 * (значение поля «id», оно имеет вид «CUS-UKXT2RQ2TULX»).
 	 * Значение поля «ownId» тут недопустимо.
@@ -50,8 +47,6 @@ final class Customer extends TestCase {
 	 *	}
 	 */
 	function t02_get() {
-		/** @var API $api */
-		$api = $this->api();
 		/** @var string $id */
 		$id = 'CUS-UKXT2RQ2TULX';
 		try {
@@ -63,11 +58,9 @@ final class Customer extends TestCase {
 			 * 		<...>
 			 * 		return $customer;
 			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
-			 * @var C $c
 			 * CUS-UKXT2RQ2TULX
 			 */
-			$c = $api->customers()->get($id);
-			echo $c['fullname'];
+			echo C::get($id)->j();
 		}
 		catch (leValidation $e) {
 			/**

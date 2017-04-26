@@ -1,9 +1,7 @@
 <?php
 namespace Dfe\Moip\Facade;
 use Dfe\Moip\SDK\Customer as C;
-use Moip\Moip as API;
 // 2017-04-25
-/** @method \Dfe\Moip\Method m() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-04-25
@@ -13,7 +11,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param int $id
 	 * @return C|null
 	 */
-	function _get($id) {return df_try(function() use($id) {return null;});}
+	function _get($id) {return df_try(function() use($id) {return C::get($id);});}
 
 	/**
 	 * 2017-04-25
@@ -34,7 +32,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	function create(array $p) {return C::create($this->api(), $p);}
+	function create(array $p) {return C::create($p);}
 
 	/**
 	 * 2017-04-25 «CUS-18QQ3DF4BIKY»
@@ -56,10 +54,4 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Dfe\Stripe\Facade\Charge::cardData()
 	 */
 	protected function cardsData($c) {return null;}
-
-	/**
-	 * 2017-04-25
-	 * @return API
-	 */
-	private function api() {return $this->m()->api();}
 }

@@ -1,8 +1,16 @@
 <?php
 namespace Dfe\Moip\SDK;
+use Dfe\Moip\Method as M;
 use Moip\Resource\MoipResource as Sb;
 // 2017-04-26
 final class Operation extends Sb {
+	/**
+	 * 2017-04-26
+	 * @override
+	 * @see Sb::__construct()
+	 */
+	function __construct() {/** @var M $m */$m = dfpm($this); parent::__construct($m->api());}
+
 	/**
 	 * 2017-04-26
 	 * @used-by \Dfe\Moip\SDK\Customer::create()
