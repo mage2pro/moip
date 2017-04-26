@@ -56,7 +56,7 @@ abstract class Entity implements \ArrayAccess {
 
 	/**
 	 * 2017-04-26
-	 * @used-by create()
+	 * @used-by \Dfe\Moip\SDK\Customer::exec()
 	 * @param Operation $op
 	 */
 	final protected function __construct(Operation $op) {$this->_op = $op;}

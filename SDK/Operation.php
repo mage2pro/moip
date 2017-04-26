@@ -8,12 +8,13 @@ final class Operation extends Sb {
 	 * 2017-04-26
 	 * @override
 	 * @see Sb::__construct()
+	 * @used-by \Dfe\Moip\SDK\Customer::exec()
 	 */
 	function __construct() {/** @var M $m */$m = dfpm($this); parent::__construct($m->api());}
 
 	/**
 	 * 2017-04-26
-	 * @used-by \Dfe\Moip\SDK\Customer::create()
+	 * @used-by \Dfe\Moip\SDK\Customer::exec()
 	 * @param string $path
 	 * @param string $method
 	 * @param array(string => mixed)|\stdClass|null $payload

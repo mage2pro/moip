@@ -13,12 +13,7 @@ final class Customer extends Entity {
 	 * @return self
 	 * @throws leUnautorized|leUnexpected|leValidation
 	 */
-	static function create(array $a) {
-		/** @var Operation $op */
-		$op = new Operation;
-		$op->exec('/v2/customers/', 'POST', $a);
-		return new self($op);
-	}
+	static function create(array $a) {return self::exec('POST', $a);}
 
 	/**
 	 * 2017-04-26 https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
@@ -37,10 +32,22 @@ final class Customer extends Entity {
 	 * @return self
 	 * @throws leUnautorized|leUnexpected|leValidation
 	 */
-	static function get($id) {
+	static function get($id) {return self::exec('GET', $id);}
+
+	/**
+	 * 2017-04-26
+	 * @used-by create()
+	 * @used-by get()
+	 * @param string $verb
+	 * @param string|array(string => mixed) $data
+	 * @return self
+	 */
+	private static function exec($verb, $data) {
 		/** @var Operation $op */
 		$op = new Operation;
-		$op->exec("/v2/customers/$id", 'GET');
+		/** @var string|null $id */
+		list($id, $data) = is_array($data) ? [null, $data] : [$data, null];
+		$op->exec("/v2/customers/$id", $verb, $data);
 		return new self($op);
 	}
 }
