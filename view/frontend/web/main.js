@@ -2,6 +2,7 @@
 define([
 	'Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
 ], function(parent) {'use strict'; return parent.extend({
+	defaults: {df: {card: {requireCardholder: true}}},
 	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647
 	 * 2017-04-16 [Moip] The available payment options: https://mage2.pro/t/3851
