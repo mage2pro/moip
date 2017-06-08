@@ -4,9 +4,13 @@ use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
 // 2017-04-25
+// https://dev.moip.com.br/page/api-reference#section-customers
+// https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends Entity {
 	/**
-	 * 2017-04-25 https://dev.moip.com.br/v2.0/reference#criar-um-cliente
+	 * 2017-04-25
+	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
+	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * @used-by \Dfe\Moip\Facade\Customer::create()
 	 * @param array(string => mixed) $a
 	 * @return self
@@ -15,7 +19,9 @@ final class Customer extends Entity {
 	static function create(array $a) {return self::exec('POST', $a);}
 
 	/**
-	 * 2017-04-26 https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
+	 * 2017-04-26
+	 * https://dev.moip.com.br/page/api-reference#section-retrieve-a-customer-get-
+	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
 	 * $id should be a Moip internal customer identifier,
 	 * a value of the «id» property of a customer entity (like «CUS-UKXT2RQ2TULX»):
 	 *	{

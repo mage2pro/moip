@@ -6,11 +6,17 @@ use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
 // 2017-04-20
+// https://dev.moip.com.br/page/api-reference#section-customers
+// https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends TestCase {
 	/** @test 2017-04-26 */
 	function t00() {}
 
-	/** 2017-04-20 https://dev.moip.com.br/v2.0/reference#criar-um-cliente */
+	/**
+	 * 2017-04-20
+	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
+	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
+	 */
 	function t01_create() {
 		try {
 			/**
@@ -33,7 +39,10 @@ final class Customer extends TestCase {
 	}
 
 	/**
-	 * @test 2017-04-25 https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
+	 * @test
+	 * 2017-04-25
+	 * https://dev.moip.com.br/page/api-reference#section-retrieve-a-customer-get-
+	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
 	 * В качестве параметра «customer_id» этого запроса допустим только идентификатор покупателя в Moip
 	 * (значение поля «id», оно имеет вид «CUS-UKXT2RQ2TULX»).
 	 * Значение поля «ownId» тут недопустимо.
