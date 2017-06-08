@@ -1,33 +1,25 @@
 <?php
 namespace Dfe\Moip\T;
+use Dfe\Moip\SDK\Order as O;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
-use Moip\Moip as API;
 // 2017-06-08
+// https://dev.moip.com.br/page/api-reference#section-orders
+// https://dev.moip.com.br/v2.0/reference#pedidos
 final class Order extends TestCase {
 	/** 2017-06-08 */
 	function t00() {}
 
-	/** @test 2017-06-08 https://documentao-moip.readme.io/v2.0/reference#criar-pedido */
+	/**
+	 * @test
+	 * 2017-06-08
+	 * https://dev.moip.com.br/page/api-reference#section-create-an-order-post-
+	 * https://dev.moip.com.br/v2.0/reference#criar-pedido
+	 */
 	function t01_create() {
-		/** @var API $api */
-		$api = $this->m()->api();
 		try {
-			$order = $api->orders()->setOwnId(uniqid())
-			->addItem('bicicleta 1',1, 'sku1', 10000)
-			->addItem('bicicleta 2',1, 'sku2', 11000)
-			->addItem('bicicleta 3',1, 'sku3', 12000)
-			->addItem('bicicleta 4',1, 'sku4', 13000)
-			->addItem('bicicleta 5',1, 'sku5', 14000)
-			->addItem('bicicleta 6',1, 'sku6', 15000)
-			->addItem('bicicleta 7',1, 'sku7', 16000)
-			->addItem('bicicleta 8',1, 'sku8', 17000)
-			->addItem('bicicleta 9',1, 'sku9', 18000)
-			->addItem('bicicleta 10',1, 'sku10', 19000)
-			->setShippingAmount(3000)->setAddition(1000)->setDiscount(5000)
-			->setCustomer(null)
-			->create();
+			echo O::create($this->pOrder())->j();
 		}
 		catch (\Exception $e) {
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
@@ -35,4 +27,19 @@ final class Order extends TestCase {
 			throw $e;
 		}
 	}
+
+	/**
+	 * 2017-06-08
+	 * @used-by t01_create()
+	 * @return array(string => mixed)
+	 */
+	private function pOrder() {return [
+		// 2017-06-08
+		// «Customer Id. External reference.»
+		// Required, String(66).
+		// It should be unique, otherwise you will get the error:
+		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
+		// («The unique identifier must be unique, there is a customer with the identified identifier»).
+		'ownId' => df_uid(4, 'admin@mage2.pro-')
+	];}
 }

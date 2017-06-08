@@ -4,9 +4,13 @@ use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
 // 2017-06-08
+// https://dev.moip.com.br/page/api-reference#section-orders
+// https://dev.moip.com.br/v2.0/reference#pedidos
 final class Order extends Entity {
 	/**
-	 * 2017-06-08 https://dev.moip.com.br/v2.0/reference#criar-pedido
+	 * 2017-06-08
+	 * https://dev.moip.com.br/page/api-reference#section-create-an-order-post-
+	 * https://dev.moip.com.br/v2.0/reference#criar-pedido
 	 * @param array(string => mixed) $a
 	 * @return self
 	 * @throws leUnautorized|leUnexpected|leValidation
@@ -14,7 +18,9 @@ final class Order extends Entity {
 	static function create(array $a) {return self::exec('POST', $a);}
 
 	/**
-	 * 2017-06-08 https://dev.moip.com.br/v2.0/reference#consultar-pedido
+	 * 2017-06-08
+	 * https://dev.moip.com.br/page/api-reference#section-retrieve-an-order-get-
+	 * https://dev.moip.com.br/v2.0/reference#consultar-pedido
 	 * @param string $id
 	 * @return self
 	 * @throws leUnautorized|leUnexpected|leValidation
