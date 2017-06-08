@@ -1,6 +1,10 @@
 <?php
 namespace Dfe\Moip\SDK;
-// 2017-04-26
+/**
+ * 2017-04-26
+ * @see \Dfe\Moip\SDK\Customer
+ * @see \Dfe\Moip\SDK\Order
+ */
 abstract class Entity implements \ArrayAccess {
 	/**
 	 * 2017-04-26 The last API response as an associative array (or its part).
