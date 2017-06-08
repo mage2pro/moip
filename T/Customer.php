@@ -7,10 +7,10 @@ use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
 // 2017-04-20
 final class Customer extends TestCase {
-	/** 2017-04-26 */
+	/** @test 2017-04-26 */
 	function t00() {}
 
-	/** @test 2017-04-20 https://dev.moip.com.br/v2.0/reference#criar-um-cliente */
+	/** 2017-04-20 https://dev.moip.com.br/v2.0/reference#criar-um-cliente */
 	function t01_create() {
 		try {
 			/**
