@@ -11,12 +11,7 @@ final class Order extends TestCase {
 	/** 2017-06-08 */
 	function t00() {}
 
-	/**
-	 * @test
-	 * 2017-06-08
-	 * https://dev.moip.com.br/page/api-reference#section-create-an-order-post-
-	 * https://dev.moip.com.br/v2.0/reference#criar-pedido
-	 */
+	/** @test 2017-06-08 */
 	function t01_create() {
 		try {
 			echo O::create($this->pOrder())->j();
@@ -30,8 +25,35 @@ final class Order extends TestCase {
 
 	/**
 	 * 2017-06-08
-	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
-	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
+	 * @used-by pOrder()
+	 * @return array(string => mixed)
+	 */
+	private function pAmount() {return [
+		// 2017-06-09
+		// «Currency used in the order. Possible values: BRL. Default value BRL.»
+		// Optional, String.
+		'currency' => 'BRL'
+		// 2017-06-09
+		// «Structure of additional order values.»
+		// Optional, String.
+		,'subtotals' => [
+			// 2017-06-09
+			// «Addition amount. It will be added to the items amount.»
+			// Optional, Integer(12).
+			'addition' => ''
+			// 2017-06-09
+			// «Discount amount. This value will be deducted from the total amount.»
+			// Optional, Integer(12).
+			,'discount' => ''
+			// 2017-06-09
+			// «Shipping cost. It will be added to the items amount.»
+			// Optional, Integer(12).
+			,'shipping' => ''
+		]
+	];}
+
+	/**
+	 * 2017-06-08
 	 * @used-by t01_create()
 	 * @return array(string => mixed)
 	 */
@@ -39,28 +61,12 @@ final class Order extends TestCase {
 		// 2017-06-09
 		// «Order values.»
 		// Required, String(66).
-		'amount' => [
-			// 2017-06-09
-			// «Currency used in the order. Possible values: BRL. Default value BRL.»
-			// Optional, String.
-			'currency' => 'BRL'
-			// 2017-06-09
-			// «Structure of additional order values.»
-			// Optional, String.
-			,'subtotals' => [
-				// 2017-06-09
-				// «Addition amount. It will be added to the items amount.»
-				// Optional, Integer(12).
-				'addition' => ''
-				// 2017-06-09
-				// «Discount amount. This value will be deducted from the total amount.»
-				// Optional, Integer(12).
-				,'discount' => ''
-				// 2017-06-09
-				// «Shipping cost. It will be added to the items amount.»
-				// Optional, Integer(12).
-				,'shipping' => ''
-			]
+		// My notes: the order amount is calculated automatically by Moip.
+		'amount' => $this->pAmount()
+		// 2017-06-09
+		// «Items structure.»
+		,'items' => [
+			
 		]
 		// 2017-06-09
 		// «Own id of an order. External reference.»
