@@ -153,7 +153,7 @@ final class Order extends TestCase {
 
 	/**
 	 * 2017-06-09
-	 * My notes: All the fields below are required for the Protected Sales Program:
+	 * All the fields below are required for the Protected Sales Program:
 	 * https://dev.moip.com.br/v2.0/docs/venda-protegida
 	 * @used-by pOrder()
 	 * @return array(string => mixed)

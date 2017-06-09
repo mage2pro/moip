@@ -167,23 +167,7 @@ final class Customer extends TestCase {
 	// that are not from Brazil, so this error occurs.
 	// We do not have a forecast to be international.»
 	// https://mage2.pro/t/3820/2
-	] + (!($p = $this->phoneA()) || 3 > count($p) || 55 !== intval($p[1]) ? [] : array_combine([
-		// 2017-04-25 «Your phone's local code (DDD)», Integer(2).
-		'areaCode'
-		// 2017-04-25 «ID number of the phone. Possible values: 55.», Integer(2).
-		,'countryCode'
-		// 2017-04-25 «Telephone number.», Integer(9).
-		,'number'
-	], $p));}
-
-	/**
-	 * 2017-04-25
-	 * @used-by pCustomer()
-	 * @return string[]|null
-	 */
-	private function phoneA() {return dfc($this, function() {return df_phone_explode(
-		['+552131398000', 'BR'], false
-	);});}
+	] + Data::phone();}
 
 	/**
 	 * 2017-04-25
