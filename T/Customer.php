@@ -39,7 +39,6 @@ final class Customer extends TestCase {
 	}
 
 	/**
-	 * @test
 	 * 2017-04-25
 	 * https://dev.moip.com.br/page/api-reference#section-retrieve-a-customer-get-
 	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente

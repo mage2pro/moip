@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Moip\T;
-use Dfe\Moip\SDK\Order as O;
+use Dfe\Moip\SDK\Order as lO;
+use Magento\Sales\Model\Order as O;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
@@ -14,7 +15,8 @@ final class Order extends TestCase {
 	/** @test 2017-06-08 */
 	function t01_create() {
 		try {
-			echo O::create($this->pOrder())->j();
+			//echo lO::create($this->pOrder())->j();
+			echo df_json_encode_pretty($this->pOrder());
 		}
 		catch (\Exception $e) {
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
@@ -22,6 +24,12 @@ final class Order extends TestCase {
 			throw $e;
 		}
 	}
+
+	/**
+	 * 2017-06-09
+	 * @return O
+	 */
+	private function o() {return dfc($this, function() {return df_order(539);});}
 
 	/**
 	 * 2017-06-09
@@ -108,6 +116,8 @@ final class Order extends TestCase {
 
 	/**
 	 * 2017-06-09
+	 * My notes: All the fields below are required for the Protected Sales Program:
+	 * https://dev.moip.com.br/v2.0/docs/venda-protegida
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
 	 */
@@ -115,8 +125,6 @@ final class Order extends TestCase {
 		// 2017-06-09
 		// «Description»
 		// Optional, String(250).
-		// It is required for the Protected Sales Program:
-		// https://dev.moip.com.br/v2.0/docs/venda-protegida
 		'detail' => ''
 		// 2017-06-09
 		// «Price of 1 product. (The value is multiplied according to the number of products.).
@@ -124,11 +132,11 @@ final class Order extends TestCase {
 		// Required, Integer(12).
 		,'price' => ''
 		// 2017-06-09
-		// «Product name.=»
+		// «Product name»
 		// Required, String(256).
 		,'product' => ''
 		// 2017-06-09
-		// «Quantity of products.=»
+		// «Quantity of products»
 		// Required, Integer(12).
 		,'quantity' => ''
 	];}
