@@ -60,9 +60,13 @@ final class Payment extends TestCase {
 			// Conditional, String.
 			,'holder' => [
 				// 2017-06-09
+				// «Billing address»
+				// Optional.
+				'billingAddress' => Data::s()->address()
+				// 2017-06-09
 				// «date(AAAA-MM-DD)»
 				// Required.
-				'birthdate' => '1982-07-08'
+				,'birthdate' => '1982-07-08'
 				// 2017-06-09
 				// «Name of the carrier printed on the card»
 				// Required, String(90).
@@ -71,9 +75,9 @@ final class Payment extends TestCase {
 				// «Phone number»
 				// It is required for the Protected Sales Program:
 				// https://dev.moip.com.br/v2.0/docs/venda-protegida
-				,'phone' => Data::phone()
+				,'phone' => Data::s()->phone()
 				// 2017-06-09 «Document»
-				,'taxDocument' => Data::taxDocument()
+				,'taxDocument' => Data::s()->taxDocument()
 			]
 			// 2017-06-09
 			// «Credit card ID.
