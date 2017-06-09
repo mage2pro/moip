@@ -25,7 +25,7 @@ final class Order extends TestCase {
 
 	/**
 	 * 2017-06-08
-	 * «Order values.»
+	 * «Order values»
 	 * Required, String(66).
 	 * My notes: the order amount is calculated automatically by Moip.
 	 * @used-by pOrder()
@@ -56,7 +56,27 @@ final class Order extends TestCase {
 	];}
 
 	/**
-	 * 2017-06-08
+	 * 2017-06-09
+	 * «Checkout setup»
+	 * @used-by pOrder()
+	 * @return array(string => mixed)
+	 */
+	private function pCheckoutPreferences() {return [
+		// 2017-06-09 «Redirect URLs»
+		'redirectUrls' => [
+			// 2017-06-09
+			// «Redirect URL for failed payments»
+			// Optional, Link.
+			'urlFailure' => ''
+			// 2017-06-09
+			// «Redirect URL for successful payments»
+			// Optional, Link.
+			,'urlSuccess' => ''
+		]
+	];}
+
+	/**
+	 * 2017-06-09
 	 * «Customer.
 	 * It can be an ID for a customer previously created
 	 * or the collection of attributes to create a new one.»
@@ -64,6 +84,11 @@ final class Order extends TestCase {
 	 * @return array(string => mixed)
 	 */
 	private function pCustomer() {return [
+		// 2017-06-09
+		// «If you use an existing client, pass the client's moip ID here.
+		// To create a new client, see the format of the object in Client».
+		// Optional.
+		// My notes: An example of the value: «CUS-UKXT2RQ2TULX».
 		'id' => ''
 	];}
 
@@ -74,7 +99,7 @@ final class Order extends TestCase {
 	 */
 	private function pItem() {return [
 		// 2017-06-09
-		// «Description.»
+		// «Description»
 		// Optional, String(250).
 		// It is required for the Protected Sales Program:
 		// https://dev.moip.com.br/v2.0/docs/venda-protegida
@@ -85,11 +110,11 @@ final class Order extends TestCase {
 		// Required, Integer(12).
 		,'price' => ''
 		// 2017-06-09
-		// «Product name.»
+		// «Product name.=»
 		// Required, String(256).
 		,'product' => ''
 		// 2017-06-09
-		// «Quantity of products.»
+		// «Quantity of products.=»
 		// Required, Integer(12).
 		,'quantity' => ''
 	];}
@@ -101,18 +126,19 @@ final class Order extends TestCase {
 	 */
 	private function pOrder() {return [
 		// 2017-06-09
-		// «Order values.»
+		// «Order values»
 		// Required, String(66).
 		// My notes: the order amount is calculated automatically by Moip.
 		'amount' => $this->pAmount()
+		// 2017-06-09 «Checkout setup»
+		,'checkoutPreferences' => $this->pCheckoutPreferences()
 		// 2017-06-09
 		// «Customer.
 		// It can be an ID for a customer previously created
 		// or the collection of attributes to create a new one.»
 		// Required.
 		,'customer' => $this->pCustomer()
-		// 2017-06-09
-		// «Items structure.»
+		// 2017-06-09 «Items structure»
 		,'items' => [$this->pItem()]
 		// 2017-06-09
 		// «Own id of an order. External reference.»
