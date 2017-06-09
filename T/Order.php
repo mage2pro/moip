@@ -24,7 +24,7 @@ final class Order extends TestCase {
 	}
 
 	/**
-	 * 2017-06-08
+	 * 2017-06-09
 	 * «Order values»
 	 * Required, String(66).
 	 * My notes: the order amount is calculated automatically by Moip.
@@ -62,8 +62,23 @@ final class Order extends TestCase {
 	 * @return array(string => mixed)
 	 */
 	private function pCheckoutPreferences() {return [
+		// 2017-06-09 «Installments setup»
+		'installments' => [[
+			// 2017-06-09
+			// «Addition for installments number»
+			// Optional, Integer.
+			'addition' => ''
+			// 2017-06-09
+			// «Discount for installments number»
+			// Optional, Integer.
+			,'discount' => ''
+			// 2017-06-09
+			// «Delimiters for installments. Example: [1, 3];»
+			// Optional, Array of integers.
+			,'quantity' => []
+		]]
 		// 2017-06-09 «Redirect URLs»
-		'redirectUrls' => [
+		,'redirectUrls' => [
 			// 2017-06-09
 			// «Redirect URL for failed payments»
 			// Optional, Link.
@@ -93,7 +108,7 @@ final class Order extends TestCase {
 	];}
 
 	/**
-	 * 2017-06-08
+	 * 2017-06-09
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
 	 */
@@ -144,5 +159,48 @@ final class Order extends TestCase {
 		// «Own id of an order. External reference.»
 		// Required, String(66).
 		,'ownId' => df_uid(4, 'admin@mage2.pro-')
+		// 2017-06-09
+		// «Structure of recipients of payments.
+		// Used to define commissioning on Marketplaces deployments.»
+		,'receivers' => [$this->pReceiver()]
+	];}
+
+	/**
+	 * 2017-06-09
+	 * @used-by pOrder()
+	 * @return array(string => mixed)
+	 */
+	private function pReceiver() {return [
+		// 2017-06-09
+		// «Flag to set whether the recipient is the Moip rate payer.
+		// Possible values: true, false.
+		// If the feePayor is not informed, the recipient type PRIMARY will be the Moip rate payer.
+		// If there is more than one SECONDARY type receiver,
+		// only one can be the payer of the rate.»
+		// Boolean.
+		'feePayor' => ''
+		// 2017-06-09
+		// «Moip Account Receiving Payment»
+		,'moipAccount' => [
+			// 2017-06-09 «Structure of the amount to be received»
+			'amount' => [
+				// 2017-06-09
+				// «Fixed amount to be sent to a receiver»
+				// Optional, Integer(12).
+				'fixed' => ''
+				// 2017-06-09
+				// «Percentual amount to be sent to a receiver»
+				// Optional, Integer(12).
+				,'percentual' => ''
+			]
+			// 2017-06-09
+			// «Account ID»
+			// Optional, String(16).
+			,'id' => ''
+		]
+		// 2017-06-09
+		// «Receiver type. Possible values: PRIMARY, SECONDARY.»
+		// Conditional, String.
+		,'type' => ''
 	];}
 }
