@@ -89,11 +89,11 @@ final class Order extends TestCase {
 			// 2017-06-09
 			// «Redirect URL for failed payments»
 			// Optional, Link.
-			'urlFailure' => ''
+			'urlFailure' => dfp_url_customer_return_remote($this->m())
 			// 2017-06-09
 			// «Redirect URL for successful payments»
 			// Optional, Link.
-			,'urlSuccess' => ''
+			,'urlSuccess' => dfp_url_customer_return_remote($this->m())
 		]
 	];}
 
