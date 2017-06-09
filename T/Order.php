@@ -2,6 +2,7 @@
 namespace Dfe\Moip\T;
 use Dfe\Moip\SDK\Order as lO;
 use Magento\Sales\Model\Order as O;
+use Magento\Sales\Model\Order\Item as OI;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
@@ -24,6 +25,15 @@ final class Order extends TestCase {
 			throw $e;
 		}
 	}
+
+	/**
+	 * 2017-06-09
+	 * @param float $v
+	 * @return int
+	 */
+	private function amount($v) {return round(100 * df_currency_convert(
+		$v, df_oq_currency($this->o())->getCode(), 'BRL'
+	));}
 
 	/**
 	 * 2017-06-09
@@ -70,22 +80,9 @@ final class Order extends TestCase {
 	 */
 	private function pCheckoutPreferences() {return [
 		// 2017-06-09 «Installments setup»
-		'installments' => [[
-			// 2017-06-09
-			// «Addition for installments number»
-			// Optional, Integer.
-			'addition' => ''
-			// 2017-06-09
-			// «Discount for installments number»
-			// Optional, Integer.
-			,'discount' => ''
-			// 2017-06-09
-			// «Delimiters for installments. Example: [1, 3];»
-			// Optional, Array of integers.
-			,'quantity' => []
-		]]
+		//'installments' => [$this->pInstallment()],
 		// 2017-06-09 «Redirect URLs»
-		,'redirectUrls' => [
+		'redirectUrls' => [
 			// 2017-06-09
 			// «Redirect URL for failed payments»
 			// Optional, Link.
@@ -111,7 +108,27 @@ final class Order extends TestCase {
 		// To create a new client, see the format of the object in Client».
 		// Optional.
 		// My notes: An example of the value: «CUS-UKXT2RQ2TULX».
-		'id' => ''
+		'id' => 'CUS-UKXT2RQ2TULX'
+	];}
+
+	/**
+	 * 2017-06-09
+	 * @used-by pCheckoutPreferences()
+	 * @return array(string => mixed)
+	 */
+	private function pInstallment() {return [
+		// 2017-06-09
+		// «Addition for installments number»
+		// Optional, Integer.
+		'addition' => ''
+		// 2017-06-09
+		// «Discount for installments number»
+		// Optional, Integer.
+		,'discount' => ''
+		// 2017-06-09
+		// «Delimiters for installments. Example: [1, 3];»
+		// Optional, Array of integers.
+		,'quantity' => []
 	];}
 
 	/**
@@ -121,25 +138,25 @@ final class Order extends TestCase {
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pItem() {return [
+	private function pItems() {return df_oqi_leafs($this->o(), function($i) {/** @var OI $i */ return [
 		// 2017-06-09
 		// «Description»
 		// Optional, String(250).
-		'detail' => ''
+		'detail' => df_oqi_desc($i, 250)
 		// 2017-06-09
 		// «Price of 1 product. (The value is multiplied according to the number of products.).
 		// In cents.»
 		// Required, Integer(12).
-		,'price' => ''
+		,'price' => $this->amount(df_oqi_price($i, true))
 		// 2017-06-09
 		// «Product name»
 		// Required, String(256).
-		,'product' => ''
+		,'product' => $i->getName()
 		// 2017-06-09
 		// «Quantity of products»
 		// Required, Integer(12).
-		,'quantity' => ''
-	];}
+		,'quantity' => df_oqi_qty($i)
+	];});}
 
 	/**
 	 * 2017-06-08
@@ -160,7 +177,7 @@ final class Order extends TestCase {
 		// Required.
 		,'customer' => $this->pCustomer()
 		// 2017-06-09 «Items structure»
-		,'items' => [$this->pItem()]
+		,'items' => $this->pItems()
 		// 2017-06-09
 		// «Own id of an order. External reference.»
 		// Required, String(66).
@@ -168,7 +185,7 @@ final class Order extends TestCase {
 		// 2017-06-09
 		// «Structure of recipients of payments.
 		// Used to define commissioning on Marketplaces deployments.»
-		,'receivers' => [$this->pReceiver()]
+		//,'receivers' => [$this->pReceiver()]
 	];}
 
 	/**
@@ -207,6 +224,6 @@ final class Order extends TestCase {
 		// 2017-06-09
 		// «Receiver type. Possible values: PRIMARY, SECONDARY.»
 		// Conditional, String.
-		,'type' => ''
+		,'type' => 'PRIMARY'
 	];}
 }
