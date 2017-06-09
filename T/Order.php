@@ -16,8 +16,8 @@ final class Order extends TestCase {
 	/** @test 2017-06-08 */
 	function t01_create() {
 		try {
-			//echo lO::create($this->pOrder())->j();
-			echo df_json_encode_pretty($this->pOrder());
+			echo lO::create($this->pOrder())->j();
+			//echo df_json_encode_pretty($this->pOrder());
 		}
 		catch (\Exception $e) {
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
@@ -37,6 +37,26 @@ final class Order extends TestCase {
 
 	/**
 	 * 2017-06-09
+	 * A positive result is treated as the surcharge.
+	 * A negative result is treated as a discount.
+	 * @return int
+	 */
+	private function amountMargin() {return dfc($this, function() {return
+		$this->amount($this->o()->getGrandTotal())
+		- array_sum(array_map(function(array $i) {return $i['quantity'] * $i['price'];}, $this->pItems()))
+		- $this->amountShipping()
+	;});}
+
+	/**
+	 * 2017-06-09
+	 * @return int
+	 */
+	private function amountShipping() {return dfc($this, function() {return $this->amount(
+		df_oq_shipping_amount($this->o())
+	);});}
+
+	/**
+	 * 2017-06-09
 	 * @return O
 	 */
 	private function o() {return dfc($this, function() {return df_order(539);});}
@@ -48,7 +68,7 @@ final class Order extends TestCase {
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pAmount() {return [
+	private function pAmount() {/** @var int $m */$m = $this->amountMargin(); return [
 		// 2017-06-09
 		// «Currency used in the order. Possible values: BRL. Default value BRL.»
 		// Optional, String.
@@ -60,15 +80,15 @@ final class Order extends TestCase {
 			// 2017-06-09
 			// «Addition amount. It will be added to the items amount. In cents.»
 			// Optional, Integer(12).
-			'addition' => ''
+			'addition' => max(0, $m)
 			// 2017-06-09
 			// «Discount amount. This value will be deducted from the total amount. In cents.»
 			// Optional, Integer(12).
-			,'discount' => ''
+			,'discount' => -min(0, $m)
 			// 2017-06-09
 			// «Shipping cost. It will be added to the items amount. In cents.»
 			// Optional, Integer(12).
-			,'shipping' => ''
+			,'shipping' => $this->amount(df_oq_shipping_amount($this->o()))
 		]
 	];}
 
@@ -138,25 +158,27 @@ final class Order extends TestCase {
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pItems() {return df_oqi_leafs($this->o(), function($i) {/** @var OI $i */ return [
-		// 2017-06-09
-		// «Description»
-		// Optional, String(250).
-		'detail' => df_oqi_desc($i, 250)
-		// 2017-06-09
-		// «Price of 1 product. (The value is multiplied according to the number of products.).
-		// In cents.»
-		// Required, Integer(12).
-		,'price' => $this->amount(df_oqi_price($i, true))
-		// 2017-06-09
-		// «Product name»
-		// Required, String(256).
-		,'product' => $i->getName()
-		// 2017-06-09
-		// «Quantity of products»
-		// Required, Integer(12).
-		,'quantity' => df_oqi_qty($i)
-	];});}
+	private function pItems() {return dfc($this, function() {return
+		df_oqi_leafs($this->o(), function($i) {/** @var OI $i */ return [
+			// 2017-06-09
+			// «Description»
+			// Optional, String(250).
+			'detail' => df_oqi_desc($i, 250)
+			// 2017-06-09
+			// «Price of 1 product. (The value is multiplied according to the number of products.).
+			// In cents.»
+			// Required, Integer(12).
+			,'price' => $this->amount(df_oqi_price($i, true))
+			// 2017-06-09
+			// «Product name»
+			// Required, String(256).
+			,'product' => $i->getName()
+			// 2017-06-09
+			// «Quantity of products»
+			// Required, Integer(12).
+			,'quantity' => df_oqi_qty($i)
+		];})
+	;});}
 
 	/**
 	 * 2017-06-08
