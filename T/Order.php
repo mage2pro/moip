@@ -10,10 +10,10 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/page/api-reference#section-orders
 // https://dev.moip.com.br/v2.0/reference#pedidos
 final class Order extends TestCase {
-	/** 2017-06-08 */
+	/** @test 2017-06-08 */
 	function t00() {}
 
-	/** @test 2017-06-08 */
+	/** 2017-06-08 */
 	function t01_create() {
 		try {
 			echo lO::create($this->pOrder())->j();
