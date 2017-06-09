@@ -26,7 +26,6 @@ final class Order extends TestCase {
 	/**
 	 * 2017-06-09
 	 * «Order values»
-	 * Required, String(66).
 	 * My notes: the order amount is calculated automatically by Moip.
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
@@ -142,7 +141,6 @@ final class Order extends TestCase {
 	private function pOrder() {return [
 		// 2017-06-09
 		// «Order values»
-		// Required, String(66).
 		// My notes: the order amount is calculated automatically by Moip.
 		'amount' => $this->pAmount()
 		// 2017-06-09 «Checkout setup»
