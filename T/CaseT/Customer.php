@@ -1,14 +1,14 @@
 <?php
-namespace Dfe\Moip\T;
+namespace Dfe\Moip\T\CaseT;
 use Dfe\Moip\SDK\Customer as C;
-
+use Dfe\Moip\T\Data;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
 use Moip\Exceptions\ValidationException as leValidation;
 // 2017-04-20
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
-final class Customer extends TestCase {
+final class Customer extends \Dfe\Moip\T\CaseT {
 	/** @test 2017-04-26 */
 	function t00() {}
 

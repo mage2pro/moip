@@ -8,7 +8,7 @@ final class Data {
 	 * 	*) associated with the Customer as the delivery address («shippingAddress»)
 	 * 	*) or associated with the Credit Card as the billing address («billingAddress»).»
 	 * https://dev.moip.com.br/v2.0/reference#endereco
-	 * @used-by \Dfe\Moip\T\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * @return array(string => mixed)
 	 */
 	function address() {/** @var GA $ga */$ga = $this->ga(); return [
@@ -37,7 +37,7 @@ final class Data {
 
 	/**
 	 * 2017-06-09
-	 * @used-by \Dfe\Moip\T\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * @used-by \Dfe\Moip\T\Payment::pFundingInstrument()
 	 * @return array(string => int|string)
 	 */
@@ -45,7 +45,7 @@ final class Data {
 
 	/**
 	 * 2017-06-09 «Fiscal document»
-	 * @used-by \Dfe\Moip\T\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * @used-by \Dfe\Moip\T\Payment::pFundingInstrument()
 	 * @return array(string => int|string)
 	 */

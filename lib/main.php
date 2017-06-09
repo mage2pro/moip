@@ -6,7 +6,7 @@
  * @return array(string => int|string)
  */
 function dfe_moip_phone($s) {return dfcf(function($s) {/** @var array(string => string)|null $a */return
-	!($a = df_phone_explode([$s, 'BR'], false)) || 3 > count($a) || 55 !== intval($a[1]) ? [] :
+	!($a = df_phone_explode([$s, 'BR'], false)) || 3 > count($a) || 55 !== intval($a[0]) ? [] :
 		array_combine([
 			// 2017-04-25 «Your phone's local code (DDD)», Integer(2).
 			'areaCode'

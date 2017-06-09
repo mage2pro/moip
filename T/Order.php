@@ -1,30 +1,20 @@
 <?php
 namespace Dfe\Moip\T;
-use Dfe\Moip\SDK\Order as lO;
+use Dfe\Moip\SDK\Message as lMessage;
+use Dfe\Moip\SDK\Order as lOrder;
 use Magento\Sales\Model\Order as O;
 use Magento\Sales\Model\Order\Item as OI;
-use Moip\Exceptions\UnautorizedException as leUnautorized;
-use Moip\Exceptions\UnexpectedException as leUnexpected;
-use Moip\Exceptions\ValidationException as leValidation;
-// 2017-06-08
+// 2017-06-10
 // https://dev.moip.com.br/page/api-reference#section-orders
 // https://dev.moip.com.br/v2.0/reference#pedidos
-final class Order extends TestCase {
-	/** @test 2017-06-08 */
-	function t00() {}
-
-	/** 2017-06-08 */
-	function t01_create() {
-		try {
-			echo lO::create($this->pOrder())->j();
-			//echo df_json_encode_pretty($this->pOrder());
-		}
-		catch (\Exception $e) {
-			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
-			xdebug_break();
-			throw $e;
-		}
-	}
+final class Order {
+	/**
+	 * 2017-06-10
+	 * @used-by \Dfe\Moip\T\CaseT\Order::t01_create()
+	 * @used-by \Dfe\Moip\T\CaseT\Payment::t01_create()
+	 * @return lMessage
+	 */
+	function create() {return lOrder::create($this->pOrder());}
 
 	/**
 	 * 2017-06-09
@@ -106,11 +96,11 @@ final class Order extends TestCase {
 			// 2017-06-09
 			// «Redirect URL for failed payments»
 			// Optional, Link.
-			'urlFailure' => dfp_url_customer_return_remote($this->m())
+			'urlFailure' => dfp_url_customer_return_remote(dfpm($this))
 			// 2017-06-09
 			// «Redirect URL for successful payments»
 			// Optional, Link.
-			,'urlSuccess' => dfp_url_customer_return_remote($this->m())
+			,'urlSuccess' => dfp_url_customer_return_remote(dfpm($this))
 		]
 	];}
 
