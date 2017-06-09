@@ -155,12 +155,7 @@ final class Customer extends TestCase {
 		// https://dev.moip.com.br/v2.0/reference#endereco
 		,'shippingAddress' => $this->pAddress()
 		// 2017-04-25 «Fiscal document», Optional, Structured.
-		,'taxDocument' => [
-			// 2017-04-23 «Document number»,  String(11).
-			'number' => '22222222222'
-			// 2017-04-23 «Document type. Possible values: CPF, CNPJ.», String(4).
-			,'type' => 'CPF'
-		]
+		,'taxDocument' => Data::taxDocument()
 	// 2017-04-22 «Customer's phone number», Optional, Structured.
 	// 2017-04-25
 	// «Today we do not support creating clients that are from other countries

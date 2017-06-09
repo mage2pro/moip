@@ -72,6 +72,8 @@ final class Payment extends TestCase {
 				// It is required for the Protected Sales Program:
 				// https://dev.moip.com.br/v2.0/docs/venda-protegida
 				,'phone' => Data::phone()
+				// 2017-06-09 «Document»
+				,'taxDocument' => Data::taxDocument()
 			]
 			// 2017-06-09
 			// «Credit card ID.
