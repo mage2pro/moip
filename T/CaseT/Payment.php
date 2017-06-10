@@ -10,10 +10,10 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/page/api-reference#section-payments
 // https://dev.moip.com.br/v2.0/reference#pagamentos
 final class Payment extends \Dfe\Moip\T\CaseT {
-	/** 2017-06-09 */
+	/** @test 2017-06-09 */
 	function t00() {}
 
-	/** @test 2017-06-09 */
+	/** 2017-06-09 */
 	function t01_create() {
 		try {
 			echo lP::create((new tOrder)->create()->a('id'), $this->pPayment())->j();

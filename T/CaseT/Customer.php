@@ -9,13 +9,14 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\T\CaseT {
-	/** @test 2017-04-26 */
+	/** 2017-04-26 */
 	function t00() {}
 
 	/**
 	 * 2017-04-20
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
+	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
 	 */
 	function t01_create() {
 		try {
@@ -39,9 +40,10 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	}
 
 	/**
-	 * 2017-04-25
+	 * @test 2017-04-25
 	 * https://dev.moip.com.br/page/api-reference#section-retrieve-a-customer-get-
 	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
+	 * [Moip] An example of a response to «GET v2/customers/<customer ID>» https://mage2.pro/t/4049
 	 * В качестве параметра «customer_id» этого запроса допустим только идентификатор покупателя в Moip
 	 * (значение поля «id», оно имеет вид «CUS-UKXT2RQ2TULX»).
 	 * Значение поля «ownId» тут недопустимо.
