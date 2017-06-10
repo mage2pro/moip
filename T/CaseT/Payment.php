@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
+use Dfe\Moip\SDK\Option;
 use Dfe\Moip\SDK\Payment as lP;
 use Dfe\Moip\T\Data;
 use Dfe\Moip\T\Order as tOrder;
@@ -50,7 +51,7 @@ final class Payment extends \Dfe\Moip\T\CaseT {
 		// 2017-06-09
 		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
 		// Required, String.
-		,'method' => 'CREDIT_CARD'
+		,'method' => Option::BANK_CARD
 	];}
 	
 	/**
