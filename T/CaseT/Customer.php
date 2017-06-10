@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
 use Dfe\Moip\SDK\Customer as C;
+use Dfe\Moip\T\Card as tCard;
 use Dfe\Moip\T\Data;
 use Moip\Exceptions\UnautorizedException as leUnautorized;
 use Moip\Exceptions\UnexpectedException as leUnexpected;
@@ -13,7 +14,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	function t00() {}
 
 	/**
-	 * 2017-04-20
+	 * @test 2017-04-20
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
@@ -40,7 +41,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	}
 
 	/**
-	 * @test 2017-04-25
+	 * 2017-04-25
 	 * https://dev.moip.com.br/page/api-reference#section-retrieve-a-customer-get-
 	 * https://dev.moip.com.br/v2.0/reference#consultar-um-cliente
 	 * [Moip] An example of a response to «GET v2/customers/<customer ID>» https://mage2.pro/t/4049
@@ -99,6 +100,11 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		,'email' => 'admin@mage2.pro'
 		// 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => 'Dmitry Fedyuk'
+		// 2017-06-10
+		// This option is undocumented in the Portuguese documentation:
+		// But it is mentioned in the English documentation:
+		// https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
+		,'fundingInstruments' => [tCard::s()->get()]
 		// 2017-04-22
 		// «Customer Id. External reference.»
 		// Required, String(66).
