@@ -16,14 +16,48 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 
 	/**
 	 * 2017-04-25
+	 * 2017-06-10
+	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
+	 * https://mage2.pro/t/4050
+	 *	{
+	 *		"creditCard": {
+	 *			"id": "CRC-M423RWG3PK7J",
+	 *			"brand": "MASTERCARD",
+	 *			"first6": "555566",
+	 *			"last4": "8884",
+	 *			"store": true
+	 *		},
+	 *		"card": {
+	 *			"brand": "MASTERCARD",
+	 *			"store": true
+	 *		},
+	 *		"method": "CREDIT_CARD"
+	 *	}
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @param C $c
 	 * @param string $token
-	 * @return string
+	 * @return string	An example: «CRC-M423RWG3PK7J».
 	 */
-	function cardAdd($c, $token) {return null;}
+	function cardAdd($c, $token) {return C::addCard($this->id($c), [
+		// 2017-06-09
+		// «Credit Card data. It can be:
+		// *) the ID of a credit card previously saved,
+		// *) an encrypted credit card hash
+		// *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
+		// [Moip] The test bank cards: https://mage2.pro/t/3776
+		'creditCard' => [
+			// 2017-06-10
+			// «Encrypted credit card data»
+			// Conditional, String.
+			'hash' => $token
+		]
+		// 2017-06-09
+		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
+		// Required, String.
+		,'method' => Option::BANK_CARD
+	])['creditCard/id'];}
 
 	/**
 	 * 2017-04-25

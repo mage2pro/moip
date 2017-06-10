@@ -45,6 +45,10 @@ final class Card {
 		// «Credit card expiration year. Requires PCI certification.»
 		// Conditional, Integer(4).
 		,'expirationYear' => 2018
+		// 2017-06-10
+		// «Encrypted credit card data»
+		// Conditional, String.
+		//,'hash' => ''
 		// 2017-06-09
 		// «Encrypted credit card data»
 		// Conditional, String.
