@@ -23,8 +23,10 @@ final class Order extends \Dfe\Moip\T\CaseT {
 			//echo df_json_encode_pretty($this->pOrder());
 		}
 		catch (\Exception $e) {
+			if (function_exists('xdebug_break')) {
+				xdebug_break();
+			}
 			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
-			xdebug_break();
 			throw $e;
 		}
 	}

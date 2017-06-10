@@ -8,6 +8,25 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends Entity {
 	/**
+	 * 2017-06-10
+	 * https://dev.moip.com.br/page/api-reference#section-add-a-credit-card-post-
+	 * https://dev.moip.com.br/v2.0/reference#adicionar-cartao-de-credito
+	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
+	 * https://mage2.pro/t/4050
+	 * @used-by \Dfe\Moip\Facade\Customer::create()
+	 * @param string $customerId
+	 * @param array(string => mixed) $a
+	 * @return self
+	 * @throws leUnautorized|leUnexpected|leValidation
+	 */
+	static function addCard($customerId, array $a) {
+		/** @var Operation $op */
+		$op = new Operation;
+		$op->exec("/v2/customers/$customerId/fundinginstruments", 'POST', $a);
+		return new self($op);
+	}
+
+	/**
 	 * 2017-04-25
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente

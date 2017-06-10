@@ -8,16 +8,17 @@ final class Card {
 	 * «Payment method»
 	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * @used-by \Dfe\Moip\T\CaseT\Payment::pPayment()
+	 * @param int $index [optional]
 	 * @return array(string => mixed)
 	 */
-	function get() {return [
+	function get($index = 0) {return [
 		// 2017-06-09
 		// «Credit Card data. It can be:
 		// *) the ID of a credit card previously saved,
 		// *) an encrypted credit card hash
 		// *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
 		// [Moip] The test bank cards: https://mage2.pro/t/3776
-		'creditCard' => $this->pFundingInstrument_creditCard()
+		'creditCard' => $this->card($index)
 		// 2017-06-09
 		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
 		// Required, String.
@@ -28,9 +29,10 @@ final class Card {
 	 * 2017-06-09
 	 * «Payment method»
 	 * @used-by pFundingInstrument()
+	 * @param int $index
 	 * @return array(string => mixed)
 	 */
-	private function pFundingInstrument_creditCard() {return [
+	private function card($index) {return [
 		// 2017-06-09
 		// «Credit card security code.»
 		// Conditional, Integer.
@@ -80,7 +82,7 @@ final class Card {
 		// 2017-06-09
 		// «Credit Card number. Requires PCI certification.»
 		// Conditional, String(19).
-		,'number' => '4012001037141112'
+		,'number' => self::$numbers[$index]
 		// 2017-06-09
 		// Whether the card should be saved for future payments.
 		// https://moip.com.br/blog/compra-com-um-clique
@@ -91,4 +93,18 @@ final class Card {
 
 	/** @return self */
 	public static function s() {static $r; return $r ? $r : $r = new self;}
+
+	/**
+	 * 2017-06-10 [Moip] The test bank cards https://mage2.pro/t/3776
+	 * @var string[]
+	 */
+	private static $numbers = [
+		'4012001037141112'
+		,'5555666677778884'
+		,'376449047333005'
+		,'36490102462661'
+		,'6362970000457013'
+		,'6370950000000005'
+		,'6062825624254001'
+	];
 }
