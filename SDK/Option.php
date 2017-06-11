@@ -7,7 +7,7 @@ namespace Dfe\Moip\SDK;
 final class Option {
 	/**
 	 * 2017-06-10
-	 * @used-by \Dfe\Moip\Charge::v_CardId()
+	 * @used-by \Dfe\Moip\P\Charge::v_CardId()
 	 * @used-by \Dfe\Moip\Facade\Customer::cardsData()
 	 * @used-by \Dfe\Moip\T\CaseT\Payment::pFundingInstrument()
 	 */

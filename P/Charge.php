@@ -1,13 +1,13 @@
 <?php
-namespace Dfe\Moip;
+namespace Dfe\Moip\P;
 use Dfe\Moip\SDK\Option;
 // 2017-06-11
-final class Charge extends \Df\StripeClone\Charge {
+final class Charge extends \Df\StripeClone\P\Charge {
 	/**
 	 * 2017-06-11
 	 * @override
-	 * @see \Df\StripeClone\Charge::cardIdPrefix()
-	 * @used-by \Df\StripeClone\Charge::usePreviousCard()
+	 * @see \Df\StripeClone\P\Charge::cardIdPrefix()
+	 * @used-by \Df\StripeClone\P\Charge::usePreviousCard()
 	 * @return string
 	 */
 	protected function cardIdPrefix() {return null;}
@@ -15,20 +15,11 @@ final class Charge extends \Df\StripeClone\Charge {
 	/**
 	 * 2017-06-11
 	 * @override
-	 * @see \Df\StripeClone\Charge::pCharge()
-	 * @used-by \Df\StripeClone\Charge::request()
+	 * @see \Df\StripeClone\P\Charge::p()
+	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return array(string => mixed)
 	 */
-	protected function pCharge() {return [];}
-	
-	/**
-	 * 2017-06-11
-	 * @override
-	 * @see \Df\StripeClone\Charge::pCustomer()
-	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @return array(string => mixed)
-	 */
-	protected function pCustomer() {return [];}
+	protected function p() {return [];}
 
 	/**
 	 * 2017-06-11
@@ -37,9 +28,9 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * 1) в запросе на проведение транзакции (charge)
 	 * 2) в запросе на сохранение банковской карты для будущего повторного использования
 	 * @override
-	 * @see \Df\StripeClone\Charge::k_CardId()
-	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @used-by \Df\StripeClone\Charge::request()
+	 * @see \Df\StripeClone\P\Charge::k_CardId()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return string
 	 */
 	protected function k_CardId() {return null;}
@@ -48,8 +39,8 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * 2017-06-11
 	 * https://github.com/mage2pro/moip/blob/0.4.2/T/CaseT/Payment.php#L50-L53
 	 * @override
-	 * @see \Df\StripeClone\Charge::k_DSD()
-	 * @used-by \Df\StripeClone\Charge::request()
+	 * @see \Df\StripeClone\P\Charge::k_DSD()
+	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return string
 	 */
 	protected function k_DSD() {return 'statementDescriptor';}
@@ -57,9 +48,9 @@ final class Charge extends \Df\StripeClone\Charge {
 	/**
 	 * 2017-06-11
 	 * @override
-	 * @see \Df\StripeClone\Charge::v_CardId()
-	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @used-by \Df\StripeClone\Charge::request()
+	 * @see \Df\StripeClone\P\Charge::v_CardId()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @param string $id
 	 * @param bool $isPrevious [optional]
 	 * @return array(string => mixed)

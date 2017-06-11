@@ -35,7 +35,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 *	}
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
-	 * @used-by \Df\StripeClone\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param C $c
 	 * @param string $token
 	 * @return string	An example: «CRC-M423RWG3PK7J».
@@ -63,7 +63,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * 2017-04-25
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::create()
-	 * @used-by \Df\StripeClone\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
@@ -73,7 +73,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * 2017-04-25 «CUS-18QQ3DF4BIKY»
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
-	 * @used-by \Df\StripeClone\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param C $c
 	 * @return string
 	 */
