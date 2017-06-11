@@ -12,7 +12,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * Ключ, значением которого является токен банковской карты.
 	 * Этот ключ передаётся как параметр в запросе на сохранение банковской карты
 	 * для будущего повторного использования при регистрации нового покупателя.
-	 * https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Customer.php#L106-L110
+	 * https://github.com/mage2pro/moip/blob/0.4.5/T/CaseT/Customer.php#L106-L110
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()
@@ -21,7 +21,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	protected function k_CardId() {return 'fundingInstruments';}
 
 	/**
-	 * 2017-06-11
+	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Customer.php#L106-L110
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::v_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()
