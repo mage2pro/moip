@@ -45,10 +45,11 @@ final class Charge extends \Df\StripeClone\Charge {
 
 	/**
 	 * 2017-06-11
+	 * https://github.com/mage2pro/moip/blob/0.4.2/T/CaseT/Payment.php#L50-L53
 	 * @override
 	 * @see \Df\StripeClone\Charge::k_DSD()
 	 * @used-by \Df\StripeClone\Charge::request()
 	 * @return string
 	 */
-	protected function k_DSD() {return null;}
+	protected function k_DSD() {return 'statementDescriptor';}
 }
