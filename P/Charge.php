@@ -4,6 +4,24 @@ use Dfe\Moip\SDK\Option;
 // 2017-06-11
 final class Charge extends \Df\StripeClone\P\Charge {
 	/**
+	 * 2017-06-12
+	 * @override
+	 * @see \Df\StripeClone\P\Charge::inverseCapture()
+	 * @used-by \Df\StripeClone\P\Charge::request()
+	 * @return bool
+	 */
+	protected function inverseCapture() {return true;}
+
+	/**
+	 * 2017-06-12
+	 * @override
+	 * @see \Df\StripeClone\P\Charge::k_Capture()
+	 * @used-by \Df\StripeClone\P\Charge::request()
+	 * @return string
+	 */
+	protected function k_Capture() {return 'delayCapture';}
+	
+	/**
 	 * 2017-06-11 Ключ, значением которого является токен банковской карты.
 	 * https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Payment.php#L46-L49
 	 * @override
