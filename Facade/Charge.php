@@ -33,24 +33,26 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function cardIdPrefix() {return 'CRC-';}
 
 	/**
-	 * 2017-06-11
+	 * 2017-06-13
+	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	function create(array $p) {return C::create($this->preorderGet()->a('id'), $p);}
+	function create(array $p) {return C::create($this->preorderGet()['id'], $p);}
 
 	/**
-	 * 2017-06-11
+	 * 2017-06-13
+	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param C $c
-	 * @return string
+	 * @return string «PAY-9R8XPLW1OJGK»
 	 */
-	function id($c) {return null;}
+	function id($c) {return $c['id'];}
 
 	/**
 	 * 2017-06-12
