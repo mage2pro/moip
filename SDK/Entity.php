@@ -8,6 +8,8 @@ namespace Dfe\Moip\SDK;
 abstract class Entity implements \ArrayAccess {
 	/**
 	 * 2017-04-26 The last API response as an associative array (or its part).
+	 * @used-by \Dfe\Moip\Facade\Charge::create()
+	 * @used-by \Dfe\Moip\T\CaseT\Payment::t01_create()
 	 * @param string|string[]|null $k [optional]
 	 * @param string|null $d [optional]
 	 * @return array(string => mixed)|mixed|null

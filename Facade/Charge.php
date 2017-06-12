@@ -1,9 +1,11 @@
 <?php
 namespace Dfe\Moip\Facade;
+use Dfe\Moip\SDK\Order as O;
 use Dfe\Moip\SDK\Payment as C;
 use Magento\Sales\Model\Order\Creditmemo as CM;
 use Magento\Sales\Model\Order\Payment as OP;
 // 2017-06-11
+/** @method O preorderGet() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**
 	 * 2017-06-11
@@ -38,7 +40,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	function create(array $p) {return null;}
+	function create(array $p) {return C::create($this->preorderGet()->a('id'), $p);}
 
 	/**
 	 * 2017-06-11

@@ -11,6 +11,8 @@ final class Payment extends Entity {
 	 * 2017-06-09
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-payment-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
+	 * @used-by \Dfe\Moip\Facade\Charge::create()
+	 * @used-by \Dfe\Moip\T\CaseT\Payment::t01_create()
 	 * @param string $orderId
 	 * @param array(string => mixed) $a
 	 * @return self
