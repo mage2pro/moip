@@ -64,15 +64,16 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function needPreorder() {return true;}
 
 	/**
-	 * 2017-06-11
+	 * 2017-06-13
 	 * Returns the path to the bank card information
 	 * in a charge converted to an array by @see \Dfe\Stripe\Facade\O::toArray()
+	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
 	 * @used-by \Df\StripeClone\Block\Info::prepare()
 	 * @return string
 	 */
-	function pathToCard() {return null;}
+	function pathToCard() {return 'fundingInstrument/creditCard';}
 
 	/**
 	 * 2017-06-11

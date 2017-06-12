@@ -13,6 +13,33 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 *		"last4": "8884",
 	 *		"store": true
 	 *	}
+	 * 2017-06-13
+	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
+	 *	{
+	 *		"id": "CRC-3ITCTVLSEQKP",
+	 *		"brand": "VISA",
+	 *		"first6": "401200",
+	 *		"last4": "1112",
+	 *		"store": true,
+	 *		"holder": {
+	 * 			"birthdate": "1982-07-08",
+	 *			"birthDate": "1982-07-08",
+	 *			"taxDocument": {
+	 *				"type": "CPF",
+	 *				"number": "22222222222"
+	 *			},
+	 *			"billingAddress": {
+	 *				"street": "Avenida Lúcio Costa",
+	 *				"streetNumber": "3150",
+	 *				"complement": "",
+	 *				"district": "Barra da Tijuca",
+	 *				"city": "Rio de Janeiro",
+	 *				"state": "RJ",
+	 *				"country": "BRA",
+	 *				"zipCode": "22630-010"
+	 *			},
+	 *			"fullname": "DMITRY FEDYUK"
+	 *		}
 	 * @see \Dfe\Moip\Facade\Customer::cardAdd()
 	 * https://github.com/mage2pro/moip/blob/0.4.1/Facade/Customer.php#L88-L94
 	 * @used-by \Df\StripeClone\Facade\Card::create()
@@ -48,7 +75,11 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::country()
 	 * @return string|null
 	 */
-	function country() {return in_array($this->_p['brand'], ['ELO', 'HIPER', 'HIPERCARD']) ? 'BR' : null;}
+	function country() {return in_array($this->_p['brand'], ['ELO', 'HIPER', 'HIPERCARD']) ? 'BR' :
+		(!($iso3 = dfa_deep($this->_p, 'holder/billingAddress/country')) ? null :
+			df_country_3_to_2($iso3)
+		)
+	;}
 
 	/**
 	 * 2017-06-11
@@ -93,14 +124,13 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function last4() {return $this->_p['last4'];}
 
 	/**
-	 * 2017-06-11
-	 * 2017-02-16: https://github.com/mage2pro/stripe/issues/2
+	 * 2017-06-13
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::owner()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @return null
+	 * @return string
 	 */
-	function owner() {return null;}
+	function owner() {return dfa_deep($this->_p, 'holder/fullname');}
 
 	/**
 	 * 2017-06-11
