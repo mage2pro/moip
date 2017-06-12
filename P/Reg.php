@@ -29,7 +29,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 */
 	protected function p() {return df_clean([
 		// 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
-		'birthDate' => '1982-07-08'
+		'birthDate' => $this->customerDobS()
 		// 2017-04-22 «Email from the client», Required, String(45).
 		,'email' => $this->customerEmail()
 		// 2017-04-22 «Full name of customer», Required, String(90).
