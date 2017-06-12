@@ -11,7 +11,7 @@ final class Preorder extends \Df\StripeClone\Facade\Preorder {
 	 * @param array(string => mixed) $p
 	 * @return O
 	 */
-	function create(array $p) {return null;}
+	function create(array $p) {return O::create($p);}
 
 	/**
 	 * 2017-06-12
