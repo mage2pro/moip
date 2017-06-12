@@ -61,7 +61,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	// that are not from Brazil, so this error occurs.
 	// We do not have a forecast to be international.»
 	// https://mage2.pro/t/3820/2
-	]) + dfe_moip_phone('+552131398000');}
+	]) + dfe_moip_phone($this->addressBS()->getTelephone());}
 	/**
 	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Customer.php#L106-L110
 	 * @override
