@@ -10,6 +10,7 @@ use Magento\Sales\Model\Order\Item as OI;
 final class Order {
 	/**
 	 * 2017-06-10
+	 * @used-by \Dfe\Moip\Facade\Preorder::create()
 	 * @used-by \Dfe\Moip\T\CaseT\Order::t01_create()
 	 * @used-by \Dfe\Moip\T\CaseT\Payment::t01_create()
 	 * @return lMessage
@@ -29,6 +30,7 @@ final class Order {
 	 * 2017-06-09
 	 * A positive result is treated as the surcharge.
 	 * A negative result is treated as a discount.
+	 * @used-by pAmount()
 	 * @return int
 	 */
 	private function amountMargin() {return dfc($this, function() {return

@@ -40,6 +40,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * 2017-06-09
 	 * A positive result is treated as the surcharge.
 	 * A negative result is treated as a discount.
+	 * @used-by pAmount()
 	 * @return int
 	 */
 	private function amountMargin() {return dfc($this, function() {return
