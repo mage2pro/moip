@@ -27,11 +27,11 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @used-by \Df\StripeClone\P\Reg::request()
 	 * @return array(string => mixed)
 	 */
-	protected function p() {return [
+	protected function p() {return df_clean([
 		// 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
 		'birthDate' => '1982-07-08'
 		// 2017-04-22 «Email from the client», Required, String(45).
-		,'email' => 'admin@mage2.pro'
+		,'email' => $this->customerEmail()
 		// 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => 'Dmitry Fedyuk'
 		// 2017-06-10
@@ -45,7 +45,8 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		// It should be unique, otherwise you will get the error:
 		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 		// («The unique identifier must be unique, there is a customer with the identified identifier»).
-		,'ownId' => df_uid(4, 'admin@mage2.pro-')
+		,'ownId' => !in_array($r = $this->customerEmail(), ['admin@mage2.pro', 'dfeduuk@gmail.com']) ? $r :
+			df_uid(4, "$r-")
 		// 2017-04-23
 		// «The Address is the set of data that represents a location:
 		// *) associated with the Customer as the delivery address («shippingAddress»)
@@ -60,8 +61,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	// that are not from Brazil, so this error occurs.
 	// We do not have a forecast to be international.»
 	// https://mage2.pro/t/3820/2
-	] + dfe_moip_phone('+552131398000');}
-
+	]) + dfe_moip_phone('+552131398000');}
 	/**
 	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Customer.php#L106-L110
 	 * @override
