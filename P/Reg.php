@@ -36,11 +36,6 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		,'email' => $this->customerEmail()
 		// 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => $this->customerName()
-		// 2017-06-10
-		// This option is undocumented in the Portuguese documentation:
-		// But it is mentioned in the English documentation:
-		// https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
-		,'fundingInstruments' => [$this->pFundingInstrument()]
 		// 2017-04-22
 		// «Customer Id. External reference.»
 		// Required, String(66).
@@ -64,6 +59,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	// We do not have a forecast to be international.»
 	// https://mage2.pro/t/3820/2
 	]) + dfe_moip_phone($this->addressBS()->getTelephone());}
+
 	/**
 	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Customer.php#L106-L110
 	 * @override
@@ -84,13 +80,6 @@ final class Reg extends \Df\StripeClone\P\Reg {
 			$a->getStreet(), $a->getCity(), $a->getRegion() ,$a->getPostcode()
 		))->first()
 	;});}
-
-	/**
-	 * 2017-06-12
-	 * @used-by p()
-	 * @return array(string => mixed)
-	 */
-	private function pFundingInstrument() {return [];}
 
 	/**
 	 * 2017-04-25
@@ -134,7 +123,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 
 	/**
 	 * 2017-04-25
-	 * @used-by address()
+	 * @used-by pShippingAddress()
 	 * @param mixed $v
 	 * @return string
 	 */
