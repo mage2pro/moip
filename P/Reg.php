@@ -33,7 +33,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		// 2017-04-22 «Email from the client», Required, String(45).
 		,'email' => $this->customerEmail()
 		// 2017-04-22 «Full name of customer», Required, String(90).
-		,'fullname' => 'Dmitry Fedyuk'
+		,'fullname' => $this->customerName()
 		// 2017-06-10
 		// This option is undocumented in the Portuguese documentation:
 		// But it is mentioned in the English documentation:
