@@ -33,6 +33,7 @@ abstract class Entity implements \ArrayAccess {
 	 * 2017-04-26
 	 * @override
 	 * @see \ArrayAccess::offsetGet()
+	 * @used-by \Dfe\Moip\Facade\Charge::cardData()
 	 * @used-by \Dfe\Moip\Facade\Charge::create()
 	 * @used-by \Dfe\Moip\Facade\Customer::id()
 	 * @used-by \Dfe\Moip\T\CaseT\Payment::t01_create()
