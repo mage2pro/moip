@@ -92,16 +92,12 @@ final class Order {
 		// 2017-06-09 «Installments setup»
 		//'installments' => [$this->pInstallment()],
 		// 2017-06-09 «Redirect URLs»
-		'redirectUrls' => [
-			// 2017-06-09
-			// «Redirect URL for failed payments»
-			// Optional, Link.
-			'urlFailure' => dfp_url_customer_return_remote(dfpm($this))
-			// 2017-06-09
-			// «Redirect URL for successful payments»
-			// Optional, Link.
-			,'urlSuccess' => dfp_url_customer_return_remote(dfpm($this))
-		]
+		// «Redirect URL for failed payments»
+		// «Redirect URL for successful payments»
+		// Optional, Link.
+		'redirectUrls' => array_fill_keys(['urlFailure', 'urlSuccess'],
+			dfp_url_customer_return_remote(dfpm($this))
+		)
 	];}
 
 	/**
@@ -145,11 +141,12 @@ final class Order {
 	 * 2017-06-09
 	 * All the fields below are required for the Protected Sales Program:
 	 * https://dev.moip.com.br/v2.0/docs/venda-protegida
+	 * @used-by amountMargin()
 	 * @used-by pOrder()
 	 * @return array(string => mixed)
 	 */
 	private function pItems() {return dfc($this, function() {return
-		df_oqi_leafs($this->o(), function($i) {/** @var OI $i */ return [
+		df_oqi_leafs($this->o(), function(OI $i) {return [
 			// 2017-06-09
 			// «Description»
 			// Optional, String(250).
