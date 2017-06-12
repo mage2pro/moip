@@ -18,6 +18,19 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function capturePreauthorized($id, $a) {return null;}
 
 	/**
+	 * 2017-06-12
+	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
+	 * https://mage2.pro/t/4050
+	 * A card identifier looks like «CRC-M423RWG3PK7J».
+	 * https://github.com/mage2pro/moip/blob/0.4.6/Facade/Card.php#L10
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
+	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
+	 * @return string
+	 */
+	function cardIdPrefix() {return 'CRC-';}
+
+	/**
 	 * 2017-06-11
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::create()
