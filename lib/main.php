@@ -1,6 +1,7 @@
 <?php
 /**
  * 2017-06-09
+ * @used-by \Dfe\Moip\P\Reg::p()
  * @used-by \Dfe\Moip\T\Data::phone()
  * @param string $s
  * @return array(string => int|string)
