@@ -62,7 +62,7 @@ final class Data {
 
 	/**
 	 * 2017-04-25
-	 * @used-by pAddress()
+	 * @used-by address()
 	 * @return GA
 	 */
 	private function ga() {return dfc($this, function() {return
@@ -76,7 +76,7 @@ final class Data {
 
 	/**
 	 * 2017-04-25
-	 * @used-by pAddress()
+	 * @used-by address()
 	 * @param mixed $v
 	 * @return string
 	 */
