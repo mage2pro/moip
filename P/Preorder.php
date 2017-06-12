@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Moip\P;
+use Df\StripeClone\Payer;
 use Magento\Sales\Model\Order\Item as OI;
 // 2017-06-12
 final class Preorder extends \Df\StripeClone\P\Preorder {
@@ -22,7 +23,11 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 		// It can be an ID for a customer previously created
 		// or the collection of attributes to create a new one.»
 		// Required.
-		,'customer' => $this->pCustomer()
+		// «If you use an existing client, pass the client's moip ID here.
+		// To create a new client, see the format of the object in Client».
+		// Optional.
+		// My notes: An example of the value: «CUS-UKXT2RQ2TULX».
+		,'customer' => ['id' => Payer::s($this->m())->customerId()]
 		// 2017-06-09 «Items structure»
 		,'items' => $this->pItems()
 		// 2017-06-09
@@ -96,23 +101,6 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 		// Optional, Link.
 		['urlFailure', 'urlSuccess'], $this->customerReturnRemote()
 	)];}
-
-	/**
-	 * 2017-06-09
-	 * «Customer.
-	 * It can be an ID for a customer previously created
-	 * or the collection of attributes to create a new one.»
-	 * @used-by p()
-	 * @return array(string => mixed)
-	 */
-	private function pCustomer() {return [
-		// 2017-06-09
-		// «If you use an existing client, pass the client's moip ID here.
-		// To create a new client, see the format of the object in Client».
-		// Optional.
-		// My notes: An example of the value: «CUS-UKXT2RQ2TULX».
-		'id' => 'CUS-UKXT2RQ2TULX'
-	];}
 
 	/**
 	 * 2017-06-09
