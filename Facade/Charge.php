@@ -38,6 +38,15 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function id($c) {return null;}
 
 	/**
+	 * 2017-06-12
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::needPreorder()
+	 * @used-by \Df\StripeClone\Method::chargeNew()
+	 * @return bool
+	 */
+	function needPreorder() {return true;}
+
+	/**
 	 * 2017-06-11
 	 * Returns the path to the bank card information
 	 * in a charge converted to an array by @see \Dfe\Stripe\Facade\O::toArray()
