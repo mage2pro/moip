@@ -22,6 +22,7 @@ final class Card {
 		// A hash is a very long (345 symbols) base64-encoded string,
 		// so it is very distinguishable from a card ID.
 		// http://moip.github.io/moip-sdk-js
+		// A card ID looks like «CRC-M423RWG3PK7J».
 		'creditCard' => $this->card($index)
 		// 2017-06-09
 		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
