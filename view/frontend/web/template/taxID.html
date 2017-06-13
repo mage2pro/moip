@@ -1,0 +1,22 @@
+<div class="field number required">
+	<label data-bind="attr: {for: 'taxID'}" class="label">
+		<span><!-- ko i18n: 'CPF or CNPJ'--><!-- /ko --></span>
+	</label>
+	<div class="control">
+		<input
+			type="text"
+			class="input-text"
+			value=""
+			data-bind="
+				attr: {
+					autocomplete: off,
+					'data-container': getCode() + '-taxID',
+					id: 'taxID',
+					title: $t('CPF or CNPJ'),
+				},
+				value: taxID,
+				valueUpdate: 'keyup',
+			"
+		/>
+	</div>
+</div>

@@ -3,7 +3,12 @@ define([
 	// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
 	'df','Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
 ], function(df, parent) {'use strict'; return parent.extend({
-	defaults: {df: {card: {requireCardholder: true}}},
+	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
+	/**
+	 * 2017-06-13
+	 * @returns {String}
+	 */
+	dfCard_customTemplate_afterCardholder: function() {return 'Dfe_Moip/taxID';},
 	/**
 	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
 	 * @override
