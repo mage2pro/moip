@@ -23,8 +23,12 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * 2017-06-12
 	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
 	 * https://mage2.pro/t/4050
-	 * A card identifier looks like «CRC-M423RWG3PK7J».
+	 * A card ID looks like «CRC-M423RWG3PK7J».
 	 * https://github.com/mage2pro/moip/blob/0.4.6/Facade/Card.php#L10
+	 * 2017-06-13
+	 * A hash is a very long (345 symbols) base64-encoded string,
+	 * so it is very distinguishable from a card ID.
+	 * http://moip.github.io/moip-sdk-js
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
 	 * @used-by \Df\StripeClone\Payer::usePreviousCard()

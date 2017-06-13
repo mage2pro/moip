@@ -18,6 +18,10 @@ final class Card {
 		// *) an encrypted credit card hash
 		// *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
 		// [Moip] The test bank cards: https://mage2.pro/t/3776
+		// 2017-06-13
+		// A hash is a very long (345 symbols) base64-encoded string,
+		// so it is very distinguishable from a card ID.
+		// http://moip.github.io/moip-sdk-js
 		'creditCard' => $this->card($index)
 		// 2017-06-09
 		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»

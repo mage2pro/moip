@@ -49,10 +49,15 @@ final class Charge extends \Df\StripeClone\P\Charge {
 		// *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
 		// [Moip] The test bank cards: https://mage2.pro/t/3776
 		//
+		// 2017-06-09
 		// hash: «Encrypted credit card data»
 		// Conditional, String.
 		// https://dev.moip.com.br/v2.0/docs/criptografia
+		// 2017-06-13
+		// A hash is a very long (345 symbols) base64-encoded string.
+		// http://moip.github.io/moip-sdk-js
 		//
+		// 2017-06-09
 		// id: «Credit card ID.
 		// This ID can be used in the future to create new payments. Internal reference.»
 		// Conditional, String(16).
