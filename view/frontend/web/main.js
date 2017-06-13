@@ -1,19 +1,18 @@
 // 2017-04-11
 define([
 	// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
-	'Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
-], function(parent) {'use strict'; return parent.extend({
+	'df','Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
+], function(df, parent) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}},
 	/**
-	 * 2017-06-13
-	 * Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
+	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
 	 * @override
-	 * @see mage2pro/core/Payment/view/frontend/web/mixin.js::dfData()
-	 * @used-by mage2pro/core/Payment/view/frontend/web/mixin.js::getData()
+	 * @see Df_Payment/card::dfData()
+	 * @used-by Df_Payment/mixin::getData()
 	 * https://github.com/mage2pro/core/blob/2.0.21/Payment/view/frontend/web/mixin.js?ts=4#L208-L225
 	 * @returns {Object}
 	 */
-	dfData: function() {return {token: this.token};},
+	dfData: function() {return df.o.merge(this._super(), {cardholder: this.cardholder()});},
 	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647
 	 * 2017-04-16 [Moip] The available payment options: https://mage2.pro/t/3851
