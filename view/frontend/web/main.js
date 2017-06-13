@@ -13,32 +13,40 @@ define([
     /**
 	 * 2017-04-11
 	 * @override
-	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L12-L19
-	 * @used-by placeOrder()
-	 * @param {Object|Number} status
+	 * @see Df_StripeClone/main::tokenCheckStatus()
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L8-L15
+	 * @used-by Df_StripeClone/main::placeOrder()
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L75
+	 * @param {Boolean} status
 	 * @returns {Boolean}
 	 */
-	tokenCheckStatus: function(status) {return null;},
+	tokenCheckStatus: function(status) {return status;},
     /**
 	 * 2017-04-11
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L21-L29
 	 * @used-by Df_StripeClone/main::placeOrder()
-	 * https://github.com/mage2pro/core/blob/2.7.8/StripeClone/view/frontend/web/main.js?ts=4#L73
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L73
 	 * @param {Object} params
 	 * @param {Function} callback
 	 */
-	tokenCreate: function(params, callback) {},
+	tokenCreate: function(params, callback) {
+		/** @type {Object} */
+		var card = new Moip.CreditCard(params);
+		callback(card.isValid(), card);
+	},
     /**
 	 * 2017-04-11
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L31-L39
 	 * @used-by placeOrder()
-	 * @param {Object|Number} status
+	 * @param {Boolean} status
 	 * @param {Object} resp
 	 * @returns {String}
 	 */
-	tokenErrorMessage: function(status, resp) {return null;},
+	tokenErrorMessage: function(status, resp) {return this.$t(
+		'Unable to validate your bank card. Please recheck the data entered.'
+	);},
     /**
 	 * 2017-04-11
 	 * @override
@@ -55,9 +63,9 @@ define([
 	 * http://moip.github.io/moip-sdk-js
 	 * @override
 	 * @see Df_StripeClone/main::tokenParams()
-	 * https://github.com/mage2pro/core/blob/2.7.8/StripeClone/view/frontend/web/main.js?ts=4#L42-L48
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L42-L48
 	 * @used-by Df_StripeClone/main::placeOrder()
-	 * https://github.com/mage2pro/core/blob/2.7.8/StripeClone/view/frontend/web/main.js?ts=4#L73
+	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L73
 	 * @returns {Object}
 	 */
 	tokenParams: function() {return {
