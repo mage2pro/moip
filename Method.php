@@ -1,9 +1,9 @@
 <?php
-// 2017-04-11
 namespace Dfe\Moip;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
 use Moip\Auth\BasicAuth as Auth;
 use Moip\Moip as API;
+// 2017-04-11
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**
