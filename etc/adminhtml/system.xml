@@ -121,11 +121,28 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
+					id='prefill'
+					translate='label'
+					type='select'
+					sortOrder='7'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Prefill the Payment Form with Test Data?</label>
+					<source_model>Dfe\Moip\Source\Prefill</source_model>
+					<comment><![CDATA[If you do not want it, then please use the following <a href='https://mage2.pro/t/3776' target='_blank'>test cards</a>.]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+				</field>
+				<field
 					id='livePublicKey'
 					translate='label'
 					type='Df\Framework\Form\Element\Textarea'
 					dfRows='5'
-					sortOrder='7'
+					sortOrder='8'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -142,7 +159,7 @@
 					id='livePrivateToken'
 					translate='label'
 					type='obscure'
-					sortOrder='8'
+					sortOrder='9'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -160,7 +177,7 @@
 					id='livePrivateKey'
 					translate='label'
 					type='obscure'
-					sortOrder='9'
+					sortOrder='10'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -178,7 +195,7 @@
 					id='googlePrivateKey'
 					translate='label'
 					type='obscure'
-					sortOrder='10'
+					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -197,7 +214,7 @@
 					id='actionForNew'
 					translate='label'
 					type='select'
-					sortOrder='11'
+					sortOrder='12'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -211,7 +228,7 @@
 					id='actionForReturned'
 					translate='label'
 					type='select'
-					sortOrder='12'
+					sortOrder='13'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -224,7 +241,7 @@
 					id='description'
 					translate='label'
 					type='textarea'
-					sortOrder='13'
+					sortOrder='14'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -237,7 +254,7 @@
 					id='requireBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='14'
+					sortOrder='15'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -251,7 +268,7 @@
 					id='min_order_total'
 					translate='label'
 					type='text'
-					sortOrder='15'
+					sortOrder='16'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -265,7 +282,7 @@
 					id='max_order_total'
 					translate='label'
 					type='text'
-					sortOrder='16'
+					sortOrder='17'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
