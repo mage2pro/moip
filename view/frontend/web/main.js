@@ -23,12 +23,12 @@ define([
 	 * 2017-04-11
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L21-L29
-	 * @used-by placeOrder()
+	 * @used-by Df_StripeClone/main::placeOrder()
+	 * https://github.com/mage2pro/core/blob/2.7.8/StripeClone/view/frontend/web/main.js?ts=4#L73
 	 * @param {Object} params
 	 * @param {Function} callback
-	 * @returns {Function}
 	 */
-	tokenCreate: function(params, callback) {return null;},
+	tokenCreate: function(params, callback) {},
     /**
 	 * 2017-04-11
 	 * @override
