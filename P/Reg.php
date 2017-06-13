@@ -116,6 +116,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 
 	/**
 	 * 2017-06-12
+	 * @see \Dfe\Moip\T\Data::taxDocument()
 	 * @used-by p()
 	 * @return array(string => mixed)
 	 */

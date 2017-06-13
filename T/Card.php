@@ -8,7 +8,7 @@ final class Card {
 	 * «Payment method»
 	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * @used-by \Dfe\Moip\T\CaseT\Payment::pPayment()
-	 * @param int $index [optional]
+	 * @param int|string $index [optional]
 	 * @return array(string => mixed)
 	 */
 	function get($index = 0) {return [
@@ -34,31 +34,14 @@ final class Card {
 	 * 2017-06-09
 	 * «Payment method»
 	 * @used-by pFundingInstrument()
-	 * @param int $index
+	 * @param int|string $index
 	 * @return array(string => mixed)
 	 */
 	private function card($index) {return [
 		// 2017-06-09
-		// «Credit card security code.»
-		// Conditional, Integer.
-		'cvc' => 123
-		// 2017-06-09
-		// «Credit card expiration month. Requires PCI certification.»
-		// Conditional, Integer(2).
-		,'expirationMonth' => 5
-		// 2017-06-09
-		// «Credit card expiration year. Requires PCI certification.»
-		// Conditional, Integer(4).
-		,'expirationYear' => 2018
-		// 2017-06-09
-		// «Encrypted credit card data»
-		// Conditional, String.
-		// https://dev.moip.com.br/v2.0/docs/criptografia
-		//,'hash' => ''
-		// 2017-06-09
 		// «Do not send when the request is using credit card id»
 		// Conditional, String.
-		,'holder' => [
+		'holder' => [
 			// 2017-06-09
 			// «Billing address»
 			// Optional.
@@ -85,16 +68,35 @@ final class Card {
 		// Conditional, String(16).
 		//,'id' => ''
 		// 2017-06-09
-		// «Credit Card number. Requires PCI certification.»
-		// Conditional, String(19).
-		,'number' => self::$numbers[$index]
-		// 2017-06-09
 		// Whether the card should be saved for future payments.
 		// https://moip.com.br/blog/compra-com-um-clique
 		// Default: true
 		// Boolean.
 		,'store' => true
-	];}
+	] + ('hash' === $index ? [
+		// 2017-06-09
+		// «Encrypted credit card data»
+		// Conditional, String.
+		// https://dev.moip.com.br/v2.0/docs/criptografia
+		'hash' => 'etQ3pSRDWDFUw/hBmJU344BLq5d9fY9FZBdgADLbPxsI/YAhOENcW/Nx69kEzatMLowIIlT9awrm4VVyBBYwY+pYyhah8QSrM9STUqQ88IypTUIKAXImbTSEyTi9VZ+pk25suwI5UIxI+zJTl9YF0+MirvGTVWikX5ihRGxtHMJ6v1raOOW92vnMvz8hO/0wXgdMuyrO7wt58SKSHS0MCioj29LePjcktUHQXM9UeYw8P/v9Q1K25TbrvUB9gLUUGdqnUM9Bzq2f+plDX+ONc/Buinnsht1Ld0wXvdvSF6tXfTl3vSxBwml4lhdQFXfEPcJc8UmKYk9OcBuqQizLmw=='
+	] : [
+		// 2017-06-09
+		// «Credit card security code.»
+		// Conditional, Integer.
+		'cvc' => 123
+		// 2017-06-09
+		// «Credit card expiration month. Requires PCI certification.»
+		// Conditional, Integer(2).
+		,'expirationMonth' => 5
+		// 2017-06-09
+		// «Credit card expiration year. Requires PCI certification.»
+		// Conditional, Integer(4).
+		,'expirationYear' => 2018
+		// 2017-06-09
+		// «Credit Card number. Requires PCI certification.»
+		// Conditional, String(19).
+		,'number' => self::$numbers[$index]
+	]);}
 
 	/** @return self */
 	public static function s() {static $r; return $r ? $r : $r = new self;}

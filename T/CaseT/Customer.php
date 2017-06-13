@@ -10,11 +10,11 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\T\CaseT {
-	/** @test 2017-04-26 */
+	/** 2017-04-26 */
 	function t00() {}
 
 	/**
-	 * 2017-04-20
+	 * @test 2017-04-20
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
@@ -107,7 +107,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		// This option is undocumented in the Portuguese documentation:
 		// But it is mentioned in the English documentation:
 		// https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
-		,'fundingInstruments' => [tCard::s()->get()]
+		,'fundingInstruments' => [tCard::s()->get('hash')]
 		// 2017-04-22
 		// «Customer Id. External reference.»
 		// Required, String(66).

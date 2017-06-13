@@ -57,6 +57,11 @@ final class Data {
 		// *) CPF for social security number
 		// *) CNPJ for tax identification number.»
 		// String(4).
+		// 2017-06-13
+		// CPF: Cadastro de Pessoas Físicas (an individual's ID)
+		// https://en.wikipedia.org/wiki/Cadastro_de_Pessoas_Físicas
+		// CNPJ: Cadastro Nacional da Pessoa Jurídica (a company's ID)
+		// https://en.wikipedia.org/wiki/CNPJ
 		,'type' => 'CPF'
 	];}
 
