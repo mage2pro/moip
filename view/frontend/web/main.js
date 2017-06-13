@@ -49,11 +49,20 @@ define([
 	 */
 	tokenFromResponse: function(resp) {return null;},
     /**
-	 * 2017-04-11
+	 * 2017-06-13
+	 * https://dev.moip.com.br/page/english#section-encryption-in-browser
+	 * https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
+	 * http://moip.github.io/moip-sdk-js
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L50-L56
 	 * @used-by placeOrder()
 	 * @returns {Object}
 	 */
-	tokenParams: function() {return null;}
+	tokenParams: function() {return {
+		cvc: this.creditCardVerificationNumber()
+		,expMonth: this.creditCardExpMonth()
+		,expYear: this.creditCardExpYear()
+		,number: this.creditCardNumber()
+		,pubKey: this.publicKey()
+	};}
 });});
