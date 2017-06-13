@@ -5,13 +5,23 @@ define([
 ], function(parent) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}},
 	/**
+	 * 2017-06-13
+	 * Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
+	 * @override
+	 * @see mage2pro/core/Payment/view/frontend/web/mixin.js::dfData()
+	 * @used-by mage2pro/core/Payment/view/frontend/web/mixin.js::getData()
+	 * https://github.com/mage2pro/core/blob/2.0.21/Payment/view/frontend/web/mixin.js?ts=4#L208-L225
+	 * @returns {Object}
+	 */
+	dfData: function() {return {token: this.token};},
+	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647
 	 * 2017-04-16 [Moip] The available payment options: https://mage2.pro/t/3851
 	 * @returns {String[]}
 	 */
 	getCardTypes: function() {return ['VI', 'MC', 'AE', 'DN', 'Hipercard', 'Hiper', 'Elo'];},
     /**
-	 * 2017-04-11
+	 * 2017-06-13
 	 * @override
 	 * @see Df_StripeClone/main::tokenCheckStatus()
 	 * https://github.com/mage2pro/core/blob/2.7.9/StripeClone/view/frontend/web/main.js?ts=4#L8-L15
@@ -22,7 +32,7 @@ define([
 	 */
 	tokenCheckStatus: function(status) {return status;},
     /**
-	 * 2017-04-11
+	 * 2017-06-13
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L21-L29
 	 * @used-by Df_StripeClone/main::placeOrder()
@@ -36,7 +46,7 @@ define([
 		callback(card.isValid(), card);
 	},
     /**
-	 * 2017-04-11
+	 * 2017-06-13
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L31-L39
 	 * @used-by placeOrder()
@@ -48,14 +58,14 @@ define([
 		'Unable to validate your bank card. Please recheck the data entered.'
 	);},
     /**
-	 * 2017-04-11
+	 * 2017-06-13
 	 * @override
 	 * @see https://github.com/mage2pro/core/blob/2.0.11/StripeClone/view/frontend/web/main.js?ts=4#L41-L48
 	 * @used-by placeOrder()
 	 * @param {Object} resp
 	 * @returns {String}
 	 */
-	tokenFromResponse: function(resp) {return null;},
+	tokenFromResponse: function(resp) {return resp.hash();},
     /**
 	 * 2017-06-13
 	 * https://dev.moip.com.br/page/english#section-encryption-in-browser
