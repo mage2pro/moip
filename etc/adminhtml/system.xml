@@ -14,23 +14,19 @@
 -->
 			<group
 				id='moip'
-				translate='label'
-				sortOrder='1315'
 				showInDefault='1'
-				showInWebsite='1'
-				showInStore='1'
+				showInStore='1' showInWebsite='1' sortOrder='1315'
+				translate='label'
 			>
 				<label>Moip</label>
 				<dfExtension>Dfe_Moip</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
 					id='enable'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='1'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='1'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -39,12 +35,10 @@
 				</field>
 				<field
 					id='title'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='2'
 					translate='label'
 					type='text'
-					sortOrder='2'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Title</label>
 					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
@@ -53,12 +47,10 @@
 				</field>
 				<field
 					id='test'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='3'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='3'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Sandbox Mode?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -66,14 +58,12 @@
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
+					dfRows='5'
 					id='testPublicKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='4'
 					translate='label'
 					type='Df\Framework\Form\Element\Textarea'
-					dfRows='5'
-					sortOrder='4'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Test Public Key (Chave pública)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
@@ -85,12 +75,10 @@
 				</field>
 				<field
 					id='testPrivateToken'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='5'
 					translate='label'
 					type='obscure'
-					sortOrder='5'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>The «Token» part of your Test Private Key (Chave de autenticação)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
@@ -103,12 +91,10 @@
 				</field>
 				<field
 					id='testPrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='6'
 					translate='label'
 					type='obscure'
-					sortOrder='6'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>The «Key» (Chave) part of your Test Private Key (Chave de autenticação)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
@@ -121,12 +107,10 @@
 				</field>
 				<field
 					id='prefill'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='7'
 					translate='label'
 					type='select'
-					sortOrder='7'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Prefill the Payment Form with Test Data?</label>
 					<source_model>Dfe\Moip\Source\Prefill</source_model>
@@ -137,14 +121,12 @@
 					</depends>
 				</field>
 				<field
+					dfRows='5'
 					id='livePublicKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='8'
 					translate='label'
 					type='Df\Framework\Form\Element\Textarea'
-					dfRows='5'
-					sortOrder='8'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Live Public Key (Chave pública)</label>
 					<comment><![CDATA[<a href='https://mage2.pro/t/3659' target='_blank'>How to get it?</a>]]></comment>
@@ -156,12 +138,10 @@
 				</field>
 				<field
 					id='livePrivateToken'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='9'
 					translate='label'
 					type='obscure'
-					sortOrder='9'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>The «Token» part of your Live Private Key (Chave de autenticação)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
@@ -174,12 +154,10 @@
 				</field>
 				<field
 					id='livePrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='10'
 					translate='label'
 					type='obscure'
-					sortOrder='10'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>The «Key» (Chave) part of your Live Private Key (Chave de autenticação)</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
@@ -192,12 +170,10 @@
 				</field>
 				<field
 					id='googlePrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='11'
 					translate='label'
 					type='obscure'
-					sortOrder='11'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Private Key for Google Maps Geocoding API</label>
 					<comment><![CDATA[Moip API v2 <a href='https://dev.moip.com.br/v2.0/reference#endereco' target='_blank' title='Moip API Reference'>accepts only the well-structured customer addresses</a>, whereas Magento 2 gathers the customers addresses in a plain text form.
@@ -211,12 +187,10 @@
 				</field>
 				<field
 					id='actionForNew'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='12'
 					translate='label'
 					type='select'
-					sortOrder='12'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Payment Action for a New Customer</label>
 					<source_model>Df\Payment\Source\ACR</source_model>
@@ -225,12 +199,10 @@
 				</field>
 				<field
 					id='actionForReturned'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='13'
 					translate='label'
 					type='select'
-					sortOrder='13'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Payment Action for a Returned Customer</label>
 					<source_model>Df\Payment\Source\ACR</source_model>
@@ -238,12 +210,10 @@
 				</field>
 				<field
 					id='description'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='14'
 					translate='label'
 					type='textarea'
-					sortOrder='14'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Description</label>
 					<comment><![CDATA[It will be displayed in the Moip web interface alongside the payment.<br/>You can use <a href='https://mage2.pro/t/1834' target='_blank'>variables</a> in the description.]]></comment>
@@ -251,12 +221,10 @@
 				</field>
 				<field
 					id='requireBillingAddress'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='15'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='15'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Require the billing address?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -265,12 +233,10 @@
 				</field>
 				<field
 					id='min_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='16'
 					translate='label'
 					type='text'
-					sortOrder='16'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Minimum Order Total</label>
 					<comment><![CDATA[]]></comment>
@@ -279,12 +245,10 @@
 				</field>
 				<field
 					id='max_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='17'
 					translate='label'
 					type='text'
-					sortOrder='17'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Maximum Order Total</label>
 					<comment><![CDATA[]]></comment>
