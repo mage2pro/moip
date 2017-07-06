@@ -22,7 +22,7 @@ final class Payment extends \Dfe\Moip\T\CaseT {
 	function t01_create() {
 		try {
 			echo lP::create((new tOrder)->create()['id'], $this->pPayment())->j();
-			//echo df_json_encode_pretty($this->pPayment());
+			//echo df_json_encode($this->pPayment());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {

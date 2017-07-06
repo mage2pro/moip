@@ -7,7 +7,7 @@ final class Message implements \ArrayAccess {
 	 * @param \stdClass|array(string => mixed)|null $v
 	 */
 	function __construct($v) {
-		$this->_j = df_json_encode_pretty($v ?: []);
+		$this->_j = df_json_encode($v ?: []);
 		$this->_a = df_json_decode($this->_j);
 	}
 
