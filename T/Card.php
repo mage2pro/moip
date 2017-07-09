@@ -99,7 +99,7 @@ final class Card {
 	]);}
 
 	/** @return self */
-	public static function s() {static $r; return $r ? $r : $r = new self;}
+	static function s() {static $r; return $r ? $r : $r = new self;}
 
 	/**
 	 * 2017-06-10 [Moip] The test bank cards https://mage2.pro/t/3776
