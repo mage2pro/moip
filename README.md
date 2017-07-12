@@ -3,13 +3,13 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ## Features
 ### 1. The local bank card networks are supported
 #### 1.1. A payment with a Hipercard bank card
-![](https://mage2.pro/uploads/default/original/2X/d/d00c9fa5403cd50c326962e70df04051eaafe89c.png)
+![](https://mage2.pro/uploads/default/original/2X/8/839cdc67421dea4cfbb6da549b81b8c7f4fea3eb.png)
 
 #### 1.2. A payment with an «Itaucard 2.0 Nacional Hiper» bank card
-![](https://mage2.pro/uploads/default/original/2X/3/350f2a0267c19b2b8767b57a1a6a48c94def39c4.png)
+![](https://mage2.pro/uploads/default/original/2X/b/b8941c2a47b883bfd79f134c5be0ab88d2a5ce0a.png)
 
 #### 1.3. A payment with an Elo bank card
-![](https://mage2.pro/uploads/default/original/2X/5/5e494c050afc0b1219521860b97f268b29d9b0cd.png)
+![](https://mage2.pro/uploads/default/original/2X/d/dd7f83d116b754a5cdfe2f6f55ea98fc17b79f9d.png)
 
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
