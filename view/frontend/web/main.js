@@ -11,10 +11,12 @@ define([
 	 * @override
 	 * @see Df_Payment/card::dfData()
 	 * @used-by Df_Payment/mixin::getData()
-	 * https://github.com/mage2pro/core/blob/2.0.21/Payment/view/frontend/web/mixin.js?ts=4#L208-L225
+	 * https://github.com/mage2pro/core/blob/2.8.4/Payment/view/frontend/web/mixin.js#L224
 	 * @returns {Object}
 	 */
-	dfData: function() {return df.o.merge(this._super(), {cardholder: this.cardholder()});},
+	dfData: function() {return df.o.merge(this._super(), {
+		cardholder: this.cardholder(), taxID: this.taxID()
+	});},
 	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647
 	 * 2017-04-16 [Moip] The available payment options: https://mage2.pro/t/3851
