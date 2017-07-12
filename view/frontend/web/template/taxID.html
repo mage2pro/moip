@@ -1,6 +1,6 @@
 <div class="field number required">
 	<label data-bind="attr: {for: 'taxID'}" class="label">
-		<span><!-- ko df_i18n: 'CPF or CNPJ'--><!-- /ko --></span>
+		<span><!-- ko df_i18n: "Cardholder's CPF"--><!-- /ko --></span>
 	</label>
 	<div class="control">
 		<input
@@ -12,7 +12,7 @@
 					autocomplete: off,
 					'data-container': getCode() + '-taxID',
 					id: 'taxID',
-					title: $t('CPF or CNPJ'),
+					title: $t('Cardholder\'s CPF'),
 				},
 				value: taxID,
 				valueUpdate: 'keyup',
