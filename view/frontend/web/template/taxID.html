@@ -1,22 +1,18 @@
-<div class="field number required">
-	<label data-bind="attr: {for: 'taxID'}" class="label">
+<div class='field number required'>
+	<label data-bind="attr: {for: 'taxID'}" class='label'>
 		<span><!-- ko df_i18n: "Cardholder's CPF"--><!-- /ko --></span>
 	</label>
-	<div class="control">
-		<input
-			type="text"
-			class="input-text"
-			value=""
-			data-bind="
-				attr: {
-					autocomplete: off,
-					'data-container': getCode() + '-taxID',
-					id: 'taxID',
-					title: $t('Cardholder\'s CPF'),
-				},
-				value: taxID,
-				valueUpdate: 'keyup',
-			"
-		/>
+	<div class='control'>
+		<input class='input-text' type='text' value='' data-bind="
+			attr: {
+				autocomplete: off
+				,'data-container': getCode() + '-taxID'
+				,'data-validate': JSON.stringify({'df-validate-cpf': '#' + fid('taxID')})
+				,id: 'taxID'
+				,title: $t('Cardholder\'s CPF')
+			}
+			,value: taxID
+			,valueUpdate: 'keyup'
+		"/>
 	</div>
 </div>

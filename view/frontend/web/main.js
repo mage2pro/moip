@@ -1,7 +1,7 @@
 // 2017-04-11
 define([
 	// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
-	'df','Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
+	'df','Df_StripeClone/main', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
 ], function(df, parent) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
 	/** 2017-06-13 @returns {String} */
