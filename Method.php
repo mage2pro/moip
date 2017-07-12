@@ -26,6 +26,17 @@ final class Method extends \Df\StripeClone\Method {
 	protected function amountLimits() {return null;}
 
 	/**
+	 * 2017-07-12
+	 * @override
+	 * @see \Df\StripeClone\Method::iiaKeys()
+	 * @used-by \Df\Payment\Method::assignData()
+	 * @return string[]
+	 */
+	protected function iiaKeys() {return array_merge(parent::iiaKeys(), [
+		self::$II_CARDHOLDER, self::$II_TAX_ID
+	]);}
+
+	/**
 	 * 2017-04-11
 	 * @override
 	 * @see \Df\StripeClone\Method::transUrlBase()
@@ -34,4 +45,18 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return string
 	 */
 	protected function transUrlBase(T $t) {return '';}
+
+	/**
+	 * 2017-07-12
+	 * https://github.com/mage2pro/moip/blob/0.5.7/view/frontend/web/main.js#L17-L19
+	 * @used-by iiaKeys()
+	 */
+	private static $II_CARDHOLDER = 'cardholder';
+
+	/**
+	 * 2017-07-12
+	 * https://github.com/mage2pro/moip/blob/0.5.7/view/frontend/web/main.js#L17-L19
+	 * @used-by iiaKeys()
+	 */
+	private static $II_TAX_ID = 'taxID';
 }
