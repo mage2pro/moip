@@ -4,10 +4,7 @@ define([
 	'df','Df_StripeClone/main', '//assets.moip.com.br/v2/moip.min.js'
 ], function(df, parent) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
-	/**
-	 * 2017-06-13
-	 * @returns {String}
-	 */
+	/** 2017-06-13 @returns {String} */
 	dfCard_customTemplate_afterCardholder: function() {return 'Dfe_Moip/taxID';},
 	/**
 	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
@@ -24,6 +21,26 @@ define([
 	 * @returns {String[]}
 	 */
 	getCardTypes: function() {return ['VI', 'MC', 'AE', 'DN', 'Hipercard', 'Hiper', 'Elo'];},
+	/**
+	 * 2017-07-12
+	 * @override
+	 * @see Df_Payment/card::initObservable()
+	 * https://github.com/mage2pro/core/blob/2.8.4/Payment/view/frontend/web/card.js#L141-L157
+	 * @used-by Magento_Ui/js/lib/core/element/element::initialize()
+	 * https://github.com/magento/magento2/blob/2.2.0-RC1.3/app/code/Magento/Ui/view/base/web/js/lib/core/element/element.js#L104
+	 * @returns {Element} Chainable
+	*/
+	initObservable: function() {this._super(); this.observe(['taxID']); return this;},
+	/**
+	 * 2017-07-12 «[Moip] What is CPF?» https://mage2.pro/t/3376
+	 * @override
+	 * @see Df_Payment/card::prefill()
+	 * https://github.com/mage2pro/core/blob/2.8.3/Payment/view/frontend/web/card.js#L152-L167
+	 * @used-by Df_Payment/card::initialize()
+	 * https://github.com/mage2pro/core/blob/2.8.3/Payment/view/frontend/web/card.js#L134-L137
+	 * @param {*} d
+	 */
+	prefill: function(d) {this._super(d); this.taxID('11438374798');},
     /**
 	 * 2017-06-13
 	 * @override

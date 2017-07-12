@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/moip"
-	,"version": "0.5.5"
+	,"version": "0.5.6"
 	,"description": "The «Moip» payment extension for Magento 2."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/moip"
@@ -12,7 +12,7 @@
 		"role": "Developer"
 	}]
 	,"require": {
-		"mage2pro/core": ">=2.7.40"
+		"mage2pro/core": ">=2.8.4"
 		,"mage2pro/geo": ">=1.1.4"
 		,"mage2pro/phone": ">=1.0.0"
 		,"moip/moip-sdk-php": ">=1.2.0"
