@@ -1,7 +1,8 @@
 <?php
 namespace Dfe\Moip\Facade;
-use Dfe\Moip\SDK\Customer as C;
-use Dfe\Moip\SDK\Option;
+use Df\API\Operation;
+use Dfe\Moip\API\Facade\Customer as C;
+use Dfe\Moip\API\Option;
 // 2017-04-25
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
@@ -10,9 +11,9 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::get()
 	 * @used-by \Df\StripeClone\Facade\Customer::get()
 	 * @param int $id
-	 * @return C|null
+	 * @return Operation|null
 	 */
-	function _get($id) {return df_try(function() use($id) {return C::get($id);});}
+	function _get($id) {return df_try(function() use($id) {return C::s()->get($id);});}
 
 	/**
 	 * 2017-04-25
@@ -36,11 +37,11 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by \Df\StripeClone\P\Charge::newCard()
-	 * @param C $c
+	 * @param Operation $c
 	 * @param string $token
 	 * @return string	An example: «CRC-M423RWG3PK7J».
 	 */
-	function cardAdd($c, $token) {return C::addCard($this->id($c), [
+	function cardAdd($c, $token) {return C::s()->addCard($this->id($c), [
 		// 2017-06-09
 		// «Credit Card data. It can be:
 		// *) the ID of a credit card previously saved,
@@ -65,16 +66,16 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::create()
 	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param array(string => mixed) $p
-	 * @return C
+	 * @return Operation
 	 */
-	function create(array $p) {return C::create($p);}
+	function create(array $p) {return C::s()->create($p);}
 
 	/**
 	 * 2017-04-25 «CUS-18QQ3DF4BIKY»
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
 	 * @used-by \Df\StripeClone\P\Charge::newCard()
-	 * @param C $c
+	 * @param Operation $c
 	 * @return string
 	 */
 	function id($c) {return $c['id'];}

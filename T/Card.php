@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Moip\T;
-use Dfe\Moip\SDK\Option;
+use Dfe\Moip\API\Option;
 // 2017-06-10
 final class Card {
 	/**
@@ -90,7 +90,7 @@ final class Card {
 		 *	}
 		 * https://mage2.pro/t/4048
 		 */
-		,'id' => null
+		,'id' => df_uid(6, 'admin@mage2.pro-')
 		// 2017-06-09
 		// Whether the card should be saved for future payments.
 		// https://moip.com.br/blog/compra-com-um-clique

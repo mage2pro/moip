@@ -1,9 +1,6 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
 use Dfe\Moip\T\Order as tOrder;
-use Moip\Exceptions\UnautorizedException as leUnautorized;
-use Moip\Exceptions\UnexpectedException as leUnexpected;
-use Moip\Exceptions\ValidationException as leValidation;
 // 2017-06-08
 // https://dev.moip.com.br/page/api-reference#section-orders
 // https://dev.moip.com.br/v2.0/reference#pedidos
@@ -26,7 +23,6 @@ final class Order extends \Dfe\Moip\T\CaseT {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
 			throw $e;
 		}
 	}

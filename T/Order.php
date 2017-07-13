@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\T;
-use Dfe\Moip\SDK\Message as lMessage;
-use Dfe\Moip\SDK\Order as lOrder;
+use Df\API\Operation;
+use Dfe\Moip\API\Facade\Order as lOrder;
 use Magento\Sales\Model\Order as O;
 use Magento\Sales\Model\Order\Item as OI;
 // 2017-06-10
@@ -13,9 +13,9 @@ final class Order {
 	 * @used-by \Dfe\Moip\Facade\Preorder::create()
 	 * @used-by \Dfe\Moip\T\CaseT\Order::t01_create()
 	 * @used-by \Dfe\Moip\T\CaseT\Payment::t01_create()
-	 * @return lMessage
+	 * @return Operation
 	 */
-	function create() {return lOrder::create($this->pOrder());}
+	function create() {return lOrder::s()->create($this->pOrder());}
 
 	/**
 	 * 2017-06-09

@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Moip\P;
-use Dfe\Moip\SDK\Option;
+use Dfe\Moip\API\Option;
 // 2017-06-11
 final class Charge extends \Df\StripeClone\P\Charge {
 	/**

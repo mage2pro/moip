@@ -1,11 +1,8 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
-use Dfe\Moip\SDK\Customer as C;
+use Dfe\Moip\API\Facade\Customer as C;
 use Dfe\Moip\T\Card as tCard;
 use Dfe\Moip\T\Data;
-use Moip\Exceptions\UnautorizedException as leUnautorized;
-use Moip\Exceptions\UnexpectedException as leUnexpected;
-use Moip\Exceptions\ValidationException as leValidation;
 // 2017-04-20
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
@@ -32,13 +29,12 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 			 */
 			// 2017-04-22
 			// https://dev.moip.com.br/reference#criar-um-cliente
-			echo C::create($this->pCustomer())->j();
+			echo C::s()->create($this->pCustomer())->j();
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
 			throw $e;
 		}
 	}
@@ -73,21 +69,13 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
 			 * CUS-UKXT2RQ2TULX
 			 */
-			echo C::get($id)->j();
+			echo C::s()->get($id)->j();
 		}
-		catch (leValidation $e) {
-			/**
-			 * 2017-04-25
-			 * @see \Moip\Exceptions\Error::parseErrors() returns no message
-			 * if a requested resource is not found: https://github.com/moip/moip-sdk-php/issues/104
-			 */
-			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
-			if (404 === $e->getStatusCode()) {
-				echo "The customer with the requested ID ($id) is absent in the Moip database.";
+		catch (\Exception $e) {
+			if (function_exists('xdebug_break')) {
+				xdebug_break();
 			}
-			else {
-				throw $e;
-			}
+			throw $e;
 		}
 	}
 

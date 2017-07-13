@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Moip\SDK;
+namespace Dfe\Moip\API;
 // 2017-06-10
 // Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
 // https://dev.moip.com.br/page/api-reference#section-payments

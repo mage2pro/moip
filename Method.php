@@ -8,7 +8,6 @@ use Moip\Moip as API;
 final class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-04-25
-	 * @used-by \Dfe\Moip\SDK\Operation::__construct()
 	 * @return API
 	 */
 	function api() {return dfc($this, function() {$s = $this->s(); return new API(

@@ -1,7 +1,8 @@
 <?php
 namespace Dfe\Moip\Facade;
-use Dfe\Moip\SDK\Order as O;
-use Dfe\Moip\SDK\Payment as C;
+use Df\API\Operation;
+use Dfe\Moip\API\Facade\Order as O;
+use Dfe\Moip\API\Facade\Payment as C;
 use Magento\Sales\Model\Order\Creditmemo as CM;
 use Magento\Sales\Model\Order\Payment as OP;
 // 2017-06-11
@@ -15,7 +16,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param string $id
 	 * @param int|float $a
 	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
-	 * @return C
+	 * @return Operation
 	 */
 	function capturePreauthorized($id, $a) {return null;}
 
@@ -43,9 +44,9 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return C
+	 * @return Operation
 	 */
-	function create(array $p) {return C::create($this->preorderGet()['id'], $p);}
+	function create(array $p) {return C::s()->create2($this->preorderGet()['id'], $p);}
 
 	/**
 	 * 2017-06-13
@@ -53,7 +54,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param C $c
+	 * @param Operation $c
 	 * @return string «PAY-9R8XPLW1OJGK»
 	 */
 	function id($c) {return $c['id'];}
@@ -109,8 +110,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardData()
 	 * @used-by \Df\StripeClone\Facade\Charge::card()
-	 * @param C $c
-	 * @return \Stripe\Card
+	 * @param Operation $c
+	 * @return array(string => mixed)
 	 * @see \Dfe\Stripe\Facade\Customer::cardsData()
 	 */
 	protected function cardData($c) {return $c['fundingInstrument/creditCard'];}

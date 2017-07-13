@@ -1,11 +1,8 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
-use Dfe\Moip\SDK\Payment as lP;
+use Dfe\Moip\API\Facade\Payment as lP;
 use Dfe\Moip\T\Card as tCard;
 use Dfe\Moip\T\Order as tOrder;
-use Moip\Exceptions\UnautorizedException as leUnautorized;
-use Moip\Exceptions\UnexpectedException as leUnexpected;
-use Moip\Exceptions\ValidationException as leValidation;
 // 2017-06-09
 // https://dev.moip.com.br/page/api-reference#section-payments
 // https://dev.moip.com.br/v2.0/reference#pagamentos
@@ -21,14 +18,13 @@ final class Payment extends \Dfe\Moip\T\CaseT {
 	 */
 	function t01_create() {
 		try {
-			echo lP::create((new tOrder)->create()['id'], $this->pPayment())->j();
+			echo lP::s()->create2((new tOrder)->create()['id'], $this->pPayment())->j();
 			//echo df_json_encode($this->pPayment());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			/** @var \Exception|leUnautorized|leUnexpected|leValidation $e */
 			throw $e;
 		}
 	}
