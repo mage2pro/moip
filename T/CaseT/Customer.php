@@ -10,11 +10,11 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\T\CaseT {
-	/** 2017-04-26 */
+	/** @test 2017-04-26 */
 	function t00() {}
 
 	/**
-	 * @test 2017-04-20
+	 * 2017-04-20
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
@@ -114,7 +114,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		// It should be unique, otherwise you will get the error:
 		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 		// («The unique identifier must be unique, there is a customer with the identified identifier»).
-		,'ownId' => df_uid(4, 'admin@mage2.pro-')
+		,'ownId' => df_uid(6, 'admin@mage2.pro-')
 		// 2017-04-23
 		// «The Address is the set of data that represents a location:
 		// *) associated with the Customer as the delivery address («shippingAddress»)

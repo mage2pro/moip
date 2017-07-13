@@ -10,11 +10,11 @@ use Moip\Exceptions\ValidationException as leValidation;
 // https://dev.moip.com.br/page/api-reference#section-payments
 // https://dev.moip.com.br/v2.0/reference#pagamentos
 final class Payment extends \Dfe\Moip\T\CaseT {
-	/** @test 2017-06-09 */
+	/** 2017-06-09 */
 	function t00() {}
 
 	/**
-	 * 2017-06-09
+	 * @test 2017-06-09
 	 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-payment-post-
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048

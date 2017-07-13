@@ -192,7 +192,7 @@ final class Order {
 		// 2017-06-09
 		// «Own id of an order. External reference.»
 		// Required, String(66).
-		,'ownId' => df_uid(4, 'admin@mage2.pro-')
+		,'ownId' => df_uid(6, 'admin@mage2.pro-')
 		// 2017-06-09
 		// «Structure of recipients of payments.
 		// Used to define commissioning on Marketplaces deployments.»

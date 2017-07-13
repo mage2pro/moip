@@ -37,7 +37,7 @@ final class Card {
 	 * @param int|string $index
 	 * @return array(string => mixed)
 	 */
-	private function card($index) {return [
+	private function card($index) {return df_clean([
 		// 2017-06-09
 		// «Do not send when the request is using credit card id»
 		// Conditional, String.
@@ -62,11 +62,35 @@ final class Card {
 			// 2017-06-09 «Document»
 			,'taxDocument' => Data::s()->taxDocument()
 		]
-		// 2017-06-09
-		// «Credit card ID.
-		// This ID can be used in the future to create new payments. Internal reference.»
-		// Conditional, String(16).
-		//,'id' => ''
+		/**
+		 * 2017-06-09
+		 * «Credit card ID.
+		 * This ID can be used in the future to create new payments. Internal reference.»
+		 * Conditional, String(16).
+		 * 2017-07-13
+		 * Unable to pass a self-generated card ID here: 'id' => df_uid(6, 'admin@mage2.pro-')
+		 * It will lead to the following response (which means «the credit card is not found»):
+		 * 		{"errors":[{"code":"PAY-999","path":"","description":"Cartão de crédito não foi encontrado"}]}
+		 * Instead of passing a self-generated ID you can get the Moip-generated ID from the response:
+		 *	{
+		 *		"id": "PAY-IVA2ASM6GTOC",
+		 *		<...>
+		 *		"fundingInstrument": {
+		 *			"creditCard": {
+		 *				"id": "CRC-3ITCTVLSEQKP",
+		 *				"brand": "VISA",
+		 *				"first6": "401200",
+		 *				"last4": "1112",
+		 *				"store": true,
+		 *				"holder": <...>
+		 *			},
+		 *			"method": "CREDIT_CARD"
+		 *		},
+		 *		<...>
+		 *	}
+		 * https://mage2.pro/t/4048
+		 */
+		,'id' => null
 		// 2017-06-09
 		// Whether the card should be saved for future payments.
 		// https://moip.com.br/blog/compra-com-um-clique
@@ -96,8 +120,8 @@ final class Card {
 		// «Credit Card number. Requires PCI certification.»
 		// Conditional, String(19).
 		,'number' => self::$numbers[$index]
-	]);}
-
+	]));}
+	                                                    
 	/** @return self */
 	static function s() {static $r; return $r ? $r : $r = new self;}
 
@@ -105,13 +129,7 @@ final class Card {
 	 * 2017-06-10 [Moip] The test bank cards https://mage2.pro/t/3776
 	 * @var string[]
 	 */
-	private static $numbers = [
-		'4012001037141112'
-		,'5555666677778884'
-		,'376449047333005'
-		,'36490102462661'
-		,'6362970000457013'
-		,'6370950000000005'
-		,'6062825624254001'
+	private static $numbers = ['4012001037141112' , '5555666677778884', '376449047333005'
+		,'36490102462661', '6362970000457013', '6370950000000005', '6062825624254001'
 	];
 }
