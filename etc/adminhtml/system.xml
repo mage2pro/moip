@@ -193,7 +193,7 @@
 					type='text'
 				>
 					<label>Installments</label>
-					<comment><![CDATA[A comma-separated list of plans.<br/>To disable installments make the field empty.]]></comment>
+					<comment><![CDATA[A comma-separated list of installment periods (in months).<br/>The maximum period is 12.<br/>To disable installments make the field empty.]]></comment>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
