@@ -16,6 +16,13 @@ final class Method extends \Df\StripeClone\Method {
 	);});}
 
 	/**
+	 * 2017-07-14
+	 * @used-by \Dfe\Moip\P\Reg::pTaxDocument()
+	 * @return string|null
+	 */
+	function taxID() {return $this->iia(self::$II_TAX_ID);}
+
+	/**
 	 * 2017-04-11
 	 * @override
 	 * @see \Df\Payment\Method::amountLimits()
@@ -55,6 +62,7 @@ final class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-07-12
 	 * https://github.com/mage2pro/moip/blob/0.5.7/view/frontend/web/main.js#L17-L19
+	 * @used-by taxID()
 	 * @used-by iiaKeys()
 	 */
 	private static $II_TAX_ID = 'taxID';

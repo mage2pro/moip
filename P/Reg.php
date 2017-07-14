@@ -1,11 +1,13 @@
 <?php
 namespace Dfe\Moip\P;
+use Dfe\Moip\Method as M;
 use Dfe\Moip\Settings as S;
 use Geocoder\Model\Address as GA;
 use Magento\Sales\Model\Order\Address as A;
 /**
  * 2017-06-11
  * @method Charge charge()
+ * @method M m()
  * @method S s()
  */
 final class Reg extends \Df\StripeClone\P\Reg {
@@ -124,7 +126,21 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @used-by p()
 	 * @return array(string => mixed)
 	 */
-	private function pTaxDocument() {return [];}
+	private function pTaxDocument() {return [
+		// 2017-04-23 «Document number»,  String(11).
+		'number' => $this->m()->taxID()
+		// 2017-04-23
+		// «Document type. Possible values:
+		// *) CPF for social security number
+		// *) CNPJ for tax identification number.»
+		// String(4).
+		// 2017-06-13
+		// CPF: Cadastro de Pessoas Físicas (an individual's ID)
+		// https://en.wikipedia.org/wiki/Cadastro_de_Pessoas_Físicas
+		// CNPJ: Cadastro Nacional da Pessoa Jurídica (a company's ID)
+		// https://en.wikipedia.org/wiki/CNPJ
+		,'type' => 'CPF'
+	];}
 
 	/**
 	 * 2017-04-25
