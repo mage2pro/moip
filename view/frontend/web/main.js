@@ -4,7 +4,17 @@ define([
 	'df','Df_StripeClone/main', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
 ], function(df, parent) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
-	/** 2017-06-13 @returns {String} */
+	/**
+	 * 2017-06-13
+	 * @override
+	 * @see Df_Payment/card::dfCard_customTemplate_afterCardholder()
+	 * https://github.com/mage2pro/core/blob/2.8.11/Payment/view/frontend/web/card.js#L56-L66
+	 * @used-by https://github.com/mage2pro/core/blob/2.8.11/Payment/view/frontend/web/template/card/new.html#L56-L58
+	 *	<!--ko if: dfCard_customTemplate_afterCardholder() -->
+	 *		<!-- ko template: {name: dfCard_customTemplate_afterCardholder()} --><!-- /ko -->
+	 *	<!--/ko-->
+	 * @returns {String}
+	 */
 	dfCard_customTemplate_afterCardholder: function() {return 'Dfe_Moip/taxID';},
 	/**
 	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
