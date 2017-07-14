@@ -20,7 +20,7 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * @return int[]
 	 */
 	function installments() {return dfc($this, function() {return array_filter(
-		df_int($this->csv()), function($i) {return $i >= 1 && $i <= 12;}
+		df_int($this->csv('installments')), function($i) {return $i >= 1 && $i <= 12;}
 	);});}
 
 	/**
