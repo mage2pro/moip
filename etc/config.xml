@@ -18,6 +18,8 @@ https://mage2.pro/t/3820/2
 				<countries>BR</countries>
 				<country_restriction>whitelist</country_restriction>
 				<currency>BRL</currency>
+<!-- 2017-07-14 «How is a bank card form implemented in mercadolivre.com.br?» https://mage2.pro/t/4065 -->
+				<installments>1,2,3,4,5,6,10,12</installments>
 				<title>Cartão de crédito</title>
 				<title_backend>Moip</title_backend>
 			</moip>

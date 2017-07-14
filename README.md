@@ -11,6 +11,9 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 #### 1.3. A payment with an Elo bank card
 ![](https://mage2.pro/uploads/default/original/2X/d/dd7f83d116b754a5cdfe2f6f55ea98fc17b79f9d.png)
 
+## Settings
+![](https://mage2.pro/uploads/default/original/2X/f/f5de143a392514b681b29e5a59503e2d12211cfa.png)
+
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
 The extension will be released when I will want it.   

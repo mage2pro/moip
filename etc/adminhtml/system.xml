@@ -186,9 +186,20 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='actionForNew'
+					id='installments'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='12'
+					translate='label'
+					type='text'
+				>
+					<label>Installments</label>
+					<comment><![CDATA[A comma-separated list of plans.<br/>To disable installments make the field empty.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='actionForNew'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='13'
 					translate='label'
 					type='select'
 				>
@@ -200,7 +211,7 @@
 				<field
 					id='actionForReturned'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='13'
+					sortOrder='14'
 					translate='label'
 					type='select'
 				>
@@ -211,7 +222,7 @@
 				<field
 					id='description'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='14'
+					sortOrder='15'
 					translate='label'
 					type='textarea'
 				>
@@ -222,7 +233,7 @@
 				<field
 					id='requireBillingAddress'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='15'
+					sortOrder='16'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
 				>
@@ -234,7 +245,7 @@
 				<field
 					id='min_order_total'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='16'
+					sortOrder='17'
 					translate='label'
 					type='text'
 				>
@@ -246,7 +257,7 @@
 				<field
 					id='max_order_total'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='17'
+					sortOrder='18'
 					translate='label'
 					type='text'
 				>
