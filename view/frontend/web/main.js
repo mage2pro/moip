@@ -1,9 +1,34 @@
 // 2017-04-11
 define([
 	// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
-	'df','Df_StripeClone/main', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
-], function(df, parent) {'use strict'; return parent.extend({
+	'df', 'df-lodash', 'Df_Checkout/data', 'Df_StripeClone/main', 'ko'
+	,'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
+], function(df, _, dfc, parent, ko) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
+	/**
+	 * 2017-07-14
+	 * @override
+	 * @see Df_Payment/card::initialize()
+	 * https://github.com/mage2pro/core/blob/2.4.21/Payment/view/frontend/web/card.js#L77-L110
+	 * @returns {Object}
+	*/
+	initialize: function() {
+		this._super();
+		/** @type {Number[]} */
+		var ia = this.config('installments');
+		if (2 > ia.length) {
+			ia = [];
+		}
+		this.installment = ko.observable(!ia.length ? 1 : ia[0]);
+		var $t = this.$t;
+		this.installments = _.map(ia, function(i) {return {
+			label: df.t($t('{0}x {1}'), i, dfc.formatMoney(dfc.grandTotal() / 12)) + (1 === i ? '' :
+				' ' + $t('interest free')
+			)
+			,period: i
+		}});
+		return this;
+	},
 	/**
 	 * 2017-06-13
 	 * @override

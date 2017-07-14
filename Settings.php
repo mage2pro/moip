@@ -19,9 +19,11 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * 2017-07-14 «Installments»
 	 * @return int[]
 	 */
-	function installments() {return dfc($this, function() {return array_filter(
-		df_int($this->csv('installments')), function($i) {return $i >= 1 && $i <= 12;}
-	);});}
+	function installments() {return dfc($this, function() {return df_sort(array_unique(
+		array_merge([1], array_filter(df_int($this->csv('installments')), function($i) {return
+			$i >= 1 && $i <= 12
+		;}))
+	));});}
 
 	/**
 	 * 2017-04-20 «The «Token» part of your Test Private Key (Chave de autenticação)»
