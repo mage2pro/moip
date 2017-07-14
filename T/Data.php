@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Moip\T;
+use Dfe\Moip\Settings as S;
 use Geocoder\Model\Address as GA;
 final class Data {
 	/**
@@ -70,8 +71,8 @@ final class Data {
 	 * @used-by address()
 	 * @return GA
 	 */
-	private function ga() {return dfc($this, function() {return
-		df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc', 'pt-BR', 'br')->geocode(
+	private function ga() {return dfc($this, function() {$s = dfps($this); /** @var S $s */return
+		df_geo($s->googlePrivateKey(), 'pt-BR', 'br')->geocode(
 			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
 		)->first()
 	;});}

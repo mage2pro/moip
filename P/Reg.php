@@ -1,9 +1,13 @@
 <?php
 namespace Dfe\Moip\P;
+use Dfe\Moip\Settings as S;
 use Geocoder\Model\Address as GA;
 use Magento\Sales\Model\Order\Address as A;
-// 2017-06-11
-/** @method Charge charge() */
+/**
+ * 2017-06-11
+ * @method Charge charge()
+ * @method S s()
+ */
 final class Reg extends \Df\StripeClone\P\Reg {
 	/**
 	 * 2017-06-10
@@ -76,7 +80,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @return GA
 	 */
 	private function ga() {return dfc($this, function() {/** @var A $a */$a = $this->addressS(); return
-		df_geo('AIzaSyBj8bPt0PeSxcgPW8vTfNI2xKdhkHCUYuc', 'pt-BR', 'br')->geocode(df_csv_pretty(
+		df_geo($this->s()->googlePrivateKey(), 'pt-BR', 'br')->geocode(df_csv_pretty(
 			$a->getStreet(), $a->getCity(), $a->getRegion() ,$a->getPostcode()
 		))->first()
 	;});}
