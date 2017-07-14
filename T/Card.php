@@ -90,7 +90,7 @@ final class Card {
 		 *	}
 		 * https://mage2.pro/t/4048
 		 */
-		,'id' => df_uid(6, 'admin@mage2.pro-')
+		,'id' => null
 		// 2017-06-09
 		// Whether the card should be saved for future payments.
 		// https://moip.com.br/blog/compra-com-um-clique
