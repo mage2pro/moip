@@ -42,7 +42,7 @@ final class Payment extends \Dfe\Moip\T\CaseT {
 		// 2017-06-09
 		// «Payment method»
 		// Required
-		,'fundingInstrument' => tCard::s()->get()
+		,'fundingInstrument' => tCard::s()->get('hash')
 		// 2017-06-09
 		// «Identification of your store on the buyer's credit card invoice»
 		// Optional, String(13).

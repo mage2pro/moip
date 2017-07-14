@@ -102,7 +102,8 @@ final class Card {
 		// «Encrypted credit card data»
 		// Conditional, String.
 		// https://dev.moip.com.br/v2.0/docs/criptografia
-		'hash' => 'etQ3pSRDWDFUw/hBmJU344BLq5d9fY9FZBdgADLbPxsI/YAhOENcW/Nx69kEzatMLowIIlT9awrm4VVyBBYwY+pYyhah8QSrM9STUqQ88IypTUIKAXImbTSEyTi9VZ+pk25suwI5UIxI+zJTl9YF0+MirvGTVWikX5ihRGxtHMJ6v1raOOW92vnMvz8hO/0wXgdMuyrO7wt58SKSHS0MCioj29LePjcktUHQXM9UeYw8P/v9Q1K25TbrvUB9gLUUGdqnUM9Bzq2f+plDX+ONc/Buinnsht1Ld0wXvdvSF6tXfTl3vSxBwml4lhdQFXfEPcJc8UmKYk9OcBuqQizLmw=='
+		// 2017-07-14 You can generate a hash here: http://moip.github.io/moip-sdk-js
+		'hash' => 'Q2qMJoavpsNCkF7FSA9pqg3lFFd1QTDWj7yA2tYRcwTbaFG9vWzU7lJcNyAkPKQ7BaSXhveZmNzNTbk7AcQ/nUlxqK8lt66HeLQhNyfy0f6wCf088Ys5IutbB/g/WK7hUDU3y3Ytn8q+h3QLg8NlbKCsveoaMncgqOXDj0If33WorzJB+yfSyCyEHb+dqwO+dJ8fX4fIGzMVMipJ902AbE+Cy/kuxA/ThBzgP247dXrwu3fjFdWRTRsCLO37X3dvZOVe+qjc/qUCvK1pEPQtW3jjCgYmCNX2jYdcu6h/EqXiCJvMnOJ3dXr1G/2Z0fdN2TcnJhhkRj61Me4LcMet3Q=='
 	] : [
 		// 2017-06-09
 		// «Credit card security code.»
