@@ -17,6 +17,18 @@ define([
 	 */
 	dfCard_customTemplate_afterCardholder: function() {return 'Dfe_Moip/taxID';},
 	/**
+	 * 2017-07-14
+	 * @override
+	 * @see Df_Payment/card::dfCard_customTemplate_bottom()
+	 * https://github.com/mage2pro/core/blob/2.8.11/Payment/view/frontend/web/card.js#L67-L68
+	 * @used-by https://github.com/mage2pro/core/blob/2.8.11/Payment/view/frontend/web/template/card.html#L36-L38
+	 *	<!--ko if: dfCard_customTemplate_bottom() -->
+	 *		<!-- ko template: {name: dfCard_customTemplate_bottom()} --><!-- /ko -->
+	 *	<!--/ko-->
+	 * @returns {String}
+	 */
+	dfCard_customTemplate_bottom: function() {return 'Dfe_Moip/installments';},
+	/**
 	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
 	 * @override
 	 * @see Df_Payment/card::dfData()
