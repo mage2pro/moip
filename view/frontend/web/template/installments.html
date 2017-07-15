@@ -1,15 +1,18 @@
-<!-- ko foreach: installments -->
-	<div class='field choice df-choice'>
-		<input
-			data-bind="
-				attr: {id: $parent.fid('installment-' + period)}
-				,checked: $parent.installment
-				,value: period
-			"
-			type='radio' name='option' class='radio'
-		/>
-		<label data-bind="attr: {for: $parent.fid('installment-' + period)}" class='label'>
-			<span data-bind='html: label'></span>
-		</label>
-	</div>
+<!--ko if: installments.length -->
+	<div data-bind="df_i18n: 'Installment Plans'" style='font-weight: 600;'/>
+	<!-- ko foreach: installments -->
+		<div class='field choice df-choice'>
+			<input
+				data-bind="
+					attr: {id: $parent.fid('installment-' + period)}
+					,checked: $parent.installment
+					,value: period
+				"
+				type='radio' name='option' class='radio'
+			/>
+			<label data-bind="attr: {for: $parent.fid('installment-' + period)}" class='label'>
+				<span data-bind='html: label'></span>
+			</label>
+		</div>
+	<!--/ko-->
 <!--/ko-->
