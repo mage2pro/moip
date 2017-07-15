@@ -52,7 +52,9 @@ define([
 	 *	<!--/ko-->
 	 * @returns {String}
 	 */
-	dfCard_customTemplate_bottom: function() {return 'Dfe_Moip/installments';},
+	dfCard_customTemplate_bottom: function() {return (
+		!this.installments.length ? null : 'Dfe_Moip/installments'
+	);},
 	/**
 	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
 	 * @override

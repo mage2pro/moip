@@ -1,0 +1,20 @@
+// 2017-04-15 Выравнивает по центру горизонтали кнопку «Place Order».
+.payment-method.dfe_moip {
+	max-width: 45em;
+	// 2017-04-14
+	// Ядро использует inline-block для больших экранов,
+	// что делает кнопку маленькой и смещённой вправо,
+	// она визуально теряется на фоне ярких логотипов опций оплаты.
+	.actions-toolbar .primary, .actions-toolbar .secondary {
+		display: block;
+		float: none;
+		width: 100%;
+		max-width: 20em;
+		margin: 1.5em auto 0 auto;
+	}
+}
+// 2017-07-15
+form.dfe_moip {
+	overflow: hidden;
+	> fieldset {float: left; padding-right: 2em;}
+}
