@@ -60,21 +60,19 @@ final class Method extends \Df\StripeClone\Method {
 	protected function transUrlBase(T $t) {return '';}
 
 	/**
-	 * 2017-07-12
-	 * https://github.com/mage2pro/moip/blob/0.5.7/view/frontend/web/main.js#L17-L19
+	 * 2017-07-12 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
 	 * @used-by iiaKeys()
 	 */
 	private static $II_CARDHOLDER = 'cardholder';
 
 	/**
-	 * 2017-07-15
+	 * 2017-07-15 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
 	 * @used-by iiaKeys()
 	 */
 	private static $II_PLAN = 'plan';
 
 	/**
-	 * 2017-07-12
-	 * https://github.com/mage2pro/moip/blob/0.5.7/view/frontend/web/main.js#L17-L19
+	 * 2017-07-12 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
 	 * @used-by taxID()
 	 * @used-by iiaKeys()
 	 */
