@@ -22,7 +22,7 @@ define([
 		this.installment = ko.observable(!ia.length ? 1 : ia[0]);
 		var $t = this.$t;
 		this.installments = _.map(ia, function(i) {return {
-			label: df.t($t('{0}x {1}'), i, dfc.formatMoney(dfc.grandTotal() / i)) + (1 === i ? '' :
+			label: df.t($t('{0}x {1}'), i, dfc.formatMoneyH(dfc.grandTotal() / i)) + (1 === i ? '' :
 				' ' + $t('interest free')
 			)
 			,period: i
