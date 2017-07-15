@@ -64,7 +64,7 @@ define([
 	 * @returns {Object}
 	 */
 	dfData: function() {return df.o.merge(this._super(), {
-		cardholder: this.cardholder(), taxID: this.taxID()
+		cardholder: this.cardholder(), plan: this.installment(), taxID: this.taxID()
 	});},
 	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647

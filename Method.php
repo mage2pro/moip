@@ -16,6 +16,13 @@ final class Method extends \Df\StripeClone\Method {
 	);});}
 
 	/**
+	 * 2017-07-15
+	 * @used-by \Dfe\Moip\P\Charge::p()
+	 * @return string|null
+	 */
+	function plan() {return $this->iia(self::$II_PLAN);}
+
+	/**
 	 * 2017-07-14
 	 * @used-by \Dfe\Moip\P\Reg::pTaxDocument()
 	 * @return string|null
@@ -39,7 +46,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return string[]
 	 */
 	protected function iiaKeys() {return array_merge(parent::iiaKeys(), [
-		self::$II_CARDHOLDER, self::$II_TAX_ID
+		self::$II_CARDHOLDER, self::$II_PLAN, self::$II_TAX_ID
 	]);}
 
 	/**
@@ -58,6 +65,12 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by iiaKeys()
 	 */
 	private static $II_CARDHOLDER = 'cardholder';
+
+	/**
+	 * 2017-07-15
+	 * @used-by iiaKeys()
+	 */
+	private static $II_PLAN = 'plan';
 
 	/**
 	 * 2017-07-12

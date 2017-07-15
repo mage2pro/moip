@@ -2,6 +2,7 @@
 namespace Dfe\Moip\P;
 use Dfe\Moip\API\Option;
 // 2017-06-11
+/** @method \Dfe\Moip\Method m() */
 final class Charge extends \Df\StripeClone\P\Charge {
 	/**
 	 * 2017-06-12
@@ -30,6 +31,25 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @return string
 	 */
 	function k_CardId() {return 'fundingInstrument';}
+
+	/**
+	 * 2017-07-15
+	 * @override
+	 * @see \Df\StripeClone\P\Charge::p()
+	 * @used-by \Df\StripeClone\P\Charge::request()
+	 * @return array(string => mixed)
+	 */
+	protected function p() {return [
+		/**
+		 * 2017-07-15
+		 * «Número de parcelas.
+		 * Válido para pagamentos por cartão.
+		 * Se não for informado, o pagamento será realizado em 1 parcela.
+		 * Mínimo 1 e Máximo 12.»
+		 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
+		 */
+		'installmentCount' => $this->m()->plan()
+	];}
 
 	/**
 	 * 2017-06-11
