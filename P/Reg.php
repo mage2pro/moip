@@ -22,6 +22,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * для будущего повторного использования при регистрации нового покупателя.
 	 * https://github.com/mage2pro/moip/blob/0.4.5/T/CaseT/Customer.php#L106-L110
 	 * 2017-07-16
+	 * Note 1.
 	 * I was unable to get it to work:
 	 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
 	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
@@ -31,6 +32,10 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * https://github.com/mage2pro/moip/blob/0.7.0/T/CaseT/Customer.php#L94-#L106
 	 * @see \Df\StripeClone\Payer::newCard()
 	 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
+	 * Note 2.
+	 * There is a similar error on `POST /v2/customers/<customer ID>/fundinginstruments`:
+	 * @see \Dfe\Moip\T\CaseT\Card::t01_add()
+	 * https://github.com/mage2pro/moip/blob/0.7.1/T/CaseT/Card.php#L17-L23
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()

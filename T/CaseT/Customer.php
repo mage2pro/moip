@@ -96,7 +96,8 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * This option is undocumented in the Portuguese documentation:
 		 * But it is mentioned in the English documentation:
 		 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
-		 * 2017-07-16    
+		 * 2017-07-16
+		 * Note 1.
 		 * I was unable to get it to work: 'fundingInstruments' => [tCard::s()->get('hash')]
 		 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
 		 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
@@ -106,6 +107,10 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * https://github.com/mage2pro/moip/blob/0.7.0/P/Reg.php#L24-L29
 		 * @see \Df\StripeClone\Payer::newCard()
 		 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
+		 * Note 2.
+		 * There is a similar error on `POST /v2/customers/<customer ID>/fundinginstruments`:
+		 * @see \Dfe\Moip\T\CaseT\Card::t01_add()
+		 * https://github.com/mage2pro/moip/blob/0.7.1/T/CaseT/Card.php#L17-L23
 		 */
 		,'fundingInstruments' => null
 		// 2017-04-22
