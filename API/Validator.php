@@ -10,7 +10,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by \Df\API\Client::p()
 	 * @return string
 	 */
-	function long() {return df_json_encode($this->k_ERROR() ?: array_map('df_clean', $this->k_errors()));}
+	function long() {return $this->k_ERROR() ?: df_json_encode(array_map('df_clean', $this->k_errors()));}
 
 	/**
 	 * 2017-07-13
