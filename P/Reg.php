@@ -28,12 +28,13 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * https://mage2.pro/t/4174
 	 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
 	 * @see \Dfe\Moip\T\CaseT\Customer::pCustomer()
+	 * https://github.com/mage2pro/moip/blob/0.7.0/T/CaseT/Customer.php#L94-#L106
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()
 	 * @return string
 	 */
-	protected function k_CardId() {return 'fundingInstruments';}
+	protected function k_CardId() {return null; /* 'fundingInstruments' */}
 
 	/**
 	 * 2017-06-12
