@@ -84,7 +84,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	 * @used-by t01_create()
 	 * @return array(string => mixed)
 	 */
-	private function pCustomer() {return [
+	private function pCustomer() {return df_clean([
 		// 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
 		'birthDate' => '1982-07-08'
 		// 2017-04-22 «Email from the client», Required, String(45).
@@ -96,13 +96,14 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * This option is undocumented in the Portuguese documentation:
 		 * But it is mentioned in the English documentation:
 		 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
-		 * 2017-07-16
+		 * 2017-07-16    
+		 * I was unable to get it to work: 'fundingInstruments' => [tCard::s()->get('hash')]
 		 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
 		 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
 		 * https://mage2.pro/t/4174
 		 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
 		 */
-		,'fundingInstruments' => [tCard::s()->get('hash')]
+		,'fundingInstruments' => null
 		// 2017-04-22
 		// «Customer Id. External reference.»
 		// Required, String(66).
@@ -124,5 +125,5 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	// that are not from Brazil, so this error occurs.
 	// We do not have a forecast to be international.»
 	// https://mage2.pro/t/3820/2
-	] + Data::s()->phone();}
+	]) + Data::s()->phone();}
 }
