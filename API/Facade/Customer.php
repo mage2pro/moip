@@ -31,7 +31,16 @@ final class Customer extends \Df\API\Facade {
 	 * https://dev.moip.com.br/v2.0/reference#adicionar-cartao-de-credito
 	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
 	 * https://mage2.pro/t/4050
-	 * @used-by \Dfe\Moip\Facade\Customer::create()
+	 * 2017-07-16
+	 * Unable to use a card hash here:
+	 * `A «POST /v2/customers/<customer ID>/fundinginstruments» request
+	 * with a bank card hash as a «fundingInstruments» parameter
+	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response
+	 * with «500 Internal Server Error» HTTP code`: https://mage2.pro/t/4175
+	 * So we actually do not use this method anymore, apart from the test:
+	 * @used-by \Dfe\Moip\T\CaseT\Card::t01_add()
+	 * Previously, we have used it from @see \Dfe\Moip\Facade\Customer::cardAdd():
+	 * https://github.com/mage2pro/moip/blob/0.7.1/Facade/Customer.php#L44-L61
 	 * @param string $customerId
 	 * @param array(string => mixed) $a
 	 * @return O
