@@ -34,6 +34,17 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 *		},
 	 *		"method": "CREDIT_CARD"
 	 *	}
+	 * 2017-07-16
+	 * Unable to use a card hash here:
+	 * `A «POST /v2/customers/<customer ID>/fundinginstruments» request
+	 * with a bank card hash as a «fundingInstruments» parameter
+	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response
+	 * with «500 Internal Server Error» HTTP code`: https://mage2.pro/t/4175
+	 * So we just return a token, like Spryng:
+	 * @see \Dfe\Spryng\Facade\Customer::cardAdd()
+	 * https://github.com/mage2pro/spryng/blob/1.1.10/Facade/Customer.php#L18-L27
+	 * The previous version of the method:
+	 * https://github.com/mage2pro/moip/blob/0.7.1/Facade/Customer.php#L44-L61
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by \Df\StripeClone\Payer::newCard()
@@ -41,24 +52,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param string $token
 	 * @return string	An example: «CRC-M423RWG3PK7J».
 	 */
-	function cardAdd($c, $token) {return C::s()->addCard($this->id($c), [
-		// 2017-06-09
-		// «Credit Card data. It can be:
-		// *) the ID of a credit card previously saved,
-		// *) an encrypted credit card hash
-		// *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
-		// [Moip] The test bank cards: https://mage2.pro/t/3776
-		'creditCard' => [
-			// 2017-06-10
-			// «Encrypted credit card data»
-			// Conditional, String.
-			'hash' => $token
-		]
-		// 2017-06-09
-		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
-		// Required, String.
-		,'method' => Option::BANK_CARD
-	])['creditCard/id'];}
+	function cardAdd($c, $token) {return $token;}
 
 	/**
 	 * 2017-04-25
