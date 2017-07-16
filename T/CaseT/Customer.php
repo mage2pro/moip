@@ -7,11 +7,11 @@ use Dfe\Moip\T\Data;
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\T\CaseT {
-	/** 2017-04-26 */
+	/** @test 2017-04-26 */
 	function t00() {}
 
 	/**
-	 * @test 2017-04-20
+	 * 2017-04-20
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
