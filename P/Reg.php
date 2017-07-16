@@ -63,8 +63,8 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		// It should be unique, otherwise you will get the error:
 		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
 		// («The unique identifier must be unique, there is a customer with the identified identifier»).
-		,'ownId' => !in_array($r = $this->customerEmail(), ['admin@mage2.pro', 'dfeduk@gmail.com']) ? $r :
-			df_uid(4, "$r-")
+		,'ownId' => !in_array($r = $this->customerEmail(), ['admin@mage2.pro', 'dfediuk@gmail.com']) ? $r :
+			df_uid(6, "$r-")
 		// 2017-04-23
 		// «The Address is the set of data that represents a location:
 		// *) associated with the Customer as the delivery address («shippingAddress»)
