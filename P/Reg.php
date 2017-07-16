@@ -21,6 +21,13 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * Этот ключ передаётся как параметр в запросе на сохранение банковской карты
 	 * для будущего повторного использования при регистрации нового покупателя.
 	 * https://github.com/mage2pro/moip/blob/0.4.5/T/CaseT/Customer.php#L106-L110
+	 * 2017-07-16
+	 * I was unable to get it to work:
+	 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
+	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
+	 * https://mage2.pro/t/4174
+	 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
+	 * @see \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()
