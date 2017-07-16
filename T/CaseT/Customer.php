@@ -7,11 +7,11 @@ use Dfe\Moip\T\Data;
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\T\CaseT {
-	/** @test 2017-04-26 */
+	/** 2017-04-26 */
 	function t00() {}
 
 	/**
-	 * 2017-04-20
+	 * @test 2017-04-20
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
@@ -91,10 +91,17 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		,'email' => 'admin@mage2.pro'
 		// 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => 'Dmitry Fedyuk'
-		// 2017-06-10
-		// This option is undocumented in the Portuguese documentation:
-		// But it is mentioned in the English documentation:
-		// https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
+		/**    
+		 * 2017-06-10
+		 * This option is undocumented in the Portuguese documentation:
+		 * But it is mentioned in the English documentation:
+		 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
+		 * 2017-07-16
+		 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
+		 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
+		 * https://mage2.pro/t/4174
+		 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
+		 */
 		,'fundingInstruments' => [tCard::s()->get('hash')]
 		// 2017-04-22
 		// «Customer Id. External reference.»
