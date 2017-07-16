@@ -1,13 +1,7 @@
 <?php
 namespace Dfe\Moip\API;
-/**
- * 2017-07-13
- * An error response looks like:
- *	{"errors": [{"code": "PAY-999", "path": "", "description": "Cartão de crédito não foi encontrado"}]}
- * https://dev.moip.com.br/v2.0/reference#section--error-states-
- * Some examples of successfull responses: https://mage2.pro/tags/moip-api
- * @used-by \Dfe\Moip\API\Client::responseValidatorC()
- */
+// 2017-07-13
+/** @used-by \Dfe\Moip\API\Client::responseValidatorC() */
 final class Validator extends \Df\API\Response\Validator {
 	/**
 	 * 2017-07-13
@@ -16,7 +10,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by \Df\API\Client::p()
 	 * @return string
 	 */
-	function long() {return df_json_encode(array_map('df_clean', $this->r()['errors']));}
+	function long() {return df_json_encode($this->k_ERROR() ?: array_map('df_clean', $this->k_errors()));}
 
 	/**
 	 * 2017-07-13
@@ -25,7 +19,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by \Df\API\Client::p()
 	 * @return string
 	 */
-	function short() {return dfa_deep($this->r(), 'errors/0/description');}
+	function short() {return $this->k_ERROR() ?: dfa($this->k_errors(), '0/description');}
 
 	/**
 	 * 2017-07-13
@@ -34,5 +28,29 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by \Df\API\Response\Validator::validate()
 	 * @return bool
 	 */
-	function valid() {return !dfa($this->r(), 'errors');}
+	function valid() {return !$this->k_ERROR() && !$this->k_errors();}
+
+	/**
+	 * 2017-07-06
+	 * An error response with the «500 Internal Server Error» HTTP code:
+	 * 	{"ERROR": "Ops... We were not waiting for it"}
+	 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response with «500 Internal Server Error» HTTP code` https://mage2.pro/t/4174
+	 * @used-by long()
+	 * @used-by short()
+	 * @used-by valid()
+	 * @return string|null
+	 */
+	private function k_ERROR() {return dfc($this, function() {return dfa($this->r(), 'ERROR');});}
+
+	/**
+	 * 2017-07-13
+	 * An usual error response looks like:
+	 *	{"errors": [{"code": "PAY-999", "path": "", "description": "Cartão de crédito não foi encontrado"}]}
+	 * https://dev.moip.com.br/v2.0/reference#section--error-states-
+	 * @used-by long()
+	 * @used-by short()
+	 * @used-by valid()
+	 * @return array(array(string => string))|null
+	 */
+	private function k_errors() {return dfa($this->r(), 'errors');}
 }
