@@ -29,6 +29,8 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
 	 * @see \Dfe\Moip\T\CaseT\Customer::pCustomer()
 	 * https://github.com/mage2pro/moip/blob/0.7.0/T/CaseT/Customer.php#L94-#L106
+	 * @see \Df\StripeClone\Payer::newCard()
+	 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()

@@ -102,6 +102,10 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
 		 * https://mage2.pro/t/4174
 		 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
+		 * @see \Dfe\Moip\P\Reg::k_CardId()
+		 * https://github.com/mage2pro/moip/blob/0.7.0/P/Reg.php#L24-L29
+		 * @see \Df\StripeClone\Payer::newCard()
+		 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
 		 */
 		,'fundingInstruments' => null
 		// 2017-04-22
