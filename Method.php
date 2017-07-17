@@ -24,7 +24,7 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-14
-	 * @used-by \Dfe\Moip\P\Reg::pTaxDocument()
+	 * @used-by \Dfe\Moip\P\Charge::pTaxDocument()
 	 * @return string|null
 	 */
 	function taxID() {return $this->iia(self::$II_TAX_ID);}
