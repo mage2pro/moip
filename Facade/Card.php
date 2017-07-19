@@ -83,6 +83,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-06-11
+	 * 2017-07-19 Moip does not return the expiration date: https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
@@ -93,6 +94,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-06-11
+	 * 2017-07-19 Moip does not return the expiration date: https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
