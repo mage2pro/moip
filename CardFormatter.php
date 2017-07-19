@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Moip;
+use \Df\Payment\BankCardNetworks as N;
 use Dfe\Moip\Facade\Card as C;
 // 2017-07-19
 /** @method C c() */
@@ -13,7 +14,8 @@ final class CardFormatter extends \Df\StripeClone\CardFormatter {
 	 * @return string
 	 */
 	function label() {$c = $this->c(); /** @var C $c */return
-		df_pad($c->first6(), $c->numberLength() - 4, '·') . "{$c->last4()} ({$c->brand()})"
+		df_pad($c->first6(), $c->numberLength() - 4, '·') . "{$c->last4()} " .
+		df_tag('img', ['src' => N::url($c->logoId())])
 	;}
 }
 

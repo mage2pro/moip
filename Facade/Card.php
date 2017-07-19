@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Moip\Facade;
+use \Df\Payment\BankCardNetworks as N;
 // 2017-06-11
 // https://dev.moip.com.br/page/api-reference#section-credit-card
 final class Card implements \Df\StripeClone\Facade\ICard {
@@ -61,11 +62,11 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function brand() {return dftr($this->brandId(), [
 		self::$AMEX => 'American Express'
 		,self::$DINERS => 'Diners Club'
-		,'ELO' => 'Elo'
-		,'HIPER' => 'Itaucard 2.0 (Cartão Hiper)'
-		,'HIPERCARD' => 'Hipercard'
-		,'MASTERCARD' => 'MasterCard'
-		,'VISA' => 'Visa'
+		,self::$ELO => 'Elo'
+		,self::$HIPER => 'Itaucard 2.0 (Cartão Hiper)'
+		,self::$HIPERCARD => 'Hipercard'
+		,self::$MASTERCARD => 'MasterCard'
+		,self::$VISA => 'Visa'
 	]);}
 
 	/**
@@ -134,6 +135,21 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-07-19
+	 * @used-by \Dfe\Moip\CardFormatter::label()
+	 * @return string
+	 */
+	function logoId() {return dftr($this->brandId(), [
+		self::$AMEX => N::American_Express
+		,self::$DINERS => N::Diners_Club
+		,self::$ELO => N::Elo
+		,self::$HIPER => N::Hiper
+		,self::$HIPERCARD => N::Hipercard
+		,self::$MASTERCARD => N::MasterCard
+		,self::$VISA => N::Visa
+	]);}
+
+	/**
+	 * 2017-07-19
 	 * The Brazilian bank card numbers have the following lengths:
 	 * 	*) 15: (Diners Club International), 16 or 17 digits:
 	 * 	*) 16: (American Express)
@@ -156,8 +172,9 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function owner() {return dfa_deep($this->_p, 'holder/fullname');}
 
 	/**
-	 * 2017-07-17
+	 * 2017-07-19
 	 * @used-by brand()
+	 * @used-by logoId()
 	 * @used-by numberLength()
 	 * @return string
 	 */
@@ -170,17 +187,60 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	private $_p;
 
 	/**
-	 * 2017-07-17
+	 * 2017-07-19
 	 * @const
 	 * @used-by brand()
+	 * @used-by logoId()
 	 * @used-by numberLength()
 	 */
 	private static $AMEX = 'AMEX';
+
 	/**
-	 * 2017-07-17
+	 * 2017-07-19
 	 * @const
 	 * @used-by brand()
+	 * @used-by logoId()
 	 * @used-by numberLength()
 	 */
 	private static $DINERS = 'DINERS';
+
+	/**
+	 * 2017-07-19
+	 * @const
+	 * @used-by brand()
+	 * @used-by logoId()
+	 */
+	private static $ELO = 'ELO';
+
+	/**
+	 * 2017-07-19
+	 * @const
+	 * @used-by brand()
+	 * @used-by logoId()
+	 */
+	private static $HIPER = 'HIPER';
+
+	/**
+	 * 2017-07-19
+	 * @const
+	 * @used-by brand()
+	 * @used-by logoId()
+	 */
+	private static $HIPERCARD = 'HIPERCARD';
+
+	/**
+	 * 2017-07-19
+	 * @const
+	 * @used-by brand()
+	 * @used-by logoId()
+	 */
+	private static $MASTERCARD = 'MASTERCARD';
+
+	/**
+	 * 2017-07-19
+	 * @const
+	 * @used-by brand()
+	 * @used-by logoId()
+	 */
+	private static $VISA = 'VISA';
 }
