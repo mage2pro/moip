@@ -1,20 +1,9 @@
 <?php
 namespace Dfe\Moip;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-use Moip\Auth\BasicAuth as Auth;
-use Moip\Moip as API;
 // 2017-04-11
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
-	/**
-	 * 2017-04-25
-	 * @return API
-	 */
-	function api() {return dfc($this, function() {$s = $this->s(); return new API(
-		new Auth($s->privateToken(), $s->privateKey())
-		,$this->test(API::ENDPOINT_SANDBOX, API::ENDPOINT_PRODUCTION)
-	);});}
-
 	/**
 	 * 2017-07-15
 	 * @used-by \Dfe\Moip\P\Charge::p()
