@@ -15,7 +15,7 @@ final class CardFormatter extends \Df\StripeClone\CardFormatter {
 	 */
 	function label() {$c = $this->c(); /** @var C $c */return
 		df_pad($c->first6(), $c->numberLength() - 4, '·') . "{$c->last4()} " .
-		df_tag('img', ['src' => N::url($c->logoId())])
+		df_tag('img', N::dimensions(null, 20) + ['alt' => $c->brand(), 'src' => N::url($c->logoId())])
 	;}
 }
 
