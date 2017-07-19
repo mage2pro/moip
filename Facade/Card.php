@@ -55,12 +55,12 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::brand()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @used-by \Df\StripeClone\CardFormatter::label()
+	 * @used-by \Dfe\Moip\CardFormatter::label()
 	 * @return string
 	 */
-	function brand() {return dftr($this->_p['brand'], [
-		'AMEX' => 'American Express'
-		,'DINERS' => 'Diners Club'
+	function brand() {return dftr($this->brandId(), [
+		self::$AMEX => 'American Express'
+		,self::$DINERS => 'Diners Club'
 		,'ELO' => 'Elo'
 		,'HIPER' => 'Itaucard 2.0 (Cartão Hiper)'
 		,'HIPERCARD' => 'Hipercard'
@@ -102,6 +102,13 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function expYear() {return null;}
 
 	/**
+	 * 2017-07-19
+	 * @used-by \Dfe\Moip\CardFormatter::label()
+	 * @return string
+	 */
+	function first6() {return $this->_p['first6'];}
+
+	/**
 	 * 2017-06-11
 	 * It returns a string like «CRC-3ITCTVLSEQKP»:
 	 * https://github.com/mage2pro/moip/blob/0.4.1/Facade/Customer.php#L89
@@ -118,10 +125,24 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::last4()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @used-by \Df\StripeClone\CardFormatter::label()
+	 * @used-by \Dfe\Moip\CardFormatter::label()
 	 * @return string
 	 */
 	function last4() {return $this->_p['last4'];}
+
+	/**
+	 * 2017-07-19
+	 * The Brazilian bank card numbers have the following lengths:
+	 * 	*) 15: (Diners Club International), 16 or 17 digits:
+	 * 	*) 16: (American Express)
+	 *	*) 17: All the others (Visa, MasterCard, Elo, Itaucard 2.0 (Cartão Hiper), Hipercard).
+	 * https://mage2.pro/t/3776
+	 * @used-by \Dfe\Moip\CardFormatter::label()
+	 * @return int
+	 */
+	function numberLength() {/** @var string $b */ $b = $this->brandId(); return
+		($r = dftr($b, [self::$AMEX => 16, self::$DINERS => 15])) === $b ? 17 : $r
+	;}
 
 	/**
 	 * 2017-06-13
@@ -133,8 +154,31 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	function owner() {return dfa_deep($this->_p, 'holder/fullname');}
 
 	/**
+	 * 2017-07-17
+	 * @used-by brand()
+	 * @used-by numberLength()
+	 * @return string
+	 */
+	private function brandId() {return $this->_p['brand'];}
+
+	/**
 	 * 2017-06-11
 	 * @var array(string => string)
 	 */
 	private $_p;
+
+	/**
+	 * 2017-07-17
+	 * @const
+	 * @used-by brand()
+	 * @used-by numberLength()
+	 */
+	private static $AMEX = 'AMEX';
+	/**
+	 * 2017-07-17
+	 * @const
+	 * @used-by brand()
+	 * @used-by numberLength()
+	 */
+	private static $DINERS = 'DINERS';
 }
