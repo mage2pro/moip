@@ -57,14 +57,38 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		,'email' => $this->customerEmail()
 		// 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => $this->customerName()
-		// 2017-04-22
-		// «Customer Id. External reference.»
-		// Required, String(66).
-		// It should be unique, otherwise you will get the error:
-		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
-		// («The unique identifier must be unique, there is a customer with the identified identifier»).
-		,'ownId' => !in_array($r = $this->customerEmail(), ['admin@mage2.pro', 'dfediuk@gmail.com']) ? $r :
-			df_uid(6, "$r-")
+		/**
+		 * 2017-04-22
+		 * «Customer Id. External reference.»
+		 * Required, String(66).
+		 * It should be unique, otherwise you will get the error:
+		 * «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
+		 * («The unique identifier must be unique, there is a customer with the identified identifier»).
+		 * 2017-07-20
+		 * The previous code was:
+		 * 		!in_array($r = $this->customerEmail(), ['admin@mage2.pro', 'dfediuk@gmail.com'])
+		 * 			? $r : df_uid(6, "$r-")
+		 * https://github.com/mage2pro/moip/blob/0.8.1/P/Reg.php#L66-L67
+		 * It is not quite correct because of the 2 reasons:
+		 * 1) 2 different merchants (with my Moip extension installed)
+		 * will try to use the same identifier for the customer,
+		 * and it could fail:
+		 * `Whether the Moip API v2 allows 2 different merchant accounts
+		 * to use the same identifier («ownId») for a customer (in a «POST /v2/customers» request)?`
+		 * https://mage2.pro/t/4202
+		 * 2) The same merchant can have multiple Magento stores (with my Moip extension installed)
+		 * with the same Moip account, and the stores will try to use the same identifier for the customer,
+		 * and it will fail without  the @see \Df\StripeClone\Payer::customerIdSaved() method modification.
+		 * https://github.com/mage2pro/core/blob/2.8.32/StripeClone/Payer.php#L61-L69
+		 * -------
+		 * So, for now I am making the global unique `ownId` values,
+		 * and waiting for the Moip support respinse on the first question: https://mage2.pro/t/4202
+		 * It should fix the issue «CUS-008»:
+		 * «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado».
+		 * https://sentry.io/dmitry-fedyuk/mage2pro-moip/issues/313861903
+		 * https://github.com/mage2pro/moip/issues/4
+		 */
+		,'ownId' => df_uid(6, "{$this->customerEmail()}-")
 		// 2017-04-23
 		// «The Address is the set of data that represents a location:
 		// *) associated with the Customer as the delivery address («shippingAddress»)
