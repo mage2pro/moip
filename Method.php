@@ -14,6 +14,7 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-14
+	 * 2017-07-20 It is CPF: https://en.wikipedia.org/wiki/Cadastro_de_Pessoas_Físicas
 	 * @used-by \Dfe\Moip\P\Charge::pTaxDocument()
 	 * @return string|null
 	 */
