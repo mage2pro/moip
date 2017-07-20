@@ -1,7 +1,7 @@
 The extension integrates your Magento 2 store with the **[Moip](https://moip.com.br)** payment service (Brazil).
 
-## Features
-### 1. The local bank card networks are supported
+## Screenshots
+### 1. The frontend payment form
 #### 1.1. A payment with a Hipercard bank card
 ![](https://mage2.pro/uploads/default/original/2X/0/014cd597d496ffb18463a60d3068a077416e4d63.png)
 
@@ -10,6 +10,13 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 
 #### 1.3. A payment with an Elo bank card
 ![](https://mage2.pro/uploads/default/original/2X/5/5d4ee550fb0a0dc9676ab7a00e2cd1e9fda8c958.png)
+
+### 2. The «Payment Information» block
+#### 2.1. Frontend
+![](https://mage2.pro/uploads/default/original/2X/e/e9d7ccd6a4d0c3fb0539758bc0965884fd0f2f02.png)
+
+#### 2.2. Backend
+![](https://mage2.pro/uploads/default/original/2X/a/a86e8a4e41dd5247586a612a7bdf2dafc919a423.png)
 
 ## Settings
 ![](https://mage2.pro/uploads/default/original/2X/f/f5de143a392514b681b29e5a59503e2d12211cfa.png)
