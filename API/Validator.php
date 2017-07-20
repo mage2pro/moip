@@ -14,12 +14,15 @@ final class Validator extends \Df\API\Response\Validator {
 
 	/**
 	 * 2017-07-13
+	 * 2017-07-20
+	 * We should use @uses dfa_deep, not dfa(), because of the «0/description» path.
+	 * https://sentry.io/dmitry-fedyuk/mage2pro-moip/issues/313861903
 	 * @override
 	 * @see \Df\API\Exception::short()
 	 * @used-by \Df\API\Client::p()
 	 * @return string
 	 */
-	function short() {return $this->k_ERROR() ?: dfa($this->k_errors(), '0/description');}
+	function short() {return $this->k_ERROR() ?: dfa_deep($this->k_errors(), '0/description');}
 
 	/**
 	 * 2017-07-13
