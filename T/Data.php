@@ -72,9 +72,9 @@ final class Data {
 	 * @return GA
 	 */
 	private function ga() {return dfc($this, function() {$s = dfps($this); /** @var S $s */return
-		df_geo($s->googlePrivateKey(), 'pt-BR', 'br')->geocode(
+		df_geo($s->googlePrivateKey(), 'pt-BR', 'br')->p(
 			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
-		)->first()
+		)
 	;});}
 
 	/** @return self */
