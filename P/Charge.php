@@ -42,6 +42,14 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @return array(string => mixed)
 	 */
 	function pAddress(A $a) {
+		/**
+		 * @todo 2017-07-20
+		 * «When a customer tries to place an order with a fake address,
+		 * the system shows him a low level Google Maps Geocoding API error.
+		 * The system should show an end-user message instead.»
+		 * https://github.com/mage2pro/moip/issues/2
+		 * https://sentry.io/dmitry-fedyuk/mage2pro/issues/314072005
+		 */
 		/** @var GA $ga */
 		$ga = df_geo($this->s()->googlePrivateKey(), 'pt-BR', 'br')->geocode(df_csv_pretty(
 			$a->getStreet(), $a->getCity(), $a->getRegion() ,$a->getPostcode()
