@@ -180,8 +180,11 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	protected function k_Capture() {return 'delayCapture';}
 
 	/**
-	 * 2017-06-11
-	 * https://github.com/mage2pro/moip/blob/0.4.2/T/CaseT/Payment.php#L50-L53
+	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.2/T/CaseT/Payment.php#L50-L53
+	 * 2017-07-21
+	 * 1) `[Moip] The «Dynamic statement descripor» feature`: https://mage2.pro/t/4203
+	 * 2) `Implement the dynamic statement descripor («statementDescriptor») feature
+	 * for the bank card payments` https://github.com/mage2pro/moip/issues/6
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_DSD()
 	 * @used-by \Df\StripeClone\P\Charge::request()

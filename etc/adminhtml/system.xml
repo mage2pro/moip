@@ -219,16 +219,23 @@
 					<source_model>Df\Payment\Source\ACR</source_model>
 					<depends><field id='enable'>1</field></depends>
 				</field>
+<!-- `[Moip] The «Dynamic statement descripor» feature`: https://mage2.pro/t/4203 -->
 				<field
-					id='description'
+					id='dsd'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='15'
 					translate='label'
-					type='textarea'
+					type='text'
 				>
-					<label>Description</label>
-					<comment><![CDATA[It will be displayed in the Moip web interface alongside the payment.<br/>You can use <a href='https://mage2.pro/t/1834' target='_blank'>variables</a> in the description.]]></comment>
+					<label>Dynamic statement descripor</label>
+					<comment><![CDATA[An arbitrary string to be displayed <a href='https://mage2.pro/t/4203' target='_blank' title='[Moip] The «Dynamic statement descripor» feature'>on your customer's bank card statement</a>.
+<br/>It is supported <b>only for the bank card payments</b>, and <b>only for the Visa and MasterCard</b> cards.
+<br/>It may be up to <b>13</b> characters, may not include <b><>"'</b> characters, and will appear on your customer's statement in capital letters.
+<br/>Non-ASCII characters are automatically stripped.
+]]></comment>
 					<depends><field id='enable'>1</field></depends>
+<!-- 2017-07-21 The maximum length is 13 characters: https://dev.moip.com.br/v2.0/reference#criar-pagamento -->
+					<validate>validate-length maximum-length-13</validate>
 				</field>
 				<field
 					id='requireBillingAddress'
