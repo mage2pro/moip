@@ -76,6 +76,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		 * `Whether the Moip API v2 allows 2 different merchant accounts
 		 * to use the same identifier («ownId») for a customer (in a «POST /v2/customers» request)?`
 		 * https://mage2.pro/t/4202
+		 * https://suporte.moip.com.br/hc/pt-br/requests/1461452
 		 * 2) The same merchant can have multiple Magento stores (with my Moip extension installed)
 		 * with the same Moip account, and the stores will try to use the same identifier for the customer,
 		 * and it will fail without  the @see \Df\StripeClone\Payer::customerIdSaved() method modification.
