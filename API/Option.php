@@ -9,7 +9,7 @@ final class Option {
 	 * 2017-06-10
 	 * @used-by \Dfe\Moip\P\Charge::v_CardId()
 	 * @used-by \Dfe\Moip\Facade\Customer::cardsData()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment::pFundingInstrument()
+	 * @used-by \Dfe\Moip\T\CaseT\Payment\Card::pFundingInstrument()
 	 */
 	const BANK_CARD = 'CREDIT_CARD';
 }

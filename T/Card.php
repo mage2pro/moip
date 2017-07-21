@@ -7,7 +7,7 @@ final class Card {
 	 * 2017-06-09
 	 * «Payment method»
 	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment::pPayment()
+	 * @used-by \Dfe\Moip\T\CaseT\Payment\Card::pPayment()
 	 * @param int|string $index [optional]
 	 * @return array(string => mixed)
 	 */

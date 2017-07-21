@@ -1,17 +1,17 @@
 <?php
-namespace Dfe\Moip\T\CaseT;
+namespace Dfe\Moip\T\CaseT\Payment;
 use Dfe\Moip\API\Facade\Payment as lP;
 use Dfe\Moip\T\Card as tCard;
 use Dfe\Moip\T\Order as tOrder;
 // 2017-06-09
 // https://dev.moip.com.br/page/api-reference#section-payments
 // https://dev.moip.com.br/v2.0/reference#pagamentos
-final class Payment extends \Dfe\Moip\T\CaseT {
-	/** @test 2017-06-09 */
+final class Card extends \Dfe\Moip\T\CaseT {
+	/** 2017-06-09 */
 	function t00() {}
 
 	/**
-	 * 2017-06-09
+	 * @test 2017-06-09
 	 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-payment-post-
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048

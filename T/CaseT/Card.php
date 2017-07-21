@@ -4,11 +4,10 @@ use Dfe\Moip\API\Facade\Customer as lC;
 use Dfe\Moip\T\Card as tCard;
 // 2017-04-26
 final class Card extends \Dfe\Moip\T\CaseT {
-	/** 2017-04-26 */
+	/** @test 2017-04-26 */
 	function t00() {}
 
 	/**
-	 * @test
 	 * 2017-04-26
 	 * https://dev.moip.com.br/page/api-reference#section-add-a-credit-card-post-
 	 * https://dev.moip.com.br/v2.0/reference#adicionar-cartao-de-credito
