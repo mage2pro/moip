@@ -1,9 +1,9 @@
 // 2017-04-11
 define([
 	// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
-	'df', 'df-lodash', 'Df_Checkout/data', 'Df_StripeClone/main', 'ko'
+	'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange', 'Df_StripeClone/main', 'ko'
 	,'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
-], function(df, _, dfc, parent, ko) {'use strict'; return parent.extend({
+], function(df, _, dfc, baChange, parent, ko) {'use strict'; return parent.extend({
 	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
 	/**
 	 * 2017-07-14
@@ -27,6 +27,24 @@ define([
 			)
 			,period: i
 		}});
+		// 2017-07-23
+		// It solves the task:
+		// `Prefill the «CPF do titular deste cartão» bank card payment form field
+		// with the value of the standard Magento «VAT Number» address attribute
+		// or with the value of the standard Magento «Tax/VAT number» customer attribute`:
+		// https://github.com/mage2pro/moip/issues/11
+		var _this = this;
+		baChange(function(a) {
+			if (a.vatId && a.vatId.length) {
+				_this.taxID(a.vatId);
+			}
+			else {
+				var c = window.checkoutConfig.customerData;
+				if (c && c.taxvat && c.taxvat.length) {
+					_this.taxID(c.taxvat);
+				}
+			}
+		});
 		return this;
 	},
 	/**
