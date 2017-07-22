@@ -260,7 +260,6 @@
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
 					<depends>
 						<field id='enable'>1</field>
-						<field id='requireCardholder'>1</field>
 					</depends>
 				</field>
 				<field
