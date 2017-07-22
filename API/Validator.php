@@ -50,6 +50,20 @@ final class Validator extends \Df\API\Response\Validator {
 	 * An usual error response looks like:
 	 *	{"errors": [{"code": "PAY-999", "path": "", "description": "Cartão de crédito não foi encontrado"}]}
 	 * https://dev.moip.com.br/v2.0/reference#section--error-states-
+	 * 2017-07-22
+	 * An error response with 2 messages:
+	 *	[
+	 *		{
+	 *			"code": "PAY-033",
+	 *			"description": "A data de nascimento do portador do cartão é inválido",
+	 *			"path": "fundingInstrument.creditCard.holder.birthdate"
+	 *		},
+	 *		{
+	 *			"code": "PAY-033",
+	 *			"description": "A data de nascimento do portador do cartão é inválido",
+	 *			"path": "fundingInstrument.creditCard.holder.validBirthdate"
+	 *		}
+	 *	]
 	 * @used-by long()
 	 * @used-by short()
 	 * @used-by valid()
