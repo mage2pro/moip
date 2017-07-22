@@ -25,7 +25,7 @@ class Info extends \Df\StripeClone\Block\Info {
 	final protected function prepare() {
 		parent::prepare();
 		$m = $this->m(); /** @var M $m */
-		$this->siEx('Tax ID', $m->taxID());
+		$this->siEx(['Date of Birth' => $m->dob(), 'Tax ID' => $m->taxID()]);
 		if (1 !== ($p = $m->plan()) /** @var int $p */) {
 			$this->si('Installments', $p);
 		}

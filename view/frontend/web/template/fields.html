@@ -16,3 +16,20 @@
 		"/>
 	</div>
 </div>
+<div class='field number required'>
+	<label data-bind="attr: {for: 'dob'}" class='label'>
+		<span><!-- ko df_i18n: "Cardholder's date of birth"--><!-- /ko --></span>
+	</label>
+	<div class='control'>
+		<input class='input-text' type='text' value='' data-bind="
+			attr: {
+				autocomplete: off
+				,'data-container': getCode() + '-dob'
+				,id: 'dob'
+				,title: $t('Cardholder\'s date of birth')
+			}
+			,value: dob
+			,valueUpdate: 'keyup'
+		"/>
+	</div>
+</div>

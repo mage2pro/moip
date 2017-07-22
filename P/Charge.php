@@ -135,7 +135,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 				// 2017-06-09
 				// «date(AAAA-MM-DD)»
 				// Required.
-				,'birthdate' => $this->customerDobS()
+				,'birthdate' => $this->m()->dob()
 				// 2017-06-09
 				// «Name of the carrier printed on the card»
 				// Required, String(90).

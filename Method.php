@@ -5,6 +5,14 @@ use Magento\Sales\Model\Order\Payment\Transaction as T;
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**
+	 * 2017-07-23
+	 * @used-by \Dfe\Moip\Block\Info::prepare()
+	 * @used-by \Dfe\Moip\P\Charge::v_CardId
+	 * @return int
+	 */
+	function dob() {return $this->iia(self::$II_DOB);}
+
+	/**
 	 * 2017-07-15
 	 * @used-by \Dfe\Moip\Block\Info::prepare()
 	 * @used-by \Dfe\Moip\P\Charge::p()
@@ -37,7 +45,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return string[]
 	 */
 	protected function iiaKeys() {return array_merge(parent::iiaKeys(), [
-		self::$II_CARDHOLDER, self::$II_PLAN, self::$II_TAX_ID
+		self::$II_CARDHOLDER, self::$II_DOB, self::$II_PLAN, self::$II_TAX_ID
 	]);}
 
 	/**
@@ -55,6 +63,13 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by iiaKeys()
 	 */
 	private static $II_CARDHOLDER = 'cardholder';
+
+	/**
+	 * 2017-07-23
+	 * @used-by dob()
+	 * @used-by iiaKeys()
+	 */
+	private static $II_DOB = 'dob';
 
 	/**
 	 * 2017-07-15 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68

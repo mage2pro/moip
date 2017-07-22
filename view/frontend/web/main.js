@@ -4,7 +4,7 @@ define([
 	'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange', 'Df_StripeClone/main', 'ko'
 	,'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
 ], function(df, _, dfc, baChange, parent, ko) {'use strict'; return parent.extend({
-	defaults: {df: {card: {requireCardholder: true}}, taxID: ''},
+	defaults: {df: {card: {requireCardholder: true}}, dob: '', taxID: ''},
 	/**
 	 * 2017-07-14
 	 * @override
@@ -58,7 +58,7 @@ define([
 	 *	<!--/ko-->
 	 * @returns {String}
 	 */
-	dfCard_customTemplate_afterCardholder: function() {return 'Dfe_Moip/taxID';},
+	dfCard_customTemplate_afterCardholder: function() {return 'Dfe_Moip/fields';},
 	/**
 	 * 2017-07-14
 	 * @override
@@ -82,7 +82,7 @@ define([
 	 * @returns {Object}
 	 */
 	dfData: function() {return df.o.merge(this._super(), {
-		cardholder: this.cardholder(), plan: this.installment(), taxID: this.taxID()
+		cardholder: this.cardholder(), dob: this.dob(), plan: this.installment(), taxID: this.taxID()
 	});},
 	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647
@@ -99,7 +99,7 @@ define([
 	 * https://github.com/magento/magento2/blob/2.2.0-RC1.3/app/code/Magento/Ui/view/base/web/js/lib/core/element/element.js#L104
 	 * @returns {Element} Chainable
 	*/
-	initObservable: function() {this._super(); this.observe(['taxID']); return this;},
+	initObservable: function() {this._super(); this.observe(['dob', 'taxID']); return this;},
 	/**
 	 * 2017-07-12 «[Moip] What is CPF?» https://mage2.pro/t/3376
 	 * @override
@@ -109,7 +109,7 @@ define([
 	 * https://github.com/mage2pro/core/blob/2.8.3/Payment/view/frontend/web/card.js#L134-L137
 	 * @param {*} d
 	 */
-	prefill: function(d) {this._super(d); this.taxID('11438374798');},
+	prefill: function(d) {this._super(d); this.dob('1982-08-07'); this.taxID('11438374798');},
     /**
 	 * 2017-06-13
 	 * @override
