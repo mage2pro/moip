@@ -3,6 +3,7 @@ namespace Dfe\Moip\API;
 // 2017-06-10
 // Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
 // https://dev.moip.com.br/page/api-reference#section-payments
+// https://dev.moip.com.br/v2.0/reference#criar-pagamento
 // https://dev.moip.com.br/v2.0/reference#pedidos
 final class Option {
 	/**
@@ -12,4 +13,9 @@ final class Option {
 	 * @used-by \Dfe\Moip\T\CaseT\Payment\Card::pFundingInstrument()
 	 */
 	const BANK_CARD = 'CREDIT_CARD';
+	/**
+	 * 2017-07-21
+	 * @used-by \Dfe\Moip\T\CaseT\Payment\OnlineBanking::pPayment()
+	 */
+	const ONLINE_BANKING = 'ONLINE_BANK_DEBIT';
 }
