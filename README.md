@@ -3,13 +3,13 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ## Screenshots
 ### 1. The frontend payment form
 #### 1.1. A payment with a Hipercard bank card
-![](https://mage2.pro/uploads/default/original/2X/0/014cd597d496ffb18463a60d3068a077416e4d63.png)
+![](https://mage2.pro/uploads/default/original/2X/5/5be78d30227e81f24a104091b9d748d907c5ddb7.png)
 
 #### 1.2. A payment with an «Itaucard 2.0 Nacional Hiper» bank card
-![](https://mage2.pro/uploads/default/original/2X/3/378ffe7545dbf06eac354711714981eb2d74c904.png)
+![](https://mage2.pro/uploads/default/original/2X/b/b9db493e23218811c7cd0a0cd73abb3648b91926.png)
 
 #### 1.3. A payment with an Elo bank card
-![](https://mage2.pro/uploads/default/original/2X/5/5d4ee550fb0a0dc9676ab7a00e2cd1e9fda8c958.png)
+![](https://mage2.pro/uploads/default/original/2X/4/491dab8b47db2e155545465c38f8f34d52a6daff.png)
 
 ### 2. The «Payment Information» block
 #### 2.1. Frontend
