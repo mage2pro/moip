@@ -16,7 +16,7 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ![](https://mage2.pro/uploads/default/original/2X/e/e9d7ccd6a4d0c3fb0539758bc0965884fd0f2f02.png)
 
 #### 2.2. Backend
-![](https://mage2.pro/uploads/default/original/2X/a/a86e8a4e41dd5247586a612a7bdf2dafc919a423.png)
+![](https://mage2.pro/uploads/default/original/2X/a/a68f27356f10eced60087f44d65cfbf5ca325dbf.png)
 
 ## Settings
 ![](https://mage2.pro/uploads/default/original/2X/f/f5de143a392514b681b29e5a59503e2d12211cfa.png)
