@@ -21,6 +21,7 @@
 		<span><!-- ko df_i18n: "Cardholder's date of birth"--><!-- /ko --></span>
 	</label>
 	<div class='control'>
+<!-- 2017-07-23 https://github.com/magento/magento2/blob/2.2.0-RC1.5/app/code/Magento/Ui/view/base/web/js/lib/knockout/bindings/datepicker.js -->
 		<input class='input-text' type='text' value='' data-bind="
 			attr: {
 				autocomplete: off
@@ -28,7 +29,7 @@
 				,id: 'dob'
 				,title: $t('Cardholder\'s date of birth')
 			}
-			,datepicker: {storage: dob}
+			,datepicker: {options: {dateFormat: 'yyyy-mm-dd'}, storage: dob}
 			,value: dob
 			,valueUpdate: 'keyup'
 		"/>
