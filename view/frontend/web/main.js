@@ -34,12 +34,14 @@ define([
 		// or with the value of the standard Magento «Tax/VAT number» customer attribute`:
 		// https://github.com/mage2pro/moip/issues/11
 		var _this = this;
+		/** @type {Object} */ var c = window.checkoutConfig.customerData;
+		// 2017-07-23 The date is already in the proper format: «yyyy-mm-dd».
+		this.dob(c.dob);
 		baChange(function(a) {
 			if (a.vatId && a.vatId.length) {
 				_this.taxID(a.vatId);
 			}
 			else {
-				var c = window.checkoutConfig.customerData;
 				if (c && c.taxvat && c.taxvat.length) {
 					_this.taxID(c.taxvat);
 				}
@@ -109,7 +111,7 @@ define([
 	 * https://github.com/mage2pro/core/blob/2.8.3/Payment/view/frontend/web/card.js#L134-L137
 	 * @param {*} d
 	 */
-	prefill: function(d) {this._super(d); this.dob('1982-08-07'); this.taxID('11438374798');},
+	prefill: function(d) {this._super(d); this.dob('1982-07-08'); this.taxID('11438374798');},
     /**
 	 * 2017-06-13
 	 * @override
