@@ -19,7 +19,7 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ![](https://mage2.pro/uploads/default/original/2X/a/a68f27356f10eced60087f44d65cfbf5ca325dbf.png)
 
 ## Settings
-![](https://mage2.pro/uploads/default/original/2X/f/f5de143a392514b681b29e5a59503e2d12211cfa.png)
+![](https://mage2.pro/uploads/default/original/2X/e/ed09b7940ab88b987b0df92ee6ba3ebc7e82ac28.png)
 
 ## How to buy
 You can buy it with PayPal [here](https://mage2.pro/t/3222).  
