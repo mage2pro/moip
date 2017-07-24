@@ -56,15 +56,15 @@ final class Boleto extends \Dfe\Moip\T\CaseT {
 					// 2017-07-24
 					// «Payment slip instructions, line 1»
 					// «Primeira linha de instrução»
-					'first' => ''
+					'first' => 'First line'
 					// 2017-07-24
 					// «Payment slip instructions, line 2»
 					// «Segunda linha de instrução»
-					,'second' => ''
+					,'second' => 'Second line'
 					// 2017-07-24
 					// «Payment slip instructions, line 3»
 					// «Terceira linha de instrução»
-					,'third' => ''
+					,'third' => 'Third line'
 				]
 				// 2017-07-24
 				// «Endereço de uma imagem com o logotipo a ser impresso no boleto.
@@ -73,7 +73,7 @@ final class Boleto extends \Dfe\Moip\T\CaseT {
 				// As I understand, it is an URL of a logotype to be printed on the boleto,
 				// and it is not yet supported by the current API version.
 				// Optional, link.
-				,'logoUri' => ''
+				,'logoUri' => 'https://avatars3.githubusercontent.com/u/23271789?v=4&s=200'
 			]
 			// 2017-06-09
 			// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
