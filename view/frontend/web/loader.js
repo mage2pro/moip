@@ -5,7 +5,7 @@ define([
 /** @type {String} */ var code = 'dfe_moip';
 /** @type {String} */ var name = 'Dfe_Moip';
 if (window.checkoutConfig.payment[code]) {
-	rendererList.push({type: code, component: name + '/main'});
+	rendererList.push({type: code, component: name + '/card'});
 }
 return Component.extend({});
 });
