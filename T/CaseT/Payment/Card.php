@@ -6,6 +6,7 @@ use Dfe\Moip\T\Order as tOrder;
 // 2017-06-09
 // https://dev.moip.com.br/page/api-reference#section-payments
 // https://dev.moip.com.br/v2.0/reference#pagamentos
+// 2017-07-23 `[Moip] The available payment options`: https://mage2.pro/t/3851
 final class Card extends \Dfe\Moip\T\CaseT {
 	/** @test 2017-06-09 */
 	function t00() {}

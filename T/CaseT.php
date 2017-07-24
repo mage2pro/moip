@@ -5,6 +5,7 @@ namespace Dfe\Moip\T;
  * @see \Dfe\Moip\T\CaseT\Card
  * @see \Dfe\Moip\T\CaseT\Customer
  * @see \Dfe\Moip\T\CaseT\Order
+ * @see \Dfe\Moip\T\CaseT\Payment\Boleto
  * @see \Dfe\Moip\T\CaseT\Payment\Card
  * @see \Dfe\Moip\T\CaseT\Payment\OnlineBanking
  * @method \Dfe\Moip\Method m()
