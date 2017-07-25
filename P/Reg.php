@@ -88,6 +88,13 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		 * «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado».
 		 * https://sentry.io/dmitry-fedyuk/mage2pro-moip/issues/313861903
 		 * https://github.com/mage2pro/moip/issues/4
+		 *
+		 * 2017-07-26
+		 * «I have got an answer from Moip support:
+		 * Yes, it's safe, because the ownid belongs to your token and key,
+		 * on this way, if another merchant uses the same ownid to specific transaction,
+		 * it's don't will be a problem, because the authentication will be different.»
+		 * https://mage2.pro/t/4202/2
 		 */
 		,'ownId' => df_uid(6, "{$this->customerEmail()}-")
 		// 2017-04-23
