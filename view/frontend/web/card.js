@@ -1,9 +1,9 @@
 // 2017-04-11
+// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
 define([
-	// 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
-	'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange', 'Df_StripeClone/main', 'ko'
-	,'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
-], function(df, _, dfc, baChange, parent, ko) {'use strict'; return parent.extend({
+	'./mixin', 'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange'
+   	,'Df_StripeClone/main', 'ko', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
+], function(mixin, df, _, dfc, baChange, parent, ko) {'use strict'; return parent.extend(df.o.merge(mixin, {
 	defaults: {df: {card: {requireCardholder: true}}, dob: '', taxID: ''},
 	/**
 	 * 2017-07-14
@@ -112,31 +112,6 @@ define([
 	*/
 	initObservable: function() {this._super(); this.observe(['dob', 'taxID']); return this;},
 	/**
-	 * 2017-07-25
-	 * @override
-	 * @see Magento/Checkout/js/view/payment/default::isRadioButtonVisible():
-	 * 		return paymentService.getAvailablePaymentMethods().length !== 1;
- 	 * https://github.com/magento/magento2/blob/2.2.0-RC1.5/app/code/Magento/Checkout/view/frontend/web/js/view/payment/default.js#L183-L185
-	 * @used-by Df_Payment/main.html:
-	 *	<input
-	 *		type="radio"
-	 *		name="payment[method]"
-	 *		class="radio"
-	 *		data-bind="
-	 *			attr: {id: getCode()},
-	 *			value: getCode(),
-	 *			checked: dfChosenMethod,
-	 *			click: selectPaymentMethod,
-	 *			visible: isRadioButtonVisible()
-	 *		"
-	 *	/>
-	 * https://github.com/mage2pro/core/blob/2.9.8/Payment/view/frontend/web/template/main.html#L14-L25
-	 * I override this, because the Moip payment methods provides multiple options (card, boleto, ...),
-	 * so we need the radio buttons enabled to switch between the options.
-	 * @returns {boolean}
-	 */
-	isRadioButtonVisible: function() {return true;},
-	/**
 	 * 2017-07-12 «[Moip] What is CPF?» https://mage2.pro/t/3376
 	 * @override
 	 * @see Df_Payment/card::prefill()
@@ -211,4 +186,4 @@ define([
 		,number: this.creditCardNumber()
 		,pubKey: this.publicKey()
 	};}
-});});
+}));});
