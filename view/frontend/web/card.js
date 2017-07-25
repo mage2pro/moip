@@ -93,6 +93,15 @@ define([
 	 */
 	getCardTypes: function() {return ['VI', 'MC', 'AE', 'DN', 'Hipercard', 'Hiper', 'Elo'];},
 	/**
+	 * 2017-07-25
+	 * @override
+	 * @see Df_Payment/card.js::getCode():
+	 * 		return this.item.method;
+ 	 * https://github.com/mage2pro/core/blob/2.9.7/Payment/view/frontend/web/card.js#L97-L109
+	 * @returns {String}
+	 */
+	getCode: function() {return this._super() + '_card';},
+	/**
 	 * 2017-07-12
 	 * @override
 	 * @see Df_Payment/card::initObservable()
@@ -116,12 +125,12 @@ define([
 	 *		data-bind="
 	 *			attr: {id: getCode()},
 	 *			value: getCode(),
-	 *			checked: isChecked,
+	 *			checked: dfChosenMethod,
 	 *			click: selectPaymentMethod,
 	 *			visible: isRadioButtonVisible()
 	 *		"
 	 *	/>
-	 * https://github.com/mage2pro/core/blob/2.9.5/Payment/view/frontend/web/template/main.html#L7-L18
+	 * https://github.com/mage2pro/core/blob/2.9.8/Payment/view/frontend/web/template/main.html#L14-L25
 	 * I override this, because the Moip payment methods provides multiple options (card, boleto, ...),
 	 * so we need the radio buttons enabled to switch between the options.
 	 * @returns {boolean}
