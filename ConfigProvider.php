@@ -10,8 +10,9 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {return [
+	protected function config() {$s = $this->s(); return [
 		'calendar' => df_asset_create('Magento_Theme::calendar.png')->getUrl()
-		,'installments' => $this->s()->installments()
+		,'installments' => $s->installments()
+		,'moip' => ['title' => ['boleto' => $s->v('titleBoleto'), 'card' => $s->v('titleCard')]]
 	] + parent::config();}
 }

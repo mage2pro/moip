@@ -34,13 +34,25 @@
 					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/moip' target='_blank'>Moip</a>» payment extension?]]></comment>
 				</field>
 				<field
-					id='title'
+					id='titleCard'
 					showInDefault='1' showInStore='1' showInWebsite='1'
 					sortOrder='2'
 					translate='label'
 					type='text'
 				>
-					<label>Title</label>
+					<label>A title for the bank card payment option</label>
+					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='titleBoleto'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='3'
+					translate='label'
+					type='text'
+				>
+					<label>A title for the «Boleto bancário» payment option</label>
 					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
 					<depends><field id='enable'>1</field></depends>
 					<validate>required-entry</validate>
@@ -48,7 +60,7 @@
 				<field
 					id='test'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='3'
+					sortOrder='4'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
 				>
@@ -61,7 +73,7 @@
 					dfRows='5'
 					id='testPublicKey'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='4'
+					sortOrder='5'
 					translate='label'
 					type='Df\Framework\Form\Element\Textarea'
 				>
@@ -76,7 +88,7 @@
 				<field
 					id='testPrivateToken'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='5'
+					sortOrder='6'
 					translate='label'
 					type='obscure'
 				>
@@ -92,7 +104,7 @@
 				<field
 					id='testPrivateKey'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='6'
+					sortOrder='7'
 					translate='label'
 					type='obscure'
 				>
@@ -108,7 +120,7 @@
 				<field
 					id='prefill'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='7'
+					sortOrder='8'
 					translate='label'
 					type='select'
 				>
@@ -124,7 +136,7 @@
 					dfRows='5'
 					id='livePublicKey'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='8'
+					sortOrder='9'
 					translate='label'
 					type='Df\Framework\Form\Element\Textarea'
 				>
@@ -139,7 +151,7 @@
 				<field
 					id='livePrivateToken'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='9'
+					sortOrder='10'
 					translate='label'
 					type='obscure'
 				>
@@ -155,7 +167,7 @@
 				<field
 					id='livePrivateKey'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='10'
+					sortOrder='11'
 					translate='label'
 					type='obscure'
 				>
@@ -171,7 +183,7 @@
 				<field
 					id='googlePrivateKey'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='11'
+					sortOrder='12'
 					translate='label'
 					type='obscure'
 				>
@@ -188,7 +200,7 @@
 				<field
 					id='installments'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='12'
+					sortOrder='13'
 					translate='label'
 					type='text'
 				>
@@ -199,7 +211,7 @@
 				<field
 					id='actionForNew'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='13'
+					sortOrder='14'
 					translate='label'
 					type='select'
 				>
@@ -211,7 +223,7 @@
 				<field
 					id='actionForReturned'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='14'
+					sortOrder='15'
 					translate='label'
 					type='select'
 				>
@@ -223,7 +235,7 @@
 				<field
 					id='dsd'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='15'
+					sortOrder='16'
 					translate='label'
 					type='text'
 				>
@@ -240,7 +252,7 @@
 				<field
 					id='requireBillingAddress'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='16'
+					sortOrder='17'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
 				>
@@ -252,7 +264,7 @@
 				<field
 					id='prefillCardholder'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='17'
+					sortOrder='18'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
 				>
@@ -265,7 +277,7 @@
 				<field
 					id='min_order_total'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='18'
+					sortOrder='19'
 					translate='label'
 					type='text'
 				>
@@ -277,7 +289,7 @@
 				<field
 					id='max_order_total'
 					showInDefault='1' showInStore='1' showInWebsite='1'
-					sortOrder='19'
+					sortOrder='20'
 					translate='label'
 					type='text'
 				>

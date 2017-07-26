@@ -14,6 +14,7 @@ define([
 	*/
 	initialize: function() {
 		this._super();
+		this.item.title = this.config('moip.title.card');
 		/** @type {Number[]} */
 		var ia = this.config('installments');
 		if (2 > ia.length) {

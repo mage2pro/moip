@@ -20,8 +20,10 @@ https://mage2.pro/t/3820/2
 				<currency>BRL</currency>
 <!-- 2017-07-14 «How is a bank card form implemented in mercadolivre.com.br?» https://mage2.pro/t/4065 -->
 				<installments>1,2,3,4,5,6,10,12</installments>
-				<title>Cartão de crédito</title>
+				<title>Moip</title>
 				<title_backend>Moip</title_backend>
+				<titleBoleto>Boleto bancário</titleBoleto>
+				<titleCard>Cartão de crédito</titleCard>
 			</moip>
 		</df_payment>
         <payment>
