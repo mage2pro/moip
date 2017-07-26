@@ -4,7 +4,7 @@ define([
 	'./mixin', 'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange'
    	,'Df_StripeClone/main', 'ko', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
 ], function(mixin, df, _, dfc, baChange, parent, ko) {'use strict'; return parent.extend(df.o.merge(mixin, {
-	defaults: {df: {card: {requireCardholder: true}}, dob: '', taxID: ''},
+	defaults: {df: {card: {requireCardholder: true}, moip: {suffix: 'card'}}, dob: '', taxID: ''},
 	/**
 	 * 2017-07-14
 	 * @override
@@ -76,15 +76,23 @@ define([
 		!this.installments.length ? null : 'Dfe_Moip/installments'
 	);},
 	/**
-	 * 2017-06-13 Задаёт набор передаваемых на сервер при нажатии кнопки «Place Order» данных.
+	 * 2017-06-13
+	 * 2017-07-26
+	 * These data are submitted to the M2 server part
+	 * as the `additional_data` property value on the «Place Order» button click:
+	 * @used-by Df_Payment/mixin::getData():
+	 *		getData: function() {return {additional_data: this.dfData(), method: this.item.method};},
+	 * https://github.com/mage2pro/core/blob/2.8.4/Payment/view/frontend/web/mixin.js#L224
 	 * @override
 	 * @see Df_Payment/card::dfData()
-	 * @used-by Df_Payment/mixin::getData()
-	 * https://github.com/mage2pro/core/blob/2.8.4/Payment/view/frontend/web/mixin.js#L224
 	 * @returns {Object}
 	 */
 	dfData: function() {return df.o.merge(this._super(), {
-		cardholder: this.cardholder(), dob: this.dob(), plan: this.installment(), taxID: this.taxID()
+		cardholder: this.cardholder()
+		,dob: this.dob()
+		,option: 'card'
+		,plan: this.installment()
+		,taxID: this.taxID()
 	});},
 	/**
 	 * 2017-04-11 The bank card network codes: https://mage2.pro/t/2647
@@ -92,15 +100,6 @@ define([
 	 * @returns {String[]}
 	 */
 	getCardTypes: function() {return ['VI', 'MC', 'AE', 'DN', 'Hipercard', 'Hiper', 'Elo'];},
-	/**
-	 * 2017-07-25
-	 * @override
-	 * @see Df_Payment/card.js::getCode():
-	 * 		return this.item.method;
- 	 * https://github.com/mage2pro/core/blob/2.9.7/Payment/view/frontend/web/card.js#L97-L109
-	 * @returns {String}
-	 */
-	getCode: function() {return this._super() + '_card';},
 	/**
 	 * 2017-07-12
 	 * @override
