@@ -13,7 +13,7 @@ define(['df-lodash', 'Magento_Checkout/js/model/quote'], function(_, quote) {'us
  	 */
 	dfIsChosen: function() {return (
 		this.item.method === this.dfChosenMethod()
-		&& this.df.moip.suffix === _.get(quote.paymentMethod(), 'additional_data.option', 'card')
+		&& this.df.moip.suffix === _.get(quote.paymentMethod(), 'additional_data.option')
 	);},
 	/**
 	 * 2017-07-25
