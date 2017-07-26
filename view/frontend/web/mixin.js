@@ -3,7 +3,18 @@
  * @see Dfe_Moip/boleto
  * @see Dfe_Moip/card
  */
-define([], function() {'use strict'; return {
+define(['df-lodash', 'Magento_Checkout/js/model/quote'], function(_, quote) {'use strict'; return {
+	/**
+	 * 2017-07-26
+	 * @override
+	 * @see Df_Payment/mixin::dfIsChosen()
+	 * @used-by Df_Payment/main.html
+	 * @returns {Boolean}
+ 	 */
+	dfIsChosen: function() {return (
+		this.item.method === this.dfChosenMethod()
+		&& this.df.moip.suffix === _.get(quote.paymentMethod(), 'additional_data.option', 'card')
+	);},
 	/**
 	 * 2017-07-25
 	 * @override

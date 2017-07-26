@@ -90,7 +90,7 @@ define([
 	dfData: function() {return df.o.merge(this._super(), {
 		cardholder: this.cardholder()
 		,dob: this.dob()
-		,option: 'card'
+		,option: this.df.moip.suffix
 		,plan: this.installment()
 		,taxID: this.taxID()
 	});},
