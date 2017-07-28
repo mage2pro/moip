@@ -12,21 +12,16 @@ define(['df-lodash', 'Magento_Checkout/js/model/quote'], function(_, quote) {'us
 	 * @returns {Boolean}
  	 */
 	dfIsChosen: function() {return (
-		this.item.method === this.dfChosenMethod()
-		&& this.df.moip.suffix === _.get(quote.paymentMethod(), 'additional_data.option')
+		this._super() && this.df.moip.suffix === _.get(quote.paymentMethod(), 'additional_data.option')
 	);},
 	/**
 	 * 2017-07-25
 	 * @override
-	 * @see Df_Payment/card.js::getCode():
+	 * @see Df_Payment/mixin::domPrefix():
 	 * 		return this.item.method;
- 	 * https://github.com/mage2pro/core/blob/2.9.7/Payment/view/frontend/web/card.js#L97-L109
-	 * @see Magento_Checkout/js/view/payment/default::getCode():
-	 * 		return this.item.method;
-	 * https://github.com/magento/magento2/blob/2.1.0/app/code/Magento/Checkout/view/frontend/web/js/view/payment/default.js#L203-L208
 	 * @returns {String}
 	 */
-	getCode: function() {return this._super() + '_' + this.df.moip.suffix;},
+	domPrefix: function() {return this._super() + '_' + this.df.moip.suffix;},
 	/**
 	 * 2017-07-25
 	 * @override
