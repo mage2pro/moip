@@ -4,6 +4,12 @@ namespace Dfe\Moip;
 /** @method static Settings s() */
 final class Settings extends \Df\StripeClone\Settings {
 	/**
+	 * 2017-07-30 «Instruções impressas no boleto.»
+	 * @return string
+	 */
+	function boletoInstructions() {return $this->v('boleto/instructions');}
+
+	/**
 	 * 2017-07-14
 	 * «Private Key for Google Maps Geocoding API»
 	 * «How to generate a key for the Google Maps Geocoding API?» https://mage2.pro/t/3828

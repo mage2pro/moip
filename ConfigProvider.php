@@ -21,7 +21,6 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 			,'cards' => parent::cards()
 			,'enable' => $s->v('card/enable') && $this->applicableForQuote('card')
 			,'installments' => $s->installments()
-			,'title' => $s->v('card/title')
 			,'prefill' => $s->prefill()
 			// 2017-07-22
 			// It implements the feature:
@@ -29,6 +28,7 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 			// to the payment modules which require (or accept) the cardholder's name`
 			// https://github.com/mage2pro/core/issues/14
 			,'prefillCardholder' => $s->prefillCardholder()
+			,'title' => $s->v('card/title')
 		]
 		,'common' => [
 			'isTest' => $s->test()
