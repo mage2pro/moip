@@ -2,8 +2,8 @@
 // 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
 define([
 	'./mixin', 'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange'
-   	,'Df_StripeClone/main', 'ko', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
-], function(mixin, df, _, dfc, baChange, parent, ko) {'use strict'; return parent.extend(df.o.merge(mixin, {
+   	,'Df_StripeClone/main', 'ko', 'Magento_Checkout/js/model/quote', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
+], function(mixin, df, _, dfc, baChange, parent, ko, quote) {'use strict'; return parent.extend(df.o.merge(mixin, {
 	defaults: {df: {card: {requireCardholder: true}, moip: {suffix: 'card'}}, dob: '', taxID: ''},
 	/**
 	 * 2017-07-14
@@ -14,6 +14,22 @@ define([
 	*/
 	initialize: function() {
 		this._super();
+		/**
+		 * 2017-07-29
+		 * It fixes the issue:
+		 * «On the frontend checkout page load one of the payment option is initially selected
+		 * but not expanded. The right behaviour: no payment option should be initially preselected.»
+		 * https://github.com/mage2pro/moip/issues/16
+		 * If a store has only the Moip payment method enabled,
+		 * then the following M2 core code automatically set Moip as the selected payment method:
+		 *		if (filteredMethods.length === 1) {
+		 *			selectPaymentMethod(filteredMethods[0]);
+		 *		}
+		 * https://github.com/magento/magento2/blob/2.2.0-RC1.5/app/code/Magento/Checkout/view/frontend/web/js/model/payment-service.js#L54-L56
+		 * As the Moip module provides multiple payment options, we deselect the Moip payment method
+		 * and let customer to choose an option himself.
+		 */
+		quote.paymentMethod(null);
 		this.item.title = this.config('moip.title.card');
 		/** @type {Number[]} */
 		var ia = this.config('installments');
