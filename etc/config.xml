@@ -6,9 +6,19 @@
     <default>
 		<df_payment>
 			<moip>
-				<actionForNew>authorize_capture</actionForNew>
-				<actionForReturned>authorize_capture</actionForReturned>
-				<requireBillingAddress>1</requireBillingAddress>
+				<boleto>
+					<title>Boleto bancário</title>
+				</boleto>
+				<card>
+					<actionForNew>authorize_capture</actionForNew>
+					<actionForReturned>authorize_capture</actionForReturned>
+<!-- 2017-07-14 «How is a bank card form implemented in mercadolivre.com.br?» https://mage2.pro/t/4065 -->
+					<installments>1,2,3,4,5,6,10,12</installments>
+					<title>Cartão de crédito</title>
+				</card>
+				<common>
+					<requireBillingAddress>1</requireBillingAddress>
+				</common>
 <!--
 2017-04-25
 «Today we do not support creating clients that are from other countries that are not from Brazil,
@@ -18,12 +28,8 @@ https://mage2.pro/t/3820/2
 				<countries>BR</countries>
 				<country_restriction>whitelist</country_restriction>
 				<currency>BRL</currency>
-<!-- 2017-07-14 «How is a bank card form implemented in mercadolivre.com.br?» https://mage2.pro/t/4065 -->
-				<installments>1,2,3,4,5,6,10,12</installments>
 				<title>Moip</title>
 				<title_backend>Moip</title_backend>
-				<titleBoleto>Boleto bancário</titleBoleto>
-				<titleCard>Cartão de crédito</titleCard>
 			</moip>
 		</df_payment>
         <payment>
