@@ -14,13 +14,5 @@ define([
 	 * @see Df_Payment/mixin::dfData()
 	 * @returns {Object}
 	 */
-	dfData: function() {return df.o.merge(this._super(), {option: this.df.moip.suffix});},
-	/**
-	 * 2017-07-26
-	 * @override
-	 * @see Df_Payment/custom::initialize()
-	 * https://github.com/mage2pro/core/blob/2.4.21/Payment/view/frontend/web/card.js#L77-L110
-	 * @returns {exports}
-	*/
-	initialize: function() {this._super(); this.item.title = this.config('moip.title.boleto'); return this;}
+	dfData: function() {return df.o.merge(this._super(), {option: this.df.moip.suffix});}
 }));});

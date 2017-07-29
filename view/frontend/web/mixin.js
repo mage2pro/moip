@@ -4,6 +4,7 @@
  * @see Dfe_Moip/card
  */
 define(['df-lodash', 'Magento_Checkout/js/model/quote'], function(_, quote) {'use strict'; return {
+	defaults: {df: {requireBillingAddress: true}},
 	/**
 	 * 2017-07-26
 	 * @override
@@ -11,7 +12,7 @@ define(['df-lodash', 'Magento_Checkout/js/model/quote'], function(_, quote) {'us
 	 * @used-by Df_Payment/main.html
 	 * @returns {Boolean}
  	 */
-	dfIsChosen: function() {return (
+	dfIsChosen: function() {return(
 		this._super() && this.df.moip.suffix === _.get(quote.paymentMethod(), 'additional_data.option')
 	);},
 	/**

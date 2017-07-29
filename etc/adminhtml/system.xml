@@ -36,10 +36,11 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Checkbox'
 					>
-						<label>Enable?</label>
 						<backend_model>Df\Config\Backend\Checkbox</backend_model>
-						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
 						<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/moip' target='_blank'>Moip</a>» payment extension?]]></comment>
+						<config_path>df_payment/moip/enable</config_path>
+						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
+						<label>Enable?</label>
 					</field>
 					<field
 						id='test'
@@ -48,10 +49,11 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Checkbox'
 					>
-						<label>Sandbox Mode?</label>
 						<backend_model>Df\Config\Backend\Checkbox</backend_model>
 						<comment><![CDATA[<a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a>]]></comment>
+						<config_path>df_payment/moip/test</config_path>
 						<depends><field id='enable'>1</field></depends>
+						<label>Sandbox Mode?</label>
 					</field>
 					<field
 						dfRows='5'
@@ -61,12 +63,13 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Textarea'
 					>
-						<label>Test Public Key (Chave pública)</label>
 						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+						<config_path>df_payment/moip/testPublicKey</config_path>
 						<depends>
 							<field id='enable'>1</field>
 							<field id='test'>1</field>
 						</depends>
+						<label>Test Public Key (Chave pública)</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -76,13 +79,14 @@
 						translate='label'
 						type='obscure'
 					>
-						<label>The «Token» part of your Test Private Key (Chave de autenticação)</label>
-						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+						<config_path>df_payment/moip/testPrivateToken</config_path>
 						<depends>
 							<field id='enable'>1</field>
 							<field id='test'>1</field>
 						</depends>
+						<label>The «Token» part of your Test Private Key (Chave de autenticação)</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -92,13 +96,14 @@
 						translate='label'
 						type='obscure'
 					>
-						<label>The «Key» (Chave) part of your Test Private Key (Chave de autenticação)</label>
-						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+						<config_path>df_payment/moip/testPrivateKey</config_path>
 						<depends>
 							<field id='enable'>1</field>
 							<field id='test'>1</field>
 						</depends>
+						<label>The «Key» (Chave) part of your Test Private Key (Chave de autenticação)</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -109,8 +114,9 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Textarea'
 					>
-						<label>Live Public Key (Chave pública)</label>
 						<comment><![CDATA[<a href='https://mage2.pro/t/3659' target='_blank'>How to get it?</a>]]></comment>
+						<config_path>df_payment/moip/livePublicKey</config_path>
+						<label>Live Public Key (Chave pública)</label>
 						<depends>
 							<field id='enable'>1</field>
 							<field id='test'>0</field>
@@ -124,13 +130,14 @@
 						translate='label'
 						type='obscure'
 					>
-						<label>The «Token» part of your Live Private Key (Chave de autenticação)</label>
-						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+						<config_path>df_payment/moip/livePrivateToken</config_path>
 						<depends>
 							<field id='enable'>1</field>
 							<field id='test'>0</field>
 						</depends>
+						<label>The «Token» part of your Live Private Key (Chave de autenticação)</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -140,13 +147,14 @@
 						translate='label'
 						type='obscure'
 					>
-						<label>The «Key» (Chave) part of your Live Private Key (Chave de autenticação)</label>
-						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
 						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+						<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/3659' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/3375' target='_blank'>How to create a sandbox account?</a></li></ul>]]></comment>
+						<config_path>df_payment/moip/livePrivateKey</config_path>
 						<depends>
 							<field id='enable'>1</field>
 							<field id='test'>0</field>
 						</depends>
+						<label>The «Key» (Chave) part of your Live Private Key (Chave de autenticação)</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -156,14 +164,14 @@
 						translate='label'
 						type='obscure'
 					>
-						<label>Private Key for Google Maps Geocoding API</label>
+						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 						<comment><![CDATA[Moip API v2 <a href='https://dev.moip.com.br/v2.0/reference#endereco' target='_blank' title='Moip API Reference'>accepts only the well-structured customer addresses</a>, whereas Magento 2 gathers the customers addresses in a plain text form.
+						<config_path>df_payment/moip/googlePrivateKey</config_path>
+						<label>Private Key for Google Maps Geocoding API</label>
 	<br/>The extension uses the <a href='https://developers.google.com/maps/documentation/geocoding' target='_blank'  title='Google Maps Geocoding API Reference'>Google Maps Geocoding API</a> to convert a plain text address to the Moip format.
 	<br/>Use <a href='https://mage2.pro/t/3828' target='_blank' title='How to generate a key for the Google Maps Geocoding API?'>my instruction</a> to get the key.]]></comment>
-						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-						<depends>
-							<field id='enable'>1</field>
-						</depends>
+						<config_path>df_payment/moip/googlePrivateKey</config_path>
+						<depends><field id='enable'>1</field></depends>
 						<validate>required-entry</validate>
 					</field>
 				</group>
@@ -182,10 +190,10 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Checkbox'
 					>
-						<label>Enable?</label>
 						<backend_model>Df\Config\Backend\Checkbox</backend_model>
-						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
 						<comment><![CDATA[Enable the bank card payment option?]]></comment>
+						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
+						<label>Enable?</label>
 					</field>
 					<field
 						id='title'
@@ -194,9 +202,9 @@
 						translate='label'
 						type='text'
 					>
-						<label>A title for the bank card payment option</label>
 						<comment><![CDATA[It is shown on the checkout screen.]]></comment>
 						<depends><field id='enable'>1</field></depends>
+						<label>A title for the bank card payment option</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -206,12 +214,11 @@
 						translate='label'
 						type='select'
 					>
+						<comment><![CDATA[If you do not want it, then please use the following <a href='https://mage2.pro/t/3776' target='_blank'>test cards</a>.]]></comment>
+						<config_path>df_payment/moip/prefill</config_path>
+						<depends><field id='enable'>1</field></depends>
 						<label>Prefill the payment form in the test mode?</label>
 						<source_model>Dfe\Moip\Source\Prefill</source_model>
-						<comment><![CDATA[If you do not want it, then please use the following <a href='https://mage2.pro/t/3776' target='_blank'>test cards</a>.]]></comment>
-						<depends>
-							<field id='enable'>1</field>
-						</depends>
 					</field>
 					<field
 						id='installments'
@@ -231,10 +238,11 @@
 						translate='label'
 						type='select'
 					>
+						<comment><![CDATA[A customer is regarded as <b>new</b>, if he does not have any order in the «Completed» or «Processing» state.]]></comment>
+						<config_path>df_payment/moip/actionForNew</config_path>
+						<depends><field id='enable'>1</field></depends>
 						<label>Payment Action for a New Customer</label>
 						<source_model>Df\Payment\Source\ACR</source_model>
-						<comment><![CDATA[A customer is regarded as <b>new</b>, if he does not have any order in the «Completed» or «Processing» state.]]></comment>
-						<depends><field id='enable'>1</field></depends>
 					</field>
 					<field
 						id='actionForReturned'
@@ -243,9 +251,10 @@
 						translate='label'
 						type='select'
 					>
+						<config_path>df_payment/moip/actionForReturned</config_path>
+						<depends><field id='enable'>1</field></depends>
 						<label>Payment Action for a Returned Customer</label>
 						<source_model>Df\Payment\Source\ACR</source_model>
-						<depends><field id='enable'>1</field></depends>
 					</field>
 	<!-- `[Moip] The «Dynamic statement descripor» feature`: https://mage2.pro/t/4203 -->
 					<field
@@ -261,6 +270,7 @@
 	<br/>It may be up to <b>13</b> characters, may not include <b><>"'</b> characters, and will appear on your customer's statement in capital letters.
 	<br/>Non-ASCII characters are automatically stripped.
 	]]></comment>
+						<config_path>df_payment/moip/dsd</config_path>
 						<depends><field id='enable'>1</field></depends>
 	<!-- 2017-07-21 The maximum length is 13 characters: https://dev.moip.com.br/v2.0/reference#criar-pagamento -->
 						<validate>validate-length maximum-length-13</validate>
@@ -272,11 +282,10 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Checkbox'
 					>
-						<label>Prefill the cardholder's name from the billing address?</label>
 						<backend_model>Df\Config\Backend\Checkbox</backend_model>
-						<depends>
-							<field id='enable'>1</field>
-						</depends>
+						<config_path>df_payment/moip/prefillCardholder</config_path>
+						<depends><field id='enable'>1</field></depends>
+						<label>Prefill the cardholder's name from the billing address?</label>
 					</field>
 					<field
 						id='min_order_total'
@@ -285,10 +294,10 @@
 						translate='label'
 						type='text'
 					>
-						<label>Minimum Order Total</label>
 						<comment><![CDATA[]]></comment>
-						<validate>validate-number validate-greater-than-zero</validate>
 						<depends><field id='enable'>1</field></depends>
+						<label>Minimum Order Total</label>
+						<validate>validate-number validate-greater-than-zero</validate>
 					</field>
 					<field
 						id='max_order_total'
@@ -297,10 +306,10 @@
 						translate='label'
 						type='text'
 					>
-						<label>Maximum Order Total</label>
 						<comment><![CDATA[]]></comment>
-						<validate>validate-number validate-greater-than-zero</validate>
 						<depends><field id='enable'>1</field></depends>
+						<label>Maximum Order Total</label>
+						<validate>validate-number validate-greater-than-zero</validate>
 					</field>
 				</group>
 				<group
@@ -318,10 +327,10 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Checkbox'
 					>
-						<label>Enable?</label>
 						<backend_model>Df\Config\Backend\Checkbox</backend_model>
-						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
 						<comment><![CDATA[Enable the «Boleto bancário» payment option?]]></comment>
+						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
+						<label>Enable?</label>
 					</field>
 					<field
 						id='title'
@@ -330,9 +339,9 @@
 						translate='label'
 						type='text'
 					>
-						<label>A title for the «Boleto bancário» payment option</label>
 						<comment><![CDATA[It is shown on the checkout screen.]]></comment>
 						<depends><field id='enable'>1</field></depends>
+						<label>A title for the «Boleto bancário» payment option</label>
 						<validate>required-entry</validate>
 					</field>
 					<field
@@ -342,10 +351,10 @@
 						translate='label'
 						type='text'
 					>
-						<label>Minimum Order Total</label>
 						<comment><![CDATA[]]></comment>
-						<validate>validate-number validate-greater-than-zero</validate>
 						<depends><field id='enable'>1</field></depends>
+						<label>Minimum Order Total</label>
+						<validate>validate-number validate-greater-than-zero</validate>
 					</field>
 					<field
 						id='max_order_total'
@@ -354,10 +363,10 @@
 						translate='label'
 						type='text'
 					>
-						<label>Maximum Order Total</label>
 						<comment><![CDATA[]]></comment>
-						<validate>validate-number validate-greater-than-zero</validate>
 						<depends><field id='enable'>1</field></depends>
+						<label>Maximum Order Total</label>
+						<validate>validate-number validate-greater-than-zero</validate>
 					</field>
 				</group>
 			</group>

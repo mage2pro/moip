@@ -30,7 +30,6 @@ define([
 		 * and let customer to choose an option himself.
 		 */
 		quote.paymentMethod(null);
-		this.item.title = this.config('moip.title.card');
 		/** @type {Number[]} */
 		var ia = this.config('installments');
 		if (2 > ia.length) {
