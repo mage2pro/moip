@@ -1,13 +1,14 @@
 <?php
 namespace Dfe\Moip;
+use Dfe\Moip\Settings\Boleto;
 // 2017-04-11
 /** @method static Settings s() */
 final class Settings extends \Df\StripeClone\Settings {
 	/**
-	 * 2017-07-30 «Instruções impressas no boleto.»
-	 * @return string
+	 * 2017-07-30
+	 * @return Boleto
 	 */
-	function boletoInstructions() {return $this->v('boleto/instructions');}
+	function boleto() {return dfc($this, function() {return new Boleto($this->m());});}
 
 	/**
 	 * 2017-07-14

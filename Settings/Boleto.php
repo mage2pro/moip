@@ -1,0 +1,27 @@
+<?php
+namespace Dfe\Moip\Settings;
+use Df\Config\Source\WaitPeriodType;
+// 2017-07-30
+/** @method static Boleto s() */
+final class Boleto extends \Df\Payment\Settings {
+	/**
+	 * 2017-07-30 «Instruções impressas no boleto»
+	 * @return string
+	 */
+	function instructions() {return $this->v();}
+
+	/**
+	 * 2017-07-30
+	 * @return int
+	 */
+	function waitPeriod() {return WaitPeriodType::calculate($this);}
+
+	/**
+	 * 2017-07-30
+	 * @override
+	 * @see \Df\Payment\Settings::prefix()
+	 * @used-by \Df\Config\Settings::v()
+	 * @return string
+	 */
+	protected function prefix() {return dfc($this, function() {return parent::prefix() . '/boleto';});}
+}
