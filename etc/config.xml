@@ -8,6 +8,7 @@
 			<moip>
 				<boleto>
 					<title>Boleto bancário</title>
+					<waitPeriod>7</waitPeriod>
 				</boleto>
 				<card>
 					<actionForNew>authorize_capture</actionForNew>

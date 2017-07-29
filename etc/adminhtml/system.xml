@@ -357,9 +357,33 @@
 						<depends><field id='enable'>1</field></depends>
 					</field>
 					<field
-						id='min_order_total'
+						id='waitPeriod'
 						showInDefault='1' showInStore='1' showInWebsite='1'
 						sortOrder='4'
+						translate='label'
+						type='text'
+					>
+						<label>Wait period for a payment</label>
+						<comment><![CDATA[In days.]]></comment>
+						<validate>validate-digits validate-digits-range digits-range-1-60</validate>
+						<depends><field id='enable'>1</field></depends>
+					</field>
+					<field
+						id='waitPeriodType'
+						showInDefault='1' showInStore='1' showInWebsite='1'
+						sortOrder='5'
+						translate='label'
+						type='select'
+					>
+						<label>Wait Period Type</label>
+						<source_model>Df\Config\Source\WaitPeriodType</source_model>
+						<comment><![CDATA[You can set the working days with the<br/>«<b>General</b>» → «<b>General</b>» → «<b>Locale Options</b>» → «<b>Weekend Days</b>» option.]]></comment>
+						<depends><field id='enable'>1</field></depends>
+					</field>
+					<field
+						id='min_order_total'
+						showInDefault='1' showInStore='1' showInWebsite='1'
+						sortOrder='6'
 						translate='label'
 						type='text'
 					>
@@ -371,7 +395,7 @@
 					<field
 						id='max_order_total'
 						showInDefault='1' showInStore='1' showInWebsite='1'
-						sortOrder='5'
+						sortOrder='7'
 						translate='label'
 						type='text'
 					>
