@@ -1,12 +1,13 @@
 <?php
-namespace Dfe\Moip\Block;
+namespace Dfe\Moip\Block\Info;
 use Dfe\Moip\Method as M;
 /**
  * 2017-07-20
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
+ * @used-by \Dfe\Moip\Method::getInfoBlockType()
  * @method M m()
  */
-class Info extends \Df\StripeClone\Block\Info {
+class Card extends \Df\StripeClone\Block\Info {
 	/**
 	 * 2017-07-20
 	 * Note 1.

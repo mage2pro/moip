@@ -1,17 +1,19 @@
 <?php
 namespace Dfe\Moip;
-use Dfe\Moip\Init\Action;
 use Df\API\Operation as Op;
+use Df\StripeClone\W\Event as Ev;
+use Dfe\Moip\Block\Info\Boleto as BlockBoleto;
+use Dfe\Moip\Block\Info\Card as BlockCard;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-// 2017-04-11
 /**
+ * 2017-04-11
  * @method Op chargeNew()
  * @method Settings s()
  */
 final class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-07-23
-	 * @used-by \Dfe\Moip\Block\Info::prepare()
+	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 * @used-by \Dfe\Moip\P\Charge::v_CardId
 	 * @return int
 	 */
@@ -19,7 +21,15 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-30
-	 * @used-by \Dfe\Moip\Init\Action::redirectUrl()
+	 * @override
+	 * @see \Df\Payment\Method::getInfoBlockType()
+	 * @used-by \Magento\Payment\Helper\Data::getInfoBlock()
+	 * @return string
+	 */
+	function getInfoBlockType() {return df_cc_class_uc('Dfe\Moip\Block\Info', $this->option());}
+
+	/**
+	 * 2017-07-30
 	 * @return bool
 	 */
 	function isBoleto() {return 'boleto' === $this->option();}
@@ -47,7 +57,7 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-15
-	 * @used-by \Dfe\Moip\Block\Info::prepare()
+	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 * @used-by \Dfe\Moip\P\Charge::p()
 	 * @return int
 	 */
@@ -84,12 +94,11 @@ final class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-07-30
 	 * @override
-	 * @see \Df\StripeClone\Method::redirectNeeded()
+	 * @see \Df\StripeClone\Method::transPrefixForRedirectCase()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param Op $c
-	 * @return bool
+	 * @return string
 	 */
-	protected function redirectNeeded($c) {return $c->a(Action::PATH);}
+	protected function transPrefixForRedirectCase() {return Ev::T_OFFLINE;}
 
 	/**
 	 * 2017-04-11
