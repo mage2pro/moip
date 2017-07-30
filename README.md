@@ -1,22 +1,27 @@
 The extension integrates your Magento 2 store with the **[Moip](https://moip.com.br)** payment service (Brazil).
 
 ## Screenshots
-### 1. The frontend payment form
-#### 1.1. A payment with a Hipercard bank card
+### 1. Bank card payments
+#### 1.1. The frontend payment form
+##### 1.1.1. A payment with a Hipercard bank card
 ![](https://mage2.pro/uploads/default/original/2X/5/5be78d30227e81f24a104091b9d748d907c5ddb7.png)
 
-#### 1.2. A payment with an «Itaucard 2.0 Nacional Hiper» bank card
+##### 1.1.2. A payment with an «Itaucard 2.0 Nacional Hiper» bank card
 ![](https://mage2.pro/uploads/default/original/2X/b/b9db493e23218811c7cd0a0cd73abb3648b91926.png)
 
-#### 1.3. A payment with an Elo bank card
+##### 1.1.3. A payment with an Elo bank card
 ![](https://mage2.pro/uploads/default/original/2X/4/491dab8b47db2e155545465c38f8f34d52a6daff.png)
 
-### 2. The «Payment Information» block
-#### 2.1. Frontend
+#### 1.2. The «Payment Information» block
+##### 1.2.1. Frontend
 ![](https://mage2.pro/uploads/default/original/2X/e/e9d7ccd6a4d0c3fb0539758bc0965884fd0f2f02.png)
 
-#### 2.2. Backend
+##### 1.2.2. Backend
 ![](https://mage2.pro/uploads/default/original/2X/a/a68f27356f10eced60087f44d65cfbf5ca325dbf.png)
+
+### 2. Boleto bancário
+#### 2.1. A printed boleto form
+![](https://mage2.pro/uploads/default/original/2X/c/c1b0a759eb9da5798598568c587d2bce143c7107.png)
 
 ## Settings
 ![](https://mage2.pro/uploads/default/original/2X/0/0182dba50c8a8e15b77d4753b71199be887dfc74.png)
