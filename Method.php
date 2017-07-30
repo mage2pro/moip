@@ -1,8 +1,13 @@
 <?php
 namespace Dfe\Moip;
+use Dfe\Moip\Init\Action;
+use Df\API\Operation as Op;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
 // 2017-04-11
-/** @method Settings s() */
+/**
+ * @method Op chargeNew()
+ * @method Settings s()
+ */
 final class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-07-23
@@ -11,6 +16,34 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return int
 	 */
 	function dob() {return $this->iia(self::$II_DOB);}
+
+	/**
+	 * 2017-07-30
+	 * @used-by \Dfe\Moip\Init\Action::redirectUrl()
+	 * @return bool
+	 */
+	function isBoleto() {return 'boleto' === $this->option();}
+
+	/**
+	 * 2017-07-30
+	 * @override
+	 * @see \Df\StripeClone\Method::isCard()
+	 * @used-by \Df\StripeClone\Payer::newCard()
+	 * @used-by \Dfe\Moip\P\Charge::k_Capture()
+	 * @used-by \Dfe\Moip\P\Charge::k_CardId()
+	 * @used-by \Dfe\Moip\P\Charge::k_DSD()
+	 * @used-by \Dfe\Moip\P\Charge::p()
+	 * @return bool
+	 */
+	function isCard() {return 'card' === $this->option();}
+
+	/**
+	 * 2017-07-30
+	 * @used-by isBoleto()
+	 * @used-by isCard()
+	 * @return string
+	 */
+	function option() {return $this->iia(self::$II_OPTION);}
 
 	/**
 	 * 2017-07-15
@@ -45,8 +78,18 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return string[]
 	 */
 	protected function iiaKeys() {return array_merge(parent::iiaKeys(), [
-		self::$II_CARDHOLDER, self::$II_DOB, self::$II_PLAN, self::$II_TAX_ID
+		self::$II_CARDHOLDER, self::$II_DOB, self::$II_OPTION, self::$II_PLAN, self::$II_TAX_ID
 	]);}
+
+	/**
+	 * 2017-07-30
+	 * @override
+	 * @see \Df\StripeClone\Method::redirectNeeded()
+	 * @used-by \Df\StripeClone\Method::chargeNew()
+	 * @param Op $c
+	 * @return bool
+	 */
+	protected function redirectNeeded($c) {return $c->a(Action::PATH);}
 
 	/**
 	 * 2017-04-11
@@ -72,8 +115,16 @@ final class Method extends \Df\StripeClone\Method {
 	private static $II_DOB = 'dob';
 
 	/**
+	 * 2017-07-30
+	 * @used-by iiaKeys()
+	 * @used-by option()
+	 */
+	private static $II_OPTION = 'option';
+
+	/**
 	 * 2017-07-15 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
 	 * @used-by iiaKeys()
+	 * @used-by plan()
 	 */
 	private static $II_PLAN = 'plan';
 

@@ -17,7 +17,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return string
 	 */
-	function k_CardId() {return 'fundingInstrument';}
+	function k_CardId() {return $this->m()->isCard() ? 'fundingInstrument' : null;}
 
 	/**
 	 * 2017-07-17
@@ -177,7 +177,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return string
 	 */
-	protected function k_Capture() {return 'delayCapture';}
+	protected function k_Capture() {return $this->m()->isCard() ? 'delayCapture' : null;}
 
 	/**
 	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.2/T/CaseT/Payment.php#L50-L53
@@ -190,7 +190,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return string
 	 */
-	protected function k_DSD() {return 'statementDescriptor';}
+	protected function k_DSD() {return $this->m()->isCard() ? 'statementDescriptor' : null;}
 
 	/**
 	 * 2017-07-15
@@ -199,7 +199,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return array(string => mixed)
 	 */
-	protected function p() {return [
+	protected function p() {return $this->m()->isCard() ? [
 		/**
 		 * 2017-07-15
 		 * «Número de parcelas.
@@ -209,7 +209,39 @@ final class Charge extends \Df\StripeClone\P\Charge {
 		 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
 		 */
 		'installmentCount' => $this->m()->plan()
+	] : [
+		'fundingInstrument' => [
+			// 2017-07-24
+			// «Payment slip attributes»
+			// «Dados do boleto utilizado no pagamento»
+			'boleto' => [
+				// 2017-07-24
+				// «Payment slip expiration date»
+				// «Data de expiração de um boleto»
+				// Required, yyyy-mm-dd.
+				'expirationDate' => df_today_add($this->s()->boleto()->waitPeriod())->toString('y-MM-dd')
+				// 2017-07-24
+				// «Payment slip instructions»
+				// «Instruções impressas no boleto»
+				,'instructionLines' => $this->pInstructionLines()
+			]
+			// 2017-06-09
+			// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
+			// Required, String.
+			,'method' => Option::BOLETO
+		]
 	];}
+
+	/**
+	 * 2017-07-30
+	 * @used-by p()
+	 * @return array(string => string)
+	 */
+	private function pInstructionLines() {
+		/** @var string[] $a */
+		$a = array_slice(df_explode_n($this->text($this->s()->boleto()->instructions())), 0, 3);
+		return array_combine(array_slice(['first', 'second', 'third'], 0, count($a)), $a);
+	}
 
 	/**
 	 * 2017-04-25

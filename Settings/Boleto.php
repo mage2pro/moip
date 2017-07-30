@@ -6,12 +6,14 @@ use Df\Config\Source\WaitPeriodType;
 final class Boleto extends \Df\Payment\Settings {
 	/**
 	 * 2017-07-30 «Instruções impressas no boleto»
+	 * @used-by \Dfe\Moip\P\Charge::pInstructionLines()
 	 * @return string
 	 */
 	function instructions() {return $this->v();}
 
 	/**
 	 * 2017-07-30
+	 * @used-by \Dfe\Moip\P\Charge::p()
 	 * @return int
 	 */
 	function waitPeriod() {return WaitPeriodType::calculate($this);}
