@@ -1,8 +1,11 @@
 <?php
 namespace Dfe\Moip;
 use Magento\Payment\Model\Checks\TotalMinMax as T;
-// 2017-07-14
-/** @method Settings s() */
+/**
+ * 2017-07-14
+ * @method Method m()
+ * @method Settings s()
+ */
 final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	/**
 	 * 2017-07-14
@@ -11,10 +14,10 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {$s = $this->s(); return [
+	protected function config() {$m = $this->m(); $s = $this->s(); return [
 		'boleto' => [
 			'enable' => $s->v('boleto/enable') && $this->applicableForQuote('boleto')
-			,'title' => $s->v('boleto/title')
+			,'title' => $m->optionTitle('boleto')
 		]
 		,'card' => [
 			'calendar' => df_asset_create('Magento_Theme::calendar.png')->getUrl()
@@ -28,7 +31,7 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 			// to the payment modules which require (or accept) the cardholder's name`
 			// https://github.com/mage2pro/core/issues/14
 			,'prefillCardholder' => $s->prefillCardholder()
-			,'title' => $s->v('card/title')
+			,'title' => $m->optionTitle('card')
 		]
 		,'common' => [
 			'isTest' => $s->test()

@@ -51,9 +51,20 @@ final class Method extends \Df\StripeClone\Method {
 	 * 2017-07-30
 	 * @used-by isBoleto()
 	 * @used-by isCard()
+	 * @used-by optionTitle()
 	 * @return string
 	 */
 	function option() {return $this->iia(self::$II_OPTION);}
+
+	/**
+	 * 2017-08-02
+	 * @used-by titleF()
+	 * @used-by \Dfe\Moip\Choice::title()
+	 * @used-by \Dfe\Moip\ConfigProvider::config()
+	 * @param string|null $o [optional]
+	 * @return string|null
+	 */
+	function optionTitle($o = null) {return !($o = ($o ?: $this->option())) ? null : $this->s("{$o}/title");}
 
 	/**
 	 * 2017-07-15
@@ -90,6 +101,15 @@ final class Method extends \Df\StripeClone\Method {
 	protected function iiaKeys() {return array_merge(parent::iiaKeys(), [
 		self::$II_CARDHOLDER, self::$II_DOB, self::$II_OPTION, self::$II_PLAN, self::$II_TAX_ID
 	]);}
+
+	/**
+	 * 2017-08-02
+	 * @override
+	 * @see \Df\Payment\Method::titleF()
+	 * @used-by \Df\Payment\Method::getTitle()
+	 * @return string
+	 */
+	protected function titleF() {return $this->optionTitle() ?: parent::titleF();}
 
 	/**
 	 * 2017-07-30
