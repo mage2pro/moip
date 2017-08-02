@@ -37,7 +37,7 @@ Please note that the extension **[is not yet production ready](https://github.co
 It is possible: [ask Moip](https://mage2.pro/t/topic/3814) to buy the **full exclusive rights** on my extension and release it for free to all Moip merchants.    
 It will cost **$10.000**. 
 The price includes 1 year of my free installation and support service to all Moip merchants.  
-Each additional year of my free installation and support service to all Moip merchants will cost **$5.000**. 
+Then the exclusive rights holder can prolong my free installation and support service to all Moip merchants, it will cost **$5.000** in a year. 
 
 ### Are you a Brazilian web agency?
 You can buy the **full exclusive rights** on my extension on the same terms as described above (and do what you want with it, e.g. provide for free to your clients or resell).
