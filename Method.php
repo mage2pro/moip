@@ -23,7 +23,15 @@ final class Method extends \Df\StripeClone\Method {
 	 * 2017-07-30
 	 * @override
 	 * @see \Df\Payment\Method::getInfoBlockType()
-	 * @used-by \Magento\Payment\Helper\Data::getInfoBlock()
+	 * @used-by \Magento\Payment\Helper\Data::getInfoBlock():
+	 *		public function getInfoBlock(InfoInterface $info, LayoutInterface $layout = null) {
+	 *			$layout = $layout ?: $this->_layout;
+	 *			$blockType = $info->getMethodInstance()->getInfoBlockType();
+	 *			$block = $layout->createBlock($blockType);
+	 *			$block->setInfo($info);
+	 *			return $block;
+	 *		}
+	 * https://github.com/magento/magento2/blob/2.2.0-RC1.6/app/code/Magento/Payment/Helper/Data.php#L182-L196
 	 * @return string
 	 */
 	function getInfoBlockType() {return df_cc_class_uc('Dfe\Moip\Block\Info', $this->option());}
@@ -110,15 +118,6 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return string
 	 */
 	protected function titleF() {return $this->optionTitle() ?: parent::titleF();}
-
-	/**
-	 * 2017-07-30
-	 * @override
-	 * @see \Df\StripeClone\Method::transPrefixForRedirectCase()
-	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @return string
-	 */
-	protected function transPrefixForRedirectCase() {return Ev::T_OFFLINE;}
 
 	/**
 	 * 2017-04-11
