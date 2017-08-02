@@ -17,7 +17,7 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ![](https://mage2.pro/uploads/default/original/2X/e/e9d7ccd6a4d0c3fb0539758bc0965884fd0f2f02.png)
 
 ##### 1.2.2. Backend
-![](https://mage2.pro/uploads/default/original/2X/a/a68f27356f10eced60087f44d65cfbf5ca325dbf.png)
+![](https://mage2.pro/uploads/default/original/2X/e/ed09b7940ab88b987b0df92ee6ba3ebc7e82ac28.png)
 
 ### 2. Boleto bancário
 #### 2.1. A printed boleto form
