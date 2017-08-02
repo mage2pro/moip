@@ -23,6 +23,9 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 #### 2.1. A printed boleto form
 ![](https://mage2.pro/uploads/default/original/2X/c/c1b0a759eb9da5798598568c587d2bce143c7107.png)
 
+### 3. The backend orders grid
+![](https://mage2.pro/uploads/default/original/2X/f/fe0fe964687d0e261334a06332ad57182671cff8.png)
+
 ## Settings
 ![](https://mage2.pro/uploads/default/original/2X/0/0182dba50c8a8e15b77d4753b71199be887dfc74.png)
 
