@@ -33,6 +33,16 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 You can buy it with PayPal [here](https://mage2.pro/t/3222).  
 Please note that the extension **[is not yet production ready](https://github.com/mage2pro/moip/releases)**, but I need beta testers, and buying it now in the beta stage, you will get **1 month of my [generic Magento 2 support service](https://mage2.pro/t/topic/755) for free**.
 
+## Want to get the extension for free?
+It is possible: [ask Moip](https://mage2.pro/t/topic/3814) to buy the **full exclusive rights** on my extension and release it for free to all Moip merchants.    
+It will cost **$10.000**. 
+The price includes 1 year of my free installation and support service to all Moip merchants.  
+Each additional year of my free installation and support service to all Moip merchants will cost **$5.000**. 
+
+### Are you a Brazilian web agency?
+You can buy the **full exclusive rights** on my extension on the same terms as described above (and do what you want with it, e.g. provide for free to your clients or resell).
+Some Brazilian merchants are interesting in Magento 2 and want Moip as their payment solution, so providing such solution would help you to attract new clients and get new contracts.
+
 ## How to install
 ### 1. Free installation service
 Just order my [free installation service](https://mage2.pro/t/3585).
@@ -115,9 +125,3 @@ I provide the [**customization service**](https://mage2.pro/t/2020) for my payme
 
 ## Need a custom payment extension?
 I provide a [custom payment gateway integration service](https://mage2.pro/t/917).
-
-## Want to get the full rights on my extension?
-It is possible: the price depends on a extension and starts from $6.990.  
-You will get free lifetime support, updates, and installation service for all your clients.
-
-
