@@ -16,8 +16,16 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 */
 	final protected function prepare() {
-		$this->si(null, df_tag_ab('Print the boleto',
-			"{$this->tm()->res0()['_links']['payBoleto']['redirectHref']}/print"
-		));
+		$res0 = $this->tm()->res0(); /** @var array(string => mixed) */
+		$url = $res0['_links']['payBoleto']['redirectHref']; /** @var string $url */
+		if ($this->extended()) {
+			$this->si([
+				'Payment Option' => 'Boleto bancário'
+				,'Payment Slip' => df_tag_ab($res0['id'], $url)
+			]);
+		}
+		else {
+			$this->si(null, df_tag_ab('Print the boleto', "$url/print"));
+		}
 	}
 }
