@@ -15,5 +15,7 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @used-by \Df\Payment\Block\Info::_prepareSpecificInformation()
 	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 */
-	final protected function prepare() {}
+	final protected function prepare() {
+		$this->si(null, df_tag_ab('Print the boleto', 'https://checkout-sandbox.moip.com.br/boleto/PAY-JMNX9Y5UQ6EA/print'));
+	}
 }
