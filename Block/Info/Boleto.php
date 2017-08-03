@@ -25,7 +25,7 @@ class Boleto extends \Df\Payment\Block\Info {
 			]);
 		}
 		else {
-			$this->si(null, df_tag_ab('Print the boleto', "$url/print"));
+			$this->si(null, df_tag_ab(__('Print the boleto'), "$url/print"));
 		}
 	}
 }
