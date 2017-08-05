@@ -1,0 +1,16 @@
+<?php
+/**
+ * 2017-08-05
+ * This template is used to render a boleto bancário payment block in the customer's account.
+ * @used-by \Dfe\Moip\Block\Info\Boleto::rCustomerAccount()
+ * @var string $title
+ * @var string $url
+ */
+?>
+<h2><?= $title ?></h2>
+<h3>Pagamento por boleto online</h3>
+<p>Copie e cole a linha digitável abaixo no site ou aplicativo do seu banco:</p>
+<code>23793.39126 60000.119739 87001.747903 6 72460000573251</code>
+<h3>Pagamento por boleto impresso</h3>
+<p>Imprima e pague o seu boleto em qualquer agência bancária até o vencimento. Não imprima em modo rascunho.</p>
+<a class='action primary' href='<?= $url ?>' target='_blank'><span>Imprimir boleto</span></a>

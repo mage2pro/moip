@@ -2,7 +2,7 @@
 <page xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' layout='1column'
 	  xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
 	<head>
-		<css src='Dfe_Moip::main.css'/>
+		<css src='Dfe_Moip::checkout.css'/>
 	</head>
 	<body>
 		<referenceBlock name='checkout.root'>
