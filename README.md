@@ -38,7 +38,6 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 
 ## How to buy
 You can buy it with PayPal [here](https://mage2.pro/t/3222).  
-Please note that the extension **[is not yet production ready](https://github.com/mage2pro/moip/releases)**, but I need beta testers, and buying it now in the beta stage, you will get **1 month of my [generic Magento 2 support service](https://mage2.pro/t/topic/755) for free**.
 
 ## Want to get the extension for free?
 It is possible: [ask Moip](https://mage2.pro/t/topic/3814) to buy the **full exclusive rights** on my extension and release it for free to all Moip merchants.    
