@@ -13,7 +13,7 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ![](https://mage2.pro/uploads/default/original/2X/4/491dab8b47db2e155545465c38f8f34d52a6daff.png)
 
 #### 1.2. The «Payment Information» block
-##### 1.2.1. Frontend
+##### 1.2.1. Frontend (inside the customer's account)
 ![](https://mage2.pro/uploads/default/original/2X/e/e9d7ccd6a4d0c3fb0539758bc0965884fd0f2f02.png)
 
 ##### 1.2.2. Backend
@@ -22,6 +22,10 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ### 2. Boleto bancário
 #### 2.1. A printed boleto form
 ![](https://mage2.pro/uploads/default/original/2X/c/c1b0a759eb9da5798598568c587d2bce143c7107.png)
+
+#### 2.2. The «Payment Information» block
+##### 2.2.1. Frontend (inside the customer's account)
+![](https://mage2.pro/uploads/default/original/2X/2/260d1ff675344eacb0f95b8963c7f413f2d71d8a.png)
 
 ### 3. The backend orders grid
 ![](https://mage2.pro/uploads/default/original/2X/f/fe0fe964687d0e261334a06332ad57182671cff8.png)
