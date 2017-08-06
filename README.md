@@ -20,7 +20,7 @@ The extension integrates your Magento 2 store with the **[Moip](https://moip.com
 ![](https://mage2.pro/uploads/default/original/2X/e/ed09b7940ab88b987b0df92ee6ba3ebc7e82ac28.png)
 
 ### 2. Boleto bancário
-#### 2.1. A printed boleto form
+#### 2.1. A printed boleto slip
 ![](https://mage2.pro/uploads/default/original/2X/c/c1b0a759eb9da5798598568c587d2bce143c7107.png)
 
 #### 2.2. The «Payment Information» block
@@ -48,6 +48,9 @@ Then the exclusive rights holder can prolong my free installation and support se
 ### Are you a Brazilian web agency?
 You can buy the **full exclusive rights** on my extension on the same terms as described above (and do what you want with it, e.g. provide for free to your clients or resell).
 Some Brazilian merchants are interesting in Magento 2 and want Moip as their payment solution, so providing such solution would help you to attract new clients and get new contracts.
+
+### Are you an international shop looking for a Latin American payment solution?
+Please  read **[3 simple facts](https://mage2.pro/t/topic/4242)** about the Brazilian eCommerce market, and how my extension fit in it.
 
 ## How to install
 ### 1. Free installation service
