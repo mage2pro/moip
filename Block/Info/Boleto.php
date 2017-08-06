@@ -12,6 +12,17 @@ use Dfe\Moip\Method as M;
  */
 class Boleto extends \Df\Payment\Block\Info {
 	/**
+	 * 2017-08-06
+	 * @override
+	 * @see \Df\Payment\Block\Info::msgCheckoutSuccess()
+	 * @used-by \Df\Payment\Block\Info::rCheckoutSuccess()
+	 * @return string
+	 */
+	final protected function msgCheckoutSuccess() {return !$this->m()->isBoleto() ? null :
+		$this->rCustomerAccount()
+	;}
+
+	/**
 	 * 2017-07-30
 	 * @override
 	 * @see \Df\Payment\Block\Info::prepare()
@@ -38,7 +49,7 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @used-by \Df\Payment\Block\Info::_toHtml()
 	 * @return string
 	 */
-	protected function rCustomerAccount() {return df_tag('div', 'df-payment-info moip boleto',
+	final protected function rCustomerAccount() {return df_tag('div', 'df-payment-info moip boleto',
 		df_block_output($this, 'boleto', [
 			'code' => $this->tm()->res0('fundingInstrument/boleto/lineCode')
 			,'title' => $this->m()->getTitle()

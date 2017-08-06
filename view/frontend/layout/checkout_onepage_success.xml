@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<!-- 2017-08-06 -->
+<page xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' layout='1column'
+	  xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
+	<head>
+		<css src='Dfe_Moip::success.css'/>
+	</head>
+	<body>
+		<referenceContainer name='order.success.additional.info'>
+			<block class='Dfe\Moip\Block\Info\Boleto' name='Dfe_Moip_Block_Info_Boleto'/>
+		</referenceContainer>
+	</body>
+</page>
