@@ -38,6 +38,7 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-30
+	 * @used-by \Dfe\Moip\Block\Info\Boleto::msgCheckoutSuccess()
 	 * @return bool
 	 */
 	function isBoleto() {return 'boleto' === $this->option();}

@@ -46,6 +46,7 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * 2017-08-05
 	 * @override
 	 * @see \Df\Payment\Block\Info::rCustomerAccount()
+	 * @used-by msgCheckoutSuccess()
 	 * @used-by \Df\Payment\Block\Info::_toHtml()
 	 * @return string
 	 */
