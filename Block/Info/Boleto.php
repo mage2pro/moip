@@ -3,6 +3,9 @@ namespace Dfe\Moip\Block\Info;
 use Dfe\Moip\Method as M;
 /**
  * 2017-07-30
+ * 2017-08-06
+ * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» for a boleto bancário payment
+ * https://mage2.pro/t/4210
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  * @used-by \Dfe\Moip\Method::getInfoBlockType()
  * @method M m()
@@ -37,7 +40,8 @@ class Boleto extends \Df\Payment\Block\Info {
 	 */
 	protected function rCustomerAccount() {return df_tag('div', 'df-payment-info moip boleto',
 		df_block_output($this, 'boleto', [
-			'title' => $this->m()->getTitle()
+			'code' => $this->tm()->res0('fundingInstrument/boleto/lineCode')
+			,'title' => $this->m()->getTitle()
 			,'url' => $this->url()
 		])
 	);}
