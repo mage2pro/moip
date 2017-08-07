@@ -1,7 +1,6 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
 use Dfe\Moip\API\Facade\Customer as C;
-use Dfe\Moip\T\Card as tCard;
 use Dfe\Moip\T\Data;
 // 2017-04-20
 // https://dev.moip.com.br/page/api-reference#section-customers
@@ -78,7 +77,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 		 * 2017-07-16
 		 * Note 1.
-		 * I was unable to get it to work: 'fundingInstruments' => [tCard::s()->get('hash')]
+		 * I was unable to get it to work: 'fundingInstruments' => [\Dfe\Moip\T\Card::s()->get('hash')]
 		 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
 		 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
 		 * https://mage2.pro/t/4174
