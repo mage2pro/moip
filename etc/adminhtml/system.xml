@@ -36,7 +36,7 @@
 						translate='label'
 						type='Df\Framework\Form\Element\Checkbox'
 					>
-						<backend_model>Df\Config\Backend\Checkbox</backend_model>
+						<backend_model>Dfe\Moip\Backend\Enable</backend_model>
 						<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/moip' target='_blank'>Moip</a>» payment extension?]]></comment>
 						<config_path>df_payment/moip/enable</config_path>
 						<dfValidator>Dfe\Moip\Validator\Currency</dfValidator>
