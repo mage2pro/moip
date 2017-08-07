@@ -18,17 +18,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	 */
 	function t01_create() {
 		try {
-			/**
-			 * 2017-04-25
-			 * @see \Moip\Resource\Customer::populate() clones the current object instance
-			 * and returns the clone:
-			 * 		$customer = clone $this;
-			 * 		<...>
-			 * 		return $customer;
-			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
-			 */
-			// 2017-04-22
-			// https://dev.moip.com.br/reference#criar-um-cliente
+			// 2017-04-22 https://dev.moip.com.br/reference#criar-um-cliente
 			echo C::s()->create($this->pCustomer())->j();
 		}
 		catch (\Exception $e) {
@@ -59,16 +49,6 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		/** @var string $id */
 		$id = 'CUS-UKXT2RQ2TULX';
 		try {
-			/**
-			 * 2017-04-25
-			 * @see \Moip\Resource\Customer::populate() clones the current object instance
-			 * and returns the clone:
-			 * 		$customer = clone $this;
-			 * 		<...>
-			 * 		return $customer;
-			 * https://github.com/moip/moip-sdk-php/blob/v1.1.2/src/Resource/Customer.php#L233-L267
-			 * CUS-UKXT2RQ2TULX
-			 */
 			echo C::s()->get($id)->j();
 		}
 		catch (\Exception $e) {
