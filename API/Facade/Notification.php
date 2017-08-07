@@ -25,6 +25,8 @@ namespace Dfe\Moip\API\Facade;
  *
  * «List of webhooks available» (in English)
  * https://dev.moip.com.br/page/api-reference#section-list-of-webhooks-available
+ *
+ * [Moip] An example of a response to «POST v2/preferences/notifications»: https://mage2.pro/t/4248
  */
 final class Notification extends \Df\API\Facade {
 	/**
