@@ -8,11 +8,11 @@ use Dfe\Moip\T\Order as tOrder;
 // https://dev.moip.com.br/v2.0/reference#pagamentos
 // `[Moip] The available payment options`: https://mage2.pro/t/3851
 final class Boleto extends \Dfe\Moip\T\CaseT {
-	/** 2017-07-24 */
+	/** @test 2017-07-24 */
 	function t00() {}
 
 	/**
-	 * @test 2017-07-24
+	 * 2017-07-24
 	 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-payment-post-
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
