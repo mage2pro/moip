@@ -13,11 +13,12 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	function t00() {}
 
 	/**
-	 * 2017-08-07
+	 * @test 2017-08-07
 	 * «Listar Todas Preferências de Notificação» (in Portugese)
 	 * https://dev.moip.com.br/v2.0/reference#listar-todas-preferências-de-notificação
 	 * «List all notification preferences» (in English)
 	 * https://dev.moip.com.br/page/api-reference#section-list-all-notification-preferences-get-
+	 * [Moip] An example of a response to «GET v2/preferences/notifications» https://mage2.pro/t/4250
 	 */
 	function t01_all() {
 		try {
@@ -33,7 +34,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	}
 
 	/**
-	 * @test 2017-08-07
+	 * 2017-08-07
 	 * «Criar Preferência de Notificação» (in Portugese)
 	 * https://dev.moip.com.br/v2.0/reference#criar-preferência-de-notificação
 	 * «Create notification preference» (in English)
