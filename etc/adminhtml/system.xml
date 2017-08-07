@@ -172,6 +172,7 @@
 	<br/>Use <a href='https://mage2.pro/t/3828' target='_blank' title='How to generate a key for the Google Maps Geocoding API?'>my instruction</a> to get the key.]]></comment>
 						<config_path>df_payment/moip/googlePrivateKey</config_path>
 						<depends><field id='enable'>1</field></depends>
+						<label>Private Key for Google Maps Geocoding API</label>
 						<validate>required-entry</validate>
 					</field>
 				</group>
