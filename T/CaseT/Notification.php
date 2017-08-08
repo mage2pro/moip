@@ -13,7 +13,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	function t00() {}
 
 	/**
-	 * @test 2017-08-07
+	 * 2017-08-07
 	 * «Listar Todas Preferências de Notificação» (in Portugese)
 	 * https://dev.moip.com.br/v2.0/reference#listar-todas-preferências-de-notificação
 	 * «List all notification preferences» (in English)
@@ -34,7 +34,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	}
 
 	/**
-	 * 2017-08-07
+	 * @test 2017-08-07
 	 * «Criar Preferência de Notificação» (in Portugese)
 	 * https://dev.moip.com.br/v2.0/reference#criar-preferência-de-notificação
 	 * «Create notification preference» (in English)
@@ -61,7 +61,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 				// 2017-08-07
 				// In Portugese: «URL de notificação. String, obrigatório»
 				// In English: «URL. String, required»
-				,'target' => 'https://mage2.pro/' . df_uid(6)
+				,'target' => df_webhook($this, df_uid(6))
 			])->j();
 			//echo df_json_encode($this->pOrder());
 		}
