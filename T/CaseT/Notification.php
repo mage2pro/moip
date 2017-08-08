@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Moip\T\CaseT;
+use Df\API\Operation as O;
 use Dfe\Moip\API\Facade\Notification as N;
 /**
  * 2017-08-07 
@@ -34,7 +35,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	}
 
 	/**
-	 * @test 2017-08-07
+	 * 2017-08-07
 	 * «Criar Preferência de Notificação» (in Portugese)
 	 * https://dev.moip.com.br/v2.0/reference#criar-preferência-de-notificação
 	 * «Create notification preference» (in English)
@@ -43,26 +44,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	 */
 	function t02_create() {
 		try {
-			echo (new N)->create([
-				// 2017-08-07
-				// In Portugese:
-				// «Eventos configurados para serem enviados.
-				// Exemplo: PAYMENT.AUTHORIZED. Valores possíveis: ver lista de webhooks.
-				// String list, obrigatório»
-				// In English:
-				// «Events that will be notified.
-				// Examples: PAYMENT.AUTHORIZED. Possible values: see Webhooks list.
-				// String list, required»
-				'events' => ['PAYMENT.*', 'REFUND.*']
-				// 2017-08-07
-				// In Portugese: «Tipo da notificação. Valores possíveis: WEBHOOK. String, obrigatório»
-				// In English: «Notification type. Valores possíveis: WEBHOOK. String, required»
-				,'media' => 'WEBHOOK'
-				// 2017-08-07
-				// In Portugese: «URL de notificação. String, obrigatório»
-				// In English: «URL. String, required»
-				,'target' => df_webhook($this, df_uid(6))
-			])->j();
+			echo $this->create()->j();
 			//echo df_json_encode($this->pOrder());
 		}
 		catch (\Exception $e) {
@@ -72,4 +54,51 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 			throw $e;
 		}
 	}
+
+	/**
+	 * @test 2017-08-08
+	 * «Remover Preferência de Notificação» (in Portugese)
+	 * https://dev.moip.com.br/v2.0/reference#remover-preferência-de-notificação
+	 * «Delete notification preference» (in English)
+	 * https://dev.moip.com.br/page/api-reference#section-delete-notification-preference-delete-
+	 */
+	function t03_delete() {
+		try {
+			echo (new N)->delete($this->create()['id'])->j();
+			//echo df_json_encode($this->pOrder());
+		}
+		catch (\Exception $e) {
+			if (function_exists('xdebug_break')) {
+				xdebug_break();
+			}
+			throw $e;
+		}
+	}
+
+	/**
+	 * 2017-08-08
+	 * @used-by t02_create()
+	 * @used-by t03_delete()
+	 * @return O
+	 */
+	private function create() {return (new N)->create([
+		// 2017-08-07
+		// In Portugese:
+		// «Eventos configurados para serem enviados.
+		// Exemplo: PAYMENT.AUTHORIZED. Valores possíveis: ver lista de webhooks.
+		// String list, obrigatório»
+		// In English:
+		// «Events that will be notified.
+		// Examples: PAYMENT.AUTHORIZED. Possible values: see Webhooks list.
+		// String list, required»
+		'events' => ['PAYMENT.*', 'REFUND.*']
+		// 2017-08-07
+		// In Portugese: «Tipo da notificação. Valores possíveis: WEBHOOK. String, obrigatório»
+		// In English: «Notification type. Valores possíveis: WEBHOOK. String, required»
+		,'media' => 'WEBHOOK'
+		// 2017-08-07
+		// In Portugese: «URL de notificação. String, obrigatório»
+		// In English: «URL. String, required»
+		,'target' => df_webhook($this, df_uid(6))
+	]);}
 }
