@@ -175,6 +175,16 @@
 						<label>Private Key for Google Maps Geocoding API</label>
 						<validate>required-entry</validate>
 					</field>
+					<field
+						id='webhooks'
+						showInDefault='1' showInStore='1' showInWebsite='1'
+						sortOrder='9'
+						translate='label'
+						type='Dfe\Moip\FE\Webhooks'
+					>
+						<label>Webhooks</label>
+						<depends><field id='enable'>1</field></depends>
+					</field>
 				</group>
 				<group
 					id='card'
