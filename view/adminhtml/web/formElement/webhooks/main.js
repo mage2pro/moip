@@ -10,11 +10,15 @@ define(['df', 'df-lodash', 'jquery', 'domReady!'], function(df, _, $) {return (
 		/** @type {jQuery} HTMLDivElement */ var $c = $(document.getElementById(config.id));
 		var $ul = $('<ul/>');
 		/** @type {jQuery} HTMLDivElement */
-		var $delete = $('<div>').addClass('df-delete fa fa-trash-o').click(function() {
+		var $delete = $('<span>').addClass('df-delete fa fa-trash-o').click(function() {
 			console.log('delete');
 		});
 		_.each(config.urls, function(v) {
-			$ul.append($('<li>').html(v).append($delete.clone(true)));
+			$ul.append(
+				$('<li>')
+					.append($('<span>').html(v))
+					.append($delete.clone(true))
+			);
 		});
 		$c.append($ul);
 	}

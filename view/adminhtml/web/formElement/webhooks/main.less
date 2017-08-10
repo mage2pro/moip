@@ -1,17 +1,17 @@
 // 2017-08-09
+#row_df_payment_moip_common_webhooks > td.value {padding-top: 1.6rem;}
 #df_payment_moip_common_webhooks {
 	ul {list-style-type: none;}
 	li {
-		&:not(:first-child) {
-			padding-top: 0.2em;
-		}
-		&:hover .df-delete {display: block;}
+		line-height: 200%;
+		&:nth-child(even) {background-color: #f5f5f5;}
+		span {vertical-align: middle;}
+		&:hover .df-delete {display: inline;}
 		.df-delete {
-			display: none;
-			position: relative;
-			float: right;
-			font-size: 150%;
 			cursor: pointer;
+			display: none;
+			font-size: 150%;
+			padding-left: 0.5em;
 			&:hover {font-weight: bold;}
 		}
 	}
