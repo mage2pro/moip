@@ -34,6 +34,12 @@ namespace Dfe\Moip\API\Facade;
  */
 final class Notification extends \Df\API\Facade {
 	/**
+	 * 2017-08-10
+	 * @return string[]
+	 */
+	function targets() {return array_column($this->all()->a(), 'target');}
+
+	/**
 	 * 2017-08-07
 	 * @override
 	 * @see \Df\API\Facade::prefix()

@@ -12,7 +12,7 @@ define(['df', 'df-lodash', 'jquery', 'domReady!'], function(df, _, $) {return (
 			$c.html(df.t('Please set your Moip private keys first to the fields above.'));
 		}
 		else if (!config.urls.length) {
-			$c.html(df.t('The proper webhook will be automatically set up on the config saving.<br/>Please press the «<b>Save config</b>» button.'));
+			$c.html(df.t('The proper webhook will be automatically set up on the config saving.<br/>Please press the «<b>Save Config</b>» button for it.'));
 		}
 		else {
 			var $ul = $('<ul/>');

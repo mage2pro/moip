@@ -56,7 +56,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	}
 
 	/**
-	 * @test 2017-08-08
+	 * 2017-08-08
 	 * «Remover Preferência de Notificação» (in Portugese)
 	 * https://dev.moip.com.br/v2.0/reference#remover-preferência-de-notificação
 	 * «Delete notification preference» (in English)
@@ -66,6 +66,23 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 		try {
 			echo (new N)->delete($this->create()['id'])->j();
 			//echo df_json_encode($this->pOrder());
+		}
+		catch (\Exception $e) {
+			if (function_exists('xdebug_break')) {
+				xdebug_break();
+			}
+			throw $e;
+		}
+	}
+
+	/** @test 2017-08-10 */
+	function t04_delete_all() {
+		try {
+			$n = new N; /** @var N $n */
+			array_map(function($id) use($n) {
+				$n->delete($id);
+				echo "Deleted: $id\n";
+			}, array_column($n->all()->a(), 'id'));
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {

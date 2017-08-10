@@ -54,7 +54,7 @@ class Webhooks extends AE implements ElementI {
 		 * Case 2) The both private keys are set, but there are no webhooks yet.
 		 * In this case we should show the message to the administrator:
 		 * «The proper webhook will be automatically set up on the config saving.
-		 * Please press the `Save config button`.».
+		 * Please press the `Save Config` button for it.».
 		 * Case 3) The both private keys are set, band there are webhooks.
 		 * In this case we just show the webhooks to the administrator.
 		 */
@@ -62,7 +62,7 @@ class Webhooks extends AE implements ElementI {
 		df_fe_init($this, __CLASS__, [], ['urls' =>
 			!df_fe_sibling_v($this, "{$p}PrivateToken") || !df_fe_sibling_v($this, "{$p}PrivateKey")
 			? null
-			: array_column((new N)->all()->a(), 'target')
+			: (new N)->targets()
 		]);
 	}
 }
