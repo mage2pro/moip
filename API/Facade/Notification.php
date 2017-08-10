@@ -30,6 +30,7 @@ namespace Dfe\Moip\API\Facade;
  * «List of webhooks available» (in English)
  * https://dev.moip.com.br/page/api-reference#section-list-of-webhooks-available
  *
+ * @used-by \Dfe\Moip\FE\Webhooks::onFormInitialized()
  */
 final class Notification extends \Df\API\Facade {
 	/**

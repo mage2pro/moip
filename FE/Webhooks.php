@@ -1,6 +1,7 @@
 <?php
 namespace Dfe\Moip\FE;
 use Df\Framework\Form\ElementI;
+use Dfe\Moip\API\Facade\Notification as N;
 use Magento\Framework\Data\Form\Element\AbstractElement as AE;
 // 2017-08-09
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
@@ -42,8 +43,26 @@ class Webhooks extends AE implements ElementI {
 		 * @see \Magento\MediaStorage\Block\System\Config\System\Storage\Media\Synchronize::render()
 		 */
 		$this->_data = dfa_unset($this->_data, 'scope', 'can_use_website_value', 'can_use_default_value');
-		df_fe_init($this, __CLASS__, [], [
-			'urls' => ['https://yandex.ru', 'https://www.google.com', 'https://rambler.ru']
+		/**
+		 * 2017-08-10
+		 * There are 3 possible cases:
+		 * Case 1) One or both the private keys are not set:
+		 * 		a) The «Token» part of your Test Private Key (Chave de autenticação)
+		 * 		b) The «Key» (Chave) part of your Test Private Key (Chave de autenticação)
+		 * In this case we should show the message to the administrator:
+		 * «Please set your Moip private keys first to the fields above.».
+		 * Case 2) The both private keys are set, but there are no webhooks yet.
+		 * In this case we should show the message to the administrator:
+		 * «The proper webhook will be automatically set up on the config saving.
+		 * Please press the `Save config button`.».
+		 * Case 3) The both private keys are set, band there are webhooks.
+		 * In this case we just show the webhooks to the administrator.
+		 */
+		$p = df_b(['test', 'live'], df_bool(df_fe_sibling_v($this, 'test'))); /** @var string $p */
+		df_fe_init($this, __CLASS__, [], ['urls' =>
+			!df_fe_sibling_v($this, "{$p}PrivateToken") || !df_fe_sibling_v($this, "{$p}PrivateKey")
+			? null
+			: array_column((new N)->all()->a(), 'target')
 		]);
 	}
 }

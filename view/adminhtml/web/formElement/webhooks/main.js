@@ -8,18 +8,26 @@ define(['df', 'df-lodash', 'jquery', 'domReady!'], function(df, _, $) {return (
 	 */
 	function(config) {
 		/** @type {jQuery} HTMLDivElement */ var $c = $(document.getElementById(config.id));
-		var $ul = $('<ul/>');
-		/** @type {jQuery} HTMLDivElement */
-		var $delete = $('<span>').addClass('df-delete fa fa-trash-o').click(function() {
-			console.log('delete');
-		});
-		_.each(config.urls, function(v) {
-			$ul.append(
-				$('<li>')
-					.append($('<span>').html(v))
-					.append($delete.clone(true))
-			);
-		});
-		$c.append($ul);
+		if (!_.isArray(config.urls)) {
+			$c.html(df.t('Please set your Moip private keys first to the fields above.'));
+		}
+		else if (!config.urls.length) {
+			$c.html(df.t('The proper webhook will be automatically set up on the config saving.<br/>Please press the «<b>Save config</b>» button.'));
+		}
+		else {
+			var $ul = $('<ul/>');
+			/** @type {jQuery} HTMLDivElement */
+			var $delete = $('<span>').addClass('df-delete fa fa-trash-o').click(function() {
+				console.log('delete');
+			});
+			_.each(config.urls, function(v) {
+				$ul.append(
+					$('<li>')
+						.append($('<span>').html(v))
+						.append($delete.clone(true))
+				);
+			});
+			$c.append($ul);
+		}
 	}
 );});
