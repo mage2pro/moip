@@ -18,7 +18,7 @@ define([
 		 * 2017-07-29
 		 * It fixes the issue:
 		 * «On the frontend checkout page load one of the payment option is initially selected
-		 * but not expanded. The right behaviour: no payment option should be initially preselected.»
+		 * but not expanded. The right behavior: no payment option should be initially preselected.»
 		 * https://github.com/mage2pro/moip/issues/16
 		 * If a store has only the Moip payment method enabled,
 		 * then the following M2 core code automatically set Moip as the selected payment method:
