@@ -7,7 +7,7 @@ final class Event extends \Df\StripeClone\W\Event {
 	 * @override
 	 * @see \Df\StripeClone\W\Event::ttCurrent()
 	 * @used-by \Df\StripeClone\W\Nav::id()
-	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::action()
+	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::_handle()
 	 * @return string
 	 */
 	function ttCurrent() {return null;}
