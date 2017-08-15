@@ -3,11 +3,11 @@ namespace Dfe\Moip\W;
 // 2017-07-30
 final class Event extends \Df\StripeClone\W\Event {
 	/**
-	 * 2017-07-30 Тип текущей транзакции
+	 * 2017-07-30 The type of the current transaction.
 	 * @override
 	 * @see \Df\StripeClone\W\Event::ttCurrent()
 	 * @used-by \Df\StripeClone\W\Nav::id()
-	 * @used-by \Df\StripeClone\W\Strategy\ConfirmPending::action()
+	 * @used-by \Df\Payment\W\Strategy\ConfirmPending::action()
 	 * @return string
 	 */
 	function ttCurrent() {return null;}
