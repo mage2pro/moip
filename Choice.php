@@ -8,6 +8,7 @@ final class Choice extends \Df\Payment\Choice {
 	 * 2017-08-02
 	 * @override
 	 * @see \Df\Payment\Choice::title()
+	 * @used-by \Df\Payment\Block\Info::choiceT()
 	 * @used-by \Df\Payment\Observer\DataProvider\SearchResult::execute()
 	 * @return Phrase|string|null
 	 */
