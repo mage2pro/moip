@@ -20,7 +20,6 @@ final class Boleto extends \Dfe\Moip\T\CaseT {
 	function t01_create() {
 		try {
 			echo lP::s()->create2((new tOrder)->create()['id'], $this->pPayment())->j();
-			//echo df_json_encode($this->pPayment());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {

@@ -24,7 +24,6 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	function t01_all() {
 		try {
 			echo (new N)->all()->j();
-			//echo df_json_encode($this->pOrder());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {
