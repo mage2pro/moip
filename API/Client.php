@@ -44,7 +44,7 @@ final class Client extends \Df\API\Client {
 	 * @override
 	 * @see \Df\API\Client::uriBase()
 	 * @used-by \Df\API\Client::__construct()
-	 * @used-by \Df\API\Client::p()
+	 * @used-by \Df\API\Client::_p()
 	 * @return string
 	 */
 	protected function uriBase() {return dfp_url_api(
