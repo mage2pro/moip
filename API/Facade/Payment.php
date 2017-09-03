@@ -2,6 +2,7 @@
 namespace Dfe\Moip\API\Facade;
 use Df\API\Operation as O;
 use Df\Core\Exception as DFE;
+use Zend_Http_Client as Z;
 /**
  * 2017-06-09
  * https://dev.moip.com.br/page/api-reference#section-payments
@@ -21,5 +22,5 @@ final class Payment extends \Df\API\Facade {
 	 * @return O
 	 * @throws DFE
 	 */
-	function create2($orderId, array $a) {return $this->p($a, 'POST', "orders/$orderId/payments");}
+	function create2($orderId, array $a) {return $this->p($a, Z::POST, "orders/$orderId/payments");}
 }
