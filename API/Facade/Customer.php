@@ -2,6 +2,7 @@
 namespace Dfe\Moip\API\Facade;
 use Df\API\Operation as O;
 use Df\Core\Exception as DFE;
+use Zend_Http_Client as Z;
 /**
  * 2017-04-25 
  * https://dev.moip.com.br/page/api-reference#section-customers
@@ -47,6 +48,6 @@ final class Customer extends \Df\API\Facade {
 	 * @throws DFE
 	 */
 	function addCard($customerId, array $a) {return $this->p(
-		$a, 'POST', "customers/$customerId/fundinginstruments"
+		$a, Z::POST, "customers/$customerId/fundinginstruments"
 	);}
 }
