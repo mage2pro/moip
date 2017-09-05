@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/moip"
-	,"version": "1.0.14"
+	,"version": "1.0.15"
 	,"description": "The «Moip» payment extension for Magento 2."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/moip"
@@ -11,7 +11,7 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": ">=2.10.14", "mage2pro/geo": ">=1.2.0", "mage2pro/phone": ">=1.0.0"}
+	,"require": {"mage2pro/core": ">=2.11.21", "mage2pro/geo": ">=1.2.0", "mage2pro/phone": ">=1.0.0"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Moip\\": ""}}
 	,"keywords": [
 		"API"

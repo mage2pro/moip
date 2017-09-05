@@ -9,6 +9,7 @@
 				<boleto>
 					<title>Boleto bancário</title>
 					<waitPeriod>7</waitPeriod>
+					<waitPeriodType>calendar_days</waitPeriodType>
 				</boleto>
 				<card>
 					<actionForNew>authorize_capture</actionForNew>
