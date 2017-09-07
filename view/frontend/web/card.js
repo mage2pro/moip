@@ -59,10 +59,8 @@ return parent.extend(df.o.merge(mixin, {
 			if (a.vatId) {
 				_this.taxID(a.vatId);
 			}
-			else {
-				if (c && c.taxvat) {
-					_this.taxID(c.taxvat);
-				}
+			else if (c && c.taxvat) {
+				_this.taxID(c.taxvat);
 			}
 		});
 		return this;
