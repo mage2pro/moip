@@ -56,11 +56,11 @@ return parent.extend(df.o.merge(mixin, {
 		// 2017-07-23 The date is already in the proper format: «yyyy-mm-dd».
 		this.dob(c.dob);
 		baChange(function(a) {
-			if (a.vatId && a.vatId.length) {
+			if (a.vatId) {
 				_this.taxID(a.vatId);
 			}
 			else {
-				if (c && c.taxvat && c.taxvat.length) {
+				if (c && c.taxvat) {
 					_this.taxID(c.taxvat);
 				}
 			}
