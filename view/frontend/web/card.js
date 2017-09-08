@@ -2,7 +2,8 @@
 // 2017-06-13 https://dev.moip.com.br/docs/criptografia#section--criptografia-no-browser-
 define([
 	'./mixin', 'df', 'df-lodash', 'Df_Checkout/data', 'Df_Payment/billingAddressChange'
-   	,'Df_StripeClone/main', 'ko', 'Magento_Checkout/js/model/quote', 'Df_Ui/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
+	,'Df_StripeClone/main', 'ko', 'Magento_Checkout/js/model/quote'
+	,'Df_Customer/validator/cpf', '//assets.moip.com.br/v2/moip.min.js'
 ], function(mixin, df, _, dfc, baChange, parent, ko, quote) {'use strict';
 /** 2017-09-06 @uses Class::extend() https://github.com/magento/magento2/blob/2.2.0-rc2.3/app/code/Magento/Ui/view/base/web/js/lib/core/class.js#L106-L140 */
 return parent.extend(df.o.merge(mixin, {
