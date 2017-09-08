@@ -32,8 +32,7 @@ return parent.extend(df.o.merge(mixin, {
 		 * and let customer to choose an option himself.
 		 */
 		quote.paymentMethod(null);
-		/** @type {Number[]} */
-		var ia = this.config('installments');
+		/** @type {Number[]} */ var ia = this.config('installments');
 		if (2 > ia.length) {
 			ia = [];
 		}
@@ -88,9 +87,9 @@ return parent.extend(df.o.merge(mixin, {
 	 *	<!--/ko-->
 	 * @returns {String}
 	 */
-	dfCard_customTemplate_bottom: function() {return (
-		!this.installments.length ? null : 'Dfe_Moip/installments'
-	);},
+	dfCard_customTemplate_bottom: function() {return !this.installments.length ? null :
+		'Dfe_Moip/installments'
+	;},
 	/**
 	 * 2017-06-13
 	 * 2017-07-26
@@ -157,8 +156,7 @@ return parent.extend(df.o.merge(mixin, {
 	 * @param {Function} callback
 	 */
 	tokenCreate: function(params, callback) {
-		/** @type {Object} */
-		var card = new Moip.CreditCard(params);
+		/** @type {Object} */ var card = new Moip.CreditCard(params);
 		callback(card.isValid(), card);
 	},
     /**
