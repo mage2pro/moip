@@ -13,6 +13,6 @@ function dfe_moip_phone($s) {return dfcf(function($s) {/** @var array(string => 
 		array_combine([
 			'areaCode' // 2017-04-25 «Your phone's local code (DDD)», Integer(2).
 			,'countryCode' // 2017-04-25 «ID number of the phone. Possible values: 55.», Integer(2).
-			,'number' // 2017-04-25 «Telephone number.», Integer(9).
+			,'number' // 2017-04-25 «Telephone number», Integer(9).
 		], $a)
 ;}, [$s]);}
