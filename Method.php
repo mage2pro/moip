@@ -144,7 +144,7 @@ final class Method extends \Df\StripeClone\Method {
 	private static $II_DOB = 'dob';
 
 	/**
-	 * 2017-07-30
+	 * 2017-07-30 https://github.com/mage2pro/core/blob/2.12.17/Payment/view/frontend/web/withOptions.js#L56-L72
 	 * @used-by iiaKeys()
 	 * @used-by option()
 	 */
