@@ -16,7 +16,7 @@ final class Order extends \Dfe\Moip\T\CaseT {
 	 */
 	function t01_create() {
 		try {
-			echo (new tOrder)->create()->j();
+			print_r((new tOrder)->create()->j());
 			//echo df_json_encode($this->pOrder());
 		}
 		catch (\Exception $e) {

@@ -35,7 +35,7 @@ final class Card extends \Dfe\Moip\T\CaseT {
 	 */
 	function t01_add() {
 		try {
-			echo lC::s()->addCard('CUS-UKXT2RQ2TULX', tCard::s()->get(1))->j();
+			print_r(lC::s()->addCard('CUS-UKXT2RQ2TULX', tCard::s()->get(1))->j());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {

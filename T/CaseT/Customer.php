@@ -18,7 +18,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 	function t01_create() {
 		try {
 			// 2017-04-22 https://dev.moip.com.br/reference#criar-um-cliente
-			echo C::s()->create($this->pCustomer())->j();
+			print_r(C::s()->create($this->pCustomer())->j());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {
@@ -48,7 +48,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		/** @var string $id */
 		$id = 'CUS-UKXT2RQ2TULX';
 		try {
-			echo C::s()->get($id)->j();
+			print_r(C::s()->get($id)->j());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {

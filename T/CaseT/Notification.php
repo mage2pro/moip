@@ -23,7 +23,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	 */
 	function t01_all() {
 		try {
-			echo (new N)->all()->j();
+			print_r((new N)->all()->j());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {
@@ -43,7 +43,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	 */
 	function t02_create() {
 		try {
-			echo $this->create()->j();
+			print_r($this->create()->j());
 			//echo df_json_encode($this->pOrder());
 		}
 		catch (\Exception $e) {
@@ -63,7 +63,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 	 */
 	function t03_delete() {
 		try {
-			echo (new N)->delete($this->create()['id'])->j();
+			print_r((new N)->delete($this->create()['id'])->j());
 			//echo df_json_encode($this->pOrder());
 		}
 		catch (\Exception $e) {
@@ -80,7 +80,7 @@ final class Notification extends \Dfe\Moip\T\CaseT {
 			$n = new N; /** @var N $n */
 			array_map(function($id) use($n) {
 				$n->delete($id);
-				echo "Deleted: $id\n";
+				print_r("Deleted: $id\n");
 			}, array_column($n->all()->a(), 'id'));
 		}
 		catch (\Exception $e) {
