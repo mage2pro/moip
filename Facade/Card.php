@@ -1,8 +1,7 @@
 <?php
 namespace Dfe\Moip\Facade;
 use \Df\Payment\BankCardNetworks as N;
-// 2017-06-11
-// https://dev.moip.com.br/page/api-reference#section-credit-card
+// 2017-06-11 https://dev.moip.com.br/page/api-reference#section-credit-card
 final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2017-06-11
@@ -107,6 +106,8 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-07-19
+	 * 2017-10-07 «First six digits of the card»
+	 * Type: string.
 	 * @used-by \Dfe\Moip\CardFormatter::label()
 	 * @return string
 	 */
@@ -116,6 +117,8 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-06-11
 	 * It returns a string like «CRC-3ITCTVLSEQKP»:
 	 * https://github.com/mage2pro/moip/blob/0.4.1/Facade/Customer.php#L89
+	 * 2017-10-07 «Credit card id»
+	 * Type: string(16).
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
@@ -126,6 +129,8 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-06-11
+	 * 2017-10-07 «Last four digits of the card»
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::last4()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
@@ -165,6 +170,9 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-06-13
+	 * 2017-10-07
+	 * `holder`: «Credit card holder». Type: structured.
+	 * `fullname`: «Fullname». Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::owner()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
@@ -174,6 +182,9 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-07-19
+	 * 2017-10-07 «Credit card brand.
+	 * Possible values: `VISA`, `MASTERCARD`, `AMEX`, `DINERS`, `ELO`, `HIPER`, `HIPERCARD`.»
+	 * Type: string.
 	 * @used-by brand()
 	 * @used-by logoId()
 	 * @used-by numberLength()
