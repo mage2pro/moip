@@ -105,7 +105,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function void($id) {return null;}
 
 	/**
-	 * 2017-06-13 Информация о банковской карте.
+	 * 2017-06-13 The bank card data.
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardData()
