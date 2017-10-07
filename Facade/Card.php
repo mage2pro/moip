@@ -71,6 +71,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-06-11
+	 * 2017-10-07 It should be an ISO-2 code or `null`.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::country()
 	 * @used-by \Df\StripeClone\CardFormatter::country()
