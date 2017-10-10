@@ -7,16 +7,6 @@ use Dfe\Moip\API\Option;
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-04-25
-	 * @override
-	 * @see \Df\StripeClone\Facade\Customer::get()
-	 * @used-by \Df\StripeClone\Facade\Customer::get()
-	 * @param int $id
-	 * @return Operation|null
-	 */
-	function _get($id) {return df_try(function() use($id) {return C::s()->get($id);});}
-
-	/**
-	 * 2017-04-25
 	 * 2017-06-10
 	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
 	 * https://mage2.pro/t/4050
@@ -73,6 +63,16 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return string
 	 */
 	function id($c) {return $c['id'];}
+
+	/**
+	 * 2017-04-25
+	 * @override
+	 * @see \Df\StripeClone\Facade\Customer::_get()
+	 * @used-by \Df\StripeClone\Facade\Customer::get()
+	 * @param int $id
+	 * @return Operation|null
+	 */
+	protected function _get($id) {return df_try(function() use($id) {return C::s()->get($id);});}
 
 	/**
 	 * 2017-04-25

@@ -48,6 +48,6 @@ final class Customer extends \Df\API\Facade {
 	 * @throws DFE
 	 */
 	function addCard($customerId, array $a) {return $this->p(
-		$a, Z::POST, "customers/$customerId/fundinginstruments"
+		[$customerId, $a], Z::POST, 'fundinginstruments'
 	);}
 }

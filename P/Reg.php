@@ -36,6 +36,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * There is a similar error on `POST /v2/customers/<customer ID>/fundinginstruments`:
 	 * @see \Dfe\Moip\T\CaseT\Card::t01_add()
 	 * https://github.com/mage2pro/moip/blob/0.7.1/T/CaseT/Card.php#L17-L23
+	 * 2017-10-09 The key name of a bank card token.
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()

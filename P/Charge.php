@@ -10,7 +10,8 @@ use Magento\Sales\Model\Order\Address as A;
  */
 final class Charge extends \Df\StripeClone\P\Charge {
 	/**
-	 * 2017-06-11 Ключ, значением которого является токен банковской карты.
+	 * 2017-06-11
+	 * 2017-10-09 The key name of a bank card token or of a saved bank card ID.
 	 * https://github.com/mage2pro/moip/blob/0.4.4/T/CaseT/Payment.php#L46-L49
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_CardId()
@@ -27,7 +28,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @return string[]
 	 */
 	protected function k_Excluded() {return [
-		parent::K_AMOUNT, parent::K_CUSTOMER, parent::K_CURRENCY, parent::K_DESCRIPTION
+		parent::K_AMOUNT, parent::K_CUSTOMER_ID, parent::K_CURRENCY, parent::K_DESCRIPTION
 	];}
 
 	/**

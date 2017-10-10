@@ -2,7 +2,6 @@
 namespace Dfe\Moip\Facade;
 use Df\API\Operation;
 use Dfe\Moip\API\Facade\Order as O;
-use Dfe\Moip\API\Facade\Payment as C;
 use Magento\Sales\Model\Order\Creditmemo as CM;
 use Magento\Sales\Model\Order\Payment as OP;
 // 2017-06-11
@@ -21,23 +20,6 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function capturePreauthorized($id, $a) {return null;}
 
 	/**
-	 * 2017-06-12
-	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
-	 * https://mage2.pro/t/4050
-	 * A card ID looks like «CRC-M423RWG3PK7J».
-	 * https://github.com/mage2pro/moip/blob/0.4.6/Facade/Card.php#L10
-	 * 2017-06-13
-	 * A hash is a very long (345 symbols) base64-encoded string,
-	 * so it is very distinguishable from a card ID.
-	 * http://moip.github.io/moip-sdk-js
-	 * @override
-	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
-	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
-	 * @return string
-	 */
-	function cardIdPrefix() {return 'CRC-';}
-
-	/**
 	 * 2017-06-13
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
@@ -46,7 +28,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param array(string => mixed) $p
 	 * @return Operation
 	 */
-	function create(array $p) {return C::s()->create2($this->preorderGet()['id'], $p);}
+	function create(array $p) {return O::s()->payment($this->preorderGet()['id'], $p);}
 
 	/**
 	 * 2017-06-13
@@ -76,6 +58,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
 	 * @used-by \Df\StripeClone\Block\Info::prepare()
+	 * @used-by \Df\StripeClone\Facade\Charge::cardData()
 	 * @return string
 	 */
 	function pathToCard() {return 'fundingInstrument/creditCard';}
@@ -105,14 +88,19 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function void($id) {return null;}
 
 	/**
-	 * 2017-06-13 The bank card data.
-	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
+	 * 2017-06-12
+	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
+	 * https://mage2.pro/t/4050
+	 * A card ID looks like «CRC-M423RWG3PK7J».
+	 * https://github.com/mage2pro/moip/blob/0.4.6/Facade/Card.php#L10
+	 * 2017-06-13
+	 * A hash is a very long (345 symbols) base64-encoded string,
+	 * so it is very distinguishable from a card ID.
+	 * http://moip.github.io/moip-sdk-js
 	 * @override
-	 * @see \Df\StripeClone\Facade\Charge::cardData()
-	 * @used-by \Df\StripeClone\Facade\Charge::card()
-	 * @param Operation $c
-	 * @return array(string => mixed)
-	 * @see \Dfe\Stripe\Facade\Customer::cardsData()
+	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
+	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
+	 * @return string
 	 */
-	protected function cardData($c) {return $c['fundingInstrument/creditCard'];}
+	protected function cardIdPrefix() {return 'CRC-';}
 }

@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Moip\T\CaseT\Payment;
-use Dfe\Moip\API\Facade\Payment as lP;
+use Dfe\Moip\API\Facade\Order as lO;
 use Dfe\Moip\API\Option;
 use Dfe\Moip\T\Order as tOrder;
 // 2017-07-21
@@ -19,7 +19,7 @@ final class OnlineBanking extends \Dfe\Moip\T\CaseT {
 	 */
 	function t01_create() {
 		try {
-			print_r(lP::s()->create2((new tOrder)->create()['id'], $this->pPayment())->j());
+			print_r(lO::s()->payment((new tOrder)->create()['id'], $this->pPayment())->j());
 		}
 		catch (\Exception $e) {
 			if (function_exists('xdebug_break')) {

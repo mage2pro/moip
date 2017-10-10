@@ -37,7 +37,7 @@ final class Client extends \Df\API\Client {
 	 * @used-by \Df\API\Client::p()
 	 * @return string
 	 */
-	final protected function responseValidatorC() {return \Dfe\Moip\API\Validator::class;}
+	protected function responseValidatorC() {return \Dfe\Moip\API\Validator::class;}
 
 	/**
 	 * 2017-07-13
