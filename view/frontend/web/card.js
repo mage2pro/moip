@@ -58,16 +58,15 @@ return parent.extend(df.o.merge(mixin, {
 		// with the value of the standard Magento «VAT Number» address attribute
 		// or with the value of the standard Magento «Tax/VAT number» customer attribute`:
 		// https://github.com/mage2pro/moip/issues/11
-		var _this = this;
 		/** @type {Object} */ var c = window.checkoutConfig.customerData;
 		// 2017-07-23 The date is already in the proper format: «yyyy-mm-dd».
 		this.dob(c.dob);
-		baChange(function(a) {
+		baChange(this, function(a) {
 			if (a.vatId) {
-				_this.taxID(a.vatId);
+				this.taxID(a.vatId);
 			}
 			else if (c && c.taxvat) {
-				_this.taxID(c.taxvat);
+				this.taxID(c.taxvat);
 			}
 		});
 		return this;
