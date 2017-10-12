@@ -106,7 +106,7 @@ return parent.extend(df.o.merge(mixin, {
 	 *		getData: function() {return {additional_data: this.dfData(), method: this.item.method};},
 	 * https://github.com/mage2pro/core/blob/2.8.4/Payment/view/frontend/web/mixin.js#L224
 	 * @override
-	 * @see Df_Payment/card::dfData()
+	 * @see Dfe_StripeClone/main::dfData()
 	 * @returns {Object}
 	 */
 	dfData: function() {return df.o.merge(this._super(), {

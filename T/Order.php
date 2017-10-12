@@ -23,7 +23,7 @@ final class Order {
 	 * @return int
 	 */
 	private function amount($v) {return round(100 * df_currency_convert(
-		$v, df_oq_currency($this->o())->getCode(), 'BRL'
+		$v, df_oq_currency_c($this->o()), 'BRL'
 	));}
 
 	/**
