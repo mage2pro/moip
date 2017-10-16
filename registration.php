@@ -6,10 +6,8 @@ R::register(R::MODULE, 'Dfe_Moip', __DIR__);
 // в повторноиспользуемую функцию df_lib() не получается:
 // в эту точку программы мы попадаем раньше инициализации повторноиспользуемой функции.
 // @todo Надо подумать, как это сделать...
-/** @var string $base */
-$base = dirname(__FILE__);
-/** @var string $libDir */
-if (is_dir($libDir = "{$base}/lib")) {
+$base = dirname(__FILE__); /** @var string $base */
+if (is_dir($libDir = "{$base}/lib")) { /** @var string $libDir */
 	// 2015-02-06
 	// array_slice removes «.» and «..».
 	// http://php.net/manual/function.scandir.php#107215
