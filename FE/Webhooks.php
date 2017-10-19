@@ -55,14 +55,30 @@ class Webhooks extends AE implements ElementI {
 		 * In this case we should show the message to the administrator:
 		 * «The proper webhook will be automatically set up on the config saving.
 		 * Please press the `Save Config` button for it.».
-		 * Case 3) The both private keys are set, band there are webhooks.
+		 * Case 3) The both private keys are set, but there are webhooks.
 		 * In this case we just show the webhooks to the administrator.
 		 */
 		$p = df_b(['test', 'live'], df_bool(df_fe_sibling_v($this, 'test'))); /** @var string $p */
-		df_fe_init($this, __CLASS__, [], ['urls' =>
-			!df_fe_sibling_v($this, "{$p}PrivateToken") || !df_fe_sibling_v($this, "{$p}PrivateKey")
-			? null
-			: (new N)->targets()
-		]);
+		$enabled = df_bool(df_fe_sibling_v($this, 'enable')); /** @var bool $enabled */
+		/**
+		 * 2017-10-19
+		 * `The GET «https://sandbox.moip.com.br/v2/preferences/notifications» API endpoint
+		 * is down today (2017-10-19):
+		 * «502 Proxy Error: The proxy server received an invalid response from an upstream server».
+		 * We should handle this in a proper way`: https://github.com/mage2pro/moip/issues/21
+		 */
+		/** @var bool $down */
+		/** @var string[] $urls */
+		list($down, $urls) =
+			!$enabled
+			|| !df_fe_sibling_v($this, "{$p}PrivateToken")
+			|| !df_fe_sibling_v($this, "{$p}PrivateKey")
+			?  [false, null]
+			: df_try(
+				function() {return [false, (new N)->targets()];}
+				,function() {return [true, null];}
+			)
+		;
+		df_fe_init($this, __CLASS__, [], ['down' => $down, 'enabled' => $enabled, 'urls' => $urls]);
 	}
 }
