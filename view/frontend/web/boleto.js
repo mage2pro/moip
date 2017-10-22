@@ -1,7 +1,7 @@
 // 2017-07-24
 define([
-	'./mixin', 'df', 'Df_Payment/custom'
-], function(mixin, df, parent) {'use strict';
+	'./mixin', 'df', 'df-lodash', 'Df_Payment/custom'
+], function(mixin, df, _, parent) {'use strict';
 /** 2017-09-06 @uses Class::extend() https://github.com/magento/magento2/blob/2.2.0-rc2.3/app/code/Magento/Ui/view/base/web/js/lib/core/class.js#L106-L140 */	
 return parent.extend(df.o.merge(mixin, {
 	defaults: {df: {formTemplate: 'Dfe_Moip/boleto', moip: {suffix: 'boleto'}}},
@@ -16,5 +16,5 @@ return parent.extend(df.o.merge(mixin, {
 	 * @see Df_Payment/mixin::dfData()
 	 * @returns {Object}
 	 */
-	dfData: function() {return df.o.merge(this._super(), {option: this.df.moip.suffix});}
+	dfData: function() {return _.assign(this._super(), {option: this.df.moip.suffix});}
 }));});

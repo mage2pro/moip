@@ -109,7 +109,7 @@ return parent.extend(df.o.merge(mixin, {
 	 * @see Dfe_StripeClone/main::dfData()
 	 * @returns {Object}
 	 */
-	dfData: function() {return df.o.merge(this._super(), {
+	dfData: function() {return _.assign(this._super(), {
 		cardholder: this.cardholder()
 		,dob: this.dob()
 		,option: this.df.moip.suffix
