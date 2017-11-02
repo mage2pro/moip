@@ -103,7 +103,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		// *) associated with the Customer as the delivery address («shippingAddress»)
 		// 	*) or associated with the Credit Card as the billing address («billingAddress»).»
 		// https://dev.moip.com.br/v2.0/reference#endereco
-		,'shippingAddress' => $this->charge()->pAddress($this->addressS())
+		,'shippingAddress' => $this->charge()->pAddress($this->addressS(true))
 		// 2017-04-25 «Fiscal document», Optional, Structured.
 		,'taxDocument' => $this->charge()->pTaxDocument()
 	// 2017-04-22 «Customer's phone number», Optional, Structured.
