@@ -1,4 +1,4 @@
-The extension integrates your Magento 2 store with the **[Moip](https://moip.com.br)** payment service (Brazil).
+The extension integrates your Magento 2 based webstore with the **[Moip](https://moip.com.br)** payment service (Brazil).
 
 ## Screenshots
 ### 1. Bank card payments
