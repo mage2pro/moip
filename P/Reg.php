@@ -122,5 +122,5 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @param string $id
 	 * @return array(array(string => mixed))
 	 */
-	protected function v_CardId($id) {return [$this->charge()->v_CardId($id)];}
+	protected function v_CardId($id) {return [$this->charge()->v_CardId($id, true)];}
 }

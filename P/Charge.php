@@ -97,13 +97,13 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * 2017-06-11
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::v_CardId()
-	 * @used-by \Dfe\Moip\P\Reg::v_CardId()
 	 * @used-by \Df\StripeClone\P\Charge::request()
+	 * @used-by \Dfe\Moip\P\Reg::v_CardId()
 	 * @param string $id
-	 * @param bool $isPrevious [optional]
+	 * @param bool $isNew
 	 * @return array(string => mixed)
 	 */
-	function v_CardId($id, $isPrevious = false) {return [
+	function v_CardId($id, $isNew) {return [
 		// 2017-06-09
 		// «Credit Card data. It can be:
 		// *) the ID of a credit card previously saved,
@@ -124,7 +124,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 		// http://moip.github.io/moip-sdk-js
 		// A card ID looks like «CRC-M423RWG3PK7J».
 		'creditCard' => [
-			$isPrevious ? 'id' : 'hash' => $id
+			!$isNew ? 'id' : 'hash' => $id
 			// 2017-06-09
 			// «Do not send when the request is using credit card id»
 			// Conditional, String.

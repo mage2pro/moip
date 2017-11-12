@@ -99,7 +99,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * http://moip.github.io/moip-sdk-js
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
-	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
+	 * @used-by \Df\StripeClone\Payer::tokenIsNew()
 	 * @return string
 	 */
 	protected function cardIdPrefix() {return 'CRC-';}
