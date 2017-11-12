@@ -57,7 +57,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
-	 * @used-by \Df\StripeClone\Block\Info::cardData()
+	 * @used-by \Df\StripeClone\Block\Info::cardDataFromChargeResponse()
 	 * @used-by \Df\StripeClone\Facade\Charge::cardData()
 	 * @return string
 	 */
