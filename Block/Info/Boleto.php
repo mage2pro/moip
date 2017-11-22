@@ -26,7 +26,7 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * 2017-07-30
 	 * @override
 	 * @see \Df\Payment\Block\Info::prepare()
-	 * @used-by \Df\Payment\Block\Info::_prepareSpecificInformation()
+	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
 	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 */
 	final protected function prepare() {

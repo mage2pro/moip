@@ -21,7 +21,7 @@ class Card extends \Df\StripeClone\Block\Info {
 	 * https://github.com/mage2pro/allpay/blob/1.6.7/Block/Info/BankCard.php#L54
 	 * @override
 	 * @see \Df\StripeClone\Block\Info::prepare()
-	 * @used-by \Df\Payment\Block\Info::_prepareSpecificInformation()
+	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
 	 */
 	final protected function prepare() {
 		parent::prepare();
