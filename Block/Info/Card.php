@@ -17,7 +17,7 @@ class Card extends \Df\StripeClone\Block\Info {
 	 * 1.2) `Show the cardholder's CPF (tax ID) in the «Payment Information» backend block`
 	 * https://github.com/mage2pro/moip/issues/5
 	 * Note 2.
-	 * See a similar implementation for the «歐付寶 allPay» extension:
+	 * See a similar implementation for the «歐付寶 O'Pay (allPay)» extension:
 	 * https://github.com/mage2pro/allpay/blob/1.6.7/Block/Info/BankCard.php#L54
 	 * @override
 	 * @see \Df\StripeClone\Block\Info::prepare()
