@@ -42,12 +42,12 @@ final class Client extends \Df\API\Client {
 	/**
 	 * 2017-07-13
 	 * @override
-	 * @see \Df\API\Client::uriBase()
+	 * @see \Df\API\Client::urlBase()
 	 * @used-by \Df\API\Client::__construct()
 	 * @used-by \Df\API\Client::_p()
 	 * @return string
 	 */
-	protected function uriBase() {return dfp_url_api(
+	protected function urlBase() {return dfp_url_api(
 		$this, 'https://{stage}.moip.com.br/v2', ['sandbox', 'api']
 	);}
 }
