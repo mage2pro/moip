@@ -50,7 +50,7 @@ final class Notification extends \Df\API\Facade {
 	 * 2017-08-07
 	 * @override
 	 * @see \Df\API\Facade::prefix()
-	 * @used-by \Df\API\Facade::p()
+	 * @used-by \Df\API\Facade::path()
 	 * @return string
 	 */
 	protected function prefix() {return 'preferences';}
