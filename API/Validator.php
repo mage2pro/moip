@@ -7,7 +7,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * 2017-07-13
 	 * @override
 	 * @see \Df\API\Exception::long()
-	 * @used-by \Df\API\Client::p()
+	 * @used-by \Df\API\Client::_p()
 	 * @return string
 	 */
 	function long() {return $this->ERROR() ?: df_json_encode(array_map('df_clean', $this->errors()));}
@@ -19,7 +19,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * https://sentry.io/dmitry-fedyuk/mage2pro-moip/issues/313861903
 	 * @override
 	 * @see \Df\API\Exception::short()
-	 * @used-by \Df\API\Client::p()
+	 * @used-by \Df\API\Client::_p()
 	 * @return string
 	 */
 	function short() {return $this->ERROR() ?: dfa_deep($this->errors(), '0/description');}
