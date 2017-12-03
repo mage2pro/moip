@@ -174,10 +174,8 @@ So the `sortOrder` value is 1920. -->
 					>
 						<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 						<comment><![CDATA[Moip API v2 <a href='https://dev.moip.com.br/v2.0/reference#endereco' target='_blank' title='Moip API Reference'>accepts only the well-structured customer addresses</a>, whereas Magento 2 gathers the customers addresses in a plain text form.
-						<config_path>df_payment/moip/googlePrivateKey</config_path>
-						<label>Private Key for Google Maps Geocoding API</label>
-	<br/>The extension uses the <a href='https://developers.google.com/maps/documentation/geocoding' target='_blank'  title='Google Maps Geocoding API Reference'>Google Maps Geocoding API</a> to convert a plain text address to the Moip format.
-	<br/>Use <a href='https://mage2.pro/t/3828' target='_blank' title='How to generate a key for the Google Maps Geocoding API?'>my instruction</a> to get the key.]]></comment>
+<br/>The extension uses the <a href='https://developers.google.com/maps/documentation/geocoding' target='_blank'  title='Google Maps Geocoding API Reference'>Google Maps Geocoding API</a> to convert a plain text address to the Moip format.
+<br/>Use <a href='https://mage2.pro/t/3828' target='_blank' title='How to generate a key for the Google Maps Geocoding API?'>my instruction</a> to get the key.]]></comment>
 						<config_path>df_payment/moip/googlePrivateKey</config_path>
 						<depends><field id='enable'>1</field></depends>
 						<label>Private Key for Google Maps Geocoding API</label>
