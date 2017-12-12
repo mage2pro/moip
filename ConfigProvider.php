@@ -32,10 +32,6 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 			,'prefillCardholder' => $s->prefillCardholder()
 			,'title' => $m->optionTitle('card')
 		]
-		,'common' => [
-			'isTest' => $s->test()
-			,'publicKey' => $s->publicKey()
-			,'titleBackend' => $this->m()->titleB()
-		]
+		,'common' => ['isTest' => $s->test(), 'publicKey' => $s->publicKey(), 'titleBackend' => $m->titleB()]
 	];}
 }
