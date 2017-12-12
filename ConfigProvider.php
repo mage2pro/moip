@@ -16,13 +16,13 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	 */
 	protected function config() {$m = $this->m(); $s = $this->s(); return [
 		'boleto' => [
-			'enable' => $s->v('boleto/enable') && $this->applicableForQuote('boleto')
+			'enable' => $s->v('boleto/enable') && $s->applicableForQuote('boleto')
 			,'title' => $m->optionTitle('boleto')
 		]
 		,'card' => [
 			'calendar' => df_asset_create('Magento_Theme::calendar.png')->getUrl()
 			,'cards' => parent::cards()
-			,'enable' => $s->v('card/enable') && $this->applicableForQuote('card')
+			,'enable' => $s->v('card/enable') && $s->applicableForQuote('card')
 			,'installments' => $s->installments()
 			,'prefill' => $s->prefill()
 			// 2017-07-22
@@ -39,18 +39,4 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 			,'titleBackend' => $this->m()->titleB()
 		]
 	];}
-
-	/**
-	 * 2017-07-29
-	 * It is implemented by analogy with @see \Magento\Payment\Model\Checks\TotalMinMax::isApplicable()
-	 * @used-by config()
-	 * @param string $option
-	 * @return boolean
-	 */
-	private function applicableForQuote($option) {
-		$a = df_quote()->getBaseGrandTotal(); /** @var float $a */
-        $max = $this->s()->v("$option/" . T::MAX_ORDER_TOTAL); /** @var float $max */
-		$min = $this->s()->v("$option/" . T::MIN_ORDER_TOTAL); /** @var float $min */
-		return !($min && $a < $min || $max && $a > $max);
-	}
 }

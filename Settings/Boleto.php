@@ -1,8 +1,11 @@
 <?php
 namespace Dfe\Moip\Settings;
 use Df\Config\Source\WaitPeriodType;
-// 2017-07-30
-/** @method static Boleto s() */
+/**
+ * 2017-07-30
+ * @used-by \Dfe\Moip\Settings::boleto()
+ * @method static Boleto s()
+ */
 final class Boleto extends \Df\Payment\Settings {
 	/**
 	 * 2017-07-30 «Instruções impressas no boleto»
