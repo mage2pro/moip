@@ -73,7 +73,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @param string|null $o [optional]
 	 * @return string|null
 	 */
-	function optionTitle($o = null) {return !($o = ($o ?: $this->option())) ? null : $this->s("{$o}/title");}
+	function optionTitle($o = null) {return !($o = ($o ?: $this->option())) ? null : $this->s("$o/title");}
 
 	/**
 	 * 2017-07-15
