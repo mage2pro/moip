@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\Moip;
-use Magento\Payment\Model\Checks\TotalMinMax as T;
 /**
  * 2017-07-14
  * @method Method m()
