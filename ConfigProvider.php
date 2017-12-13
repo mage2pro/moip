@@ -15,13 +15,13 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	 */
 	protected function config() {$m = $this->m(); $s = $this->s(); return [
 		'boleto' => [
-			'enable' => $s->v('boleto/enable') && $s->applicableForQuote('boleto')
+			'enable' => $s->b('boleto/enable') && $s->applicableForQuote('boleto')
 			,'title' => $m->optionTitle('boleto')
 		]
 		,'card' => [
 			'calendar' => df_asset_create('Magento_Theme::calendar.png')->getUrl()
 			,'cards' => parent::cards()
-			,'enable' => $s->v('card/enable') && $s->applicableForQuote('card')
+			,'enable' => $s->b('card/enable') && $s->applicableForQuote('card')
 			,'installments' => $s->installments()
 			,'prefill' => $s->prefill()
 			// 2017-07-22
