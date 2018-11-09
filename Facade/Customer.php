@@ -114,7 +114,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 		function(array $i) {return $i['creditCard'];}
 		,array_filter(
 			df_eta($c['fundingInstruments'])
-			,function(array $i) {return Option::BANK_CARD === $i['method'];}
+			, function(array $i) {return Option::BANK_CARD === $i['method'];}
 		)
 	);}
 }
