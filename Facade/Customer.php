@@ -3,6 +3,7 @@ namespace Dfe\Moip\Facade;
 use Df\API\Operation;
 use Dfe\Moip\API\Facade\Customer as C;
 use Dfe\Moip\API\Option;
+use Dfe\Moip\Facade\Card;
 // 2017-04-25
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
@@ -106,7 +107,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::cardsData()
 	 * @used-by \Df\StripeClone\Facade\Customer::cards()
 	 * @param C $c
-	 * @return \Stripe\Card[]
+	 * @return Card[]
 	 * @see \Dfe\Stripe\Facade\Charge::cardData()
 	 */
 	protected function cardsData($c) {return array_map(
