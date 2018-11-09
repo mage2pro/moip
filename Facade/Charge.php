@@ -2,8 +2,6 @@
 namespace Dfe\Moip\Facade;
 use Df\API\Operation;
 use Dfe\Moip\API\Facade\Order as O;
-use Magento\Sales\Model\Order\Creditmemo as CM;
-use Magento\Sales\Model\Order\Payment as OP;
 // 2017-06-11
 /** @method O preorderGet() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
