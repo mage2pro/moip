@@ -2,7 +2,7 @@
 namespace Dfe\Moip\Facade;
 use \Df\Payment\BankCardNetworks as N;
 // 2017-06-11 https://dev.moip.com.br/page/api-reference#section-credit-card
-final class Card implements \Df\StripeClone\Facade\ICard {
+final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-06-11
 	 * $p is an array like:
@@ -53,7 +53,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * https://mage2.pro/t/3776
 	 * https://github.com/mage2pro/moip/blob/0.4.1/Facade/Customer.php#L90
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::brand()
+	 * @see \Df\StripeClone\Facade\Card::brand()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @used-by \Dfe\Moip\CardFormatter::label()
 	 * @return string
@@ -72,7 +72,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-06-11
 	 * 2017-10-07 It should be an ISO-2 code or `null`.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::country()
+	 * @see \Df\StripeClone\Facade\Card::country()
 	 * @used-by \Df\StripeClone\CardFormatter::country()
 	 * @return string|null
 	 */
@@ -86,7 +86,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-06-11
 	 * 2017-07-19 Moip does not return the expiration date: https://mage2.pro/t/4048
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::expMonth()
+	 * @see \Df\StripeClone\Facade\Card::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return null
@@ -97,7 +97,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-06-11
 	 * 2017-07-19 Moip does not return the card's expiration date: https://mage2.pro/t/4048
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::expYear()
+	 * @see \Df\StripeClone\Facade\Card::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return null
@@ -120,7 +120,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-10-07 «Credit card id»
 	 * Type: string(16).
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::id()
+	 * @see \Df\StripeClone\Facade\Card::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
@@ -132,7 +132,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-10-07 «Last four digits of the card»
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::last4()
+	 * @see \Df\StripeClone\Facade\Card::last4()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @used-by \Dfe\Moip\CardFormatter::label()
 	 * @return string
@@ -174,7 +174,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * `holder`: «Credit card holder». Type: structured.
 	 * `fullname`: «Fullname». Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::owner()
+	 * @see \Df\StripeClone\Facade\Card::owner()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return string
 	 */
