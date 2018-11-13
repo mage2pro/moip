@@ -70,7 +70,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::_get()
 	 * @used-by \Df\StripeClone\Facade\Customer::get()
-	 * @param int $id
+	 * @param string $id
 	 * @return Operation|null
 	 */
 	protected function _get($id) {return df_try(function() use($id) {return C::s()->get($id);});}
