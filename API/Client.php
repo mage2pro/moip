@@ -19,7 +19,7 @@ final class Client extends \Df\API\Client {
 	 * @override
 	 * @see \Df\API\Client::headers()
 	 * @used-by \Df\API\Client::__construct()
-	 * @used-by \Df\API\Client::p()
+	 * @used-by \Df\API\Client::_p()
 	 * @return array(string => string)
 	 */
 	protected function headers() {/** @var S $s */$s = dfps($this); return [
