@@ -4,7 +4,7 @@
 	xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd"
 >
 	<router id='standard'>
-		<route id='Dfe_Moip' frontName='dfe-moip'>
+		<route frontName='dfe-moip' id='Dfe_Moip'>
 			<module name='Dfe_Moip'/>
 		</route>
 	</router>
