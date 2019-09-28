@@ -282,7 +282,7 @@ So the `sortOrder` value is 1920. -->
 						type='text'
 					>
 						<label>Dynamic statement descripor</label>
-						<comment><![CDATA[An arbitrary string to be displayed <a href='https://mage2.pro/t/4203' target='_blank' title='[Moip] The «Dynamic statement descripor» feature'>on your customer's bank card statement</a>.
+						<comment><![CDATA[An arbitrary string to be shown <a href='https://mage2.pro/t/4203' target='_blank' title='[Moip] The «Dynamic statement descripor» feature'>on your customer's bank card statement</a>.
 	<br/>It is supported <b>only for the bank card payments</b>, and <b>only for the Visa and MasterCard</b> cards.
 	<br/>It may be up to <b>13</b> characters, may not include <b><>"'</b> characters, and will appear on your customer's statement in capital letters.
 	<br/>Non-ASCII characters are automatically stripped.
