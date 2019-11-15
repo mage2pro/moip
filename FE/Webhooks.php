@@ -42,7 +42,7 @@ class Webhooks extends AE implements ElementI {
 		 * This code removes the «[store view]» sublabel, similar to
 		 * @see \Magento\MediaStorage\Block\System\Config\System\Storage\Media\Synchronize::render()
 		 */
-		$this->_data = dfa_unset($this->_data, 'scope', 'can_use_website_value', 'can_use_default_value');
+		$this->unsetData(['can_use_default_value', 'can_use_website_value', 'scope']);
 		/**
 		 * 2017-08-10
 		 * There are 3 possible cases:
@@ -67,18 +67,13 @@ class Webhooks extends AE implements ElementI {
 		 * «502 Proxy Error: The proxy server received an invalid response from an upstream server».
 		 * We should handle this in a proper way`: https://github.com/mage2pro/moip/issues/21
 		 */
-		/** @var bool $down */
-		/** @var string[] $urls */
 		list($down, $urls) =
 			!$enabled
 			|| !df_fe_sibling_v($this, "{$p}PrivateToken")
 			|| !df_fe_sibling_v($this, "{$p}PrivateKey")
 			?  [false, null]
-			: df_try(
-				function() {return [false, (new N)->targets()];}
-				,function() {return [true, null];}
-			)
-		;
+			: df_try(function() {return [false, (new N)->targets()];}, function() {return [true, null];})
+		; /** @var bool $down */ /** @var string[] $urls */
 		df_fe_init($this, __CLASS__, [], ['down' => $down, 'enabled' => $enabled, 'urls' => $urls]);
 	}
 }
