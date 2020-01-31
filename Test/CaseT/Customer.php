@@ -1,11 +1,11 @@
 <?php
-namespace Dfe\Moip\T\CaseT;
+namespace Dfe\Moip\Test\CaseT;
 use Dfe\Moip\API\Facade\Customer as C;
-use Dfe\Moip\T\Data;
+use Dfe\Moip\Test\Data;
 // 2017-04-20
 // https://dev.moip.com.br/page/api-reference#section-customers
 // https://dev.moip.com.br/v2.0/reference#clientes
-final class Customer extends \Dfe\Moip\T\CaseT {
+final class Customer extends \Dfe\Moip\Test\CaseT {
 	/** @test 2017-04-26 */
 	function t00() {}
 
@@ -77,7 +77,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * https://dev.moip.com.br/page/api-reference#section-create-a-customer-post-
 		 * 2017-07-16
 		 * Note 1.
-		 * I was unable to get it to work: 'fundingInstruments' => [\Dfe\Moip\T\Card::s()->get('hash')]
+		 * I was unable to get it to work: 'fundingInstruments' => [\Dfe\Moip\Test\Card::s()->get('hash')]
 		 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter
 		 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
 		 * https://mage2.pro/t/4174
@@ -88,7 +88,7 @@ final class Customer extends \Dfe\Moip\T\CaseT {
 		 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
 		 * Note 2.
 		 * There is a similar error on `POST /v2/customers/<customer ID>/fundinginstruments`:
-		 * @see \Dfe\Moip\T\CaseT\Card::t01_add()
+		 * @see \Dfe\Moip\Test\CaseT\Card::t01_add()
 		 * https://github.com/mage2pro/moip/blob/0.7.1/T/CaseT/Card.php#L17-L23
 		 */
 		,'fundingInstruments' => null

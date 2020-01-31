@@ -1,9 +1,9 @@
 <?php
-namespace Dfe\Moip\T\CaseT;
+namespace Dfe\Moip\Test\CaseT;
 use Dfe\Moip\API\Facade\Customer as lC;
-use Dfe\Moip\T\Card as tCard;
+use Dfe\Moip\Test\Card as tCard;
 // 2017-04-26
-final class Card extends \Dfe\Moip\T\CaseT {
+final class Card extends \Dfe\Moip\Test\CaseT {
 	/** @test 2017-04-26 */
 	function t00() {}
 
@@ -26,7 +26,7 @@ final class Card extends \Dfe\Moip\T\CaseT {
 	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
 	 * https://mage2.pro/t/4174
 	 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
-	 * @see \Dfe\Moip\T\CaseT\Customer::pCustomer()
+	 * @see \Dfe\Moip\Test\CaseT\Customer::pCustomer()
 	 * https://github.com/mage2pro/moip/blob/0.7.0/T/CaseT/Customer.php#L94-#L106
 	 * @see \Dfe\Moip\P\Reg::k_CardId()
 	 * https://github.com/mage2pro/moip/blob/0.7.0/P/Reg.php#L24-L29

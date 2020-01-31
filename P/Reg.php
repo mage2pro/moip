@@ -28,13 +28,13 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response`:
 	 * https://mage2.pro/t/4174
 	 * https://suporte.moip.com.br/hc/pt-br/requests/1458451
-	 * @see \Dfe\Moip\T\CaseT\Customer::pCustomer()
+	 * @see \Dfe\Moip\Test\CaseT\Customer::pCustomer()
 	 * https://github.com/mage2pro/moip/blob/0.7.0/T/CaseT/Customer.php#L94-#L106
 	 * @see \Df\StripeClone\Payer::newCard()
 	 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
 	 * Note 2.
 	 * There is a similar error on `POST /v2/customers/<customer ID>/fundinginstruments`:
-	 * @see \Dfe\Moip\T\CaseT\Card::t01_add()
+	 * @see \Dfe\Moip\Test\CaseT\Card::t01_add()
 	 * https://github.com/mage2pro/moip/blob/0.7.1/T/CaseT/Card.php#L17-L23
 	 * 2017-10-09 The key name of a bank card token.
 	 * @override

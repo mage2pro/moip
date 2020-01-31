@@ -25,9 +25,9 @@ final class Order extends \Df\API\Facade {
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-payment-post-
 	 * https://dev.moip.com.br/v2.0/reference#criar-pagamento
 	 * @used-by \Dfe\Moip\Facade\Charge::create()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment\Boleto::t01_create()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment\Card::t01_create()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment\OnlineBanking::t01_create()
+	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Boleto::t01_create()
+	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Card::t01_create()
+	 * @used-by \Dfe\Moip\Test\CaseT\Payment\OnlineBanking::t01_create()
 	 * @param string $orderId
 	 * @param array(string => mixed) $a
 	 * @return O

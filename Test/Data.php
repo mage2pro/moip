@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Moip\T;
+namespace Dfe\Moip\Test;
 use Dfe\Moip\Settings as S;
 use Geocoder\Model\Address as GA;
 final class Data {
@@ -9,7 +9,7 @@ final class Data {
 	 * 	*) associated with the Customer as the delivery address («shippingAddress»)
 	 * 	*) or associated with the Credit Card as the billing address («billingAddress»).»
 	 * https://dev.moip.com.br/v2.0/reference#endereco
-	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer()
 	 * @return array(string => mixed)
 	 */
 	function address() {/** @var GA $ga */$ga = $this->ga(); return [
@@ -38,16 +38,16 @@ final class Data {
 
 	/**
 	 * 2017-06-09
-	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
-	 * @used-by \Dfe\Moip\T\Payment::pFundingInstrument()
+	 * @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\Test\Payment::pFundingInstrument()
 	 * @return array(string => int|string)
 	 */
 	function phone() {return dfe_moip_phone('+552131398000');}
 
 	/**
 	 * 2017-06-09 «Fiscal document»
-	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
-	 * @used-by \Dfe\Moip\T\Payment::pFundingInstrument()
+	 * @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\Test\Payment::pFundingInstrument()
 	 * @return array(string => int|string)
 	 */
 	function taxDocument() {return [

@@ -39,7 +39,7 @@ final class Customer extends \Df\API\Facade {
 	 * leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response
 	 * with «500 Internal Server Error» HTTP code`: https://mage2.pro/t/4175
 	 * So we actually do not use this method anymore, apart from the test:
-	 * @used-by \Dfe\Moip\T\CaseT\Card::t01_add()
+	 * @used-by \Dfe\Moip\Test\CaseT\Card::t01_add()
 	 * Previously, we have used it from @see \Dfe\Moip\Facade\Customer::cardAdd():
 	 * https://github.com/mage2pro/moip/blob/0.7.1/Facade/Customer.php#L44-L61
 	 * @param string $customerId

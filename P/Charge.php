@@ -72,7 +72,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 
 	/**
 	 * 2017-06-12
-	 * @see \Dfe\Moip\T\Data::taxDocument()
+	 * @see \Dfe\Moip\Test\Data::taxDocument()
 	 * @used-by v_CardId()
 	 * @used-by \Dfe\Moip\P\Reg::p()
 	 * @return array(string => mixed)

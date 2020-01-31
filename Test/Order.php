@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Moip\T;
+namespace Dfe\Moip\Test;
 use Df\API\Operation;
 use Dfe\Moip\API\Facade\Order as lOrder;
 use Magento\Sales\Model\Order as O;
@@ -11,8 +11,8 @@ final class Order {
 	/**
 	 * 2017-06-10
 	 * @used-by \Dfe\Moip\Facade\Preorder::create()
-	 * @used-by \Dfe\Moip\T\CaseT\Order::t01_create()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment\Card::t01_create()
+	 * @used-by \Dfe\Moip\Test\CaseT\Order::t01_create()
+	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Card::t01_create()
 	 * @return Operation
 	 */
 	function create() {return lOrder::s()->create($this->pOrder());}

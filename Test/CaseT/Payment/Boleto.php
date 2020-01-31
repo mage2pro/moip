@@ -1,13 +1,13 @@
 <?php
-namespace Dfe\Moip\T\CaseT\Payment;
+namespace Dfe\Moip\Test\CaseT\Payment;
 use Dfe\Moip\API\Facade\Order as lO;
 use Dfe\Moip\API\Option;
-use Dfe\Moip\T\Order as tOrder;
+use Dfe\Moip\Test\Order as tOrder;
 // 2017-07-24
 // https://dev.moip.com.br/page/api-reference#section-payments
 // https://dev.moip.com.br/v2.0/reference#pagamentos
 // `[Moip] The available payment options`: https://mage2.pro/t/3851
-final class Boleto extends \Dfe\Moip\T\CaseT {
+final class Boleto extends \Dfe\Moip\Test\CaseT {
 	/** @test 2017-07-24 */
 	function t00() {}
 

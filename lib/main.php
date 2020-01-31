@@ -4,7 +4,7 @@ use Magento\Sales\Model\Order\Address as A;
  * 2017-06-09
  * @used-by \Dfe\Moip\P\Reg::p()
  * @used-by \Dfe\Moip\P\Charge::v_CardId()
- * @used-by \Dfe\Moip\T\Data::phone()
+ * @used-by \Dfe\Moip\Test\Data::phone()
  * @param string $s
  * @return array(string => int|string)
  */

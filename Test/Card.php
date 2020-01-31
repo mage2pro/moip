@@ -1,13 +1,13 @@
 <?php
-namespace Dfe\Moip\T;
+namespace Dfe\Moip\Test;
 use Dfe\Moip\API\Option;
 // 2017-06-10
 final class Card {
 	/**
 	 * 2017-06-09
 	 * «Payment method»
-	 * @used-by \Dfe\Moip\T\CaseT\Customer::pCustomer()
-	 * @used-by \Dfe\Moip\T\CaseT\Payment\Card::pPayment()
+	 * @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer()
+	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Card::pPayment()
 	 * @param int|string $index [optional]
 	 * @return array(string => mixed)
 	 */
