@@ -17,9 +17,7 @@ define(['df', 'df-lodash', 'jquery', 'domReady!'], function(df, _, $) {return (
 			$c.html(df.t('Please save the settings first (press the «<b>Save Config</b>» button).'));
 		}
 		else if (config.down) {
-			$c.html(df.t(
-				"The Moip API server <a href='https://mage2.pro/t/4721' target='_blank'>is down now</a>."
-			));
+			$c.html(df.t("The Moip API server <a href='https://mage2.pro/t/4721' target='_blank'>is down now</a>."));
 		}
 		else if (!_.isArray(config.urls)) {
 			$c.html(df.t('Please set your Moip private keys first to the fields above.'));
