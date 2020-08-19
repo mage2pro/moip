@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Moip\Source;
-// 2017-06-13
+# 2017-06-13
 final class Prefill extends \Df\Config\Source {
 	/**
 	 * 2017-06-13 [Moip] The test bank cards: https://mage2.pro/t/3776

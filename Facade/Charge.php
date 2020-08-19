@@ -2,7 +2,7 @@
 namespace Dfe\Moip\Facade;
 use Df\API\Operation;
 use Dfe\Moip\API\Facade\Order as O;
-// 2017-06-11
+# 2017-06-11
 /** @method O preorderGet() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**

@@ -2,9 +2,9 @@
 namespace Dfe\Moip\Test\CaseT;
 use Dfe\Moip\API\Facade\Customer as C;
 use Dfe\Moip\Test\Data;
-// 2017-04-20
-// https://dev.moip.com.br/page/api-reference#section-customers
-// https://dev.moip.com.br/v2.0/reference#clientes
+# 2017-04-20
+# https://dev.moip.com.br/page/api-reference#section-customers
+# https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\Test\CaseT {
 	/** @test 2017-04-26 */
 	function t00() {}
@@ -17,7 +17,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 	 */
 	function t01_create() {
 		try {
-			// 2017-04-22 https://dev.moip.com.br/reference#criar-um-cliente
+			# 2017-04-22 https://dev.moip.com.br/reference#criar-um-cliente
 			print_r(C::s()->create($this->pCustomer())->j());
 		}
 		catch (\Exception $e) {
@@ -64,11 +64,11 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 	 * @return array(string => mixed)
 	 */
 	private function pCustomer() {return df_clean([
-		// 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
+		# 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
 		'birthDate' => '1982-07-08'
-		// 2017-04-22 «Email from the client», Required, String(45).
+		# 2017-04-22 «Email from the client», Required, String(45).
 		,'email' => 'admin@mage2.pro'
-		// 2017-04-22 «Full name of customer», Required, String(90).
+		# 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => 'Dmitry Fedyuk'
 		/**    
 		 * 2017-06-10
@@ -92,26 +92,26 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 		 * https://github.com/mage2pro/moip/blob/0.7.1/T/CaseT/Card.php#L17-L23
 		 */
 		,'fundingInstruments' => null
-		// 2017-04-22
-		// «Customer Id. External reference.»
-		// Required, String(66).
-		// It should be unique, otherwise you will get the error:
-		// «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
-		// («The unique identifier must be unique, there is a customer with the identified identifier»).
+		# 2017-04-22
+		# «Customer Id. External reference.»
+		# Required, String(66).
+		# It should be unique, otherwise you will get the error:
+		# «O identificador prßprio deve ser único, j¹ existe um customer com o identificador informado»
+		# («The unique identifier must be unique, there is a customer with the identified identifier»).
 		,'ownId' => df_uid(6, 'admin@mage2.pro-')
-		// 2017-04-23
-		// «The Address is the set of data that represents a location:
-		// *) associated with the Customer as the delivery address («shippingAddress»)
-		// 	*) or associated with the Credit Card as the billing address («billingAddress»).»
-		// https://dev.moip.com.br/v2.0/reference#endereco
+		# 2017-04-23
+		# «The Address is the set of data that represents a location:
+		# *) associated with the Customer as the delivery address («shippingAddress»)
+		# 	*) or associated with the Credit Card as the billing address («billingAddress»).»
+		# https://dev.moip.com.br/v2.0/reference#endereco
 		,'shippingAddress' => Data::s()->address()
-		// 2017-04-25 «Fiscal document», Optional, Structured.
+		# 2017-04-25 «Fiscal document», Optional, Structured.
 		,'taxDocument' => Data::s()->taxDocument()
-	// 2017-04-22 «Customer's phone number», Optional, Structured.
-	// 2017-04-25
-	// «Today we do not support creating clients that are from other countries
-	// that are not from Brazil, so this error occurs.
-	// We do not have a forecast to be international.»
-	// https://mage2.pro/t/3820/2
+	# 2017-04-22 «Customer's phone number», Optional, Structured.
+	# 2017-04-25
+	# «Today we do not support creating clients that are from other countries
+	# that are not from Brazil, so this error occurs.
+	# We do not have a forecast to be international.»
+	# https://mage2.pro/t/3820/2
 	]) + Data::s()->phone();}
 }

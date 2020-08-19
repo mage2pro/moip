@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\API;
 use Dfe\Moip\Settings as S;
-// 2017-07-13
+# 2017-07-13
 final class Client extends \Df\API\Client {
 	/**
 	 * 2017-07-13
@@ -23,11 +23,11 @@ final class Client extends \Df\API\Client {
 	 * @return array(string => string)
 	 */
 	protected function headers() {/** @var S $s */$s = dfps($this); return [
-		// 2017-07-13 Should be a HTTP Basic access authentication header. Required.
-		// https://en.wikipedia.org/wiki/Basic_access_authentication
-		// https://github.com/moip/moip-sdk-php/blob/v1.2.0/src/Auth/BasicAuth.php#L66
+		# 2017-07-13 Should be a HTTP Basic access authentication header. Required.
+		# https://en.wikipedia.org/wiki/Basic_access_authentication
+		# https://github.com/moip/moip-sdk-php/blob/v1.2.0/src/Auth/BasicAuth.php#L66
 		'Authorization' => 'Basic ' . base64_encode("{$s->privateToken()}:{$s->privateKey()}")
-		// 2017-07-13 Should be «application/json». Required.
+		# 2017-07-13 Should be «application/json». Required.
 		,'Content-Type' => 'application/json'
 	];}
 

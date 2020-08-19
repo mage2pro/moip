@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\Facade;
 use \Df\Payment\BankCardNetworks as N;
-// 2017-06-11 https://dev.moip.com.br/page/api-reference#section-credit-card
+# 2017-06-11 https://dev.moip.com.br/page/api-reference#section-credit-card
 final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-06-11

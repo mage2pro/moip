@@ -3,7 +3,7 @@ namespace Dfe\Moip\FE;
 use Df\Framework\Form\ElementI;
 use Dfe\Moip\API\Facade\Notification as N;
 use Magento\Framework\Data\Form\Element\AbstractElement as AE;
-// 2017-08-09
+# 2017-08-09
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class Webhooks extends AE implements ElementI {
 	/**

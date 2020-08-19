@@ -52,11 +52,11 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @return array(string => mixed)
 	 */
 	protected function p() {return df_clean([
-		// 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
+		# 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
 		'birthDate' => $this->customerDobS()
-		// 2017-04-22 «Email from the client», Required, String(45).
+		# 2017-04-22 «Email from the client», Required, String(45).
 		,'email' => $this->customerEmail()
-		// 2017-04-22 «Full name of customer», Required, String(90).
+		# 2017-04-22 «Full name of customer», Required, String(90).
 		,'fullname' => $this->customerName()
 		/**
 		 * 2017-04-22
@@ -98,20 +98,20 @@ final class Reg extends \Df\StripeClone\P\Reg {
 		 * https://mage2.pro/t/4202/2
 		 */
 		,'ownId' => df_uid(6, "{$this->customerEmail()}-")
-		// 2017-04-23
-		// «The Address is the set of data that represents a location:
-		// *) associated with the Customer as the delivery address («shippingAddress»)
-		// 	*) or associated with the Credit Card as the billing address («billingAddress»).»
-		// https://dev.moip.com.br/v2.0/reference#endereco
+		# 2017-04-23
+		# «The Address is the set of data that represents a location:
+		# *) associated with the Customer as the delivery address («shippingAddress»)
+		# 	*) or associated with the Credit Card as the billing address («billingAddress»).»
+		# https://dev.moip.com.br/v2.0/reference#endereco
 		,'shippingAddress' => $this->charge()->pAddress($this->addressS(true))
-		// 2017-04-25 «Fiscal document», Optional, Structured.
+		# 2017-04-25 «Fiscal document», Optional, Structured.
 		,'taxDocument' => $this->charge()->pTaxDocument()
-	// 2017-04-22 «Customer's phone number», Optional, Structured.
-	// 2017-04-25
-	// «Today we do not support creating clients that are from other countries
-	// that are not from Brazil, so this error occurs.
-	// We do not have a forecast to be international.»
-	// https://mage2.pro/t/3820/2
+	# 2017-04-22 «Customer's phone number», Optional, Structured.
+	# 2017-04-25
+	# «Today we do not support creating clients that are from other countries
+	# that are not from Brazil, so this error occurs.
+	# We do not have a forecast to be international.»
+	# https://mage2.pro/t/3820/2
 	]) + ['phone' => dfe_moip_phone($this->customerPhone())];}
 
 	/**

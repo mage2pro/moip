@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Moip\W;
-// 2017-07-30
+# 2017-07-30
 final class Event extends \Df\StripeClone\W\Event {
 	/**
 	 * 2017-07-30 The type of the current transaction.

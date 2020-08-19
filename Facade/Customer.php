@@ -4,7 +4,7 @@ use Df\API\Operation;
 use Dfe\Moip\API\Facade\Customer as C;
 use Dfe\Moip\API\Option;
 use Dfe\Moip\Facade\Card;
-// 2017-04-25
+# 2017-04-25
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-04-25

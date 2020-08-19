@@ -24,11 +24,11 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 			,'enable' => $s->b('card/enable') && $s->applicableForQuoteByMinMaxTotal('card')
 			,'installments' => $s->installments()
 			,'prefill' => $s->prefill()
-			// 2017-07-22
-			// It implements the feature:
-			// `Add a new option «Prefill the cardholder's name from the billing address?»
-			// to the payment modules which require (or accept) the cardholder's name`
-			// https://github.com/mage2pro/core/issues/14
+			# 2017-07-22
+			# It implements the feature:
+			# `Add a new option «Prefill the cardholder's name from the billing address?»
+			# to the payment modules which require (or accept) the cardholder's name`
+			# https://github.com/mage2pro/core/issues/14
 			,'prefillCardholder' => $s->prefillCardholder()
 			,'title' => $m->optionTitle('card')
 		]

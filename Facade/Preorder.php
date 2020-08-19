@@ -2,7 +2,7 @@
 namespace Dfe\Moip\Facade;
 use Df\API\Operation;
 use Dfe\Moip\API\Facade\Order as O;
-// 2017-06-12
+# 2017-06-12
 final class Preorder extends \Df\StripeClone\Facade\Preorder {
 	/**
 	 * 2017-06-13 [Moip] An example of a response to «POST v2/orders» https://mage2.pro/t/4045

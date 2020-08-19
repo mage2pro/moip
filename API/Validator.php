@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Moip\API;
-// 2017-07-13
+# 2017-07-13
 /** @used-by \Dfe\Moip\API\Client::responseValidatorC() */
 final class Validator extends \Df\API\Response\Validator {
 	/**

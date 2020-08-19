@@ -1,9 +1,9 @@
 <?php
 namespace Dfe\Moip\Test\CaseT;
 use Dfe\Moip\Test\Order as tOrder;
-// 2017-06-08
-// https://dev.moip.com.br/page/api-reference#section-orders
-// https://dev.moip.com.br/v2.0/reference#pedidos
+# 2017-06-08
+# https://dev.moip.com.br/page/api-reference#section-orders
+# https://dev.moip.com.br/v2.0/reference#pedidos
 final class Order extends \Dfe\Moip\Test\CaseT {
 	/** @test 2017-06-08 */
 	function t00() {}

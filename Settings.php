@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip;
 use Dfe\Moip\Settings\Boleto;
-// 2017-04-11
+# 2017-04-11
 /** @method static Settings s() */
 final class Settings extends \Df\StripeClone\Settings {
 	/**

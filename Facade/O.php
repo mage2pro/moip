@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\Facade;
 use Df\API\Operation;
-// 2017-07-17
+# 2017-07-17
 /** @method \Dfe\Paymill\Method m() */
 final class O extends \Df\StripeClone\Facade\O {
 	/**

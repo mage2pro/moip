@@ -98,23 +98,23 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 	 * @return O
 	 */
 	private function create() {return (new N)->create([
-		// 2017-08-07
-		// In Portugese:
-		// «Eventos configurados para serem enviados.
-		// Exemplo: PAYMENT.AUTHORIZED. Valores possíveis: ver lista de webhooks.
-		// String list, obrigatório»
-		// In English:
-		// «Events that will be notified.
-		// Examples: PAYMENT.AUTHORIZED. Possible values: see Webhooks list.
-		// String list, required»
+		# 2017-08-07
+		# In Portugese:
+		# «Eventos configurados para serem enviados.
+		# Exemplo: PAYMENT.AUTHORIZED. Valores possíveis: ver lista de webhooks.
+		# String list, obrigatório»
+		# In English:
+		# «Events that will be notified.
+		# Examples: PAYMENT.AUTHORIZED. Possible values: see Webhooks list.
+		# String list, required»
 		'events' => ['PAYMENT.*', 'REFUND.*']
-		// 2017-08-07
-		// In Portugese: «Tipo da notificação. Valores possíveis: WEBHOOK. String, obrigatório»
-		// In English: «Notification type. Valores possíveis: WEBHOOK. String, required»
+		# 2017-08-07
+		# In Portugese: «Tipo da notificação. Valores possíveis: WEBHOOK. String, obrigatório»
+		# In English: «Notification type. Valores possíveis: WEBHOOK. String, required»
 		,'media' => 'WEBHOOK'
-		// 2017-08-07
-		// In Portugese: «URL de notificação. String, obrigatório»
-		// In English: «URL. String, required»
+		# 2017-08-07
+		# In Portugese: «URL de notificação. String, obrigatório»
+		# In English: «URL. String, required»
 		,'target' => df_webhook($this, df_uid(6))
 	]);}
 }

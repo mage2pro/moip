@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip;
 use Magento\Framework\Phrase;
-// 2017-08-02
+# 2017-08-02
 /** @method \Dfe\Moip\Method m() */
 final class Choice extends \Df\Payment\Choice {
 	/**

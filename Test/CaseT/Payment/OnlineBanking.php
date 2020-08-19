@@ -3,10 +3,10 @@ namespace Dfe\Moip\Test\CaseT\Payment;
 use Dfe\Moip\API\Facade\Order as lO;
 use Dfe\Moip\API\Option;
 use Dfe\Moip\Test\Order as tOrder;
-// 2017-07-21
-// https://dev.moip.com.br/page/api-reference#section-payments
-// https://dev.moip.com.br/v2.0/reference#pagamentos
-// 2017-07-23 `[Moip] The available payment options`: https://mage2.pro/t/3851
+# 2017-07-21
+# https://dev.moip.com.br/page/api-reference#section-payments
+# https://dev.moip.com.br/v2.0/reference#pagamentos
+# 2017-07-23 `[Moip] The available payment options`: https://mage2.pro/t/3851
 final class OnlineBanking extends \Dfe\Moip\Test\CaseT {
 	/** @test 2017-07-21 */
 	function t00() {}
@@ -35,13 +35,13 @@ final class OnlineBanking extends \Dfe\Moip\Test\CaseT {
 	 * @return array(string => mixed)
 	 */
 	private function pPayment() {return [
-		// 2017-06-09
-		// «Payment method»
-		// Required
+		# 2017-06-09
+		# «Payment method»
+		# Required
 		'fundingInstrument' => [
-			// 2017-06-09
-			// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
-			// Required, String.
+			# 2017-06-09
+			# «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
+			# Required, String.
 			'method' => Option::ONLINE_BANKING
 			,'onlineBankDebit' => [
 				'bankNumber' => '001'

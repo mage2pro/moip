@@ -2,7 +2,7 @@
 namespace Dfe\Moip;
 use Df\Payment\BankCardNetworks as N;
 use Dfe\Moip\Facade\Card as C;
-// 2017-07-19
+# 2017-07-19
 /** @method C c() */
 final class CardFormatter extends \Df\StripeClone\CardFormatter {
 	/**

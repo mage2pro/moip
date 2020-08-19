@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Moip\Test;
 use Dfe\Moip\API\Option;
-// 2017-06-10
+# 2017-06-10
 final class Card {
 	/**
 	 * 2017-06-09
@@ -12,21 +12,21 @@ final class Card {
 	 * @return array(string => mixed)
 	 */
 	function get($index = 0) {return [
-		// 2017-06-09
-		// «Credit Card data. It can be:
-		// *) the ID of a credit card previously saved,
-		// *) an encrypted credit card hash
-		// *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
-		// [Moip] The test bank cards: https://mage2.pro/t/3776
-		// 2017-06-13
-		// A hash is a very long (345 symbols) base64-encoded string,
-		// so it is very distinguishable from a card ID.
-		// http://moip.github.io/moip-sdk-js
-		// A card ID looks like «CRC-M423RWG3PK7J».
+		# 2017-06-09
+		# «Credit Card data. It can be:
+		# *) the ID of a credit card previously saved,
+		# *) an encrypted credit card hash
+		# *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
+		# [Moip] The test bank cards: https://mage2.pro/t/3776
+		# 2017-06-13
+		# A hash is a very long (345 symbols) base64-encoded string,
+		# so it is very distinguishable from a card ID.
+		# http://moip.github.io/moip-sdk-js
+		# A card ID looks like «CRC-M423RWG3PK7J».
 		'creditCard' => $this->card($index)
-		// 2017-06-09
-		// «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
-		// Required, String.
+		# 2017-06-09
+		# «Method used. Possible values: CREDIT_CARD, BOLETO, ONLINE_BANK_DEBIT, WALLET»
+		# Required, String.
 		,'method' => Option::BANK_CARD
 	];}
 
@@ -38,28 +38,28 @@ final class Card {
 	 * @return array(string => mixed)
 	 */
 	private function card($index) {return df_clean([
-		// 2017-06-09
-		// «Do not send when the request is using credit card id»
-		// Conditional, String.
+		# 2017-06-09
+		# «Do not send when the request is using credit card id»
+		# Conditional, String.
 		'holder' => [
-			// 2017-06-09
-			// «Billing address»
-			// Optional.
+			# 2017-06-09
+			# «Billing address»
+			# Optional.
 			'billingAddress' => Data::s()->address()
-			// 2017-06-09
-			// «date(AAAA-MM-DD)»
-			// Required.
+			# 2017-06-09
+			# «date(AAAA-MM-DD)»
+			# Required.
 			,'birthdate' => '1982-07-08'
-			// 2017-06-09
-			// «Name of the carrier printed on the card»
-			// Required, String(90).
+			# 2017-06-09
+			# «Name of the carrier printed on the card»
+			# Required, String(90).
 			,'fullname' => 'DMITRY FEDYUK'
-			// 2017-06-09
-			// «Phone number»
-			// It is required for the Protected Sales Program:
-			// https://dev.moip.com.br/v2.0/docs/venda-protegida
+			# 2017-06-09
+			# «Phone number»
+			# It is required for the Protected Sales Program:
+			# https://dev.moip.com.br/v2.0/docs/venda-protegida
 			,'phone' => Data::s()->phone()
-			// 2017-06-09 «Document»
+			# 2017-06-09 «Document»
 			,'taxDocument' => Data::s()->taxDocument()
 		]
 		/**
@@ -91,35 +91,35 @@ final class Card {
 		 * https://mage2.pro/t/4048
 		 */
 		,'id' => null
-		// 2017-06-09
-		// Whether the card should be saved for future payments.
-		// https://moip.com.br/blog/compra-com-um-clique
-		// Default: true
-		// Boolean.
+		# 2017-06-09
+		# Whether the card should be saved for future payments.
+		# https://moip.com.br/blog/compra-com-um-clique
+		# Default: true
+		# Boolean.
 		,'store' => true
 	] + ('hash' === $index ? [
-		// 2017-06-09
-		// «Encrypted credit card data»
-		// Conditional, String.
-		// https://dev.moip.com.br/v2.0/docs/criptografia
-		// 2017-07-14 You can generate a hash here: http://moip.github.io/moip-sdk-js
+		# 2017-06-09
+		# «Encrypted credit card data»
+		# Conditional, String.
+		# https://dev.moip.com.br/v2.0/docs/criptografia
+		# 2017-07-14 You can generate a hash here: http://moip.github.io/moip-sdk-js
 		'hash' => 'Q2qMJoavpsNCkF7FSA9pqg3lFFd1QTDWj7yA2tYRcwTbaFG9vWzU7lJcNyAkPKQ7BaSXhveZmNzNTbk7AcQ/nUlxqK8lt66HeLQhNyfy0f6wCf088Ys5IutbB/g/WK7hUDU3y3Ytn8q+h3QLg8NlbKCsveoaMncgqOXDj0If33WorzJB+yfSyCyEHb+dqwO+dJ8fX4fIGzMVMipJ902AbE+Cy/kuxA/ThBzgP247dXrwu3fjFdWRTRsCLO37X3dvZOVe+qjc/qUCvK1pEPQtW3jjCgYmCNX2jYdcu6h/EqXiCJvMnOJ3dXr1G/2Z0fdN2TcnJhhkRj61Me4LcMet3Q=='
 	] : [
-		// 2017-06-09
-		// «Credit card security code.»
-		// Conditional, Integer.
+		# 2017-06-09
+		# «Credit card security code.»
+		# Conditional, Integer.
 		'cvc' => 123
-		// 2017-06-09
-		// «Credit card expiration month. Requires PCI certification.»
-		// Conditional, Integer(2).
+		# 2017-06-09
+		# «Credit card expiration month. Requires PCI certification.»
+		# Conditional, Integer(2).
 		,'expirationMonth' => 5
-		// 2017-06-09
-		// «Credit card expiration year. Requires PCI certification.»
-		// Conditional, Integer(4).
+		# 2017-06-09
+		# «Credit card expiration year. Requires PCI certification.»
+		# Conditional, Integer(4).
 		,'expirationYear' => 2018
-		// 2017-06-09
-		// «Credit Card number. Requires PCI certification.»
-		// Conditional, String(19).
+		# 2017-06-09
+		# «Credit Card number. Requires PCI certification.»
+		# Conditional, String(19).
 		,'number' => self::$numbers[$index]
 	]));}
 	                                                    
