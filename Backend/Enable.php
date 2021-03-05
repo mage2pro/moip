@@ -2,7 +2,6 @@
 namespace Dfe\Moip\Backend;
 use Dfe\Moip\API\Facade\Notification as N;
 use Dfe\Moip\Method as M;
-use Dfe\Moip\Settings as S;
 use Magento\Store\Model\Store;
 # 2017-08-07
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
