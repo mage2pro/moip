@@ -235,8 +235,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @return array(string => string)
 	 */
 	private function pInstructionLines() {
-		/** @var string[] $a */
-		$a = array_slice(df_explode_n($this->text($this->s()->boleto()->instructions())), 0, 3);
+		$a = array_slice(df_explode_n($this->text($this->s()->boleto()->instructions())), 0, 3); /** @var string[] $a */
 		return array_combine(array_slice(['first', 'second', 'third'], 0, count($a)), $a);
 	}
 
