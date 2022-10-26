@@ -52,7 +52,7 @@ Please  read **[3 simple facts](https://mage2.pro/t/topic/4242)** about the Braz
 bin/magento maintenance:enable
 rm -f composer.lock
 composer clear-cache
-composer require mage2pro/moip:*
+composer require mage2pro/moip:* --ignore-platform-req=php
 bin/magento setup:upgrade
 bin/magento cache:enable
 rm -rf var/di var/generation generated/code
@@ -68,7 +68,7 @@ bin/magento maintenance:enable
 composer remove mage2pro/moip
 rm -f composer.lock
 composer clear-cache
-composer require mage2pro/moip:*
+composer require mage2pro/moip:* --ignore-platform-req=php
 bin/magento setup:upgrade
 bin/magento cache:enable
 rm -rf var/di var/generation generated/code
