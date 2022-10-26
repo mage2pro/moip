@@ -9,7 +9,7 @@ final class Prefill extends \Df\Config\Source {
 	 * @used-by \Df\Config\Source::toOptionArray()
 	 * @return array(string => string)
 	 */
-	protected function map() {return [
+	protected function map():array {return [
 		0 => 'No'
 		,'376449047333005' => 'American Express'
 		,'36490102462661' => 'Diners Club International'

@@ -22,7 +22,7 @@ final class Client extends \Df\API\Client {
 	 * @used-by \Df\API\Client::_p()
 	 * @return array(string => string)
 	 */
-	protected function headers() {/** @var S $s */$s = dfps($this); return [
+	protected function headers():array {/** @var S $s */$s = dfps($this); return [
 		# 2017-07-13 Should be a HTTP Basic access authentication header. Required.
 		# https://en.wikipedia.org/wiki/Basic_access_authentication
 		# https://github.com/moip/moip-sdk-php/blob/v1.2.0/src/Auth/BasicAuth.php#L66
@@ -36,9 +36,8 @@ final class Client extends \Df\API\Client {
 	 * @override
 	 * @see \Df\API\Client::responseValidatorC()
 	 * @used-by \Df\API\Client::_p()
-	 * @return string
 	 */
-	protected function responseValidatorC() {return \Dfe\Moip\API\Validator::class;}
+	protected function responseValidatorC():string {return \Dfe\Moip\API\Validator::class;}
 
 	/**
 	 * 2017-07-13
@@ -46,9 +45,6 @@ final class Client extends \Df\API\Client {
 	 * @see \Df\API\Client::urlBase()
 	 * @used-by \Df\API\Client::__construct()
 	 * @used-by \Df\API\Client::url()
-	 * @return string
 	 */
-	protected function urlBase() {return dfp_url_api(
-		$this, 'https://{stage}.moip.com.br/v2', ['sandbox', 'api']
-	);}
+	protected function urlBase():string {return dfp_url_api($this, 'https://{stage}.moip.com.br/v2', ['sandbox', 'api']);}
 }

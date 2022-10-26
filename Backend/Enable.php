@@ -12,7 +12,7 @@ class Enable extends \Df\Config\Backend\Checkbox {
 	 * @see \Df\Config\Backend::dfSaveAfter()
 	 * @used-by \Df\Config\Backend::save()
 	 */
-	final protected function dfSaveAfter() {
+	final protected function dfSaveAfter():void {
 		parent::dfSaveAfter();
 		df_cache_clean();
 		$m = dfpm($this); /** @var M $m */

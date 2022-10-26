@@ -51,9 +51,8 @@ final class Notification extends \Df\API\Facade {
 	 * @override
 	 * @see \Df\API\Facade::prefix()
 	 * @used-by \Df\API\Facade::path()
-	 * @return string
 	 */
-	protected function prefix() {return 'preferences';}
+	protected function prefix():string {return 'preferences';}
 
 	/**
 	 * 2017-10-19
@@ -66,5 +65,5 @@ final class Notification extends \Df\API\Facade {
 	 * @used-by \Df\API\Facade::p()
 	 * @return array(string => mixed)
 	 */
-	protected function zfConfig() {return ['timeout' => 15] + parent::zfConfig();}
+	protected function zfConfig():array {return ['timeout' => 15] + parent::zfConfig();}
 }
