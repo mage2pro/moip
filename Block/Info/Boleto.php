@@ -46,7 +46,7 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * 2017-08-05
 	 * @override
 	 * @see \Df\Payment\Block\Info::rCustomerAccount()
-	 * @used-by msgCheckoutSuccess()
+	 * @used-by self::msgCheckoutSuccess()
 	 * @used-by \Df\Payment\Block\Info::_toHtml()
 	 * @return string
 	 */
@@ -60,8 +60,8 @@ class Boleto extends \Df\Payment\Block\Info {
 
 	/**
 	 * 2017-08-05
-	 * @used-by prepare()
-	 * @used-by rCustomerAccount()
+	 * @used-by self::prepare()
+	 * @used-by self::rCustomerAccount()
 	 * @param bool $print [optional]
 	 * @return string
 	 */

@@ -37,7 +37,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * 	*) associated with the Customer as the delivery address («shippingAddress»)
 	 * 	*) or associated with the Credit Card as the billing address («billingAddress»).»
 	 * https://dev.moip.com.br/v2.0/reference#endereco
-	 * @used-by v_CardId()
+	 * @used-by self::v_CardId()
 	 * @used-by \Dfe\Moip\P\Reg::p()
 	 * @param A $a
 	 * @return array(string => mixed)
@@ -73,7 +73,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	/**
 	 * 2017-06-12
 	 * @see \Dfe\Moip\Test\Data::taxDocument()
-	 * @used-by v_CardId()
+	 * @used-by self::v_CardId()
 	 * @used-by \Dfe\Moip\P\Reg::p()
 	 * @return array(string => mixed)
 	 */
@@ -231,7 +231,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 
 	/**
 	 * 2017-07-30
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @return array(string => string)
 	 */
 	private function pInstructionLines() {
@@ -241,7 +241,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 
 	/**
 	 * 2017-04-25
-	 * @used-by pShippingAddress()
+	 * @used-by self::pShippingAddress()
 	 * @param mixed $v
 	 * @return string
 	 */

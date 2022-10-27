@@ -40,7 +40,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * 2017-06-09
 	 * A positive result is treated as the surcharge.
 	 * A negative result is treated as a discount.
-	 * @used-by pAmount()
+	 * @used-by self::pAmount()
 	 * @return int
 	 */
 	private function amountMargin() {return dfc($this, function() {return
@@ -51,6 +51,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 
 	/**
 	 * 2017-06-09
+	 * @used-by self::amountMargin()
 	 * @return int
 	 */
 	private function amountShipping() {return dfc($this, function() {return $this->amountFormat(
@@ -61,7 +62,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * 2017-06-09
 	 * «Order values»
 	 * My notes: the order amount is calculated automatically by Moip.
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
 	private function pAmount() {/** @var int $m */$m = $this->amountMargin(); return [
@@ -90,9 +91,8 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	];}
 
 	/**
-	 * 2017-06-09
-	 * «Checkout setup»
-	 * @used-by p()
+	 * 2017-06-09 «Checkout setup»
+	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
 	private function pCheckoutPreferences() {return ['redirectUrls' => array_fill_keys(
@@ -107,8 +107,8 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * 2017-06-09
 	 * All the fields below are required for the Protected Sales Program:
 	 * https://dev.moip.com.br/v2.0/docs/venda-protegida
-	 * @used-by amountMargin()
-	 * @used-by p()
+	 * @used-by self::amountMargin()
+	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
 	private function pItems() {return dfc($this, function() {return $this->oiLeafs(function(OI $i) {return [

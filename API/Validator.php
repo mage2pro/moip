@@ -35,9 +35,9 @@ final class Validator extends \Df\API\Response\Validator {
 	 * An error response with the «500 Internal Server Error» HTTP code:
 	 * 	{"ERROR": "Ops... We were not waiting for it"}
 	 * `A «POST /v2/customers» request with a bank card hash as a «fundingInstruments» parameter leads to an undocumented «{"ERROR": "Ops... We were not waiting for it"}» response with «500 Internal Server Error» HTTP code` https://mage2.pro/t/4174
-	 * @used-by long()
-	 * @used-by short()
-	 * @used-by valid()
+	 * @used-by self::long()
+	 * @used-by self::short()
+	 * @used-by self::valid()
 	 * @return string|null
 	 */
 	private function ERROR() {return dfc($this, function() {return dfa($this->r(), 'ERROR');});}
@@ -61,9 +61,9 @@ final class Validator extends \Df\API\Response\Validator {
 	 *			"path": "fundingInstrument.creditCard.holder.validBirthdate"
 	 *		}
 	 *	]
-	 * @used-by long()
-	 * @used-by short()
-	 * @used-by valid()
+	 * @used-by self::long()
+	 * @used-by self::short()
+	 * @used-by self::valid()
 	 * @return array(array(string => string))|null
 	 */
 	private function errors() {return dfa($this->r(), 'errors');}

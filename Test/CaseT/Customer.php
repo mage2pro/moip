@@ -60,7 +60,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 
 	/**
 	 * 2017-04-25 https://dev.moip.com.br/reference#criar-um-cliente
-	 * @used-by t01_create()
+	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
 	private function pCustomer() {return df_clean([

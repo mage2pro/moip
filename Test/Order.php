@@ -30,7 +30,7 @@ final class Order {
 	 * 2017-06-09
 	 * A positive result is treated as the surcharge.
 	 * A negative result is treated as a discount.
-	 * @used-by pAmount()
+	 * @used-by self::pAmount()
 	 * @return int
 	 */
 	private function amountMargin() {return dfc($this, function() {return
@@ -57,7 +57,7 @@ final class Order {
 	 * 2017-06-09
 	 * «Order values»
 	 * My notes: the order amount is calculated automatically by Moip.
-	 * @used-by pOrder()
+	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
 	private function pAmount() {/** @var int $m */$m = $this->amountMargin(); return [
@@ -87,7 +87,7 @@ final class Order {
 	/**
 	 * 2017-06-09
 	 * «Checkout setup»
-	 * @used-by pOrder()
+	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
 	private function pCheckoutPreferences() {return [
@@ -107,7 +107,7 @@ final class Order {
 	 * «Customer.
 	 * It can be an ID for a customer previously created
 	 * or the collection of attributes to create a new one.»
-	 * @used-by pOrder()
+	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
 	private function pCustomer() {return [
@@ -121,7 +121,7 @@ final class Order {
 
 	/**
 	 * 2017-06-09
-	 * @used-by pCheckoutPreferences()
+	 * @used-by self::pCheckoutPreferences()
 	 * @return array(string => mixed)
 	 */
 	private function pInstallment() {return [
@@ -143,8 +143,8 @@ final class Order {
 	 * 2017-06-09
 	 * All the fields below are required for the Protected Sales Program:
 	 * https://dev.moip.com.br/v2.0/docs/venda-protegida
-	 * @used-by amountMargin()
-	 * @used-by pOrder()
+	 * @used-by self::amountMargin()
+	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
 	private function pItems() {return dfc($this, function() {return
@@ -171,7 +171,7 @@ final class Order {
 
 	/**
 	 * 2017-06-08
-	 * @used-by t01_create()
+	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
 	private function pOrder() {return [
@@ -201,7 +201,7 @@ final class Order {
 
 	/**
 	 * 2017-06-09
-	 * @used-by pOrder()
+	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
 	private function pReceiver() {return [

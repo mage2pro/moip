@@ -187,9 +187,9 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * 2017-10-07 «Credit card brand.
 	 * Possible values: `VISA`, `MASTERCARD`, `AMEX`, `DINERS`, `ELO`, `HIPER`, `HIPERCARD`.»
 	 * Type: string.
-	 * @used-by brand()
-	 * @used-by logoId()
-	 * @used-by numberLength()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
+	 * @used-by self::numberLength()
 	 * @return string
 	 */
 	private function brandId() {return $this->_p['brand'];}
@@ -203,58 +203,58 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
-	 * @used-by numberLength()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
+	 * @used-by self::numberLength()
 	 */
 	private static $AMEX = 'AMEX';
 
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
-	 * @used-by numberLength()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
+	 * @used-by self::numberLength()
 	 */
 	private static $DINERS = 'DINERS';
 
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
 	 */
 	private static $ELO = 'ELO';
 
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
 	 */
 	private static $HIPER = 'HIPER';
 
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
 	 */
 	private static $HIPERCARD = 'HIPERCARD';
 
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
 	 */
 	private static $MASTERCARD = 'MASTERCARD';
 
 	/**
 	 * 2017-07-19
 	 * @const
-	 * @used-by brand()
-	 * @used-by logoId()
+	 * @used-by self::brand()
+	 * @used-by self::logoId()
 	 */
 	private static $VISA = 'VISA';
 }

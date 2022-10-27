@@ -31,7 +31,7 @@ final class Card extends \Dfe\Moip\Test\CaseT {
 
 	/**
 	 * 2017-06-09
-	 * @used-by t01_create()
+	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
 	private function pPayment() {return [

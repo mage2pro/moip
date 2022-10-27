@@ -58,16 +58,16 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-30
-	 * @used-by isBoleto()
-	 * @used-by isCard()
-	 * @used-by optionTitle()
+	 * @used-by self::isBoleto()
+	 * @used-by self::isCard()
+	 * @used-by self::optionTitle()
 	 * @return string
 	 */
 	function option() {return $this->iia(self::$II_OPTION);}
 
 	/**
 	 * 2017-08-02
-	 * @used-by titleF()
+	 * @used-by self::titleF()
 	 * @used-by \Dfe\Moip\Choice::title()
 	 * @used-by \Dfe\Moip\ConfigProvider::config()
 	 * @param string|null $o [optional]
@@ -132,35 +132,35 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-07-12 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
-	 * @used-by iiaKeys()
+	 * @used-by self::iiaKeys()
 	 */
 	private static $II_CARDHOLDER = 'cardholder';
 
 	/**
 	 * 2017-07-23
-	 * @used-by dob()
-	 * @used-by iiaKeys()
+	 * @used-by self::dob()
+	 * @used-by self::iiaKeys()
 	 */
 	private static $II_DOB = 'dob';
 
 	/**
 	 * 2017-07-30 https://github.com/mage2pro/core/blob/2.12.17/Payment/view/frontend/web/withOptions.js#L56-L72
-	 * @used-by iiaKeys()
-	 * @used-by option()
+	 * @used-by self::iiaKeys()
+	 * @used-by self::option()
 	 */
 	private static $II_OPTION = 'option';
 
 	/**
 	 * 2017-07-15 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
-	 * @used-by iiaKeys()
-	 * @used-by plan()
+	 * @used-by self::iiaKeys()
+	 * @used-by self::plan()
 	 */
 	private static $II_PLAN = 'plan';
 
 	/**
 	 * 2017-07-12 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68
-	 * @used-by taxID()
-	 * @used-by iiaKeys()
+	 * @used-by self::taxID()
+	 * @used-by self::iiaKeys()
 	 */
 	private static $II_TAX_ID = 'taxID';
 }

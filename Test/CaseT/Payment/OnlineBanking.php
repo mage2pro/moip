@@ -31,7 +31,7 @@ final class OnlineBanking extends \Dfe\Moip\Test\CaseT {
 
 	/**
 	 * 2017-07-21
-	 * @used-by t01_create()
+	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
 	private function pPayment() {return [

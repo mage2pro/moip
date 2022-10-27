@@ -68,7 +68,7 @@ final class Data {
 
 	/**
 	 * 2017-04-25
-	 * @used-by address()
+	 * @used-by self::address()
 	 * @return GA
 	 */
 	private function ga() {return dfc($this, function() {$s = dfps($this); /** @var S $s */return
@@ -82,7 +82,7 @@ final class Data {
 
 	/**
 	 * 2017-04-25
-	 * @used-by address()
+	 * @used-by self::address()
 	 * @param mixed $v
 	 * @return string
 	 */

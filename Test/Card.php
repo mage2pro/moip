@@ -31,9 +31,8 @@ final class Card {
 	];}
 
 	/**
-	 * 2017-06-09
-	 * «Payment method»
-	 * @used-by pFundingInstrument()
+	 * 2017-06-09 «Payment method»
+	 * @used-by self::pFundingInstrument()
 	 * @param int|string $index
 	 * @return array(string => mixed)
 	 */

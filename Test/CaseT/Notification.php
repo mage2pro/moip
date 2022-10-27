@@ -93,8 +93,8 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 
 	/**
 	 * 2017-08-08
-	 * @used-by t02_create()
-	 * @used-by t03_delete()
+	 * @used-by self::t02_create()
+	 * @used-by self::t03_delete()
 	 * @return O
 	 */
 	private function create() {return (new N)->create([
