@@ -11,7 +11,7 @@ final class Card {
 	 * @param int|string $index [optional]
 	 * @return array(string => mixed)
 	 */
-	function get($index = 0) {return [
+	function get($index = 0):array {return [
 		# 2017-06-09
 		# «Credit Card data. It can be:
 		# *) the ID of a credit card previously saved,
