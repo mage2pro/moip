@@ -90,7 +90,7 @@ final class Order {
 	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pCheckoutPreferences() {return [
+	private function pCheckoutPreferences():array {return [
 		# 2017-06-09 «Installments setup»
 		//'installments' => [$this->pInstallment()],
 		# 2017-06-09 «Redirect URLs»
