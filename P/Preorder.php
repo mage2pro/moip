@@ -62,7 +62,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
-	private function pAmount() {/** @var int $m */$m = $this->amountMargin(); return [
+	private function pAmount():array {/** @var int $m */$m = $this->amountMargin(); return [
 		# 2017-06-09
 		# «Currency used in the order. Possible values: BRL. Default value BRL.»
 		# Optional, String.
@@ -92,7 +92,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
-	private function pCheckoutPreferences() {return ['redirectUrls' => array_fill_keys(
+	private function pCheckoutPreferences():array {return ['redirectUrls' => array_fill_keys(
 		# 2017-06-09
 		# «Redirect URL for failed payments»
 		# «Redirect URL for successful payments»
@@ -108,7 +108,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
-	private function pItems() {return dfc($this, function() {return $this->oiLeafs(function(OI $i) {return [
+	private function pItems():array {return dfc($this, function():array {return $this->oiLeafs(function(OI $i) {return [
 		# 2017-06-09
 		# «Description»
 		# Optional, String(250).
