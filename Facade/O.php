@@ -13,5 +13,5 @@ final class O extends \Df\StripeClone\Facade\O {
 	 * @param Operation $o
 	 * @return array(string => mixed)
 	 */
-	function toArray($o) {return $o->a();}
+	function toArray($o):array {return $o->a();}
 }

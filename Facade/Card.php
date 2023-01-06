@@ -56,9 +56,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @see \Df\StripeClone\Facade\Card::brand()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @used-by \Dfe\Moip\CardFormatter::label()
-	 * @return string
 	 */
-	function brand() {return dftr($this->brandId(), [
+	function brand():string {return dftr($this->brandId(), [
 		self::$AMEX => 'American Express'
 		,self::$DINERS => 'Diners Club'
 		,self::$ELO => 'Elo'
@@ -77,9 +76,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @return string|null
 	 */
 	function country() {return in_array($this->_p['brand'], ['ELO', 'HIPER', 'HIPERCARD']) ? 'BR' :
-		(!($iso3 = dfa_deep($this->_p, 'holder/billingAddress/country')) ? null :
-			df_country_3_to_2($iso3)
-		)
+		(!($iso3 = dfa_deep($this->_p, 'holder/billingAddress/country')) ? null : df_country_3_to_2($iso3))
 	;}
 
 	/**
@@ -125,9 +122,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @see \Df\StripeClone\Facade\Card::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
-	 * @return string
 	 */
-	function id() {return $this->_p['id'];}
+	function id():string {return $this->_p['id'];}
 
 	/**
 	 * 2017-06-11
@@ -137,9 +133,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @see \Df\StripeClone\Facade\Card::last4()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @used-by \Dfe\Moip\CardFormatter::label()
-	 * @return string
 	 */
-	function last4() {return $this->_p['last4'];}
+	function last4():string {return $this->_p['last4'];}
 
 	/**
 	 * 2017-07-19
@@ -173,19 +168,18 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-06-13
 	 * 2017-10-07
-	 * `holder`: «Credit card holder». Type: structured.
-	 * `fullname`: «Fullname». Type: string.
+	 * 		`holder`: «Credit card holder». Type: structured.
+	 * 		`fullname`: «Fullname». Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Card::owner()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @return string
 	 */
-	function owner() {return dfa_deep($this->_p, 'holder/fullname');}
+	function owner():string {return dfa_deep($this->_p, 'holder/fullname');}
 
 	/**
 	 * 2017-07-19
-	 * 2017-10-07 «Credit card brand.
-	 * Possible values: `VISA`, `MASTERCARD`, `AMEX`, `DINERS`, `ELO`, `HIPER`, `HIPERCARD`.»
+	 * 2017-10-07
+	 * «Credit card brand. Possible values: `VISA`, `MASTERCARD`, `AMEX`, `DINERS`, `ELO`, `HIPER`, `HIPERCARD`.»
 	 * Type: string.
 	 * @used-by self::brand()
 	 * @used-by self::logoId()

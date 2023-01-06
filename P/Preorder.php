@@ -11,7 +11,7 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * @used-by \Df\StripeClone\P\Preorder::request()
 	 * @return array(string => mixed)
 	 */
-	protected function p() {return [
+	protected function p():array {return [
 		# 2017-06-09
 		# «Order values»
 		# My notes: the order amount is calculated automatically by Moip.

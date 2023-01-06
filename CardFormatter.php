@@ -11,12 +11,11 @@ final class CardFormatter extends \Df\StripeClone\CardFormatter {
 	 * @see \Df\StripeClone\CardFormatter::label()
 	 * @used-by \Df\StripeClone\Block\Info::prepare()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
-	 * @return string
 	 */
-	function label() {$c = $this->c(); /** @var C $c */return
+	function label():string {$c = $this->c(); /** @var C $c */return
 		df_pad($c->first6(), $c->numberLength() - 4, '·') . "{$c->last4()} " .
 			(df_sales_email_sending() ? "({$c->brand()})" :
-				df_tag('img', N::dimensions(null, 20) + ['alt' => $c->brand(), 'src' => N::url($c->logoId())])
+				df_tag('img', N::dimensions(0, 20) + ['alt' => $c->brand(), 'src' => N::url($c->logoId())])
 			)
 	;}
 }

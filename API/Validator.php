@@ -9,7 +9,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @see \Df\API\Exception::long()
 	 * @used-by \Df\API\Client::_p()
 	 */
-	function long():string {return $this->ERROR() ?: df_json_encode(array_map('df_clean', $this->errors()));}
+	function long():string {return $this->error() ?: df_json_encode(array_map('df_clean', $this->errors()));}
 
 	/**
 	 * 2017-07-13
@@ -20,7 +20,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @see \Df\API\Exception::short()
 	 * @used-by \Df\API\Client::_p()
 	 */
-	function short():string {return $this->ERROR() ?: dfa_deep($this->errors(), '0/description');}
+	function short():string {return $this->error() ?: dfa_deep($this->errors(), '0/description');}
 
 	/**
 	 * 2017-07-13
@@ -28,7 +28,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @see \Df\API\Response\Validator::valid()
 	 * @used-by \Df\API\Client::_p()
 	 */
-	function valid():bool {return !$this->ERROR() && !$this->errors();}
+	function valid():bool {return !$this->error() && !$this->errors();}
 
 	/**
 	 * 2017-07-06
@@ -40,7 +40,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by self::valid()
 	 * @return string|null
 	 */
-	private function ERROR() {return dfc($this, function() {return dfa($this->r(), 'ERROR');});}
+	private function error() {return dfc($this, function() {return $this->r('ERROR');});}
 
 	/**
 	 * 2017-07-13
@@ -66,5 +66,5 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by self::valid()
 	 * @return array(array(string => string))|null
 	 */
-	private function errors() {return dfa($this->r(), 'errors');}
+	private function errors() {return $this->r('errors');}
 }

@@ -122,8 +122,11 @@ final class Card {
 		,'number' => self::$numbers[$index]
 	]));}
 	                                                    
-	/** @return self */
-	static function s() {static $r; return $r ? $r : $r = new self;}
+	/**
+	 * @used-by \Dfe\Moip\Test\CaseT\Card::t01_add()
+	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Card::pPayment()
+	 */
+	static function s():self {static $r; return $r ? $r : $r = new self;}
 
 	/**
 	 * 2017-06-10 [Moip] The test bank cards https://mage2.pro/t/3776

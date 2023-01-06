@@ -77,8 +77,8 @@ final class Data {
 		)
 	;});}
 
-	/** @return self */
-	static function s() {static $r; return $r ? $r : $r = new self;}
+	/** @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer() */
+	static function s():self {static $r; return $r ? $r : $r = new self;}
 
 	/**
 	 * 2017-04-25

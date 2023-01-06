@@ -15,12 +15,13 @@ final class Preorder extends \Df\StripeClone\Facade\Preorder {
 	function create(array $p) {return O::s()->create($p);}
 
 	/**
-	 * 2017-06-13 [Moip] An example of a response to «POST v2/orders» https://mage2.pro/t/4045
+	 * 2017-06-13
+	 * [Moip] An example of a response to «POST v2/orders» https://mage2.pro/t/4045
+	 * A result: «ORD-TKZ1BQOQL69J».
 	 * @override
 	 * @see \Df\StripeClone\Facade\Preorder::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param Operation $o
-	 * @return string «ORD-TKZ1BQOQL69J»
 	 */
-	function id($o) {return $o['id'];}
+	function id($o):string {return $o['id'];}
 }

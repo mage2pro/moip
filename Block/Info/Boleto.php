@@ -16,11 +16,8 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @override
 	 * @see \Df\Payment\Block\Info::msgCheckoutSuccess()
 	 * @used-by \Df\Payment\Block\Info::rCheckoutSuccess()
-	 * @return string
 	 */
-	final protected function msgCheckoutSuccess() {return !$this->m()->isBoleto() ? null :
-		$this->rCustomerAccount()
-	;}
+	final protected function msgCheckoutSuccess():string {return !$this->m()->isBoleto() ? '' : $this->rCustomerAccount();}
 
 	/**
 	 * 2017-07-30
@@ -29,18 +26,10 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
 	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 */
-	final protected function prepare() {
-		if ($this->extended()) {
-			$res0 = $this->tm()->res0(); /** @var array(string => mixed) */
-			$this->si([
-				'Payment Option' => 'Boleto bancário'
-				,'Payment Slip' => df_tag_ab($res0['id'], $this->url(false))
-			]);
-		}
-		else {
-			$this->si(null, df_tag_ab(__('Print the boleto'), $this->url()));
-		}
-	}
+	final protected function prepare():void {$this->si(...(!$this->extended()
+		? [null, df_tag_ab(__('Print the boleto'), $this->url())]
+		: [['Payment Option' => 'Boleto bancário', 'Payment Slip' => df_tag_ab($this->tm()->res0('id'), $this->url(false))]]
+	));}
 
 	/**
 	 * 2017-08-05
@@ -48,9 +37,8 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @see \Df\Payment\Block\Info::rCustomerAccount()
 	 * @used-by self::msgCheckoutSuccess()
 	 * @used-by \Df\Payment\Block\Info::_toHtml()
-	 * @return string
 	 */
-	final protected function rCustomerAccount() {return df_tag('div', 'df-payment-info moip boleto',
+	final protected function rCustomerAccount():string {return df_tag('div', 'df-payment-info moip boleto',
 		df_block_output($this, 'boleto', [
 			'code' => $this->tm()->res0('fundingInstrument/boleto/lineCode')
 			,'title' => $this->m()->getTitle()
@@ -63,9 +51,8 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * @used-by self::prepare()
 	 * @used-by self::rCustomerAccount()
 	 * @param bool $print [optional]
-	 * @return string
 	 */
-	private function url($print = true) {
+	private function url($print = true):string {
 		$r = $this->tm()->res0('_links/payBoleto/redirectHref'); /** @var string $r */
 		return !$print ? $r : "$r/print";
 	}

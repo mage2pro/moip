@@ -6,7 +6,7 @@ use Dfe\Moip\Test\Data;
 # https://dev.moip.com.br/page/api-reference#section-customers
 # https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\Test\CaseT {
-	/** @test 2017-04-26 */
+	/** 2017-04-26 @test */
 	function t00() {}
 
 	/**
@@ -39,7 +39,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 	 *	{
 	 *		"id": "CUS-UKXT2RQ2TULX",
 	 *		"ownId": "admin@mage2.pro",
-	 *		"fullname": "Dmitry Fedyuk",
+	 *		"fullname": "Dmitrii Fediuk",
 	 *		"createdAt": "2017-04-25T04:38:31.000-03",
 	 *		<...>
 	 *	}
@@ -69,7 +69,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 		# 2017-04-22 «Email from the client», Required, String(45).
 		,'email' => 'admin@mage2.pro'
 		# 2017-04-22 «Full name of customer», Required, String(90).
-		,'fullname' => 'Dmitry Fedyuk'
+		,'fullname' => 'Dmitrii Fediuk'
 		/**    
 		 * 2017-06-10
 		 * This option is undocumented in the Portuguese documentation:

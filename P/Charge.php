@@ -16,9 +16,9 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_CardId()
 	 * @used-by \Df\StripeClone\P\Charge::request()
-	 * @return string
+	 * @used-by \Df\StripeClone\P\Reg::k_CardId()
 	 */
-	function k_CardId() {return $this->m()->isCard() ? 'fundingInstrument' : null;}
+	function k_CardId():string {return $this->m()->isCard() ? 'fundingInstrument' : '';}
 
 	/**
 	 * 2017-07-17
@@ -27,7 +27,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return string[]
 	 */
-	protected function k_Excluded() {return [
+	protected function k_Excluded():array {return [
 		parent::K_AMOUNT, parent::K_CUSTOMER_ID, parent::K_CURRENCY, parent::K_DESCRIPTION
 	];}
 
@@ -46,10 +46,8 @@ final class Charge extends \Df\StripeClone\P\Charge {
 		/** @var GA $ga */
 		$ga = df_geo($this->s()->googlePrivateKey(), 'pt-BR', 'br')->p($a);
 		return [
-			# 2017-04-23 «City», Required, String(32).
-			'city' => self::u(df_geo_city($ga))
-			# 2017-04-23 «Address complement», Conditional, String(45).
-			,'complement' => ''
+			'city' => self::u(df_geo_city($ga)) # 2017-04-23 «City», Required, String(32).
+			,'complement' => '' # 2017-04-23 «Address complement», Conditional, String(45).
 			# 2017-04-23 «Country in format ISO-alpha3, example BRA», Required, String(3).
 			# 2017-04-25
 			# «Today we do not support creating clients that are from other countries
@@ -99,11 +97,9 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @see \Df\StripeClone\P\Charge::v_CardId()
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @used-by \Dfe\Moip\P\Reg::v_CardId()
-	 * @param string $id
-	 * @param bool $isNew
 	 * @return array(string => mixed)
 	 */
-	function v_CardId($id, $isNew) {return [
+	function v_CardId(string $id, bool $isNew) {return [
 		# 2017-06-09
 		# «Credit Card data. It can be:
 		# *) the ID of a credit card previously saved,
@@ -163,18 +159,16 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::inverseCapture()
 	 * @used-by \Df\StripeClone\P\Charge::request()
-	 * @return bool
 	 */
-	protected function inverseCapture() {return true;}
+	protected function inverseCapture():bool {return true;}
 
 	/**
 	 * 2017-06-12
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_Capture()
 	 * @used-by \Df\StripeClone\P\Charge::request()
-	 * @return string
 	 */
-	protected function k_Capture() {return $this->m()->isCard() ? 'delayCapture' : null;}
+	protected function k_Capture():string {return $this->m()->isCard() ? 'delayCapture' : '';}
 
 	/**
 	 * 2017-06-11 https://github.com/mage2pro/moip/blob/0.4.2/T/CaseT/Payment.php#L50-L53
@@ -185,9 +179,8 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_DSD()
 	 * @used-by \Df\StripeClone\P\Charge::request()
-	 * @return string
 	 */
-	protected function k_DSD() {return $this->m()->isCard() ? 'statementDescriptor' : null;}
+	protected function k_DSD():string {return $this->m()->isCard() ? 'statementDescriptor' : '';}
 
 	/**
 	 * 2017-07-15
@@ -196,7 +189,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Df\StripeClone\P\Charge::request()
 	 * @return array(string => mixed)
 	 */
-	protected function p() {return $this->m()->isCard() ? [
+	protected function p():array {return $this->m()->isCard() ? [
 		/**
 		 * 2017-07-15
 		 * «Número de parcelas.

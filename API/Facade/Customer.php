@@ -18,7 +18,7 @@ use Zend_Http_Client as Z;
  *	{
  *		"id": "CUS-UKXT2RQ2TULX",
  *		"ownId": "admin@mage2.pro",
- *		"fullname": "Dmitry Fedyuk",
+ *		"fullname": "Dmitrii Fediuk",
  *		"createdAt": "2017-04-25T04:38:31.000-03",
  *		<...>
  *	}

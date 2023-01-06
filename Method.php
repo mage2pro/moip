@@ -8,7 +8,7 @@ use Magento\Sales\Model\Order\Payment\Transaction as T;
 /**
  * 2017-04-11
  * @method Op chargeNew()
- * @method Settings s()
+ * @method Settings s($k = null, $s = null, $d = null)
  */
 final class Method extends \Df\StripeClone\Method {
 	/**
@@ -32,9 +32,8 @@ final class Method extends \Df\StripeClone\Method {
 	 *			return $block;
 	 *		}
 	 * https://github.com/magento/magento2/blob/2.2.0-RC1.6/app/code/Magento/Payment/Helper/Data.php#L182-L196
-	 * @return string
 	 */
-	function getInfoBlockType() {return df_cc_class_uc('Dfe\Moip\Block\Info', $this->option());}
+	function getInfoBlockType():string {return df_cc_class_uc('Dfe\Moip\Block\Info', $this->option());}
 
 	/**
 	 * 2017-07-30
@@ -52,9 +51,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by \Dfe\Moip\P\Charge::k_CardId()
 	 * @used-by \Dfe\Moip\P\Charge::k_DSD()
 	 * @used-by \Dfe\Moip\P\Charge::p()
-	 * @return bool
 	 */
-	function isCard() {return 'card' === $this->option();}
+	function isCard():bool {return 'card' === $this->option();}
 
 	/**
 	 * 2017-07-30
@@ -71,9 +69,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by \Dfe\Moip\Choice::title()
 	 * @used-by \Dfe\Moip\ConfigProvider::config()
 	 * @param string|null $o [optional]
-	 * @return string|null
 	 */
-	function optionTitle($o = null) {return !($o = ($o ?: $this->option())) ? null : $this->s("$o/title");}
+	function optionTitle($o = null):string {return !($o = ($o ?: $this->option())) ? '' : $this->s("$o/title");}
 
 	/**
 	 * 2017-07-15
@@ -107,7 +104,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by \Df\Payment\Method::assignData()
 	 * @return string[]
 	 */
-	protected function iiaKeys() {return array_merge(parent::iiaKeys(), [
+	protected function iiaKeys():array {return array_merge(parent::iiaKeys(), [
 		self::$II_CARDHOLDER, self::$II_DOB, self::$II_OPTION, self::$II_PLAN, self::$II_TAX_ID
 	]);}
 
@@ -116,9 +113,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\Payment\Method::titleF()
 	 * @used-by \Df\Payment\Method::getTitle()
-	 * @return string
 	 */
-	protected function titleF() {return $this->optionTitle() ?: parent::titleF();}
+	protected function titleF():string {return $this->optionTitle() ?: parent::titleF();}
 
 	/**
 	 * 2017-04-11
@@ -126,9 +122,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * @see \Df\StripeClone\Method::transUrlBase()
 	 * @used-by \Df\StripeClone\Method::transUrl()
 	 * @param T $t
-	 * @return string
 	 */
-	protected function transUrlBase(T $t) {return '';}
+	protected function transUrlBase(T $t):string {return '';}
 
 	/**
 	 * 2017-07-12 https://github.com/mage2pro/moip/blob/0.6.8/view/frontend/web/main.js#L66-L68

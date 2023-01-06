@@ -40,9 +40,8 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::k_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()
-	 * @return string
 	 */
-	protected function k_CardId() {return null; /* 'fundingInstruments' */}
+	protected function k_CardId():string {return ''; /* 'fundingInstruments' */}
 
 	/**
 	 * 2017-06-12
@@ -51,13 +50,10 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @used-by \Df\StripeClone\P\Reg::request()
 	 * @return array(string => mixed)
 	 */
-	protected function p() {return df_clean([
-		# 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
-		'birthDate' => $this->customerDobS()
-		# 2017-04-22 «Email from the client», Required, String(45).
-		,'email' => $this->customerEmail()
-		# 2017-04-22 «Full name of customer», Required, String(90).
-		,'fullname' => $this->customerName()
+	protected function p():array {return df_clean([
+		'birthDate' => $this->customerDobS() # 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
+		,'email' => $this->customerEmail() # 2017-04-22 «Email from the client», Required, String(45).
+		,'fullname' => $this->customerName() # 2017-04-22 «Full name of customer», Required, String(90).
 		/**
 		 * 2017-04-22
 		 * «Customer Id. External reference.»
@@ -119,8 +115,7 @@ final class Reg extends \Df\StripeClone\P\Reg {
 	 * @override
 	 * @see \Df\StripeClone\P\Reg::v_CardId()
 	 * @used-by \Df\StripeClone\P\Reg::request()
-	 * @param string $id
 	 * @return array(array(string => mixed))
 	 */
-	protected function v_CardId($id) {return [$this->charge()->v_CardId($id, true)];}
+	protected function v_CardId(string $id) {return [$this->charge()->v_CardId($id, true)];}
 }

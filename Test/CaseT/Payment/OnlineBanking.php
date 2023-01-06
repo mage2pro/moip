@@ -8,7 +8,7 @@ use Dfe\Moip\Test\Order as tOrder;
 # https://dev.moip.com.br/v2.0/reference#pagamentos
 # 2017-07-23 `[Moip] The available payment options`: https://mage2.pro/t/3851
 final class OnlineBanking extends \Dfe\Moip\Test\CaseT {
-	/** @test 2017-07-21 */
+	/** 2017-07-21 @test */
 	function t00() {}
 
 	/**

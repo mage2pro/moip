@@ -4,7 +4,7 @@ use Dfe\Moip\API\Facade\Customer as lC;
 use Dfe\Moip\Test\Card as tCard;
 # 2017-04-26
 final class Card extends \Dfe\Moip\Test\CaseT {
-	/** @test 2017-04-26 */
+	/** 2017-04-26 @test */
 	function t00() {}
 
 	/**

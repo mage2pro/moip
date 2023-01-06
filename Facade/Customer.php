@@ -7,7 +7,7 @@ use Dfe\Moip\Facade\Card;
 # 2017-04-25
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
-	 * 2017-04-25
+	 * 2017-04-25 A result: «CRC-M423RWG3PK7J».
 	 * 2017-06-10
 	 * [Moip] An example of a response to «POST v2/customers/<customer ID>/fundinginstruments»
 	 * https://mage2.pro/t/4050
@@ -36,14 +36,13 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * https://github.com/mage2pro/spryng/blob/1.1.10/Facade/Customer.php#L18-L27
 	 * The previous version of the method:
 	 * https://github.com/mage2pro/moip/blob/0.7.1/Facade/Customer.php#L44-L61
+	 * 2022-12-19 We can not declare the $c argument type because it is undeclared in the overriden method.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param Operation $c
-	 * @param string $token
-	 * @return string	An example: «CRC-M423RWG3PK7J».
 	 */
-	function cardAdd($c, $token) {return $token;}
+	function cardAdd($c, string $token):string {return $token;}
 
 	/**
 	 * 2017-04-25
@@ -61,9 +60,8 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::id()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param Operation $c
-	 * @return string
 	 */
-	function id($c) {return $c['id'];}
+	function id($c):string {return $c['id'];}
 
 	/**
 	 * 2017-04-25

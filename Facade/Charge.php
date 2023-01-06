@@ -10,43 +10,40 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::capturePreauthorized()
 	 * @used-by \Df\StripeClone\Method::charge()
-	 * @param string $id
 	 * @param int|float $a
 	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
-	 * @return Operation
+	 * @return null
 	 */
-	function capturePreauthorized($id, $a) {return null;}
+	function capturePreauthorized(string $id, $a) {return null;}
 
 	/**
-	 * 2017-06-13
-	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
+	 * 2017-06-13 [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return Operation
 	 */
-	function create(array $p) {return O::s()->payment($this->preorderGet()['id'], $p);}
+	function create(array $p):Operation {return O::s()->payment($this->preorderGet()['id'], $p);}
 
 	/**
 	 * 2017-06-13
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
+	 * A result: «PAY-9R8XPLW1OJGK».
+	 * 2022-12-19 We can not declare the argument's type because it is undeclared in the overriden method
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param Operation $c
-	 * @return string «PAY-9R8XPLW1OJGK»
 	 */
-	function id($c) {return $c['id'];}
+	function id($c):string {return $c['id'];}
 
 	/**
 	 * 2017-06-12
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::needPreorder()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @return bool
 	 */
-	function needPreorder() {return true;}
+	function needPreorder():bool {return true;}
 
 	/**
 	 * 2017-06-13
@@ -57,33 +54,27 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
 	 * @used-by \Df\StripeClone\Block\Info::cardDataFromChargeResponse()
 	 * @used-by \Df\StripeClone\Facade\Charge::cardData()
-	 * @return string
 	 */
-	function pathToCard() {return 'fundingInstrument/creditCard';}
+	function pathToCard():string {return 'fundingInstrument/creditCard';}
 
 	/**
 	 * 2017-06-11
+	 * 2022-12-19 The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::refund()
-	 * @used-by self::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param string $id
-	 * @param float $a
-	 * В формате и валюте платёжной системы.
-	 * Значение готово для применения в запросе API.
 	 * @return null
 	 */
-	function refund($id, $a) {return null;}
+	function refund(string $id, int $a) {return null;}
 
 	/**
 	 * 2017-06-11
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param string $id
 	 * @return null
 	 */
-	function void($id) {return null;}
+	function void(string $id) {return null;}
 
 	/**
 	 * 2017-06-12
@@ -98,7 +89,6 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
 	 * @used-by \Df\StripeClone\Payer::tokenIsNew()
-	 * @return string
 	 */
-	protected function cardIdPrefix() {return 'CRC-';}
+	protected function cardIdPrefix():string {return 'CRC-';}
 }

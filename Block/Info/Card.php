@@ -23,7 +23,7 @@ class Card extends \Df\StripeClone\Block\Info {
 	 * @see \Df\StripeClone\Block\Info::prepare()
 	 * @used-by \Df\Payment\Block\Info::prepareToRendering()
 	 */
-	final protected function prepare() {
+	final protected function prepare():void {
 		parent::prepare();
 		$m = $this->m(); /** @var M $m */
 		$this->siEx(['Date of Birth' => $m->dob(), 'Tax ID' => $m->taxID()]);

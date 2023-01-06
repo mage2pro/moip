@@ -13,7 +13,7 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {$m = $this->m(); $s = $this->s(); return [
+	protected function config():array {$m = $this->m(); $s = $this->s(); return [
 		'boleto' => [
 			'enable' => $s->b('boleto/enable') && $s->applicableForQuoteByMinMaxTotal('boleto')
 			,'title' => $m->optionTitle('boleto')

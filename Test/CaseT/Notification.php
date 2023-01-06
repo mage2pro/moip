@@ -74,7 +74,7 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 		}
 	}
 
-	/** @test 2017-08-10 */
+	/** 2017-08-10 @test */
 	function t04_delete_all() {
 		try {
 			$n = new N; /** @var N $n */
