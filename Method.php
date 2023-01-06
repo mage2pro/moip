@@ -57,9 +57,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by self::isBoleto()
 	 * @used-by self::isCard()
 	 * @used-by self::optionTitle()
-	 * @return string
 	 */
-	function option() {return $this->iia(self::$II_OPTION);}
+	function option():string {return $this->iia(self::$II_OPTION);}
 
 	/**
 	 * 2017-08-02
