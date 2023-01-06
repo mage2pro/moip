@@ -9,7 +9,7 @@ use Dfe\Moip\Test\Order as tOrder;
 # `[Moip] The available payment options`: https://mage2.pro/t/3851
 final class Boleto extends \Dfe\Moip\Test\CaseT {
 	/** 2017-07-24 @test */
-	function t00() {}
+	function t00():void {}
 
 	/**
 	 * 2017-07-24
