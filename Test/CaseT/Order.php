@@ -6,7 +6,7 @@ use Dfe\Moip\Test\Order as tOrder;
 # https://dev.moip.com.br/v2.0/reference#pedidos
 final class Order extends \Dfe\Moip\Test\CaseT {
 	/** 2017-06-08 @test */
-	function t00() {}
+	function t00():void {}
 
 	/**
 	 * 2017-06-08
