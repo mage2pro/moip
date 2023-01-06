@@ -39,7 +39,6 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * https://dev.moip.com.br/v2.0/reference#endereco
 	 * @used-by self::v_CardId()
 	 * @used-by \Dfe\Moip\P\Reg::p()
-	 * @param A $a
 	 * @return array(string => mixed)
 	 */
 	function pAddress(A $a) {
