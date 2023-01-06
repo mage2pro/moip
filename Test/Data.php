@@ -60,11 +60,9 @@ final class Data {
 	 * 2017-04-25
 	 * @used-by self::address()
 	 */
-	private function ga():GA {return dfc($this, function() {$s = dfps($this); /** @var S $s */return
-		df_geo($s->googlePrivateKey(), 'pt-BR', 'br')->p(
-			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
-		)
-	;});}
+	private function ga():GA {$s = dfps($this); /** @var S $s */return df_geo($s->googlePrivateKey(), 'pt-BR', 'br')->p(
+		'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
+	);}
 
 	/** @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer() */
 	static function s():self {static $r; return $r ? $r : $r = new self;}
