@@ -42,10 +42,9 @@ final class Customer extends \Df\API\Facade {
 	 * @used-by \Dfe\Moip\Test\CaseT\Card::t01_add()
 	 * Previously, we have used it from @see \Dfe\Moip\Facade\Customer::cardAdd():
 	 * https://github.com/mage2pro/moip/blob/0.7.1/Facade/Customer.php#L44-L61
-	 * @param string $customerId
 	 * @param array(string => mixed) $a
 	 * @return O
 	 * @throws DFE
 	 */
-	function addCard($customerId, array $a) {return $this->p([$customerId, $a], Z::POST, 'fundinginstruments');}
+	function addCard(string $customerId, array $a) {return $this->p([$customerId, $a], Z::POST, 'fundinginstruments');}
 }
