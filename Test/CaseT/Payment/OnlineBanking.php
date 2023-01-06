@@ -9,7 +9,7 @@ use Dfe\Moip\Test\Order as tOrder;
 # 2017-07-23 `[Moip] The available payment options`: https://mage2.pro/t/3851
 final class OnlineBanking extends \Dfe\Moip\Test\CaseT {
 	/** 2017-07-21 @test */
-	function t00() {}
+	function t00():void {}
 
 	/**
 	 * 2017-07-21
