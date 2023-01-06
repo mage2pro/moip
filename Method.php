@@ -117,7 +117,6 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\StripeClone\Method::transUrlBase()
 	 * @used-by \Df\StripeClone\Method::transUrl()
-	 * @param T $t
 	 */
 	protected function transUrlBase(T $t):string {return '';}
 
