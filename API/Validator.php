@@ -40,7 +40,7 @@ final class Validator extends \Df\API\Response\Validator {
 	 * @used-by self::valid()
 	 * @return string|null
 	 */
-	private function error() {return dfc($this, function() {return $this->r('ERROR');});}
+	private function error() {return $this->r('ERROR');}
 
 	/**
 	 * 2017-07-13
