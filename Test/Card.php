@@ -36,7 +36,7 @@ final class Card {
 	 * @param int|string $index
 	 * @return array(string => mixed)
 	 */
-	private function card($index) {return df_clean([
+	private function card($index):array {return df_clean([
 		# 2017-06-09
 		# «Do not send when the request is using credit card id»
 		# Conditional, String.
