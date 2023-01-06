@@ -34,7 +34,7 @@ final class Card extends \Dfe\Moip\Test\CaseT {
 	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
-	private function pPayment() {return [
+	private function pPayment():array {return [
 		# 2017-06-09
 		# «Used if you need to pre-capture a payment. Only available for credit cards.»
 		# Optional, Boolean.
