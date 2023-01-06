@@ -11,7 +11,7 @@ use Dfe\Moip\API\Facade\Notification as N;
  */
 final class Notification extends \Dfe\Moip\Test\CaseT {
 	/** 2017-08-07 */
-	function t00() {}
+	function t00():void {}
 
 	/**
 	 * 2017-08-07
