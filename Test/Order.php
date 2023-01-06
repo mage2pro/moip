@@ -97,9 +97,7 @@ final class Order {
 		# «Redirect URL for failed payments»
 		# «Redirect URL for successful payments»
 		# Optional, Link.
-		'redirectUrls' => array_fill_keys(['urlFailure', 'urlSuccess'],
-			dfp_url_customer_return_remote(dfpm($this))
-		)
+		'redirectUrls' => array_fill_keys(['urlFailure', 'urlSuccess'], dfp_url_customer_return_remote(dfpm($this)))
 	];}
 
 	/**
