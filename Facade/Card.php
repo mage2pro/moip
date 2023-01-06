@@ -157,9 +157,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 *	*) 17: All the others (Visa, MasterCard, Elo, Itaucard 2.0 (Cartão Hiper), Hipercard).
 	 * https://mage2.pro/t/3776
 	 * @used-by \Dfe\Moip\CardFormatter::label()
-	 * @return int
 	 */
-	function numberLength() {/** @var string $b */ $b = $this->brandId(); return
+	function numberLength():int {/** @var string $b */ $b = $this->brandId(); return
 		($r = dftr($b, [self::$AMEX => 16, self::$DINERS => 15])) === $b ? 17 : $r
 	;}
 
