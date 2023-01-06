@@ -202,7 +202,7 @@ final class Order {
 	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pReceiver() {return [
+	private function pReceiver():array {return [
 		# 2017-06-09
 		# «Flag to set whether the recipient is the Moip rate payer.
 		# Possible values: true, false.
