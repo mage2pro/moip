@@ -26,9 +26,8 @@ class Webhooks extends AE implements ElementI {
 	 *			return $html;
 	 *		}
 	 * https://github.com/magento/magento2/blob/2.2.0-RC1.8/lib/internal/Magento/Framework/Data/Form/Element/AbstractElement.php#L426-L441
-	 * @return string
 	 */
-	function getElementHtml() {return df_tag('div', ['id' => $this->getHtmlId()]);}
+	function getElementHtml():string {return df_tag('div', ['id' => $this->getHtmlId()]);}
 
 	/**
 	 * 2017-08-09
