@@ -13,9 +13,8 @@ final class Order {
 	 * @used-by \Dfe\Moip\Facade\Preorder::create()
 	 * @used-by \Dfe\Moip\Test\CaseT\Order::t01_create()
 	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Card::t01_create()
-	 * @return Operation
 	 */
-	function create() {return lOrder::s()->create($this->pOrder());}
+	function create():Operation {return lOrder::s()->create($this->pOrder());}
 
 	/**
 	 * 2017-06-09
