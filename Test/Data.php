@@ -44,8 +44,7 @@ final class Data {
 	 * @return array(string => int|string)
 	 */
 	function taxDocument():array {return [
-		# 2017-04-23 «Document number»,  String(11).
-		'number' => '11438374798'
+		'number' => '11438374798' # 2017-04-23 «Document number»,  String(11).
 		# 2017-04-23
 		# «Document type. Possible values:
 		# *) CPF for social security number
