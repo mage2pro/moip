@@ -12,7 +12,7 @@ final class Data {
 	 * @used-by \Dfe\Moip\Test\CaseT\Customer::pCustomer()
 	 * @return array(string => mixed)
 	 */
-	function address() {/** @var GA $ga */$ga = $this->ga(); return [
+	function address():array {/** @var GA $ga */$ga = $this->ga(); return [
 		# 2017-04-23 «City», Required, String(32).
 		'city' => self::u(df_geo_city($ga))
 		# 2017-04-23 «Address complement», Conditional, String(45).
