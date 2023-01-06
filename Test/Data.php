@@ -25,8 +25,7 @@ final class Data {
 		,'district' => self::u($ga->getLocality() ?: $ga->getSubLocality()) # 2017-04-23 «Neighborhood», Required, String(45).
 		,'state' => self::u(df_geo_state_code($ga)) # 2017-04-23 «State», Required, String(32).
 		,'street' => self::u($ga->getStreetName()) # 2017-04-25 «Address post office», Required, String(45).
-		# 2017-04-23 «Number», Required, String(10).
-		,'streetNumber' => self::u($ga->getStreetNumber())
+		,'streetNumber' => self::u($ga->getStreetNumber()) # 2017-04-23 «Number», Required, String(10).
 		# 2017-04-23 «The zip code of the billing address», Required, String(9).
 		,'zipCode' => $ga->getPostalCode()
 	];}
