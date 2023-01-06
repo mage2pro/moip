@@ -19,9 +19,8 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * My key usage statistics: https://console.developers.google.com/apis/api/geocoding-backend.googleapis.com/overview?project=mage2-pro&duration=P30D
 	 * @used-by \Dfe\Moip\P\Charge::pAddress()
 	 * @used-by \Dfe\Moip\Test\Data::ga()
-	 * @return string
 	 */
-	function googlePrivateKey() {return $this->p();}
+	function googlePrivateKey():string {return $this->p();}
 
 	/**
 	 * 2017-07-14 «Installments»
