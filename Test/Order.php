@@ -39,6 +39,7 @@ final class Order {
 
 	/**
 	 * 2017-06-09
+	 * @used-by self::amountMargin()
 	 * @return int
 	 */
 	private function amountShipping() {return dfc($this, function() {return $this->amount(
