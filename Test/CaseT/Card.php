@@ -33,7 +33,7 @@ final class Card extends \Dfe\Moip\Test\CaseT {
 	 * @see \Df\StripeClone\Payer::newCard()
 	 * https://github.com/mage2pro/core/blob/2.8.19/StripeClone/Payer.php#L103-L109
 	 */
-	function t01_add() {
+	function t01_add():void {
 		try {
 			print_r(lC::s()->addCard('CUS-UKXT2RQ2TULX', tCard::s()->get(1))->j());
 		}
