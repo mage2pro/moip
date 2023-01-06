@@ -69,13 +69,13 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Dfe\Moip\P\Reg::p()
 	 * @return array(string => mixed)
 	 */
-	function pTaxDocument() {return [
+	function pTaxDocument():array {return [
 		# 2017-04-23 «Document number»,  String(11).
 		'number' => $this->m()->taxID()
 		# 2017-04-23
 		# «Document type. Possible values:
-		# *) CPF for social security number
-		# *) CNPJ for tax identification number.»
+		# 	*) CPF for social security number
+		# 	*) CNPJ for tax identification number.»
 		# String(4).
 		# 2017-06-13
 		# CPF: Cadastro de Pessoas Físicas (an individual's ID)
