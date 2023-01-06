@@ -122,7 +122,7 @@ final class Order {
 	 * @used-by self::pCheckoutPreferences()
 	 * @return array(string => mixed)
 	 */
-	private function pInstallment() {return [
+	private function pInstallment():array {return [
 		# 2017-06-09
 		# «Addition for installments number»
 		# Optional, Integer.
