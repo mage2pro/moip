@@ -108,9 +108,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * 2017-10-07 «First six digits of the card»
 	 * Type: string.
 	 * @used-by \Dfe\Moip\CardFormatter::label()
-	 * @return string
 	 */
-	function first6() {return $this->_p['first6'];}
+	function first6():string {return $this->_p['first6'];}
 
 	/**
 	 * 2017-06-11
