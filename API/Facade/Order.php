@@ -28,10 +28,9 @@ final class Order extends \Df\API\Facade {
 	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Boleto::t01_create()
 	 * @used-by \Dfe\Moip\Test\CaseT\Payment\Card::t01_create()
 	 * @used-by \Dfe\Moip\Test\CaseT\Payment\OnlineBanking::t01_create()
-	 * @param string $orderId
 	 * @param array(string => mixed) $a
 	 * @return O
 	 * @throws DFE
 	 */
-	function payment($orderId, array $a) {return $this->p([$orderId, $a], Z::POST, 'payments');}
+	function payment(string $orderId, array $a) {return $this->p([$orderId, $a], Z::POST, 'payments');}
 }
