@@ -10,9 +10,8 @@ final class Preorder extends \Df\StripeClone\Facade\Preorder {
 	 * @see \Df\StripeClone\Facade\Preorder::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return Operation
 	 */
-	function create(array $p) {return O::s()->create($p);}
+	function create(array $p):Operation {return O::s()->create($p);}
 
 	/**
 	 * 2017-06-13
