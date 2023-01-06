@@ -50,9 +50,8 @@ class Boleto extends \Df\Payment\Block\Info {
 	 * 2017-08-05
 	 * @used-by self::prepare()
 	 * @used-by self::rCustomerAccount()
-	 * @param bool $print [optional]
 	 */
-	private function url($print = true):string {
+	private function url(bool $print = true):string {
 		$r = $this->tm()->res0('_links/payBoleto/redirectHref'); /** @var string $r */
 		return !$print ? $r : "$r/print";
 	}
