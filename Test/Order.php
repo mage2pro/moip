@@ -18,6 +18,10 @@ final class Order {
 
 	/**
 	 * 2017-06-09
+	 * @used-by self::amountMargin()
+	 * @used-by self::amountShipping()
+	 * @used-by self::pAmount()
+	 * @used-by self::pItems()
 	 */
 	private function amount(float $v):int {return round(100 * df_currency_convert(
 		$v, df_oq_currency_c($this->o()), 'BRL'
