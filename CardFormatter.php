@@ -19,5 +19,3 @@ final class CardFormatter extends \Df\StripeClone\CardFormatter {
 			)
 	;}
 }
-
-
