@@ -73,9 +73,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * 2017-07-15
 	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 * @used-by \Dfe\Moip\P\Charge::p()
-	 * @return int
 	 */
-	function plan() {return intval($this->iia(self::$II_PLAN));}
+	function plan():int {return intval($this->iia(self::$II_PLAN));}
 
 	/**
 	 * 2017-07-14
