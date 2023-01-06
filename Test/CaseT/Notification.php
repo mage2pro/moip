@@ -21,7 +21,7 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 	 * https://dev.moip.com.br/page/api-reference#section-list-all-notification-preferences-get-
 	 * [Moip] An example of a response to «GET v2/preferences/notifications» https://mage2.pro/t/4250
 	 */
-	function t01_all() {
+	function t01_all():void {
 		try {
 			print_r((new N)->all()->j());
 		}
