@@ -44,7 +44,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 	 *		<...>
 	 *	}
 	 */
-	function t02_get() {
+	function t02_get():void {
 		/** @var string $id */
 		$id = 'CUS-UKXT2RQ2TULX';
 		try {
