@@ -127,8 +127,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 				# It is required for the Protected Sales Program:
 				# https://dev.moip.com.br/v2.0/docs/venda-protegida
 				,'phone' => dfe_moip_phone($this->customerPhone())
-				# 2017-06-09 «Document»
-				,'taxDocument' => $this->pTaxDocument()
+				,'taxDocument' => $this->pTaxDocument() # 2017-06-09 «Document»
 			]
 			# 2017-06-09
 			# Whether the card should be saved for future payments.
