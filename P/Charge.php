@@ -41,7 +41,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Dfe\Moip\P\Reg::p()
 	 * @return array(string => mixed)
 	 */
-	function pAddress(A $a) {
+	function pAddress(A $a):array {
 		/** @var GA $ga */
 		$ga = df_geo($this->s()->googlePrivateKey(), 'pt-BR', 'br')->p($a);
 		return [
