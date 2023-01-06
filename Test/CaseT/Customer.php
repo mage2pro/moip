@@ -62,7 +62,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
-	private function pCustomer() {return df_clean([
+	private function pCustomer():array {return df_clean([
 		# 2017-04-22 «Client's date of birth», Date (YYYY-MM-DD), Optional.
 		'birthDate' => '1982-07-08'
 		# 2017-04-22 «Email from the client», Required, String(45).
