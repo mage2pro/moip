@@ -110,7 +110,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return Card[]
 	 * @see \Dfe\Stripe\Facade\Charge::cardData()
 	 */
-	protected function cardsData($c) {return array_map(
+	protected function cardsData($c):array {return array_map(
 		function(array $i) {return $i['creditCard'];}
 		,array_filter(
 			df_eta($c['fundingInstruments'])
