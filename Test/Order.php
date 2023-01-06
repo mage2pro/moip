@@ -31,11 +31,11 @@ final class Order {
 	 * A negative result is treated as a discount.
 	 * @used-by self::pAmount()
 	 */
-	private function amountMargin():int {return dfc($this, function() {return
+	private function amountMargin():int {return
 		$this->amount($this->o()->getGrandTotal())
 		- array_sum(array_map(function(array $i) {return $i['quantity'] * $i['price'];}, $this->pItems()))
 		- $this->amountShipping()
-	;});}
+	;}
 
 	/**
 	 * 2017-06-09
