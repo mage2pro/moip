@@ -93,22 +93,19 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by \Dfe\Moip\P\Reg::v_CardId()
 	 * @return array(string => mixed)
 	 */
-	function v_CardId(string $id, bool $isNew) {return [
+	function v_CardId(string $id, bool $isNew):array {return [
 		# 2017-06-09
-		# «Credit Card data. It can be:
-		# *) the ID of a credit card previously saved,
-		# *) an encrypted credit card hash
-		# *) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
-		# [Moip] The test bank cards: https://mage2.pro/t/3776
-		//
-		# hash: «Encrypted credit card data»
+		# 1) «Credit Card data. It can be:
+		# 		*) the ID of a credit card previously saved,
+		# 		*) an encrypted credit card hash
+		# 		*) the whole collection of credit card attributes (in case you have PCI DSS certificate).»
+		# 2) [Moip] The test bank cards: https://mage2.pro/t/3776
+		# 3)hash: «Encrypted credit card data»
 		# Conditional, String.
 		# https://dev.moip.com.br/v2.0/docs/criptografia
-		//
-		# id: «Credit card ID.
+		# 4) id: «Credit card ID.
 		# This ID can be used in the future to create new payments. Internal reference.»
 		# Conditional, String(16).
-		//
 		# 2017-06-13
 		# A hash is a very long (345 symbols) base64-encoded string.
 		# http://moip.github.io/moip-sdk-js
