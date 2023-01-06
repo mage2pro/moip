@@ -35,7 +35,7 @@ final class Data {
 	 * @used-by \Dfe\Moip\Test\Payment::pFundingInstrument()
 	 * @return array(string => int|string)
 	 */
-	function phone() {return dfe_moip_phone('+552131398000');}
+	function phone():array {return dfe_moip_phone('+552131398000');}
 
 	/**
 	 * 2017-06-09 «Fiscal document»
