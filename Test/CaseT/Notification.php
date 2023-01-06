@@ -61,7 +61,7 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 	 * «Delete notification preference» (in English)
 	 * https://dev.moip.com.br/page/api-reference#section-delete-notification-preference-delete-
 	 */
-	function t03_delete() {
+	function t03_delete():void {
 		try {
 			print_r((new N)->delete($this->create()['id'])->j());
 			//echo df_json_encode($this->pOrder());
