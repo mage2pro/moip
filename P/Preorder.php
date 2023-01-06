@@ -52,11 +52,8 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	/**
 	 * 2017-06-09
 	 * @used-by self::amountMargin()
-	 * @return int
 	 */
-	private function amountShipping() {return dfc($this, function() {return $this->amountFormat(
-		df_oq_shipping_amount($this->o())
-	);});}
+	private function amountShipping():int {return $this->amountFormat(df_oq_shipping_amount($this->o()));}
 
 	/**
 	 * 2017-06-09
