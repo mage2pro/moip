@@ -75,7 +75,7 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 	}
 
 	/** 2017-08-10 @test */
-	function t04_delete_all() {
+	function t04_delete_all():void {
 		try {
 			$n = new N; /** @var N $n */
 			array_map(function($id) use($n) {
