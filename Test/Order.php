@@ -108,7 +108,7 @@ final class Order {
 	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pCustomer() {return [
+	private function pCustomer():array {return [
 		# 2017-06-09
 		# «If you use an existing client, pass the client's moip ID here.
 		# To create a new client, see the format of the object in Client».
