@@ -138,9 +138,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-07-19
 	 * @used-by \Dfe\Moip\CardFormatter::label()
-	 * @return string
 	 */
-	function logoId() {return dftr($this->brandId(), [
+	function logoId():string {return dftr($this->brandId(), [
 		self::$AMEX => N::American_Express
 		,self::$DINERS => N::Diners_Club
 		,self::$ELO => N::Elo
