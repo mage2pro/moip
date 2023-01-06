@@ -34,7 +34,7 @@ final class OnlineBanking extends \Dfe\Moip\Test\CaseT {
 	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
-	private function pPayment() {return [
+	private function pPayment():array {return [
 		# 2017-06-09
 		# «Payment method»
 		# Required
