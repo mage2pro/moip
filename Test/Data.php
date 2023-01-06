@@ -14,8 +14,7 @@ final class Data {
 	 */
 	function address():array {/** @var GA $ga */$ga = $this->ga(); return [
 		'city' => self::u(df_geo_city($ga)) # 2017-04-23 «City», Required, String(32).
-		# 2017-04-23 «Address complement», Conditional, String(45).
-		,'complement' => ''
+		,'complement' => '' # 2017-04-23 «Address complement», Conditional, String(45).
 		# 2017-04-23 «Country in format ISO-alpha3, example BRA», Required, String(3).
 		# 2017-04-25
 		# «Today we do not support creating clients that are from other countries
