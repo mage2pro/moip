@@ -42,12 +42,11 @@ final class Order {
 	 * @used-by self::amountMargin()
 	 */
 	private function amountShipping():int {return $this->amount(df_oq_shipping_amount($this->o()));}
-	
+
 	/**
 	 * 2017-06-09
-	 * @return O
 	 */
-	private function o() {return dfc($this, function() {return df_order(539);});}
+	private function o():O {return dfc($this, function() {return df_order(539);});}
 
 	/**
 	 * 2017-06-09
