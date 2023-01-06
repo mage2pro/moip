@@ -60,7 +60,7 @@ final class Order {
 	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pAmount() {/** @var int $m */$m = $this->amountMargin(); return [
+	private function pAmount():array {/** @var int $m */$m = $this->amountMargin(); return [
 		# 2017-06-09
 		# «Currency used in the order. Possible values: BRL. Default value BRL.»
 		# Optional, String.
