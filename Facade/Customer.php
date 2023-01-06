@@ -50,9 +50,8 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::create()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param array(string => mixed) $p
-	 * @return Operation
 	 */
-	function create(array $p) {return C::s()->create($p);}
+	function create(array $p):Operation {return C::s()->create($p);}
 
 	/**
 	 * 2017-04-25 «CUS-18QQ3DF4BIKY»
