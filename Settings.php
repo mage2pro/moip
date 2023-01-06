@@ -34,6 +34,7 @@ final class Settings extends \Df\StripeClone\Settings {
 
 	/**
 	 * 2017-04-20 «The «Token» part of your Test Private Key (Chave de autenticação)»
+	 * @used-by \Dfe\Moip\API\Client::headers()
 	 */
 	function privateToken():string {return $this->testableP();}
 }
