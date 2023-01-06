@@ -5,7 +5,7 @@ use Dfe\Moip\Test\Card as tCard;
 # 2017-04-26
 final class Card extends \Dfe\Moip\Test\CaseT {
 	/** 2017-04-26 @test */
-	function t00() {}
+	function t00():void {}
 
 	/**
 	 * 2017-04-26
