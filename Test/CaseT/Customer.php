@@ -7,7 +7,7 @@ use Dfe\Moip\Test\Data;
 # https://dev.moip.com.br/v2.0/reference#clientes
 final class Customer extends \Dfe\Moip\Test\CaseT {
 	/** 2017-04-26 @test */
-	function t00() {}
+	function t00():void {}
 
 	/**
 	 * 2017-04-20
