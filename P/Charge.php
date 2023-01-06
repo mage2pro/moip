@@ -56,8 +56,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 			# 2017-04-23 «Neighborhood», Required, String(45).
 			,'district' => self::u($ga->getLocality() ?: $ga->getSubLocality())
 			,'state' => self::u(df_geo_state_code($ga)) # 2017-04-23 «State», Required, String(32).
-			# 2017-04-25 «Address post office», Required, String(45).
-			,'street' => self::u($ga->getStreetName())
+			,'street' => self::u($ga->getStreetName()) # 2017-04-25 «Address post office», Required, String(45).
 			# 2017-04-23 «Number», Required, String(10).
 			,'streetNumber' => self::u($ga->getStreetNumber())
 			# 2017-04-23 «The zip code of the billing address», Required, String(9).
