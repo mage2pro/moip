@@ -215,7 +215,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @used-by self::p()
 	 * @return array(string => string)
 	 */
-	private function pInstructionLines() {
+	private function pInstructionLines():array {
 		$a = array_slice(df_explode_n($this->text($this->s()->boleto()->instructions())), 0, 3); /** @var string[] $a */
 		return array_combine(array_slice(['first', 'second', 'third'], 0, count($a)), $a);
 	}
@@ -224,7 +224,6 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * 2017-04-25
 	 * @used-by self::pShippingAddress()
 	 * @param mixed $v
-	 * @return string
 	 */
-	private static function u($v) {return $v ?: (string)__('Unknown');}
+	private static function u($v):string {return $v ?: (string)__('Unknown');}
 }

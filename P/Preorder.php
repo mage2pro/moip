@@ -43,11 +43,11 @@ final class Preorder extends \Df\StripeClone\P\Preorder {
 	 * @used-by self::pAmount()
 	 * @return int
 	 */
-	private function amountMargin() {return dfc($this, function() {return
+	private function amountMargin():int {return
 		$this->amountFormat($this->o()->getGrandTotal())
 		- array_sum(array_map(function(array $i) {return $i['quantity'] * $i['price'];}, $this->pItems()))
 		- $this->amountShipping()
-	;});}
+	;}
 
 	/**
 	 * 2017-06-09
