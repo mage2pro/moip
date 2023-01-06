@@ -172,7 +172,7 @@ final class Order {
 	 * @used-by self::t01_create()
 	 * @return array(string => mixed)
 	 */
-	private function pOrder() {return [
+	private function pOrder():array {return [
 		# 2017-06-09
 		# «Order values»
 		# My notes: the order amount is calculated automatically by Moip.
