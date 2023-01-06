@@ -30,9 +30,8 @@ final class Order {
 	 * A positive result is treated as the surcharge.
 	 * A negative result is treated as a discount.
 	 * @used-by self::pAmount()
-	 * @return int
 	 */
-	private function amountMargin() {return dfc($this, function() {return
+	private function amountMargin():int {return dfc($this, function() {return
 		$this->amount($this->o()->getGrandTotal())
 		- array_sum(array_map(function(array $i) {return $i['quantity'] * $i['price'];}, $this->pItems()))
 		- $this->amountShipping()
