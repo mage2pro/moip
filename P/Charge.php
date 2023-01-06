@@ -55,8 +55,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 			,'country' => df_country_2_to_3('BR')
 			# 2017-04-23 «Neighborhood», Required, String(45).
 			,'district' => self::u($ga->getLocality() ?: $ga->getSubLocality())
-			# 2017-04-23 «State», Required, String(32).
-			,'state' => self::u(df_geo_state_code($ga))
+			,'state' => self::u(df_geo_state_code($ga)) # 2017-04-23 «State», Required, String(32).
 			# 2017-04-25 «Address post office», Required, String(45).
 			,'street' => self::u($ga->getStreetName())
 			# 2017-04-23 «Number», Required, String(10).
