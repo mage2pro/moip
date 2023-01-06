@@ -71,7 +71,6 @@ final class Data {
 	 * 2017-04-25
 	 * @used-by self::address()
 	 * @param mixed $v
-	 * @return string
 	 */
-	private static function u($v) {return $v ?: (string)__('Unknown');}
+	private static function u($v):string {return $v ?: (string)__('Unknown');}
 }
