@@ -27,8 +27,7 @@ final class Client extends \Df\API\Client {
 		# https://en.wikipedia.org/wiki/Basic_access_authentication
 		# https://github.com/moip/moip-sdk-php/blob/v1.2.0/src/Auth/BasicAuth.php#L66
 		'Authorization' => 'Basic ' . base64_encode("{$s->privateToken()}:{$s->privateKey()}")
-		# 2017-07-13 Should be «application/json». Required.
-		,'Content-Type' => 'application/json'
+		,'Content-Type' => 'application/json' # 2017-07-13 Should be «application/json». Required.
 	];}
 
 	/**
