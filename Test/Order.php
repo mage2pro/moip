@@ -23,9 +23,7 @@ final class Order {
 	 * @used-by self::pAmount()
 	 * @used-by self::pItems()
 	 */
-	private function amount(float $v):int {return round(100 * df_currency_convert(
-		$v, df_oq_currency_c($this->o()), 'BRL'
-	));}
+	private function amount(float $v):int {return round(100 * df_currency_convert($v, df_oq_currency_c($this->o()), 'BRL'));}
 
 	/**
 	 * 2017-06-09
