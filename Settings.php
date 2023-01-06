@@ -26,7 +26,7 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * 2017-07-14 «Installments»
 	 * @return int[]
 	 */
-	function installments() {return dfc($this, function() {return df_sort(array_unique(
+	function installments():array {return dfc($this, function():array {return df_sort(array_unique(
 		array_merge([1], array_filter(df_int($this->csv('card/installments')), function($i) {return
 			$i >= 1 && $i <= 12
 		;}))
