@@ -41,7 +41,7 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 	 * https://dev.moip.com.br/page/api-reference#section-create-notification-preference-post-
 	 * [Moip] An example of a response to «POST v2/preferences/notifications»: https://mage2.pro/t/4248
 	 */
-	function t02_create() {
+	function t02_create():void {
 		try {
 			print_r($this->create()->j());
 			//echo df_json_encode($this->pOrder());
