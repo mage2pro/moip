@@ -17,7 +17,7 @@ final class Boleto extends \Dfe\Moip\Test\CaseT {
 	 * https://dev.moip.com.br/page/api-reference#section-create-a-payment-post-
 	 * [Moip] An example of a response to «POST v2/orders/<order ID>/payments» https://mage2.pro/t/4048
 	 */
-	function t01_create() {
+	function t01_create():void {
 		try {
 			print_r(lO::s()->payment((new tOrder)->create()['id'], $this->pPayment())->j());
 		}
