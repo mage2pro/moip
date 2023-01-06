@@ -16,9 +16,8 @@ final class Boleto extends \Df\Payment\Settings {
 	/**
 	 * 2017-07-30
 	 * @used-by \Dfe\Moip\P\Charge::p()
-	 * @return int
 	 */
-	function waitPeriod() {return WaitPeriodType::calculate($this);}
+	function waitPeriod():int {return WaitPeriodType::calculate($this);}
 
 	/**
 	 * 2017-07-30
