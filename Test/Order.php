@@ -18,7 +18,6 @@ final class Order {
 
 	/**
 	 * 2017-06-09
-	 * @param float $v
 	 * @return int
 	 */
 	private function amount(float $v) {return round(100 * df_currency_convert(
