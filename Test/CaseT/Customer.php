@@ -15,7 +15,7 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 	 * https://dev.moip.com.br/v2.0/reference#criar-um-cliente
 	 * [Moip] An example of a response to «POST v2/customers» https://mage2.pro/t/3813
 	 */
-	function t01_create() {
+	function t01_create():void {
 		try {
 			# 2017-04-22 https://dev.moip.com.br/reference#criar-um-cliente
 			print_r(C::s()->create($this->pCustomer())->j());
