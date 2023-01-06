@@ -15,9 +15,8 @@ final class Method extends \Df\StripeClone\Method {
 	 * 2017-07-23
 	 * @used-by \Dfe\Moip\Block\Info\Card::prepare()
 	 * @used-by \Dfe\Moip\P\Charge::v_CardId
-	 * @return int
 	 */
-	function dob() {return $this->iia(self::$II_DOB);}
+	function dob():int {return $this->iia(self::$II_DOB);}
 
 	/**
 	 * 2017-07-30
