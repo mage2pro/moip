@@ -6,12 +6,11 @@ use Dfe\Moip\API\Facade\Order as O;
 /** @method O preorderGet() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**
-	 * 2017-06-11
+	 * 2017-06-11 The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::capturePreauthorized()
 	 * @used-by \Df\StripeClone\Method::charge()
 	 * @param int|float $a
-	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 * @return null
 	 */
 	function capturePreauthorized(string $id, $a) {return null;}
