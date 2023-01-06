@@ -45,6 +45,11 @@ final class Order {
 
 	/**
 	 * 2017-06-09
+	 * @used-by self::amount()
+	 * @used-by self::amountMargin()
+	 * @used-by self::amountShipping()
+	 * @used-by self::pAmount()
+	 * @used-by self::pItems()
 	 */
 	private function o():O {return dfc($this, function() {return df_order(539);});}
 
