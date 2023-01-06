@@ -145,7 +145,7 @@ final class Order {
 	 * @used-by self::pOrder()
 	 * @return array(string => mixed)
 	 */
-	private function pItems() {return dfc($this, function() {return
+	private function pItems():array {return dfc($this, function():array {return
 		df_oqi_leafs($this->o(), function(OI $i) {return [
 			# 2017-06-09
 			# «Description»
