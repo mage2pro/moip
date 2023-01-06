@@ -116,10 +116,8 @@ final class Charge extends \Df\StripeClone\P\Charge {
 			# «Do not send when the request is using credit card id»
 			# Conditional, String.
 			,'holder' => [
-				# 2017-06-09 «Billing address». Optional.
-				'billingAddress' => $this->pAddress($this->addressB())
-				# 2017-06-09 «date(AAAA-MM-DD)». Required.
-				,'birthdate' => $this->m()->dob()
+				'billingAddress' => $this->pAddress($this->addressB()) # 2017-06-09 «Billing address». Optional.
+				,'birthdate' => $this->m()->dob() # 2017-06-09 «date(AAAA-MM-DD)». Required.
 				# 2017-06-09
 				# «Name of the carrier printed on the card»
 				# Required, String(90).
