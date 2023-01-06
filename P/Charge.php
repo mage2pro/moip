@@ -42,8 +42,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @return array(string => mixed)
 	 */
 	function pAddress(A $a):array {
-		/** @var GA $ga */
-		$ga = df_geo($this->s()->googlePrivateKey(), 'pt-BR', 'br')->p($a);
+		$ga = df_geo($this->s()->googlePrivateKey(), 'pt-BR', 'br')->p($a); /** @var GA $ga */
 		return [
 			'city' => self::u(df_geo_city($ga)) # 2017-04-23 «City», Required, String(32).
 			,'complement' => '' # 2017-04-23 «Address complement», Conditional, String(45).
