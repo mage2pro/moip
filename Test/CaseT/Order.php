@@ -14,7 +14,7 @@ final class Order extends \Dfe\Moip\Test\CaseT {
 	 * https://dev.moip.com.br/page/api-reference#section-create-an-order-post-
 	 * [Moip] An example of a response to «POST v2/orders» https://mage2.pro/t/4045
 	 */
-	function t01_create() {
+	function t01_create():void {
 		try {
 			print_r((new tOrder)->create()->j());
 			//echo df_json_encode($this->pOrder());
