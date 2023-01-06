@@ -44,7 +44,7 @@ final class Notification extends \Df\API\Facade {
 	 * @used-by \Dfe\Moip\FE\Webhooks::onFormInitialized()
 	 * @return string[]
 	 */
-	function targets() {return array_column($this->all()->a(), 'target');}
+	function targets():array {return array_column($this->all()->a(), 'target');}
 
 	/**
 	 * 2017-08-07
