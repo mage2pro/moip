@@ -6,9 +6,8 @@ use Dfe\Moip\Settings\Boleto;
 final class Settings extends \Df\StripeClone\Settings {
 	/**
 	 * 2017-07-30
-	 * @return Boleto
 	 */
-	function boleto() {return dfc($this, function() {return new Boleto($this->m());});}
+	function boleto():Boleto {return dfc($this, function() {return new Boleto($this->m());});}
 
 	/**
 	 * 2017-07-14
