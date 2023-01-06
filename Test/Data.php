@@ -43,7 +43,7 @@ final class Data {
 	 * @used-by \Dfe\Moip\Test\Payment::pFundingInstrument()
 	 * @return array(string => int|string)
 	 */
-	function taxDocument() {return [
+	function taxDocument():array {return [
 		# 2017-04-23 «Document number»,  String(11).
 		'number' => '11438374798'
 		# 2017-04-23
