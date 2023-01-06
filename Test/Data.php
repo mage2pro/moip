@@ -59,9 +59,8 @@ final class Data {
 	/**
 	 * 2017-04-25
 	 * @used-by self::address()
-	 * @return GA
 	 */
-	private function ga() {return dfc($this, function() {$s = dfps($this); /** @var S $s */return
+	private function ga():GA {return dfc($this, function() {$s = dfps($this); /** @var S $s */return
 		df_geo($s->googlePrivateKey(), 'pt-BR', 'br')->p(
 			'Av. Lúcio Costa, 3150 - Barra da Tijuca, Rio de Janeiro - RJ, 22630-010'
 		)
