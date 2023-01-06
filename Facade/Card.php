@@ -181,9 +181,8 @@ final class Card extends \Df\StripeClone\Facade\Card {
 	 * @used-by self::brand()
 	 * @used-by self::logoId()
 	 * @used-by self::numberLength()
-	 * @return string
 	 */
-	private function brandId() {return $this->_p['brand'];}
+	private function brandId():string {return $this->_p['brand'];}
 
 	/**
 	 * 2017-06-11
