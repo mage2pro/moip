@@ -19,11 +19,11 @@ final class Order extends \Dfe\Moip\Test\CaseT {
 			print_r((new tOrder)->create()->j());
 			//echo df_json_encode($this->pOrder());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 }

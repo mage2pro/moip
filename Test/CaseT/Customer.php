@@ -20,11 +20,11 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 			# 2017-04-22 https://dev.moip.com.br/reference#criar-um-cliente
 			print_r(C::s()->create($this->pCustomer())->j());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 
@@ -49,11 +49,11 @@ final class Customer extends \Dfe\Moip\Test\CaseT {
 		try {
 			print_r(C::s()->get($id)->j());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 

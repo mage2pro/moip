@@ -37,11 +37,11 @@ final class Card extends \Dfe\Moip\Test\CaseT {
 		try {
 			print_r(lC::s()->addCard('CUS-UKXT2RQ2TULX', tCard::s()->get(1))->j());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 }

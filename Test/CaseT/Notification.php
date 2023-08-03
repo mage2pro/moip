@@ -25,11 +25,11 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 		try {
 			print_r((new N)->all()->j());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 
@@ -46,11 +46,11 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 			print_r($this->create()->j());
 			//echo df_json_encode($this->pOrder());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 
@@ -66,11 +66,11 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 			print_r((new N)->delete($this->create()['id'])->j());
 			//echo df_json_encode($this->pOrder());
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 
@@ -83,11 +83,11 @@ final class Notification extends \Dfe\Moip\Test\CaseT {
 				print_r("Deleted: $id\n");
 			}, array_column($n->all()->a(), 'id'));
 		}
-		catch (\Exception $e) {
+		catch (\Throwable $t) {
 			if (function_exists('xdebug_break')) {
 				xdebug_break();
 			}
-			throw $e;
+			throw $t;
 		}
 	}
 
