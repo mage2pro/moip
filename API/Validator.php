@@ -6,7 +6,7 @@ final class Validator extends \Df\API\Response\Validator {
 	/**
 	 * 2017-07-13
 	 * @override
-	 * @see \Df\API\Exception::long()
+	 * @see \Df\API\Response\Validator::long()
 	 * @used-by \Df\API\Client::_p()
 	 */
 	function long():string {return $this->error() ?: df_json_encode(array_map('df_clean', $this->errors()));}
