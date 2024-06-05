@@ -65,8 +65,9 @@ class Webhooks extends AE implements ElementI {
 		 * is down today (2017-10-19):
 		 * «502 Proxy Error: The proxy server received an invalid response from an upstream server».
 		 * We should handle this in a proper way`: https://github.com/mage2pro/moip/issues/21
+		 * 2024-06-06 "Use the «Symmetric array destructuring» PHP 7.1 feature": https://github.com/mage2pro/core/issues/379
 		 */
-		list($down, $urls) =
+		[$down, $urls] =
 			!$enabled
 			|| !df_fe_sibling_v($this, "{$p}PrivateToken")
 			|| !df_fe_sibling_v($this, "{$p}PrivateKey")
